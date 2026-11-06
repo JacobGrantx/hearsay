@@ -1,0 +1,28 @@
+# Phase 6 pilot: the abstract vocabulary (vocab.py), E5 world, first spring only (stop_after = 250), seed 0.
+# Checks that units still leave zone O, explore, reach G and come back, and broadcast; model errors; cost and time
+# per tick; what units do on first sighting a K entity. Not an experiment; not cited as a result.
+# World and mind settings as e5_full.toml, except vocab and stop_after.
+[experiment]
+name = "pilot_abstract_e5_spring"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Pilot, not an experiment: with abstract words, AI bees still leave home, explore, find bloom, deliver and talk, without model errors."
+seeds = [0]
+
+[params]
+condition = "full"
+vocab = "abstract"
+width = 56
+height = 34
+season_length = 250
+years = 1
+stop_after = 250
+base_life = 500
+min_bloom_distance = 38
+hornet_spawn_distance = 18
+hornet_counts = [2, 3, 4, 0]
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+mind_model = "claude-haiku-5-5"
+mind_effort = "low"
+mind_max_tokens = 400
