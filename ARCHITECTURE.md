@@ -83,6 +83,10 @@ The World is read in only three places: the senses, the hornets (which are part 
 - Scripted colonies stay small (mean 2.5 to 4.3 bees over 2 years), close to the queen floor of 2.
 - Bees and hornets can share cells. Vision ignores walls (a bee sees through them within 4 cells).
 - A full 2,000-tick run takes about 5 to 7 s with scripted bees on one CPU and writes about 300 KB.
+- A 2-year AI run took 686 to 1,096 s live (one model call per deciding bee, in parallel within a tick, so time is bound by model latency, not CPU) and about $0.28 at list price. It replays from the cache in 5 to 9 s. Its run directory is about 0.7 to 1 MB, most of it events.jsonl, and its packed cache about 0.2 to 1 MB.
+- Model outputs cannot be seeded. A run is reproducible only through its recorded responses, so a new live run of the same seed is a new sample, not a repeat.
+- The AI arms were run at one world size and difficulty, with one model at one setting, and without the paraphrased-prompt arm; see EXPERIMENTS.md, "Limits".
+- Notes churn: bees write a note at almost every decision, so 12 notes cover only the last minute or so of a life. Places survive longer in the landmarks, which come from the bee's own sightings.
 
 ## Supporting tooling
 

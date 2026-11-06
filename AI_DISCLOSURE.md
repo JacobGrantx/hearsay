@@ -30,7 +30,7 @@ No other AI assistant is recorded in this repository's sessions. Jacob Schoenber
 | `c9529ee6` | 2026-11-06 09:09 to 09:47 | Phase 1: the world, hornets, seasons, scripted bees, logging, tests, setup calibration |
 | `f67417d9` | 2026-11-06 09:13 to 09:35 | The viewer (in parallel, on a branch in a worktree): static page, bundler, headless frame capture, viewer tests |
 | `9ea8a272` | 2026-11-06 09:49 to 10:13 | Phase 2: the AI bee mind, prompt and renderer, memory, condition switches, leak and no-hints tests, the pre-registration, the pilot |
-| Phase 4 session (this repo's latest session in agent_traces/INDEX.md) | 2026-11-06 from 10:13 | The main runs, the replay cache packer and replay check, the analysis scripts and figures, EXPERIMENTS.md results, README, ARCHITECTURE, this file |
+| `6c051b77` | 2026-11-06 from 10:14 | The main runs, the replay cache packer and replay check, the analysis scripts and figures, EXPERIMENTS.md results, README, ARCHITECTURE, this file |
 | Claude Haiku 5.5 at runtime | main runs | Every decision of every AI bee: intent, sound, a note to remember, words to say at home |
 
 ## 4. Components primarily AI-generated
@@ -54,7 +54,7 @@ Jacob Schoenberg, as recorded in DECISIONS.md:
 
 ## 6. How generated code was reviewed, tested and modified
 
-- **Tests** (tests/, 62 at the end of phase 4, run before every code commit): world generation, hornet genetics, life rules, motor layer, determinism of whole runs, the runner's reproducibility, trace redaction, and for the AI mind: the **leak test** (no prompt holds a bloom or hornet coordinate the bee never perceived, with a check that the test catches an injected leak), the **no-hints test** (19 banned words absent from the system prompt, templates, schema and every rendered prompt), replay identity, what each condition switch removes, and the packed replay cache.
+- **Tests** (tests/, 66 at the end of phase 4, run before every code commit): world generation, hornet genetics, life rules, motor layer, determinism of whole runs, the runner's reproducibility, trace redaction, and for the AI mind: the **leak test** (no prompt holds a bloom or hornet coordinate the bee never perceived, with a check that the test catches an injected leak), the **no-hints test** (19 banned words absent from the system prompt, templates, schema and every rendered prompt), replay identity, what each condition switch removes, and the packed replay cache.
 - **Calibration with scripted bees** before any AI run (EXPERIMENTS.md, "Setup calibration"). It exposed four bugs in the first build of the world, which were fixed in visible commits (item 8).
 - **Pre-registration** of every hypothesis, measure and decision rule before the first real bee-mind call (commit c2052a2), so the analysis could not be fitted to the results.
 - **Controls** in every experiment: ablations, scripted baselines, frozen hornets, relabelled sounds, a hardcoding audit (EXPERIMENTS.md).
@@ -81,4 +81,4 @@ Yes, in part, and DECISIONS.md records who decided each item.
 ## Usage information
 
 - **Development:** token counts per session are in agent_traces/INDEX.md, summed from the usage record of each API response in the original logs. The setup session's usage is not available (its log is private).
-- **Runtime:** see `.llm_spend.json` and EXPERIMENTS.md, "Spend". Per-run token counts are summed from the decision events (main_results.md, "Model health"). Where a figure is unavailable it is marked missing, not estimated.
+- **Runtime:** the 19 main AI runs made 26,093 bee decisions with 45,674,885 input and 1,769,083 output tokens (summed from the decision events, experiments/analysis/output/main_results.md, "Model health"), 25,738 of them live calls costing $5.3665 at list price. The project ledger `.llm_spend.json` stands at $5.5084 over 26,242 calls, of which $0.1419 over 504 calls was spent before phase 4 (the pilot and its plumbing check, and earlier checks through `llm.py`). Where a figure is unavailable it is marked missing, not estimated.

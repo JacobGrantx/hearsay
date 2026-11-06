@@ -79,7 +79,7 @@ Requires Python 3.11 or later and `make`. No GPU, no API key for anything below.
 git clone <public repository URL, at submission>
 cd digital-life
 make setup        # .venv, pinned dependencies, secret-scan pre-commit hook
-make test         # 62 tests, about a minute
+make test         # 66 tests, about a minute
 make demo         # small scripted world, then an offline replay of a recorded AI run
 ```
 
