@@ -1,0 +1,171 @@
+{"kind": "season", "t": 0, "season": "spring", "year": 0}
+{"kind": "hornet_spawn", "t": 0, "hornet": 0, "x": 20, "y": 35, "genes": [3, 3, 4], "parent": null}
+{"kind": "hornet_spawn", "t": 0, "hornet": 1, "x": 47, "y": 29, "genes": [3, 3, 4], "parent": 0}
+{"kind": "hornet_spawn", "t": 0, "hornet": 2, "x": 53, "y": 14, "genes": [2, 3, 5], "parent": 0}
+{"kind": "hornet_spawn", "t": 0, "hornet": 3, "x": 55, "y": 16, "genes": [2, 4, 4], "parent": 1}
+{"kind": "hatch", "t": 0, "bee": 0, "x": 2, "y": 19, "life": 500.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 1, "x": 3, "y": 23, "life": 500.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 2, "x": 6, "y": 15, "life": 500.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 3, "x": 3, "y": 17, "life": 500.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 4, "x": 5, "y": 19, "life": 500.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 5, "x": 4, "y": 21, "life": 500.0, "cause": "start"}
+{"kind": "hornet_replaced", "t": 24, "removed": 0, "removed_fitness": 0.0, "parent": 1, "child": 4, "genes": [2, 4, 4], "x": 26, "y": 19}
+{"kind": "trip", "t": 29, "bee": 0, "start": 9, "ticks": 20, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "trip", "t": 48, "bee": 3, "start": 13, "ticks": 35, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 49, "removed": 1, "removed_fitness": 0.0, "parent": 4, "child": 5, "genes": [1, 5, 4], "x": 55, "y": 7}
+{"kind": "sting", "t": 59, "hornet": 3, "bee": 5, "x": 49, "y": 13, "amount": 220, "life_after": 221.0}
+{"kind": "trip", "t": 70, "bee": 1, "start": 33, "ticks": 37, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 74, "removed": 2, "removed_fitness": 0.0, "parent": 3, "child": 6, "genes": [3, 3, 4], "x": 49, "y": 7}
+{"kind": "sting", "t": 82, "hornet": 4, "bee": 4, "x": 25, "y": 27, "amount": 209, "life_after": 209.0}
+{"kind": "sting", "t": 84, "hornet": 4, "bee": 3, "x": 23, "y": 27, "amount": 208, "life_after": 208.0}
+{"kind": "hornet_replaced", "t": 99, "removed": 5, "removed_fitness": 0.0, "parent": 4, "child": 7, "genes": [2, 4, 4], "x": 54, "y": 9}
+{"kind": "heal", "t": 113, "bee": 5, "amount": 110.0, "life_after": 277.0}
+{"kind": "trip", "t": 113, "bee": 5, "start": 8, "ticks": 105, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "heal", "t": 114, "bee": 3, "amount": 104.0, "life_after": 282.0}
+{"kind": "trip", "t": 114, "bee": 3, "start": 49, "ticks": 65, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "heal", "t": 114, "bee": 4, "amount": 104.5, "life_after": 281.5}
+{"kind": "trip", "t": 114, "bee": 4, "start": 9, "ticks": 105, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 124, "removed": 6, "removed_fitness": 0.0, "parent": 4, "child": 8, "genes": [2, 4, 4], "x": 32, "y": 25}
+{"kind": "trip", "t": 125, "bee": 1, "start": 100, "ticks": 25, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 149, "removed": 7, "removed_fitness": 0.0, "parent": 4, "child": 9, "genes": [2, 4, 4], "x": 15, "y": 2}
+{"kind": "sting", "t": 153, "hornet": 4, "bee": 1, "x": 18, "y": 17, "amount": 173, "life_after": 174.0}
+{"kind": "heal", "t": 168, "bee": 1, "amount": 86.5, "life_after": 245.5}
+{"kind": "trip", "t": 168, "bee": 1, "start": 126, "ticks": 42, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "bloom", "t": 173, "bee": 5, "x": 38, "y": 24}
+{"kind": "hornet_replaced", "t": 174, "removed": 8, "removed_fitness": 0.0, "parent": 3, "child": 10, "genes": [2, 4, 4], "x": 31, "y": 5}
+{"kind": "sting", "t": 175, "hornet": 10, "bee": 2, "x": 32, "y": 5, "amount": 162, "life_after": 163.0}
+{"kind": "sting", "t": 181, "hornet": 9, "bee": 2, "x": 31, "y": 8, "amount": 78, "life_after": 79.0}
+{"kind": "sting", "t": 191, "hornet": 9, "bee": 2, "x": 24, "y": 9, "amount": 34, "life_after": 35.0}
+{"kind": "hornet_replaced", "t": 199, "removed": 3, "removed_fitness": 1.1, "parent": 4, "child": 11, "genes": [3, 4, 3], "x": 33, "y": 31}
+{"kind": "delivery", "t": 216, "bee": 5, "life_before": 174.0, "life_after": 348.0}
+{"kind": "hatch", "t": 216, "bee": 6, "x": 1, "y": 20, "life": 500.0, "cause": "delivery"}
+{"kind": "trip", "t": 216, "bee": 5, "start": 114, "ticks": 102, "delivered": true, "reached_bloom": 59, "stings": 0, "outcome": "home"}
+{"kind": "heal", "t": 220, "bee": 2, "amount": 137.0, "life_after": 143.0}
+{"kind": "trip", "t": 220, "bee": 2, "start": 20, "ticks": 200, "delivered": false, "reached_bloom": null, "stings": 3, "outcome": "home"}
+{"kind": "sting", "t": 220, "hornet": 9, "bee": 5, "x": 11, "y": 19, "amount": 172, "life_after": 172.0}
+{"kind": "hornet_replaced", "t": 224, "removed": 11, "removed_fitness": 0.0, "parent": 4, "child": 12, "genes": [1, 4, 5], "x": 23, "y": 33}
+{"kind": "trip", "t": 226, "bee": 5, "start": 217, "ticks": 9, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "sting", "t": 234, "hornet": 10, "bee": 1, "x": 19, "y": 7, "amount": 89, "life_after": 90.5}
+{"kind": "hornet_replaced", "t": 249, "removed": 12, "removed_fitness": 0.0, "parent": 10, "child": 13, "genes": [2, 4, 4], "x": 57, "y": 14}
+{"kind": "season", "t": 250, "season": "summer", "year": 0}
+{"kind": "hornet_spawn", "t": 250, "hornet": 14, "x": 34, "y": 35, "genes": [1, 4, 5], "parent": 4}
+{"kind": "hornet_spawn", "t": 250, "hornet": 15, "x": 50, "y": 6, "genes": [1, 4, 5], "parent": 10}
+{"kind": "bloom", "t": 252, "bee": 3, "x": 52, "y": 20}
+{"kind": "bloom", "t": 254, "bee": 0, "x": 52, "y": 22}
+{"kind": "trip", "t": 260, "bee": 1, "start": 178, "ticks": 82, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "sting", "t": 262, "hornet": 10, "bee": 6, "x": 19, "y": 9, "amount": 227, "life_after": 228.0}
+{"kind": "sting", "t": 266, "hornet": 4, "bee": 5, "x": 19, "y": 1, "amount": 63, "life_after": 63.0}
+{"kind": "bloom", "t": 269, "bee": 4, "x": 52, "y": 21}
+{"kind": "sting", "t": 271, "hornet": 4, "bee": 2, "x": 15, "y": 1, "amount": 46, "life_after": 46.0}
+{"kind": "hornet_replaced", "t": 274, "removed": 13, "removed_fitness": 0.0, "parent": 4, "child": 16, "genes": [2, 3, 5], "x": 23, "y": 10}
+{"kind": "sting", "t": 277, "hornet": 15, "bee": 0, "x": 43, "y": 14, "amount": 111, "life_after": 112.0}
+{"kind": "heal", "t": 286, "bee": 6, "amount": 113.5, "life_after": 317.5}
+{"kind": "trip", "t": 286, "bee": 6, "start": 237, "ticks": 49, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "sting", "t": 288, "hornet": 15, "bee": 0, "x": 35, "y": 13, "amount": 50, "life_after": 51.0}
+{"kind": "trip", "t": 297, "bee": 5, "start": 236, "ticks": 61, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "trip", "t": 298, "bee": 2, "start": 232, "ticks": 66, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "sting", "t": 298, "hornet": 15, "bee": 4, "x": 35, "y": 13, "amount": 48, "life_after": 49.5}
+{"kind": "hornet_replaced", "t": 299, "removed": 14, "removed_fitness": 0.0, "parent": 15, "child": 17, "genes": [2, 4, 4], "x": 37, "y": 10}
+{"kind": "sting", "t": 304, "hornet": 9, "bee": 1, "x": 15, "y": 25, "amount": 10, "life_after": 10.5}
+{"kind": "trip", "t": 314, "bee": 1, "start": 261, "ticks": 53, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "died"}
+{"kind": "death", "t": 314, "bee": 1, "x": 13, "y": 19, "age": 314, "cause": "life"}
+{"kind": "death", "t": 316, "bee": 2, "x": 5, "y": 22, "age": 316, "cause": "life"}
+{"kind": "sting", "t": 319, "hornet": 4, "bee": 6, "x": 12, "y": 1, "amount": 142, "life_after": 142.5}
+{"kind": "delivery", "t": 321, "bee": 3, "life_before": 75.0, "life_after": 150.0}
+{"kind": "hatch", "t": 321, "bee": 7, "x": 5, "y": 17, "life": 500.0, "cause": "delivery"}
+{"kind": "trip", "t": 321, "bee": 3, "start": 136, "ticks": 185, "delivered": true, "reached_bloom": 116, "stings": 0, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 324, "removed": 16, "removed_fitness": 0.0, "parent": 15, "child": 18, "genes": [1, 4, 5], "x": 37, "y": 33}
+{"kind": "trip", "t": 326, "bee": 5, "start": 298, "ticks": 28, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "delivery", "t": 328, "bee": 0, "life_before": 11.0, "life_after": 22.0}
+{"kind": "hatch", "t": 328, "bee": 8, "x": 1, "y": 19, "life": 500.0, "cause": "delivery"}
+{"kind": "heal", "t": 328, "bee": 0, "amount": 80.5, "life_after": 102.5}
+{"kind": "trip", "t": 328, "bee": 0, "start": 39, "ticks": 289, "delivered": true, "reached_bloom": 215, "stings": 2, "outcome": "home"}
+{"kind": "death", "t": 328, "bee": 5, "x": 3, "y": 16, "age": 328, "cause": "life"}
+{"kind": "delivery", "t": 338, "bee": 4, "life_before": 9.5, "life_after": 19.0}
+{"kind": "hatch", "t": 338, "bee": 9, "x": 2, "y": 21, "life": 500.0, "cause": "delivery"}
+{"kind": "trip", "t": 338, "bee": 4, "start": 115, "ticks": 223, "delivered": true, "reached_bloom": 154, "stings": 1, "outcome": "home"}
+{"kind": "trip", "t": 343, "bee": 6, "start": 298, "ticks": 45, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 349, "removed": 17, "removed_fitness": 0.0, "parent": 4, "child": 19, "genes": [2, 4, 4], "x": 52, "y": 35}
+{"kind": "trip", "t": 356, "bee": 4, "start": 339, "ticks": 17, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "died"}
+{"kind": "death", "t": 356, "bee": 4, "x": 9, "y": 19, "age": 356, "cause": "life"}
+{"kind": "trip", "t": 373, "bee": 6, "start": 353, "ticks": 20, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "trip", "t": 373, "bee": 9, "start": 345, "ticks": 28, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 374, "removed": 18, "removed_fitness": 0.0, "parent": 9, "child": 20, "genes": [2, 3, 5], "x": 33, "y": 6}
+{"kind": "sting", "t": 390, "hornet": 9, "bee": 8, "x": 14, "y": 27, "amount": 219, "life_after": 220.0}
+{"kind": "bloom", "t": 392, "bee": 7, "x": 52, "y": 20}
+{"kind": "sting", "t": 395, "hornet": 4, "bee": 7, "x": 50, "y": 20, "amount": 213, "life_after": 214.0}
+{"kind": "sting", "t": 398, "hornet": 10, "bee": 0, "x": 35, "y": 21, "amount": 16, "life_after": 16.5}
+{"kind": "hornet_replaced", "t": 399, "removed": 19, "removed_fitness": 0.0, "parent": 10, "child": 21, "genes": [3, 3, 4], "x": 45, "y": 6}
+{"kind": "sting", "t": 408, "hornet": 10, "bee": 0, "x": 27, "y": 21, "amount": 3, "life_after": 3.5}
+{"kind": "heal", "t": 409, "bee": 8, "amount": 109.5, "life_after": 310.5}
+{"kind": "trip", "t": 409, "bee": 8, "start": 338, "ticks": 71, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "trip", "t": 411, "bee": 0, "start": 329, "ticks": 82, "delivered": false, "reached_bloom": null, "stings": 2, "outcome": "died"}
+{"kind": "death", "t": 411, "bee": 0, "x": 27, "y": 20, "age": 411, "cause": "life"}
+{"kind": "hornet_replaced", "t": 424, "removed": 20, "removed_fitness": 0.0, "parent": 10, "child": 22, "genes": [1, 4, 5], "x": 10, "y": 7}
+{"kind": "trip", "t": 426, "bee": 6, "start": 384, "ticks": 42, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "sting", "t": 434, "hornet": 9, "bee": 6, "x": 9, "y": 25, "amount": 13, "life_after": 14.5}
+{"kind": "trip", "t": 444, "bee": 6, "start": 427, "ticks": 17, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "trip", "t": 446, "bee": 3, "start": 322, "ticks": 124, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "death", "t": 448, "bee": 6, "x": 3, "y": 19, "age": 232, "cause": "life"}
+{"kind": "hornet_replaced", "t": 449, "removed": 21, "removed_fitness": 0.0, "parent": 15, "child": 23, "genes": [2, 3, 5], "x": 49, "y": 33}
+{"kind": "sting", "t": 452, "hornet": 4, "bee": 9, "x": 53, "y": 18, "amount": 193, "life_after": 194.0}
+{"kind": "sting", "t": 456, "hornet": 22, "bee": 7, "x": 12, "y": 19, "amount": 76, "life_after": 77.0}
+{"kind": "bloom", "t": 458, "bee": 9, "x": 51, "y": 20}
+{"kind": "sting", "t": 462, "hornet": 4, "bee": 9, "x": 48, "y": 19, "amount": 92, "life_after": 92.0}
+{"kind": "delivery", "t": 463, "bee": 7, "life_before": 70.0, "life_after": 140.0}
+{"kind": "hatch", "t": 463, "bee": 10, "x": 2, "y": 20, "life": 500.0, "cause": "delivery"}
+{"kind": "heal", "t": 463, "bee": 7, "amount": 144.5, "life_after": 284.5}
+{"kind": "trip", "t": 463, "bee": 7, "start": 329, "ticks": 134, "delivered": true, "reached_bloom": 63, "stings": 2, "outcome": "home"}
+{"kind": "trip", "t": 470, "bee": 3, "start": 455, "ticks": 15, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "death", "t": 470, "bee": 3, "x": 3, "y": 23, "age": 470, "cause": "life"}
+{"kind": "hornet_replaced", "t": 474, "removed": 23, "removed_fitness": 0.0, "parent": 4, "child": 24, "genes": [1, 4, 5], "x": 49, "y": 19}
+{"kind": "sting", "t": 482, "hornet": 15, "bee": 9, "x": 40, "y": 13, "amount": 36, "life_after": 36.0}
+{"kind": "trip", "t": 483, "bee": 10, "start": 473, "ticks": 10, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "sting", "t": 487, "hornet": 9, "bee": 7, "x": 2, "y": 33, "amount": 130, "life_after": 130.5}
+{"kind": "sting", "t": 492, "hornet": 15, "bee": 9, "x": 34, "y": 15, "amount": 13, "life_after": 13.0}
+{"kind": "hornet_replaced", "t": 499, "removed": 24, "removed_fitness": 0.0, "parent": 4, "child": 25, "genes": [2, 5, 3], "x": 55, "y": 34}
+{"kind": "season", "t": 500, "season": "autumn", "year": 0}
+{"kind": "hornet_spawn", "t": 500, "hornet": 26, "x": 42, "y": 31, "genes": [2, 4, 4], "parent": 4}
+{"kind": "hornet_spawn", "t": 500, "hornet": 27, "x": 44, "y": 31, "genes": [2, 4, 4], "parent": 4}
+{"kind": "trip", "t": 502, "bee": 7, "start": 473, "ticks": 29, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "trip", "t": 504, "bee": 9, "start": 392, "ticks": 112, "delivered": false, "reached_bloom": 66, "stings": 4, "outcome": "died"}
+{"kind": "death", "t": 504, "bee": 9, "x": 28, "y": 15, "age": 166, "cause": "life"}
+{"kind": "sting", "t": 511, "hornet": 9, "bee": 7, "x": 4, "y": 25, "amount": 53, "life_after": 53.5}
+{"kind": "trip", "t": 516, "bee": 7, "start": 509, "ticks": 7, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "sting", "t": 519, "hornet": 9, "bee": 10, "x": 7, "y": 26, "amount": 222, "life_after": 223.0}
+{"kind": "hornet_replaced", "t": 524, "removed": 25, "removed_fitness": 0.0, "parent": 22, "child": 28, "genes": [1, 5, 4], "x": 16, "y": 7}
+{"kind": "heal", "t": 528, "bee": 10, "amount": 111.0, "life_after": 325.0}
+{"kind": "trip", "t": 528, "bee": 10, "start": 484, "ticks": 44, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 549, "removed": 26, "removed_fitness": 0.0, "parent": 4, "child": 29, "genes": [2, 4, 4], "x": 24, "y": 25}
+{"kind": "trip", "t": 562, "bee": 7, "start": 537, "ticks": 25, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "death", "t": 564, "bee": 7, "x": 3, "y": 16, "age": 243, "cause": "life"}
+{"kind": "hornet_replaced", "t": 574, "removed": 27, "removed_fitness": 0.0, "parent": 4, "child": 30, "genes": [1, 5, 4], "x": 23, "y": 25}
+{"kind": "sting", "t": 590, "hornet": 28, "bee": 8, "x": 25, "y": 15, "amount": 64, "life_after": 65.5}
+{"kind": "hornet_replaced", "t": 599, "removed": 29, "removed_fitness": 0.0, "parent": 28, "child": 31, "genes": [2, 5, 3], "x": 47, "y": 20}
+{"kind": "trip", "t": 614, "bee": 8, "start": 410, "ticks": 204, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 624, "removed": 30, "removed_fitness": 0.0, "parent": 22, "child": 32, "genes": [0, 5, 5], "x": 10, "y": 3}
+{"kind": "hornet_replaced", "t": 649, "removed": 31, "removed_fitness": 0.0, "parent": 4, "child": 33, "genes": [2, 4, 4], "x": 13, "y": 35}
+{"kind": "trip", "t": 654, "bee": 8, "start": 623, "ticks": 31, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "trip", "t": 655, "bee": 8, "start": 655, "ticks": 0, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "died"}
+{"kind": "death", "t": 655, "bee": 8, "x": 3, "y": 24, "age": 327, "cause": "life"}
+{"kind": "queen_hatch", "t": 655, "bee": 11, "x": 3, "y": 19, "life": 500.0}
+{"kind": "trip", "t": 658, "bee": 10, "start": 560, "ticks": 98, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 674, "removed": 32, "removed_fitness": 0.0, "parent": 4, "child": 34, "genes": [2, 5, 3], "x": 52, "y": 15}
+{"kind": "hornet_replaced", "t": 699, "removed": 33, "removed_fitness": 0.0, "parent": 9, "child": 35, "genes": [2, 5, 3], "x": 47, "y": 18}
+{"kind": "trip", "t": 706, "bee": 11, "start": 673, "ticks": 33, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "sting", "t": 711, "hornet": 28, "bee": 10, "x": 20, "y": 3, "amount": 71, "life_after": 71.0}
+{"kind": "hornet_replaced", "t": 724, "removed": 34, "removed_fitness": 0.0, "parent": 4, "child": 36, "genes": [2, 4, 4], "x": 49, "y": 1}
+{"kind": "trip", "t": 746, "bee": 10, "start": 660, "ticks": 86, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 749, "removed": 35, "removed_fitness": 0.0, "parent": 15, "child": 37, "genes": [1, 4, 5], "x": 19, "y": 29}
+{"kind": "season", "t": 750, "season": "winter", "year": 0}
+{"kind": "hornet_dormant", "t": 750, "hornets": [[4, 2, 4, 4, 1.8469], [9, 2, 4, 4, 1.5517], [10, 2, 4, 4, 0.8643], [15, 1, 4, 5, 0.516], [22, 1, 4, 5, 0.2338], [28, 1, 5, 4, 0.6], [36, 2, 4, 4, 0.0], [37, 1, 4, 5, 0.0]]}
+{"kind": "trip", "t": 769, "bee": 10, "start": 755, "ticks": 14, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "died"}
+{"kind": "death", "t": 769, "bee": 10, "x": 1, "y": 29, "age": 306, "cause": "life"}
+{"kind": "queen_hatch", "t": 769, "bee": 12, "x": 5, "y": 22, "life": 500.0}
+{"kind": "trip", "t": 884, "bee": 12, "start": 790, "ticks": 94, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "trip", "t": 918, "bee": 11, "start": 715, "ticks": 203, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "trip", "t": 957, "bee": 11, "start": 928, "ticks": 29, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "trip", "t": 961, "bee": 11, "start": 959, "ticks": 2, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "died"}
+{"kind": "death", "t": 961, "bee": 11, "x": 3, "y": 11, "age": 306, "cause": "life"}
+{"kind": "queen_hatch", "t": 961, "bee": 13, "x": 4, "y": 20, "life": 500.0}
+{"kind": "end", "t": 1000, "bees_alive": 2}

@@ -1,0 +1,24 @@
+# Setup calibration for the E5 world, not an experiment: scripted bees only, 1 year, no AI.
+# Points are run with --set overrides for condition (oracle_bees, rule_bees, random_bees) and the knob under test
+# (world scale: width, height and min_bloom_distance together; or hornet_counts). See EXPERIMENTS.md, "E5 world".
+# Target fixed before any run: spring delivery rate 0.15 to 0.35 for rule bees, at least 0.8 for oracle bees,
+# near 0 for random bees.
+[experiment]
+name = "calibrate_e5"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Calibration target: rule bees deliver on 0.15 to 0.35 of spring trips, oracle bees on at least 0.8, random bees near 0."
+seeds = [0, 1, 2]
+
+[params]
+condition = "rule_bees"
+width = 80
+height = 48
+season_length = 250
+years = 1
+base_life = 500
+min_bloom_distance = 55
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+log_state = false
+log_decisions = false

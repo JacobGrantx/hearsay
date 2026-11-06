@@ -63,6 +63,39 @@ The changes are listed in DECISIONS.md as agent proposals awaiting Jacob.
 
 **Limits.** Only one point per knob was tried around the chosen values, with 3 seeds each. The rule-bee rate (0.024) rests on one delivery in one seed. Over a whole 2-year run, rule bees made 1, 0 and 2 deliveries in seeds 0, 1 and 2 (`deliveries` in per_seed).
 
+### E5 world (setup for the post-hoc follow-up E5, not a result)
+
+Recorded 2026-11-06 by the phase 4b session (Claude Code), after the main results and before any E5 AI run. Only scripted bees were run, and no AI result was looked at while choosing. Why a new world: "Why trips failed" (below E4) shows that bees in the main world rarely found the bloom, so talk had almost nothing to carry.
+
+**Target, fixed before any run** (written in the header of `calibrate_e5.toml`, commit cdbd280): in 1 year, spring delivery rate 0.15 to 0.35 for rule bees, at least 0.8 for oracle bees, near 0 for random bees.
+
+**Setup.** Config `experiments/configurations/calibrate_e5.toml` (1 year, otherwise the main world), seeds 0, 1 and 2, points set by `--set`, code at cdbd280, `git_dirty: false` for every run. Run directories: `experiments/results/calibrate_e5/<stamp>_<bees>_<point>`.
+
+**Knobs tried, in order:**
+1. **`min_bloom_distance` alone does not work on this map.** Bloom patches must lie in the right half of the map, so below 55 the placer widens the band and the bloom stays as far: spring bloom distances for seeds 0 to 4 were 55 to 84 steps at `min_bloom_distance` 30 and 53 to 83 at 45 (a probe of `world.generate`, not a run).
+2. **Fewer hornets alone** (`hornet_counts` [2, 3, 4, 0], point `hornets234`) leaves finding the bloom as hard: rule 0.083, oracle 0.722.
+3. **A smaller map alone** (`w48h29d33`: 48 x 29, `min_bloom_distance` 33, hornets unchanged) brings the bloom closer but packs the same hornets into a third of the area: rule 0.207, oracle 0.750.
+4. **World scale `s`** (points `z70`, `z60`, `z55`): width, height, `min_bloom_distance` and `hornet_spawn_distance` are multiplied by s, and the hornet counts by s squared (rounded), so hornets per open cell stay about as in the main world. One knob, one number.
+
+**Results** (`calibration_table.py`; spring delivery rate, mean (sd) over seeds 0 to 2, n = 3 each):
+
+| point | s | map, bloom distance, spawn distance, hornets | oracle | rule | random | oracle stings per spring trip | rule stings per spring trip |
+|---|---|---|---|---|---|---|---|
+| ref | 1 | 80 x 48, 55, 25, [4, 6, 8, 0] | 0.889 (0.192) | 0.037 (0.064) | 0.000 (0.000) | 1.167 (0.167) | 0.815 (0.449) |
+| hornets234 | (hornets only) | 80 x 48, 55, 25, [2, 3, 4, 0] | 0.722 (0.255) | 0.083 (0.144) | 0.000 (0.000) | 1.833 (1.756) | 0.417 (0.722) |
+| w64h38d44 | (map only) | 64 x 38, 44, 25, [4, 6, 8, 0] | 0.707 (0.268) | 0.056 (0.049) | 0.000 (0.000) | 2.052 (1.640) | 0.662 (0.229) |
+| w56h34d38 | (map only) | 56 x 34, 38, 25, [4, 6, 8, 0] | 0.556 (0.385) | 0.097 (0.060) | 0.000 (0.000) | 2.833 (0.866) | 0.659 (0.355) |
+| w48h29d33 | (map only) | 48 x 29, 33, 25, [4, 6, 8, 0] | 0.750 (0.231) | 0.207 (0.123) | 0.000 (0.000) | 1.695 (1.140) | 1.136 (0.528) |
+| **z70** | **0.7** | **56 x 34, 38, 18, [2, 3, 4, 0]** | **0.889 (0.192)** | **0.210 (0.008)** | **0.000 (0.000)** | **1.222 (0.694)** | **0.386 (0.295)** |
+| z60 | 0.6 | 48 x 29, 33, 15, [1, 2, 3, 0] | 1.000 (0.000) | 0.378 (0.136) | 0.000 (0.000) | 0.497 (0.360) | 0.350 (0.098) |
+| z55 | 0.55 | 44 x 26, 30, 14, [1, 2, 2, 0] | 1.000 (0.000) | 0.406 (0.135) | 0.000 (0.000) | 0.262 (0.400) | 0.403 (0.177) |
+
+**Chosen: s = 0.7 (point `z70`), the "E5 world":** 56 x 34, `min_bloom_distance` 38, `hornet_spawn_distance` 18, `hornet_counts` [2, 3, 4, 0]; everything else as in the main world (L = 500, `openness` 0.15, `ambush_rate` 0.02, `hornet_speed` 0.8). It is the only point inside the target for all three bee types. Per seed, rule bees delivered on 3 of 14, 2 of 10 and 3 of 14 spring trips; oracle bees on 6 of 6, 4 of 6 and 9 of 9. Spring bloom path distances are 54, 53 and 54 steps (seeds 0 to 2), against 61, 75 and 74 in the main world.
+
+**Hornets stay a real risk:** oracle bees took 1.222 stings per spring trip here, against 1.208 at the main world's calibration point; z60 and z55 halve that, which is one more reason not to go smaller.
+
+**Limits.** 3 seeds per point and 1 year; the oracle rate rests on 21 spring trips. Rule bees ran 0.210 with a small sd (0.008), but a 3-seed sd is a weak estimate. Colonies are larger here (mean colony size: rule 6.270, oracle 9.316), which makes AI runs dearer.
+
 ## Pre-registration
 
 Written 2026-11-06, before any real model call by a bee mind, and committed under a subject starting "Pre-registration:". The analysis below is fixed now. Anything changed later is listed under "Amendments" with its date and reason, and marked as made before or after the main runs.

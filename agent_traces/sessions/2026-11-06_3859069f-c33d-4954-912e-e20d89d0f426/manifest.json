@@ -6,51 +6,54 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 27
+    "claude-opus-5-5": 65
   },
   "first_timestamp": "2026-11-06T11:20:27.400Z",
-  "last_timestamp": "2026-11-06T11:23:26.888Z",
+  "last_timestamp": "2026-11-06T11:27:17.427Z",
   "source": {
     "file": "3859069f-c33d-4954-912e-e20d89d0f426.jsonl",
-    "sha256": "c2c64ec72af2adc7ae5b87d6af3758eae0daea726c96c6561290adb293f15d38",
-    "lines": 108,
+    "sha256": "700ae0f903c4fdd87ad9bc84cef2aac528742708941a4e0c2a8b3366f66468eb",
+    "lines": 206,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 30,
-    "output_tokens": 10362,
-    "cache_creation_input_tokens": 69008,
-    "cache_read_input_tokens": 868507,
-    "api_responses": 15,
+    "input_tokens": 66,
+    "output_tokens": 25728,
+    "cache_creation_input_tokens": 92429,
+    "cache_read_input_tokens": 2490783,
+    "api_responses": 33,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 15
+    "accept/config": 33
   },
   "tool_calls": {
-    "Bash": 12,
+    "Bash": 28,
     "Read": 2,
-    "Write": 1,
-    "Edit": 1
+    "Write": 2,
+    "Edit": 2
   },
   "subagents": [],
   "commits_made_in_session": [],
-  "commits_in_time_window": [],
-  "kept_entries": 43,
+  "commits_in_time_window": [
+    "cdbd28046cae677f64e9c15ff5a2763a74551c6d Config for the E5 world calibration (scripted bees, 1 year, target fixed in the header)",
+    "4ebf5209d3d97de2e274305369fce108843b5d64 Diagnosis for E5: why trips failed in the main runs (finding the bloom, not carrying it home). Traces: phase 4b session"
+  ],
+  "kept_entries": 99,
   "omitted_entries": {
-    "ai-title": 9,
+    "ai-title": 16,
     "queue-operation": 2,
-    "attachment": 34,
+    "attachment": 54,
     "file-history-snapshot": 1,
-    "atis-latch": 9,
-    "last-prompt": 8,
-    "file-history-delta": 2
+    "atis-latch": 16,
+    "last-prompt": 15,
+    "file-history-delta": 3
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 10,
+    "thinking_omitted": 30,
     "truncated": 1
   },
   "missing": {
