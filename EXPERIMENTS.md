@@ -646,3 +646,55 @@ Run directory: `experiments/results/pilot_abstract_e5_spring/20261106T154957Z/se
 **First sighting of a K entity before any halving** (4 units): 2 held (`hold`), 2 explored in a direction pointing toward it; none moved away, none went to zone O. Timer decisions with a K entity in view, before any halving: 7, of which 5 held and 2 pointed toward it. For comparison only, round 1's `e5_full` seed 0 (same world and seed, neutral words, first 251 ticks, `first_sighting.py --until 251`): 4 first sightings, 3 `flee` and 1 `wait`. The notes still read as caution: unit 3 at tick 100, "K entity seen at (51,5); holding at (47,6) to assess before moving", then "exploring SE carefully" for 70 ticks; unit 4 at tick 170, "K entities around (49,5)-(49,8) still a threat", having never been halved. Round 1's `measures.harm_words` (a note using danger, avoid, careful, caution, threat, harm or hurt) gives 0.0691 of the pilot's 333 notes, and no abstract prompt contains any of those words (tests/test_vocab.py).
 
 **Surprise (2026-11-06): with abstract words the units find G but do not bring it back.** Round 1's `e5_full` seed 0 made its first delivery at tick 166 (docs/BUILD_NOTES.md, "E5 moments"). Here every unit set flag F, then kept exploring past the G cells, several "for the hidden object" (unit 3 at tick 249: "Holding at G cluster (38,4); still no hidden object found"). Nothing in the abstract prompt links flag F or zone O to counter C, and round 1's "carrying something" and "home" may have supplied that link. If round 2 shows the same, delivery itself becomes something a colony has to discover: a unit with flag F set has to enter zone O by chance, see its counter rise, and broadcast it. Whether that is the experiment or a fault in the vocabulary is Jacob's call (DECISIONS.md).
+
+## Round 2 (pre-registered 2026-11-06, before any round 2 AI run)
+
+Jacob asked for longer runs after the phase 6 pilot, finished by 11:00 PT. Round 1 (E1 to E4) and E5 stay exactly as written above; round 2 is reported after them. The pilot (above) is the only abstract run so far, and its one surprise (units reach G and do not bring it back) is what H10 tests at scale. Code for this round: `shared_clock`, `steady_hatch`, `tell_reward`, `stop_wallclock_utc` and `mind_workers` (ARCHITECTURE.md, DECISIONS.md), all off in round 1 configs.
+
+### Hypothesis
+
+- **H10 (discovery, the headline).** In B arms, which are never told what delivery does, units discover it: in at least 3 of 5 `r2_b_full` seeds, some unit makes a *repeat choice* (defined below) within the completed years.
+- **H7 (culture).** Units that never delivered themselves make deliberate deliveries after hearing a broadcast about G or O. Paired by seed, `r2_b_full`'s talk-informed first deliberate deliveries outnumber `r2_b_no_talk`'s first deliberate deliveries in at least 4 of 5 seeds.
+- **H8 (seasonal memory).** Paired by seed, the first G reach each spring after year 1 comes earlier in `r2_b_full` than in `r2_b_no_talk`, in at least 4 of 5 seeds.
+- **H6 (labels and prior).** At the first sighting of K, before any halving, units move away or go to O less often in `r2_b_full` (abstract words) than in `r2_n_full` (round 1 neutral words).
+- **H11 (does knowing the rule matter).** `r2_a_full` (told the rule) against `r2_b_full` on deliveries per completed year.
+- **H9 (exploratory, no decision rule).** Signal use over time.
+
+### Experimental setup
+
+- **World:** the E5 world (s = 0.7: 56 x 34, `min_bloom_distance` 38, `hornet_spawn_distance` 18, `hornet_counts` [2, 3, 4, 0], base life 500, season 250 ticks) with `steady_hatch = 60` (outside winter, below 12 units, the queen hatches one blank unit every 60 ticks; deliveries still hatch) and `shared_clock = true` (timer decisions on ticks where t % 5 == 0, for every unit at once; event-triggered decisions unchanged). `years = 8`, `mind_workers = 6`.
+- **Stop rule:** every run ends at the first season boundary after `stop_wallclock_utc = 2026-11-06T18:05:00Z` (10:05 PT), recorded in record.json as `stopped_at_tick` and `stopped_reason`. Completed years = floor(stopped_at_tick / 1000). A run still going when the analysis runs is cut at its last completed season. **Analyses use only the years completed by every run being compared** (both runs of a pair; every run of both arms for unpaired comparisons), and the report states that number per run.
+- **Arms**, each from its own config, one process per run, from a clean clone at the pre-registration commit:
+
+| Arm | Config | Words | Talk | Reward rule told | Seeds |
+|---|---|---|---|---|---|
+| B_full | `r2_b_full.toml` | abstract | on | no | 0 to 4 |
+| B_no_talk | `r2_b_no_talk.toml` | abstract | off | no | 0 to 4 |
+| A_full | `r2_a_full.toml` | abstract | on | yes: "Entering zone O with flag F set raises counter C." | 0 to 2 |
+| N_full | `r2_n_full.toml` | round 1 neutral | on | no (round 1 never said it either) | 0 to 2 |
+| R2_rule | `r2_rule.toml` | scripted rule bees, no model | | | 0 to 2 |
+| R2_random | `r2_random.toml` | scripted random bees, no model | | | 0 to 2 |
+
+- **Spend:** the ledger total stays at or below $75. If spend projected from the first 10 minutes exceeds that, the extra seeds of A_full and N_full (seeds 1 and 2) are stopped first, and that is recorded here.
+
+### Variables or parameters
+
+Independent: vocabulary (abstract or neutral), talk (on or off), reward rule told (yes or no), seed. Fixed: everything else in the configs above. Model: claude-haiku-5-5, effort low, thinking disabled, structured output, max 400 tokens, at most 6 calls in flight per run.
+
+### Measures and decision rules
+
+All from `events.jsonl` (and `state.jsonl.gz` for positions), computed by `experiments/analysis/round2.py`, committed before any round 2 result exists. Names below are the sim's: `go_home` is the abstract `go_to_O`, `carrying` is flag F, `bloom` is a G pickup, `wait` is `hold`.
+
+- **GOF choice:** a `decision` event with intent `go_home` taken while flag F was set (`ctx.carrying` = 1; for scripted runs, which log no ctx, the unit's `carrying` field in the state line of the tick before).
+- **Deliberate delivery (DD):** a `delivery` event whose unit's most recent decision at or before that tick was a GOF choice.
+- **Repeat choice (H10):** a GOF choice by a unit at tick t2 when that same unit has a `delivery` event at some t1 < t2. A seed shows discovery if any unit makes one within the completed years. Supported if 3 or more of 5 B_full seeds show it. Also reported: the count per seed, how many of those repeat choices ended in a delivery, the same for B_no_talk, A_full, N_full and the scripted arms.
+- **Broadcast about G or O:** a `say` event whose text contains `G` or `O` as a whole word (regex `\b[GO]\b`, case-sensitive).
+- **First DD:** a DD by a unit with no earlier `delivery` event. **Talk-informed first DD:** a first DD whose unit is in `heard_by` of a broadcast about G or O at an earlier tick. H7: per seed, talk-informed first DDs in B_full (X) against first DDs in B_no_talk (Y), within the pair's completed years. Supported if X > Y in at least 4 of 5 seeds. Also reported: all first DDs in both arms, and B_full's first DDs that were not talk-informed.
+- **First G reach in a spring (H8):** for each year y >= 2 completed by both runs of a pair, the ticks from the start of that spring to its first `bloom` event; a spring with none counts as 250 (censored, and reported as such). Per run, the mean over those years. Supported if B_full's mean is lower than B_no_talk's in at least 4 of 5 seeds. Not testable for a pair that completes fewer than 2 years.
+- **First sighting (H6):** `experiments/analysis/first_sighting.py`: each unit's first decision triggered by a new K entity in view, before that unit's first halving, classified away, toward, hold or zone O (`away_or_zone_O_share`), within the years completed by every B_full and N_full run. Supported if the B_full per-seed mean share is lower than N_full's and the two arms' per-seed ranges do not overlap; "direction only" if the means differ that way but the ranges overlap; otherwise not supported. The pooled counts are reported too.
+- **Deliveries per completed year (H11):** `delivery` events in the completed years divided by their number. "Knowing raises deliveries" if A_full exceeds B_full in all 3 paired seeds (0 to 2); "knowing lowers" if below in all 3; otherwise no difference shown. Means, sd and n are reported for all 5 B_full seeds as well.
+- **Signals (H9):** per season, decisions with a signal per unit-decision, and the share of those made with a K entity in view (`ctx.movers` > 0) or with flag F set. Descriptive only.
+
+### Controls
+
+- **Talk ablation:** B_no_talk (H7, H8). **Baseline:** scripted rule and random bees in the same world (what DDs look like when hardcoded, and by chance). **Prompt:** A_full against B_full is the one-sentence prompt change; N_full against B_full is the word change (H6). **Hardcoding audit:** the B prompt never says what flag F or zone O does (tests/test_vocab.py checks it word by word); the only link a B unit gets is the event "your counter C rose" after a delivery. **Setup:** E5 world, one world size only; this is a limit of round 2.
