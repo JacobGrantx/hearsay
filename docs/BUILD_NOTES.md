@@ -252,6 +252,19 @@ All in `e5_full` seed 0 (`experiments/results/e5_full/20261106T112913Z_s0/seed-0
 
 The honest caption for the video: talk carried a place in one seed of five, and colonies with talk spent more time at home and gathered no more.
 
+### Round 2 moments for the video
+
+Written by the phase 7b session (Claude Code, 2026-11-06). All in `r2_b_full` seed 0 (`experiments/results/r2_b_full/20261106T165608Z_s0/seed-0`, abstract words, rule not told) unless named. Lines copied from `events.jsonl`.
+
+| Ticks | Moment | Follow |
+|---|---|---|
+| 5 | **A broadcast that preceded a delivery.** Unit 2 says "Unit at (3,14) exploring north from zone O. Nothing notable yet. Will report any object sighting.", heard by units 0, 1, 3, 4 and 5. This is the last broadcast about G or O unit 3 heard before its delivery, so the pre-registered measure counts that delivery as talk-informed; the broadcast names only zone O, not G | unit 2, then unit 3 |
+| 121 | **First sighting under abstract words.** Unit 7's first decision triggered by a K entity: intent `explore`, direction N, note "K entity seen at (5, 9) near zone O north passage". It keeps exploring; B_full units moved away or went to O at 0.1472 of first sightings (sd 0.0851, n 5) against 0.8929 in `r2_n_full` seed 0 (one seed, amendment 1) | unit 7 |
+| 190 to 194 | **A deliberate delivery.** Unit 3 decides `go_home` at tick 190 (timer, flag F set) and delivers at tick 194; counter C goes 298 to 596. It never chooses go_to_O with F again in the 3 completed years: the H10 result in one unit | unit 3 |
+| any | **The control.** `r2_a_full` seed 0, told the rule in one sentence, made 59 repeat choices (3 units) in 2 years; random bees made no delivery in 8 years | |
+
+The honest caption: units never told what delivery does reached zone O with G, saw counter C double, and did not go back for more, in 5 of 5 seeds.
+
 ## Phase 5: the demo video and the final pass
 
 Written by the phase 5 build session (Claude Code, 2026-11-06).

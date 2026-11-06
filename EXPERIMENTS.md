@@ -765,7 +765,7 @@ Vocabulary (abstract or neutral), talk (on or off), reward rule told (yes or no)
   - seeds 2 and 4: **no delivery at all** in 3 completed years, deliberate or not.
   None of these units made another go_to_O choice with flag F set afterwards, within the completed years.
 - B_no_talk units did make repeat choices: 0, 1, 3, 8, 13 in seeds 0 to 4, each time by a single unit, and none of them ended in a delivery.
-- B_full units broadcast about G or O often (308, 70, 74, 130, 139 broadcasts in seeds 0 to 4) but only 1 first deliberate delivery in 5 seeds followed one.
+- B_full units broadcast about G or O often (308, 70, 74, 130, 139 broadcasts in seeds 0 to 4) but only 1 first deliberate delivery in 5 seeds followed one: unit 3 in seed 0 (delivery at tick 194), whose last such broadcast heard was unit 2's at tick 5, "Unit at (3,14) exploring north from zone O. Nothing notable yet. Will report any object sighting." It names zone O, not G, so the measure counts it as talk-informed although it carried no place.
 - Signals (H9) were almost absent: 21, 0, 1, 2, 1 signals in B_full seeds 0 to 4 (3,498, 3,016, 2,615, 2,554, 2,660 decisions), 0 in every B_no_talk seed, mostly in the first season. A_full seed 0 made 37 signals, all in the season starting at tick 1750, none with K in view or flag F set.
 
 ### Results
