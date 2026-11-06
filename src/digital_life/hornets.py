@@ -1,10 +1,12 @@
 """Hornets: no AI. A 10-point genome over smell, hearing and ambush, steady-state evolution on sting reward.
 
 Genes to behaviour:
-    smell s    detects bees within Manhattan distance 2 + s
+    smell s    detects bees within Manhattan distance smell_base + smell_step * s
     hearing h  hears bee sounds within 2 * h cells (Euclidean) and follows one with probability h / 10
-    ambush a   with probability a / 10 heads for a spot where it stung before or the bloom, and waits there
-Hornets path on the true map (they are part of the environment) and never enter hive cells.
+    ambush a   when free, each tick with probability ambush_rate * a / 10 heads for a spot where it stung
+               before or a bloom cell, and waits there for ambush_wait * a ticks
+Hornets path on the true map (they are part of the environment) and never enter hive cells. They move
+on a share `speed` of ticks (bees move every tick).
 """
 from __future__ import annotations
 
@@ -49,6 +51,7 @@ class Hornet:
     mode: str = "wander"
     goal: tuple[int, int] | None = None
     goal_ttl: int = 0
+    waited: int = 0
     heading: tuple[int, int] = (1, 0)
     spots: list = field(default_factory=list)
 
@@ -56,9 +59,6 @@ class Hornet:
     def fitness(self) -> float:
         return self.removed / max(1, self.ticks)
 
-    @property
-    def smell_range(self) -> int:
-        return 2 + self.genes[0]
 
     @property
     def hearing_range(self) -> int:
@@ -89,7 +89,11 @@ def step_toward(world: World, start: tuple[int, int], goal: tuple[int, int], max
 
 class Swarm:
     def __init__(self, world: World, rng, *, frozen: bool = False, mutation: float = 0.5,
-                 counts=(4, 6, 8, 0), evolve_every: int = 25, spawn_distance: int = 25, cooldown: int = 10):
+                 counts=(4, 6, 8, 0), evolve_every: int = 25, spawn_distance: int = 25, cooldown: int = 10,
+                 ambush_rate: float = 0.05, ambush_wait: int = 4, speed: float = 0.8,
+                 smell_base: float = 2.0, smell_step: float = 1.0):
+        self.smell_base, self.smell_step = smell_base, smell_step
+        self.ambush_rate, self.ambush_wait, self.speed = ambush_rate, ambush_wait, speed
         self.world, self.rng, self.frozen, self.mutation = world, rng, frozen, mutation
         self.counts, self.evolve_every, self.cooldown_ticks = counts, evolve_every, cooldown
         self.pool = [random_genome(rng) for _ in range(max(counts))]  # the initial draw; frozen hornets keep it
@@ -161,7 +165,10 @@ class Swarm:
         rng, world = self.rng, self.world
         for h in self.active:
             h.ticks += 1
-            near = [b for b in bees if abs(b[1] - h.x) + abs(b[2] - h.y) <= h.smell_range
+            if rng.random() >= self.speed:
+                continue  # hornets are a little slower than bees, so a bee that flees can get away
+            smell = self.smell_base + self.smell_step * h.genes[0]
+            near = [b for b in bees if abs(b[1] - h.x) + abs(b[2] - h.y) <= smell
                     and self.cooldown.get((h.id, b[0]), -1) <= t]
             if near:
                 tgt = next((b for b in near if b[0] == h.target), None)
@@ -172,7 +179,7 @@ class Swarm:
                         if acc >= r:
                             break
                 h.target, h.mode, h.goal = tgt[0], "chase", None
-                nxt = step_toward(world, (h.x, h.y), (tgt[1], tgt[2]), 3 * h.smell_range + 4)
+                nxt = step_toward(world, (h.x, h.y), (tgt[1], tgt[2]), int(3 * smell) + 4)
                 if nxt or abs(tgt[1] - h.x) + abs(tgt[2] - h.y) <= 1:
                     if nxt and abs(tgt[1] - h.x) + abs(tgt[2] - h.y) > 1:
                         h.x, h.y = nxt
@@ -182,13 +189,15 @@ class Swarm:
             if heard and rng.random() < h.genes[1] / 10:
                 h.goal = min(heard, key=lambda s: (math.dist(s, (h.x, h.y)), s))
                 h.goal_ttl, h.mode = 2 * h.hearing_range, "sound"
-            elif h.goal is None and rng.random() < h.genes[2] / 10:
+            elif h.goal is None and rng.random() < self.ambush_rate * h.genes[2] / 10:
                 spots = h.spots + ([bloom[rng.randrange(len(bloom))]] if bloom else [])
                 if spots:
                     h.goal, h.goal_ttl, h.mode = spots[rng.randrange(len(spots))], 80, "ambush"
+                    h.waited = 0
             if h.goal is not None:
                 h.goal_ttl -= 1
-                if (h.x, h.y) == h.goal and h.mode == "ambush" and h.goal_ttl > 0 and rng.random() < h.genes[2] / 10:
+                if (h.x, h.y) == h.goal and h.mode == "ambush" and h.waited < self.ambush_wait * h.genes[2]:
+                    h.waited += 1
                     continue  # wait in ambush
                 nxt = step_toward(world, (h.x, h.y), h.goal, 120) if (h.x, h.y) != h.goal else None
                 if nxt is None or h.goal_ttl <= 0:

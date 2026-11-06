@@ -17,7 +17,7 @@ class SeasonMetrics:
 
     def start(self, t: int, season: int, year: int) -> None:
         self.t0, self.season, self.year = t, season, year
-        self.trips = self.deliveries = self.stings = self.hatches = self.queen_hatches = self.deaths = 0
+        self.trips = self.trips_ended = self.trips_delivered = self.deliveries = self.stings = self.hatches = self.queen_hatches = self.deaths = 0
         self.sounds = {"sound-1": 0, "sound-2": 0}
         self.damage, self.to_bloom, self.sizes = 0.0, [], []
         self.first_delivery = None
@@ -36,8 +36,9 @@ class SeasonMetrics:
         mean = lambda i: round(statistics.fmean(g[i] for g in genes), 3) if genes else None  # noqa: E731
         row = {
             "step": t, "year": self.year, "season": SEASONS[self.season],
-            "trips": self.trips, "deliveries": self.deliveries, "delivery_rate": _ratio(self.deliveries, self.trips),
-            "stings": self.stings, "stings_per_trip": _ratio(self.stings, self.trips),
+            "trips": self.trips, "trips_ended": self.trips_ended, "trips_delivered": self.trips_delivered,
+            "deliveries": self.deliveries, "delivery_rate": _ratio(self.trips_delivered, self.trips_ended),
+            "stings": self.stings, "stings_per_trip": _ratio(self.stings, self.trips_ended),
             "median_to_bloom": statistics.median(self.to_bloom) if self.to_bloom else None,
             "first_delivery": self.first_delivery,
             "bees_end": self.sizes[-1] if self.sizes else 0,
@@ -56,11 +57,12 @@ def summarise(rows: list[dict], world, extra: dict | None = None) -> dict:
     s: dict = {}
     tot = lambda k, rs: sum(r[k] for r in rs)  # noqa: E731
     s["trips"], s["deliveries"], s["stings"] = tot("trips", rows), tot("deliveries", rows), tot("stings", rows)
-    s["delivery_rate"], s["stings_per_trip"] = _ratio(s["deliveries"], s["trips"]), _ratio(s["stings"], s["trips"])
+    ended = tot("trips_ended", rows)
+    s["delivery_rate"], s["stings_per_trip"] = _ratio(tot("trips_delivered", rows), ended), _ratio(s["stings"], ended)
     for name in SEASONS[:3]:
         rs = [r for r in rows if r["season"] == name]
-        s[f"{name}_trips"], s[f"{name}_deliveries"] = tot("trips", rs), tot("deliveries", rs)
-        s[f"{name}_rate"] = _ratio(s[f"{name}_deliveries"], s[f"{name}_trips"])
+        s[f"{name}_trips"], s[f"{name}_deliveries"] = tot("trips_ended", rs), tot("deliveries", rs)
+        s[f"{name}_rate"] = _ratio(tot("trips_delivered", rs), s[f"{name}_trips"])
         s[f"{name}_stings_per_trip"] = _ratio(tot("stings", rs), s[f"{name}_trips"])
     for r in rows:
         if r["season"] == "spring" and r["first_delivery"] is not None:

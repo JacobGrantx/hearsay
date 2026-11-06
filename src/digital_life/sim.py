@@ -22,7 +22,7 @@ DEFAULTS = dict(
     openness=0.15, rooms=4, min_bloom_distance=55, bloom_spread=1.5,
     base_life=250, life_cap_factor=3, max_bees=12, start_bees=6, queen_floor=2, decide_every=5,
     sound_cost=1, newborn_hold=3, hornet_counts=[4, 6, 8, 0], evolve_every=25, mutation=0.5,
-    sting_cooldown=10, hornet_spawn_distance=25, log_state=True, log_decisions=True)
+    sting_cooldown=10, hornet_spawn_distance=25, ambush_rate=0.05, ambush_wait=4, hornet_speed=0.8, smell_base=2.0, smell_step=1.0, log_state=True, log_decisions=True)
 CONDITION_POLICY = {"rule_bees": "rule", "random_bees": "random", "oracle_bees": "oracle"}
 PRIORITY = ("stung", "hornet", "bloom", "sound", "home", "arrived", "life25", "life50", "hatched", "timer")
 assert set(PRIORITY) == set(TRIGGERS)
@@ -38,7 +38,9 @@ class Sim:
         self.rng = random.Random(f"bees:{seed}")
         self.swarm = Swarm(self.world, random.Random(f"hornets:{seed}"), frozen=p["condition"] == "frozen_hornets",
                            mutation=p["mutation"], counts=tuple(p["hornet_counts"]), evolve_every=p["evolve_every"],
-                           spawn_distance=p["hornet_spawn_distance"], cooldown=p["sting_cooldown"])
+                           spawn_distance=p["hornet_spawn_distance"], cooldown=p["sting_cooldown"],
+                           ambush_rate=p["ambush_rate"], ambush_wait=p["ambush_wait"], speed=p["hornet_speed"],
+                           smell_base=p["smell_base"], smell_step=p["smell_step"])
         name = p["policy"] or CONDITION_POLICY.get(p["condition"])
         self.policy = policy or make_policy(name, random.Random(f"policy:{seed}"), params=p,
                                             bloom_now=lambda: self.world.bloom_now(self.cal.season(self.t)))
@@ -77,6 +79,8 @@ class Sim:
         reached = None if tr["bloom"] is None else tr["bloom"] - tr["start"]
         if reached is not None:
             self.metrics.to_bloom.append(reached)
+        self.metrics.trips_ended += 1
+        self.metrics.trips_delivered += delivered
         self.out.event("trip", self.t, bee=bee.id, start=tr["start"], ticks=self.t - tr["start"], delivered=delivered,
                        reached_bloom=reached, stings=tr["stings"], outcome=outcome)
 

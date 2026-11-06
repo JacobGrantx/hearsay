@@ -105,27 +105,37 @@ def astar(km: KnownMap, start, goal, max_nodes: int = 6000):
 
 
 def find_frontier(km: KnownMap, start, direction: str, max_nodes: int = 4000):
-    """Nearest frontier cell (by route over known cells) inside the 50-degree cone of `direction`."""
+    """Nearest frontier cell (by route over known cells) inside the 50-degree cone of `direction`; failing
+    that, the nearest one within 90 degrees of it. Returns (goal, route goal-first) or None."""
     vx, vy = DIR_VEC[direction]
     vlen = math.hypot(vx, vy)
     came = {start: None}
     q = deque([start])
+    wide = None
+
+    def route(c):
+        path = []
+        while c != start:
+            path.append(c)
+            c = came[c]
+        return path[0], path
+
     while q and len(came) < max_nodes:
         c = q.popleft()
         if c != start:
             dx, dy = c[0] - start[0], c[1] - start[1]
-            if dx * vx + dy * vy >= CONE_COS * math.hypot(dx, dy) * vlen and km.frontier(*c):
-                path = []
-                while c != start:
-                    path.append(c)
-                    c = came[c]
-                return path[0], path
+            dot = dx * vx + dy * vy
+            if dot > 0 and km.frontier(*c):
+                if dot >= CONE_COS * math.hypot(dx, dy) * vlen:
+                    return route(c)
+                if wide is None:
+                    wide = c
         for dx, dy in DIRS4:
             n = (c[0] + dx, c[1] + dy)
             if n not in came and km.walkable_known(*n):
                 came[n] = c
                 q.append(n)
-    return None
+    return route(wide) if wide is not None else None
 
 
 def flee_step(km: KnownMap, pos, hornets):

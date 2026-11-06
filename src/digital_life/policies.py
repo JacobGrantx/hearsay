@@ -57,7 +57,7 @@ class RulePolicy(Policy):
             x, y = p.position
             return Decision("go_to", target=min(p.bloom_seen, key=lambda c: (abs(c[0] - x) + abs(c[1] - y), c)))
         h = self.heading.get(p.bee_id)
-        if h is None or p.at_home or (p.trigger == "arrived" and p.motor_status in ("arrived", "blocked")):
+        if h is None or p.at_home or p.motor_status in ("arrived", "blocked"):
             h = self.heading[p.bee_id] = DIRECTIONS[self.rng.randrange(8)]
         return Decision("explore", direction=h)
 
@@ -66,19 +66,22 @@ class RulePolicy(Policy):
 
 
 class OraclePolicy(Policy):
-    """Calibration only: told where this season's bloom is. Goes there, carries home, waits out winter."""
+    """Calibration only: told where this season's bloom is. Flees a hornet within 3 cells, otherwise goes to
+    the bloom, carries it home, and waits out winter at home."""
     name = "oracle"
 
-    def __init__(self, bloom_now):
-        self.bloom_now = bloom_now
+    def __init__(self, bloom_now, flee_within: int = 3):
+        self.bloom_now, self.flee_within = bloom_now, flee_within
 
     def decide(self, p: Perception) -> Decision:
+        x, y = p.position
+        if not p.at_home and any(max(abs(hx - x), abs(hy - y)) <= self.flee_within for hx, hy in p.hornets_seen):
+            return Decision("flee")
         if p.carrying:
             return Decision("go_home")
         cells = self.bloom_now()
         if not cells:
             return Decision("wait") if p.at_home else Decision("go_home")
-        x, y = p.position
         return Decision("go_to", target=min(cells, key=lambda c: (abs(c[0] - x) + abs(c[1] - y), c)))
 
 
@@ -89,5 +92,5 @@ def make_policy(name: str, rng, *, bloom_now=None, params: dict | None = None) -
     if name == "rule":
         return RulePolicy(rng, params.get("return_fraction", 0.5))
     if name == "oracle":
-        return OraclePolicy(bloom_now)
+        return OraclePolicy(bloom_now, params.get("oracle_flee_within", 3))
     raise ValueError(f"unknown policy {name!r}")
