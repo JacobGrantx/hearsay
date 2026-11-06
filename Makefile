@@ -1,7 +1,7 @@
 PY := .venv/bin/python
 DEMO_AI_RUN ?= experiments/results/full/20261106T101558Z/seed-0
 
-.PHONY: setup test smoke demo replay traces check analysis
+.PHONY: setup test smoke demo replay traces check analysis video
 
 setup:            ## create .venv, install pinned deps, enable the secret-scan pre-commit hook
 	python3 -m venv .venv
@@ -32,3 +32,6 @@ analysis:         ## recompute every pre-registered measure and the figures from
 	$(PY) experiments/analysis/figures.py
 	$(PY) experiments/analysis/trip_diagnosis.py > /dev/null
 	$(PY) experiments/analysis/e5_results.py > /dev/null
+
+video:            ## re-render demo/recordings/demo.mp4, SOURCES.md and the stills from the run directories (about 10 minutes; needs ffmpeg and the viewer's headless shell)
+	$(PY) demo/video/make_video.py $(if $(TITLE),--title "$(TITLE)") $(if $(REPO),--repo "$(REPO)")
