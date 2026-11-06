@@ -8,6 +8,11 @@ const TRIGGER_WORDS = {
   sound: "heard a sound", arrived: "arrived", home: "entered the hive", life50: "life fell below half",
   life25: "life fell below a quarter", hatched: "just hatched",
 };
+// What the AI bees read instead of bee, hive, hornet and bloom (src/digital_life/vocab.py). The viewer stays human-facing.
+const AGENTS_SEE = {
+  abstract: "Agents see: units, zone O, K entities, G cells, signals A and B.",
+  neutral: "Agents see: members, home, moving things, bright cells, sound-1 and sound-2.",
+};
 const MODE_WORDS = { chase: "Chasing", sound: "Following a sound", ambush: "Waiting in ambush", wander: "Wandering" };
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -71,7 +76,7 @@ function colonyHTML(run, T) {
   <h3>This season so far</h3>
   <div class="stats"><span>Deliveries</span><span>${c.delivery}</span><span>Stings</span><span>${c.sting}</span>
   <span>Hatchings</span><span>${c.hatch}</span><span>Deaths</span><span>${c.death}</span></div>
-  <h3>Key</h3>${LEGEND}`;
+  <h3>Key</h3>${LEGEND}${AGENTS_SEE[run.vocab] ? `<p class="muted">${AGENTS_SEE[run.vocab]}</p>` : ""}`;
 }
 
 function beeHTML(run, T, id) {

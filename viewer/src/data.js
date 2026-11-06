@@ -22,6 +22,7 @@ V.loadRun = async function (raw) {
     name: raw.name || "",
     layout: L,
     metrics: raw.metrics || [],
+    vocab: raw.vocab || null,  // the words the AI bees read; null for scripted bees
     bf: fieldIndex(L.bee_fields || ["id", "x", "y", "life", "carrying", "stunned", "intent"]),
     hf: fieldIndex(L.hornet_fields || ["id", "x", "y", "smell", "hearing", "ambush", "target", "mode"]),
     sf: fieldIndex(L.sound_fields || ["bee", "x", "y", "sound"]),

@@ -16,6 +16,12 @@ Hornets roam the maze. They are not AI. Each carries 10 points spread over three
 
 So everything the colony comes to know (where the bloom is, that moving things hurt, which way to go in spring) it has to find out itself, and keep alive by talking.
 
+Round 1 found the bees wary of moving things at first sight, before any sting, and words like "home", "life" and "flee" in the prompt could explain that. So from round 2 the default vocabulary is abstract (`vocab = "abstract"`, [src/digital_life/vocab.py](src/digital_life/vocab.py)): life is "counter C", carrying is "flag F", and there is no `flee` to choose. The viewer still says bee, hornet and hive, because the model never sees it.
+
+> Agents see: units, zone O, K entities, G cells, signals A and B.
+
+The round 1 wording is kept as `vocab = "neutral"`, and every result in this README so far was made with it.
+
 ## Why digital life?
 
 The property we go deep on is **adaptation, at three speeds**, under seasonal change:
@@ -86,7 +92,7 @@ Full detail, with the design choices and the alternatives rejected, in [ARCHITEC
 
 ## How it works
 
-- **Decisions.** A bee decides every 5 ticks, and at once when it is stung, newly sees a moving thing, sees bloom, hears a sound, arrives, gets home, or its life crosses half or a quarter. A decision is an intent (`explore` a direction, `go_to` x, y, `go_home`, `flee`, `wait`), a sound or none (each costs 1 life, and hornets can hear it), a note to remember, and up to 30 words to say at home.
+- **Decisions.** A bee decides every 5 ticks, and at once when it is stung, newly sees a moving thing, sees bloom, hears a sound, arrives, gets home, or its life crosses half or a quarter. A decision is an intent (`explore` a direction, `go_to` x, y, `go_home`, `flee`, `wait`; in the abstract vocabulary `go_to_O`, `hold` and no `flee`), a sound or none (each costs 1 life, and hornets can hear it), a note to remember, and up to 30 words to say at home.
 - **Body.** A motor layer with no AI walks the intent: A* over the cells this bee has seen, unknown cells assumed open, replanning when a wall appears. The mind chooses where to go, not each step.
 - **Memory.** Every bee keeps episodes scored by importance (a sting or a delivery 5, bloom 4, a moving thing 3, talk heard 2, a sound 1), up to 12 notes it chose to write, and recall of the 6 best episodes by recency, importance and text relevance. Memory dies with the bee.
 - **Culture.** Words said at home reach every bee at home that tick and are stored as things heard. That is the only channel between bees.

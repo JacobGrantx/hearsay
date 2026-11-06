@@ -15,6 +15,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 SRC = HERE / "src"
 JS_FILES = ["data.js", "draw_map.js", "draw_live.js", "panel.js", "input.js", "app.js"]
+AI_CONDITIONS = ("full", "no_talk", "no_memory", "labels_good_bad", "frozen_hornets")  # as digital_life.mind
 
 
 def _gz_b64(raw: bytes) -> str:
@@ -55,7 +56,16 @@ def load_run(run_dir: Path) -> dict:
         "state": _gz_b64(state),
         "events": _gz_b64(events),
         "metrics": metrics,
+        "vocab": vocab_of(record.get("params", {})),
     }
+
+
+def vocab_of(params: dict) -> str | None:
+    """The words the run's AI bees read (src/digital_life/vocab.py); None for scripted bees. Runs from before the
+    vocab param existed used the wording now called neutral."""
+    if params.get("condition") in AI_CONDITIONS or params.get("policy") == "ai":
+        return params.get("vocab", "neutral")
+    return None
 
 
 def _inline_json(obj) -> str:
