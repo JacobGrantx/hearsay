@@ -13,7 +13,7 @@ import json
 from collections import Counter
 
 import measures as m
-from runs import AI, CONDITIONS, OUTPUT, PAIRED_SEEDS, describe, fmt, paired, runs
+from runs import AI, CONDITIONS, EXTENDED_SEEDS, OUTPUT, PAIRED_SEEDS, describe, fmt, paired, runs
 
 E1_MEASURES = ["deliveries", "delivery_rate", "median_to_bloom", "stings_per_trip", "bees_mean",
                "spring_deliveries", "summer_deliveries", "autumn_deliveries",
@@ -37,6 +37,7 @@ def collect() -> dict:
         vals = {c: seeds(c, lambda r: r.final.get(k)) for c in CONDITIONS}
         e1["by_condition"][k] = {c: describe(v) for c, v in vals.items()}
         e1["paired"][k] = {f"full - {c}": paired(vals["full"], vals[c]) for c in ("no_talk", "no_memory", "rule_bees", "random_bees")}
+        e1.setdefault("paired_extended", {})[k] = {f"full - {c}": paired(vals["full"], vals[c], EXTENDED_SEEDS) for c in ("no_talk", "rule_bees", "random_bees")}
     e1["deliveries_by_season"] = {c: seeds(c, m.deliveries_by_season) for c in CONDITIONS}
     out["E1"] = e1
 
@@ -58,6 +59,7 @@ def collect() -> dict:
         "first_delivery_y2": {c: describe(seeds(c, lambda r: m.first_spring_delivery(r, 1))) for c in CONDITIONS},
         "gain": {c: describe(v) for c, v in gain.items()},
         "paired": {"full - no_talk": paired(gain["full"], gain["no_talk"])},
+        "paired_extended": {"full - no_talk": paired(gain["full"], gain["no_talk"], EXTENDED_SEEDS)},
         "carryover": {c: seeds(c, m.carryover) for c in AI},
     }
 
@@ -95,9 +97,9 @@ def table(title: str, block: dict, conds=CONDITIONS, digits=3) -> list[str]:
 
 
 def pair_lines(title: str, block: dict) -> list[str]:
-    lines = [f"**{title}** (paired by seed 0 to 2)", "", "| comparison | per-seed differences | mean | sd | verdict |", "|---|---|---|---|---|"]
+    lines = [f"**{title}** (paired by seed)", "", "| comparison | n | per-seed differences | mean | sd | verdict |", "|---|---|---|---|---|---|"]
     for name, p in block.items():
-        lines.append(f"| {name} | {p['diffs']} | {p['mean']} | {p['sd']} | {p['verdict']} |")
+        lines.append(f"| {name} | {p['n']} | {p['diffs']} | {p['mean']} | {p['sd']} | {p['verdict']} |")
     return lines + [""]
 
 
@@ -114,6 +116,7 @@ def markdown(r: dict) -> str:
     for k in E1_MEASURES:
         L += table(k, r["E1"]["by_condition"][k])
     L += pair_lines("E1 primary: deliveries", r["E1"]["paired"]["deliveries"])
+    L += pair_lines("E1 primary, extended to seeds 0 to 4 (amendment 1)", r["E1"]["paired_extended"]["deliveries"]).copy()
     L += pair_lines("E1 secondary: delivery_rate", r["E1"]["paired"]["delivery_rate"])
     L += pair_lines("E1 secondary: stings_per_trip", r["E1"]["paired"]["stings_per_trip"])
     L += ["## E2: arms race", ""] + table("stings per trip, year 1", r["E2"]["stings_per_trip_y1"])
@@ -122,6 +125,7 @@ def markdown(r: dict) -> str:
     L += ["## E3: seasonal memory", ""] + table("first spring delivery, year 1 (censored at 250)", r["E3"]["first_delivery_y1"], digits=1)
     L += table("first spring delivery, year 2", r["E3"]["first_delivery_y2"], digits=1) + table("gain (year 1 minus year 2)", r["E3"]["gain"], digits=1)
     L += pair_lines("E3 primary", r["E3"]["paired"])
+    L += pair_lines("E3 primary, extended to seeds 0 to 4 (amendment 1)", r["E3"]["paired_extended"])
     L += ["**Carryover**", ""] + [f"- {c} seed {s}: {v}" for c, sv in r["E3"]["carryover"].items() for s, v in sv.items()]
     L += ["", "## E4: signals", "", f"Supported (full above its permutation 95th percentile in at least 2 of 3 seeds): {r['E4']['supported']} ({r['E4']['full_seeds_above_p95']} of 3)", "",
           "| condition | seed | sounds | by sound | MI (bits) | perm p95 | perm p | note |", "|---|---|---|---|---|---|---|---|"]

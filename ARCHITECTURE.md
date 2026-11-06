@@ -1,6 +1,21 @@
 # Architecture
 
-A bee colony lives in a maze and has to find seasonal bloom while evolving hornets hunt it. Phase 1 (this state of the repo) is the world with no AI: bees are driven by scripted policies through the same interface the AI mind will use. The full spec is docs/spec.md; the build handoff, with the exact log format, is docs/BUILD_NOTES.md.
+A bee colony lives in a maze and has to find seasonal bloom while evolving hornets hunt it. Each bee is a small language-model mind that sees only its surroundings, remembers what happened to it, and can talk only inside the hive. The hornets are not AI: they evolve. The full spec is docs/spec.md; the build handoff, with the exact log format, is docs/BUILD_NOTES.md.
+
+```
+            seed
+              |
+   World (maze, hive, bloom, calendar) ----> layout.json
+              |
+   tick loop (sim.py) ------------------------------> state.jsonl.gz, events.jsonl, metrics.jsonl
+     |  senses (bees.py): what each bee perceives          |
+     |  policy: AI mind (mind.py, render.py, memory.py)    |   viewer/ replays a run directory
+     |          or scripted (policies.py)                  |   experiments/analysis/ measures it
+     |  motor layer (motor.py): intent -> one step         |
+     |  hornets (hornets.py): chase, sting, evolve         |
+     v                                                     v
+   llm.py: every model call, replay cache, spend cap ----> experiments/llm_cache/
+```
 
 ## Components
 
@@ -17,6 +32,8 @@ A bee colony lives in a maze and has to find seasonal bloom while evolving horne
 | Memory | `src/digital_life/memory.py` | Each AI bee's episodes, notes and recall. |
 | Simulation | `src/digital_life/sim.py` | The tick loop that runs everything in a fixed order, and the parameter defaults. |
 | Logging and measures | `src/digital_life/simlog.py`, `metrics.py` | The run directory (layout, per-tick state, events, per-season measures) and the run summary. |
+| Viewer | `viewer/` | A static page that replays any run directory: map with seasonal tint, bees with life rings, hornets, bloom, sound ripples, stings, and a clicked bee's decisions, notes and hive talk. `viewer/capture.py` renders frames headless for stills and video. |
+| Analysis | `experiments/analysis/` | Every pre-registered measure, computed from run directories alone (`main_results.py`, `measures.py`), and the figures (`figures.py`). |
 
 ## How they interact
 
@@ -71,6 +88,9 @@ The World is read in only three places: the senses, the hornets (which are part 
 
 - `experiments/run.py`: runs a config across seeds. Records params, seed, git commit and versions per run. Writes metrics, events and a cross-seed summary to experiments/results/.
 - `experiments/analysis/calibration_table.py`: builds the calibration table in EXPERIMENTS.md from the summary.json files.
-- `src/digital_life/llm.py`: the only path for runtime model calls. Records each request and response in `experiments/llm_cache/` so runs replay offline (`LLM_MODE=replay`), and enforces a spend cap. Phase 1 makes no model calls.
+- `src/digital_life/llm.py`: the only path for runtime model calls. Records each request and response in `experiments/llm_cache/` so runs replay offline (`LLM_MODE=replay`), and enforces a spend cap. It reads both loose entries (one JSON file per call) and packed ones.
+- `tools/pack_llm_cache.py`: packs one run's cache entries, found through the `prompt_key` of its decision events, into `experiments/llm_cache/<run>.jsonl.gz` (about 0.45 KB a call instead of 7 KB).
+- `experiments/replay_check.py` (`make replay RUN=<seed dir>`): re-runs a recorded seed offline from the cache and checks that every output file is identical. `make demo` uses it on the recorded pilot run.
+- `experiments/analysis/main_results.py`, `figures.py` (`make analysis`): the pre-registered measures and the figures, from the run directories.
 - `tools/export_traces.py`: exports each Claude Code session's original log into agent_traces/, with the redactions listed in agent_traces/README.md. It runs from hooks in .claude/settings.json.
 - `tools/presubmit.py`: checks the repository against the brief's submission checklist. A git pre-commit hook runs its secret scan.

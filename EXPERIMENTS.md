@@ -121,7 +121,8 @@ From the feasibility note: about $0.0001 per decision. The pilot (below) gives t
 
 ### Amendments
 
-None yet.
+1. **Seeds 3 and 4 for `full` and `no_talk`** (2026-11-06, 10:32 UTC, during the main runs). The pilot's cost held up (about $0.37 per 2-year run), so the extension the shared design allows "budget allowing" was started for the two arms the likely headlines compare: `full` against `rule_bees` (which already has seeds 0 to 4) in E1, and `full` against `no_talk` in E1 and E3. It was decided after seed 0 of each arm had finished and before seeds 1 and 2 had, and it runs whatever the outcome. The pre-registered verdicts stay on seeds 0 to 2; the 5-seed comparisons are reported beside them, with the same rule (same sign on all 5 paired seeds, and mean paired difference larger than its sd).
+2. **Five AI processes at once** (2026-11-06, 10:16 UTC, at launch). Each AI arm ran as its own process, seeds one after another, with its own replay-cache folder and spend ledger, from a clean git worktree at commit 9cb4e7a, so that later commits could not change a running experiment. This changes no analysis.
 
 ## Pilot (phase 2): one full-size spring, not a result
 

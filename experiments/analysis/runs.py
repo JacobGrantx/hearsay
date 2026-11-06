@@ -22,6 +22,9 @@ CONDITIONS = AI + SCRIPTED
 # The main runs: every condition was launched at one commit (9cb4e7a) in one batch, so they share a stamp.
 MAIN_STAMP = os.environ.get("DL_MAIN_STAMP", "20261106T101558Z")
 PAIRED_SEEDS = [0, 1, 2]
+# Pre-registered extension to seeds 3 and 4 for the arms a headline compares (EXPERIMENTS.md, Amendments).
+EXTENSIONS = {"full": ["20261106T103203Z_seeds34"], "no_talk": ["20261106T103203Z_seeds34"]}
+EXTENDED_SEEDS = [0, 1, 2, 3, 4]
 # Categorical slots 1 to 7 of the dataviz reference palette, in fixed order (validated for colour vision deficiency).
 COLORS = dict(zip(CONDITIONS, ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6"]))
 SEASONS = ["spring", "summer", "autumn", "winter"]
@@ -75,13 +78,13 @@ class Run:
 
 
 def runs(condition: str, stamp: str = MAIN_STAMP) -> dict[int, Run]:
-    """Completed seeds (those with a record.json) of one condition's main batch, by seed."""
-    base = RESULTS / condition / stamp
+    """Completed seeds (those with a record.json) of one condition's main batch and its extensions, by seed."""
     out = {}
-    for d in sorted(base.glob("seed-*")):
-        if (d / "record.json").exists():
-            r = Run(d)
-            out[r.seed] = r
+    for batch in [stamp] + (EXTENSIONS.get(condition, []) if stamp == MAIN_STAMP else []):
+        for d in sorted((RESULTS / condition / batch).glob("seed-*")):
+            if (d / "record.json").exists():
+                r = Run(d)
+                out[r.seed] = r
     return out
 
 
