@@ -1,0 +1,190 @@
+== experiments/results/full/20261106T101558Z/seed-0
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/full/20261106T101558Z/seed-0 (commit 9cb4e7a, 686.016 s)
+replay:   /dev/shm/dlscratch/replays/full/20261106T110829Z_replay/seed-0 (commit 2d4daf7, 7.089 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/full/20261106T101558Z/seed-1
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/full/20261106T101558Z/seed-1 (commit 9cb4e7a, 865.01 s)
+replay:   /dev/shm/dlscratch/replays/full/20261106T110836Z_replay/seed-1 (commit 2d4daf7, 6.698 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/full/20261106T101558Z/seed-2
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/full/20261106T101558Z/seed-2 (commit 9cb4e7a, 822.986 s)
+replay:   /dev/shm/dlscratch/replays/full/20261106T110843Z_replay/seed-2 (commit 2d4daf7, 6.873 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/full/20261106T103203Z_seeds34/seed-3
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/full/20261106T103203Z_seeds34/seed-3 (commit 9cb4e7a, 800.331 s)
+replay:   /dev/shm/dlscratch/replays/full/20261106T110851Z_replay/seed-3 (commit 2d4daf7, 5.194 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/full/20261106T103203Z_seeds34/seed-4
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/full/20261106T103203Z_seeds34/seed-4 (commit 9cb4e7a, 821.573 s)
+replay:   /dev/shm/dlscratch/replays/full/20261106T110856Z_replay/seed-4 (commit 2d4daf7, 6.438 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/no_talk/20261106T101558Z/seed-0
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/no_talk/20261106T101558Z/seed-0 (commit 9cb4e7a, 891.988 s)
+replay:   /dev/shm/dlscratch/replays/no_talk/20261106T110903Z_replay/seed-0 (commit 2d4daf7, 6.785 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/no_talk/20261106T101558Z/seed-1
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/no_talk/20261106T101558Z/seed-1 (commit 9cb4e7a, 868.345 s)
+replay:   /dev/shm/dlscratch/replays/no_talk/20261106T110910Z_replay/seed-1 (commit 2d4daf7, 7.8 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/no_talk/20261106T101558Z/seed-2
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/no_talk/20261106T101558Z/seed-2 (commit 9cb4e7a, 797.052 s)
+replay:   /dev/shm/dlscratch/replays/no_talk/20261106T110919Z_replay/seed-2 (commit 2d4daf7, 5.941 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/no_talk/20261106T103203Z_seeds34/seed-3
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/no_talk/20261106T103203Z_seeds34/seed-3 (commit 9cb4e7a, 769.944 s)
+replay:   /dev/shm/dlscratch/replays/no_talk/20261106T110925Z_replay/seed-3 (commit 2d4daf7, 4.914 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/no_talk/20261106T103203Z_seeds34/seed-4
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/no_talk/20261106T103203Z_seeds34/seed-4 (commit 9cb4e7a, 782.909 s)
+replay:   /dev/shm/dlscratch/replays/no_talk/20261106T110930Z_replay/seed-4 (commit 2d4daf7, 6.406 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/no_memory/20261106T101558Z/seed-0
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/no_memory/20261106T101558Z/seed-0 (commit 9cb4e7a, 903.735 s)
+replay:   /dev/shm/dlscratch/replays/no_memory/20261106T110937Z_replay/seed-0 (commit 2d4daf7, 5.951 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/no_memory/20261106T101558Z/seed-1
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/no_memory/20261106T101558Z/seed-1 (commit 9cb4e7a, 992.158 s)
+replay:   /dev/shm/dlscratch/replays/no_memory/20261106T110944Z_replay/seed-1 (commit 2d4daf7, 7.799 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/no_memory/20261106T101558Z/seed-2
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/no_memory/20261106T101558Z/seed-2 (commit 9cb4e7a, 854.707 s)
+replay:   /dev/shm/dlscratch/replays/no_memory/20261106T110952Z_replay/seed-2 (commit 2d4daf7, 8.083 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/frozen_hornets/20261106T101558Z/seed-0
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/frozen_hornets/20261106T101558Z/seed-0 (commit 9cb4e7a, 876.342 s)
+replay:   /dev/shm/dlscratch/replays/frozen_hornets/20261106T111000Z_replay/seed-0 (commit 2d4daf7, 7.201 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/frozen_hornets/20261106T101558Z/seed-1
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/frozen_hornets/20261106T101558Z/seed-1 (commit 9cb4e7a, 838.228 s)
+replay:   /dev/shm/dlscratch/replays/frozen_hornets/20261106T111008Z_replay/seed-1 (commit 2d4daf7, 6.947 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/frozen_hornets/20261106T101558Z/seed-2
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/frozen_hornets/20261106T101558Z/seed-2 (commit 9cb4e7a, 774.074 s)
+replay:   /dev/shm/dlscratch/replays/frozen_hornets/20261106T111015Z_replay/seed-2 (commit 2d4daf7, 5.96 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/labels_good_bad/20261106T101558Z/seed-0
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/labels_good_bad/20261106T101558Z/seed-0 (commit 9cb4e7a, 1096.402 s)
+replay:   /dev/shm/dlscratch/replays/labels_good_bad/20261106T111022Z_replay/seed-0 (commit 2d4daf7, 8.726 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/labels_good_bad/20261106T101558Z/seed-1
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/labels_good_bad/20261106T101558Z/seed-1 (commit 9cb4e7a, 901.145 s)
+replay:   /dev/shm/dlscratch/replays/labels_good_bad/20261106T111031Z_replay/seed-1 (commit 2d4daf7, 7.529 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+== experiments/results/labels_good_bad/20261106T101558Z/seed-2
+note: working tree had uncommitted changes; commit before runs you plan to cite
+original: experiments/results/labels_good_bad/20261106T101558Z/seed-2 (commit 9cb4e7a, 801.685 s)
+replay:   /dev/shm/dlscratch/replays/labels_good_bad/20261106T111039Z_replay/seed-2 (commit 2d4daf7, 6.335 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL

@@ -106,7 +106,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 3116356,
-    "output_tokens": 115978
+    "output_tokens": 115978,
+    "seconds": 686.016
    },
    "1": {
     "decisions": 1335,
@@ -115,7 +116,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2548231,
-    "output_tokens": 100998
+    "output_tokens": 100998,
+    "seconds": 865.01
    },
    "2": {
     "decisions": 1281,
@@ -124,7 +126,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2477268,
-    "output_tokens": 96452
+    "output_tokens": 96452,
+    "seconds": 822.986
    },
    "3": {
     "decisions": 1238,
@@ -133,7 +136,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2298049,
-    "output_tokens": 95212
+    "output_tokens": 95212,
+    "seconds": 800.331
    },
    "4": {
     "decisions": 1316,
@@ -142,7 +146,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2612774,
-    "output_tokens": 106888
+    "output_tokens": 106888,
+    "seconds": 821.573
    }
   },
   "no_talk": {
@@ -153,7 +158,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2377035,
-    "output_tokens": 92158
+    "output_tokens": 92158,
+    "seconds": 891.988
    },
    "1": {
     "decisions": 1532,
@@ -162,7 +168,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2551858,
-    "output_tokens": 100138
+    "output_tokens": 100138,
+    "seconds": 868.345
    },
    "2": {
     "decisions": 1278,
@@ -171,7 +178,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2126798,
-    "output_tokens": 84630
+    "output_tokens": 84630,
+    "seconds": 797.052
    },
    "3": {
     "decisions": 1230,
@@ -180,7 +188,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2056196,
-    "output_tokens": 81152
+    "output_tokens": 81152,
+    "seconds": 769.944
    },
    "4": {
     "decisions": 1326,
@@ -189,7 +198,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2219436,
-    "output_tokens": 87971
+    "output_tokens": 87971,
+    "seconds": 782.909
    }
   },
   "no_memory": {
@@ -200,7 +210,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 1623446,
-    "output_tokens": 57911
+    "output_tokens": 57911,
+    "seconds": 903.735
    },
    "1": {
     "decisions": 1609,
@@ -209,7 +220,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 1739058,
-    "output_tokens": 59932
+    "output_tokens": 59932,
+    "seconds": 992.158
    },
    "2": {
     "decisions": 1310,
@@ -218,7 +230,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 1402732,
-    "output_tokens": 48204
+    "output_tokens": 48204,
+    "seconds": 854.707
    }
   },
   "frozen_hornets": {
@@ -229,7 +242,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 3122439,
-    "output_tokens": 117980
+    "output_tokens": 117980,
+    "seconds": 876.342
    },
    "1": {
     "decisions": 1293,
@@ -238,7 +252,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2552356,
-    "output_tokens": 97480
+    "output_tokens": 97480,
+    "seconds": 838.228
    },
    "2": {
     "decisions": 1186,
@@ -247,7 +262,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2155919,
-    "output_tokens": 87922
+    "output_tokens": 87922,
+    "seconds": 774.074
    }
   },
   "labels_good_bad": {
@@ -258,7 +274,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 3842750,
-    "output_tokens": 146435
+    "output_tokens": 146435,
+    "seconds": 1096.402
    },
    "1": {
     "decisions": 1364,
@@ -267,7 +284,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2576144,
-    "output_tokens": 100400
+    "output_tokens": 100400,
+    "seconds": 901.145
    },
    "2": {
     "decisions": 1231,
@@ -276,7 +294,8 @@
     "fallback_share": 0.0,
     "flagged": false,
     "input_tokens": 2276040,
-    "output_tokens": 91242
+    "output_tokens": 91242,
+    "seconds": 801.685
    }
   }
  },

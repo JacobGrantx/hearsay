@@ -15,27 +15,29 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 ## Model health
 
-| condition | seed | decisions | mind_error | fallbacks | share | flagged | input tokens | output tokens |
-|---|---|---|---|---|---|---|---|---|
-| full | 0 | 1440 | 0 | 0 | 0.0 | False | 3116356 | 115978 |
-| full | 1 | 1335 | 0 | 0 | 0.0 | False | 2548231 | 100998 |
-| full | 2 | 1281 | 0 | 0 | 0.0 | False | 2477268 | 96452 |
-| full | 3 | 1238 | 0 | 0 | 0.0 | False | 2298049 | 95212 |
-| full | 4 | 1316 | 0 | 0 | 0.0 | False | 2612774 | 106888 |
-| no_talk | 0 | 1398 | 0 | 0 | 0.0 | False | 2377035 | 92158 |
-| no_talk | 1 | 1532 | 0 | 0 | 0.0 | False | 2551858 | 100138 |
-| no_talk | 2 | 1278 | 0 | 0 | 0.0 | False | 2126798 | 84630 |
-| no_talk | 3 | 1230 | 0 | 0 | 0.0 | False | 2056196 | 81152 |
-| no_talk | 4 | 1326 | 0 | 0 | 0.0 | False | 2219436 | 87971 |
-| no_memory | 0 | 1491 | 0 | 0 | 0.0 | False | 1623446 | 57911 |
-| no_memory | 1 | 1609 | 0 | 0 | 0.0 | False | 1739058 | 59932 |
-| no_memory | 2 | 1310 | 0 | 0 | 0.0 | False | 1402732 | 48204 |
-| frozen_hornets | 0 | 1488 | 0 | 0 | 0.0 | False | 3122439 | 117980 |
-| frozen_hornets | 1 | 1293 | 0 | 0 | 0.0 | False | 2552356 | 97480 |
-| frozen_hornets | 2 | 1186 | 0 | 0 | 0.0 | False | 2155919 | 87922 |
-| labels_good_bad | 0 | 1747 | 0 | 0 | 0.0 | False | 3842750 | 146435 |
-| labels_good_bad | 1 | 1364 | 0 | 0 | 0.0 | False | 2576144 | 100400 |
-| labels_good_bad | 2 | 1231 | 0 | 0 | 0.0 | False | 2276040 | 91242 |
+| condition | seed | decisions | mind_error | fallbacks | share | flagged | input tokens | output tokens | wall seconds |
+|---|---|---|---|---|---|---|---|---|---|
+| full | 0 | 1440 | 0 | 0 | 0.0 | False | 3116356 | 115978 | 686.016 |
+| full | 1 | 1335 | 0 | 0 | 0.0 | False | 2548231 | 100998 | 865.01 |
+| full | 2 | 1281 | 0 | 0 | 0.0 | False | 2477268 | 96452 | 822.986 |
+| full | 3 | 1238 | 0 | 0 | 0.0 | False | 2298049 | 95212 | 800.331 |
+| full | 4 | 1316 | 0 | 0 | 0.0 | False | 2612774 | 106888 | 821.573 |
+| no_talk | 0 | 1398 | 0 | 0 | 0.0 | False | 2377035 | 92158 | 891.988 |
+| no_talk | 1 | 1532 | 0 | 0 | 0.0 | False | 2551858 | 100138 | 868.345 |
+| no_talk | 2 | 1278 | 0 | 0 | 0.0 | False | 2126798 | 84630 | 797.052 |
+| no_talk | 3 | 1230 | 0 | 0 | 0.0 | False | 2056196 | 81152 | 769.944 |
+| no_talk | 4 | 1326 | 0 | 0 | 0.0 | False | 2219436 | 87971 | 782.909 |
+| no_memory | 0 | 1491 | 0 | 0 | 0.0 | False | 1623446 | 57911 | 903.735 |
+| no_memory | 1 | 1609 | 0 | 0 | 0.0 | False | 1739058 | 59932 | 992.158 |
+| no_memory | 2 | 1310 | 0 | 0 | 0.0 | False | 1402732 | 48204 | 854.707 |
+| frozen_hornets | 0 | 1488 | 0 | 0 | 0.0 | False | 3122439 | 117980 | 876.342 |
+| frozen_hornets | 1 | 1293 | 0 | 0 | 0.0 | False | 2552356 | 97480 | 838.228 |
+| frozen_hornets | 2 | 1186 | 0 | 0 | 0.0 | False | 2155919 | 87922 | 774.074 |
+| labels_good_bad | 0 | 1747 | 0 | 0 | 0.0 | False | 3842750 | 146435 | 1096.402 |
+| labels_good_bad | 1 | 1364 | 0 | 0 | 0.0 | False | 2576144 | 100400 | 901.145 |
+| labels_good_bad | 2 | 1231 | 0 | 0 | 0.0 | False | 2276040 | 91242 | 801.685 |
+
+Totals: 19 AI runs, 26093 decisions, 0 mind_error, 45674885 input and 1769083 output tokens, wall time 686.016 to 1096.402 s per run.
 
 ## E1: learning and culture
 

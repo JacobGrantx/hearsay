@@ -157,46 +157,320 @@ A plumbing and sizing check, run after the pre-registration commit and before an
 
 **Viewer.** The pilot bundles with `viewer/bundle.py` (85 KB page), and a capture at tick 120 following bee 1 (`demo/screenshots/pilot_full_spring_seed0_t120_bee1.png`) shows its latest decision, note and the talk it heard in the panel.
 
+## Main runs (phase 4): shared setup
+
+Run 2026-11-06 by the phase 4 build session (Claude Code), exactly as pre-registered, plus amendment 1 (seeds 3 and 4 for `full` and `no_talk`).
+
+- **Code:** commit 9cb4e7a, `git_dirty: false` in every record.json. The leak and no-hints tests (tests/test_mind_prompt.py) pass at that commit: 4 passed, run in the clean worktree the experiments ran from.
+- **Run directories** (all under `experiments/results/`):
+
+| Arm | Config | Seeds | Run directory |
+|---|---|---|---|
+| `full` | full.toml | 0, 1, 2 | full/20261106T101558Z |
+| `full` (amendment 1) | full.toml `--seeds 3 4 --tag seeds34` | 3, 4 | full/20261106T103203Z_seeds34 |
+| `no_talk` | no_talk.toml | 0, 1, 2 | no_talk/20261106T101558Z |
+| `no_talk` (amendment 1) | no_talk.toml `--seeds 3 4 --tag seeds34` | 3, 4 | no_talk/20261106T103203Z_seeds34 |
+| `no_memory` | no_memory.toml | 0, 1, 2 | no_memory/20261106T101558Z |
+| `frozen_hornets` | frozen_hornets.toml | 0, 1, 2 | frozen_hornets/20261106T101558Z |
+| `labels_good_bad` | labels_good_bad.toml | 0, 1, 2 | labels_good_bad/20261106T101558Z |
+| `rule_bees` | rule_bees.toml | 0 to 4 | rule_bees/20261106T101558Z |
+| `random_bees` | random_bees.toml | 0 to 4 | random_bees/20261106T101558Z |
+
+- **World:** 80 x 48, 4 seasons of 250 ticks, 2 years (2,000 ticks), L = 500, `min_bloom_distance` 55, `openness` 0.15. Bee minds: `claude-haiku-5-5`, effort low, thinking disabled, structured output, max 400 tokens.
+- **Model health** (experiments/analysis/output/main_results.md, "Model health"): 19 AI runs, 26,093 decisions, 0 `mind_error`, 0 fallbacks, so no run is flagged and no seed needed a re-run. 45,674,885 input and 1,769,083 output tokens. Wall time 686 to 1,096 s per 2-year run (the shortest is `full` seed 0, whose first 250 ticks replayed from the pilot's cache).
+- **No crashes.** Every seed of every arm finished; nothing was dropped or re-run.
+- **Analysis:** `make analysis` (experiments/analysis/main_results.py, then figures.py) computes every measure below from the run directories alone and writes experiments/analysis/output/. Every number in this section is copied from main_results.md there. The paired-consistency rule is the pre-registered one (runs.paired, tested in tests/test_analysis.py).
+
 ## Summary
 
 | # | Question | Result | Holds across seeds? | Controls passed |
 |---|---|---|---|---|
-| 1 | TODO | TODO | TODO | TODO |
+| E1 | Do AI bees with memory and hive talk gather more than without talk, without memory, rule bees and random bees? | **No.** `full` made 1.8 deliveries per 2 years (sd 1.643, n 5), `no_talk` 2.6, `no_memory` 2.667, rule bees 1.8. It beat only random bees (0) | Only against random bees (3 of 3 paired seeds; not on 5 seeds, where one pair ties) | Ablations and baselines run; the hypothesis failed them |
+| E2 | Do evolving hornets adapt to the colony, raising stings per trip from year 1 to year 2 more than frozen hornets? | **No.** Stings per trip rose by 0.315 (sd 0.516, n 5) under `full` and by 0.158 (sd 0.497, n 3) with frozen hornets; paired differences -0.7283, -0.4121, +0.9819 | No | Frozen-hornet control run: the rise appears without evolution too (frozen hornets 0.158, rule bees 0.192), so it is not evidence of adaptation |
+| E3 | Does the colony find the spring bloom sooner in year 2, through knowledge kept alive by talk? | **No.** Only 1 of 5 `full` seeds delivered in year 2 spring at all, and that bee had set out in winter and never heard the place at home | No | `no_talk` control run; the carryover check rules out culture in every case |
+| E4 | Do neutral sounds come to mean something? | **Not testable: bees almost never sound.** 3 sounds in 6,610 `full` decisions; mutual information could not be estimated in any seed. With the words "good noise" and "bad noise", 9 sounds in 4,342 decisions, used as the words suggest | n/a | Permutation test planned; too few sounds to run it |
+| (further) | Do newborns avoid moving things before they are ever stung? | **Yes, in every arm, including `no_memory`**: 0.857 of first sightings in `full`, 1.000 in `no_memory`, against 0.110 to 0.282 at timer decisions (per-seed range) | Yes, every seed | Ablations show it is not learned: it is the model's prior, not adaptation |
 
-## Experiment 1: TODO title
+## Experiment 1: learning and culture (E1)
 
 ### Hypothesis
 
-TODO
+Pre-registered: AI bees with memory and hive talk (`full`) gather more than bees without talk (`no_talk`), without memory (`no_memory`), and the scripted rule and random bees. Primary measure: total deliveries per 2-year run. Supported if `full` is higher than each comparison arm consistently (same sign on every paired seed, and mean paired difference larger than its sd).
 
 ### Experimental setup
 
-TODO: config path, commit, seeds, run directory under experiments/results/.
+The run directories in "Main runs: shared setup". Every arm runs on the same seeds, so seed n has the same maze, bloom sites and first hornets in every arm, and arms are compared seed by seed. Seeds 0 to 2 for the pre-registered verdicts; seeds 0 to 4 for `full`, `no_talk`, `rule_bees` and `random_bees` (amendment 1 and the pre-registered baseline seeds).
 
 ### Variables or parameters
 
-TODO
+- **Changed:** the bee mind. `full` (memory and talk), `no_talk` (no `say`, nothing heard at home), `no_memory` (no episodes, notes, recall or remembered places), `rule_bees` (explore at random, take bloom when seen, go home at half life, no talk), `random_bees` (random intents).
+- **Fixed:** the world and every parameter in the shared setup; the model and its settings in the AI arms.
+- **Measured:** deliveries (primary); trips, stings, delivery rate, median ticks to bloom, stings per trip, mean colony size (secondary).
 
 ### Observations
 
-TODO
+- **Deliveries are rare in every arm:** 0 to 6 per 2-year run. Most come in the first summer (experiments/analysis/output/fig_deliveries_by_season.png).
+- **AI bees go out less and get stung less than rule bees.** Trips per run: `full` 36.4 (sd 6.189, n 5), rule bees 61.2 (sd 8.955, n 5). Stings: 17.2 (sd 6.686) against 35.6 (sd 13.993).
+- **Without memory, bees take more trips and are stung far less per trip:** `no_memory` 58.0 trips (sd 31.796, n 3) and 0.169 stings per trip (sd 0.040), against 0.516 (sd 0.228, n 5) for `full`.
+- **Colonies stay small.** Mean colony size over 2 years is 2.977 (sd 0.178, n 5) for `full` and between 2.552 and 3.303 in every arm, against a cap of 12 and a queen floor of 2.
+- **What the bees say.** In `full`, hive talk is mostly about moving things. Of 1,621 coordinate pairs said at home (5 seeds), 585 point within 3 cells of a moving thing the speaker had seen, 111 near a current or recent bloom, and 925 at neither; 892 of those 925 point at home itself, within 4 cells of the hive centre (exploratory split). The bees invent words of harm the prompt never uses: in `full` seed 0, "Bright cells near (41,29) still dangerous" (tick 214), said by a bee stung twice at that bloom.
 
 ### Results
 
-TODO: numbers with n, mean and sd; plot in experiments/analysis/.
+Deliveries per 2-year run (main_results.md, E1):
+
+| Arm | Mean (sd, n) | Per seed |
+|---|---|---|
+| `full` | 1.800 (sd 1.643, n 5) | 4, 1, 1, 0, 3 |
+| `no_talk` | 2.600 (sd 1.817, n 5) | 2, 5, 1, 1, 4 |
+| `no_memory` | 2.667 (sd 2.082, n 3) | 2, 5, 1 |
+| `rule_bees` | 1.800 (sd 1.483, n 5) | 1, 0, 2, 4, 2 |
+| `random_bees` | 0.000 (sd 0.000, n 5) | 0, 0, 0, 0, 0 |
+
+Paired comparisons, `full` minus the other arm:
+
+| Comparison | Seeds | Per-seed differences | Mean | sd | Verdict |
+|---|---|---|---|---|---|
+| `full` - `no_talk` | 0 to 2 | 2, -4, 0 | -0.6667 | 3.0551 | no consistent difference |
+| `full` - `no_memory` | 0 to 2 | 2, -4, 0 | -0.6667 | 3.0551 | no consistent difference |
+| `full` - `rule_bees` | 0 to 2 | 3, 1, -1 | 1.0 | 2.0 | no consistent difference |
+| `full` - `random_bees` | 0 to 2 | 4, 1, 1 | 2.0 | 1.7321 | consistently higher |
+| `full` - `no_talk` | 0 to 4 | 2, -4, 0, -1, -1 | -0.8 | 2.1679 | no consistent difference |
+| `full` - `rule_bees` | 0 to 4 | 3, 1, -1, -4, 1 | 0.0 | 2.6458 | no consistent difference |
+| `full` - `random_bees` | 0 to 4 | 4, 1, 1, 0, 3 | 1.8 | 1.6432 | no consistent difference (seed 3 ties) |
+
+Secondary, seeds 0 to 2: stings per trip are **consistently lower** in `full` than in rule bees (differences -0.1208, -0.0273, -0.2438; mean -0.1306, sd 0.1086), and **consistently higher** than in `no_memory` (0.0556, 0.2658, 0.3281; mean 0.2165, sd 0.1428) and random bees. Delivery rate shows no consistent difference from any arm except random bees.
+
+**Verdict: E1 is not supported.** `full` gathers no more than either ablation or the rule bees. By the pre-registration, failing to beat rule bees is a negative result about the AI mind (see "Negative results").
 
 ### Controls
 
-TODO: which controls from the protocol were run and what they showed.
+- **Ablation:** `no_talk` and `no_memory` remove the two mechanisms credited. Deliveries did not fall; their means were higher than `full`'s, though not consistently.
+- **Baseline:** rule and random bees on the same seeds, 5 each.
+- **Hardcoding audit** and **leak and no-hints tests:** see "Hardcoding audit". Nothing in the code tells a bee where to go or what to avoid.
+- **Prompt robustness:** not run (the spec's stretch arm). **Setup sensitivity:** not run for the AI arms; listed under "Limits".
 
 ### What we learned
 
-TODO
+In this world the AI mind's advantage over a simple rule is safety, not gathering: AI bees made 36.4 trips per run against the rule bees' 61.2 and were stung less per trip, but brought home no more. Memory and talk did not help gathering at all at this scale. Removing memory made bees take more trips with far fewer stings per trip; we did not measure trip length, so we cannot yet say whether they simply turned back sooner. Gathering here is limited by getting 55 or more steps through hornets and back, and a colony of about 3 bees has few members at home to hear anything.
 
 ### What we would investigate next
 
-TODO
+Trip-level analysis (trip length, where trips turn back, and what was said before each successful trip); an easier world in which deliveries are frequent enough for a difference of one or two per run to show; 10 seeds per arm; the prompt-robustness arm.
+
+## Experiment 2: arms race (E2)
+
+### Hypothesis
+
+Pre-registered: evolving hornets adapt to the AI colony, so stings per trip rise from year 1 to year 2, more than with `frozen_hornets`. Primary measure: stings per trip in year 2 minus year 1, over the three seasons with hornets in each year (stings / trips ended, from metrics.jsonl). Supported if the change is larger under `full`, consistently. Gene drift without a change in stings counts as drift, not adaptation.
+
+### Experimental setup
+
+`full` (seeds 0 to 4) against `frozen_hornets` (seeds 0 to 2), paired by seed 0 to 2; the other arms reported for reference. Under `frozen_hornets` the hornets keep the seed's initial draw of 8 genomes in every season and year; everything else, the AI bees included, is as in `full`.
+
+### Variables or parameters
+
+- **Changed:** hornet evolution (steady-state selection every 25 ticks, spring bred from the fittest autumn hornets) on or off.
+- **Measured:** stings per trip by year (primary); hornet gene means at the end of each season with hornets; life removed by stings per bee-tick spent outside the hive.
+
+### Observations
+
+- **Stings per trip rose from year 1 to year 2 in most arms, evolving or not:** `full` 0.537 to 0.852, `frozen_hornets` 0.495 to 0.652, rule bees 0.632 to 0.824, random bees 0.140 to 0.295. `no_talk` fell, 0.563 to 0.490.
+- **Genes drift, with no common direction.** Mean smell in the first and last season with hornets, `full` seeds 0 to 4: 0.5 to 0.125, 1.0 to 0.25, 4.0 to 4.25, 6.0 to 7.125, 3.5 to 4.375. Each seed's hornets settle on their own genome early and stay near it (experiments/analysis/output/fig_hornet_genes.png). Frozen hornets' means differ between seasons only because 4, 6 and then 8 of the same 8 genomes are on the map.
+- **Selection has little to act on.** A `full` run has 17.2 stings in 2 years (sd 6.686, n 5), shared among 4 to 8 hornets.
+- Life removed per bee-tick outside the hive: `full` 0.392 in year 1 (sd 0.219) and 0.392 in year 2 (sd 0.252); `frozen_hornets` 0.331 (sd 0.115) and 0.524 (sd 0.420).
+
+### Results
+
+| Arm | Year 1 | Year 2 | Change, mean (sd, n) | Change per seed |
+|---|---|---|---|---|
+| `full` | 0.537 (sd 0.284) | 0.852 (sd 0.559) | 0.315 (sd 0.516, n 5) | -0.0083, -0.4359, 0.7583, 0.65, 0.6111 |
+| `frozen_hornets` | 0.495 (sd 0.289) | 0.652 (sd 0.325) | 0.158 (sd 0.497, n 3) | 0.72, -0.0238, -0.2235 |
+| `rule_bees` | 0.632 (sd 0.257) | 0.824 (sd 0.226) | 0.192 (sd 0.311, n 5) | 0.2811, 0.0104, -0.0815, 0.6936, 0.056 |
+
+Paired, `full` minus `frozen_hornets`, seeds 0 to 2: -0.7283, -0.4121, 0.9819; mean -0.0529, sd 0.9099: **no consistent difference.**
+
+**Verdict: E2 is not supported.** The hornets' genes drifted, but stings did not rise more with evolution than without it, so by the pre-registered rule this is drift, not adaptation.
+
+### Controls
+
+- **Ablation:** `frozen_hornets` removes evolution; the year-2 rise is there without it.
+- **Baseline:** rule and random bees show the same rise with evolving hornets, so it is not a response to anything the AI colony does.
+- **Randomness:** the per-seed changes in `full` range from -0.4359 to 0.7583, wider than the mean difference between arms.
+
+### What we learned
+
+Stings per trip rise in year 2 for a reason other than evolution, one that holds even for frozen hornets and scripted bees; the arms race we designed for does not show at this scale. The likely reason is the weak selection signal: about 17 stings per run spread over up to 8 hornets cannot separate good genomes from lucky ones, so each seed's hornets drift to a different genome early on. This is an interpretation, not a measured result.
+
+### What we would investigate next
+
+Log each hornet's fitness at every replacement, to measure the selection differential directly; run longer (10 years) or with more bees per hornet so selection has more events; check what drives the year-2 rise in every arm (colony size, trip length, where hornets wait).
+
+## Experiment 3: seasonal memory (E3)
+
+### Hypothesis
+
+Pre-registered: the colony finds the spring bloom sooner in year 2 than in year 1, because knowledge outlives the bees that found it; with hive talk switched off it does not. Primary measure: first spring delivery in year 1 minus year 2, in ticks into spring, censored at 250 (no delivery). Supported if positive under `full` and larger than under `no_talk`, consistently. Also reported: whether any bee lived through both springs, and whether the first year-2 spring forager had heard a coordinate within 3 cells of the spring bloom at home before leaving.
+
+### Experimental setup
+
+`full` against `no_talk`, paired by seed 0 to 2 (pre-registered) and 0 to 4 (amendment 1). The other arms reported for reference.
+
+### Variables or parameters
+
+- **Changed:** hive talk on or off.
+- **Measured:** first spring delivery in each year (from metrics.jsonl), their difference, and the two carryover checks (from state.jsonl.gz, the say and trip events).
+
+### Observations
+
+- **Spring deliveries are rare.** `full` delivered in the first spring in 1 of 5 seeds (seed 0, tick 183) and in the second spring in 1 of 5 (seed 0, tick 83). `no_talk`: none in the first spring, one in the second (seed 4, tick 239).
+- **No bee lived through both springs** in any seed of `full` or `no_talk`. In all 19 AI runs, one bee did (bee 3, `labels_good_bad` seed 0).
+- **Every first delivery of the second spring in an AI arm came from a bee that had set out in winter.** There were 4 (`full` seed 0, `no_talk` seed 4, `no_memory` seed 2, `labels_good_bad` seed 2). The foragers left home at ticks 806, 895, 882 and 881 (winter is ticks 750 to 999), none was alive in the first spring, and none had heard a coordinate near the spring bloom at home.
+- **One such bee, followed** (`full` seed 0, bee 9; the README still is from this trip). Hatched by the queen at tick 799, it left at tick 806 and explored east through the winter, its life falling from 495 to 109 by tick 999. It was turning for home when the spring bloom opened beside it: "At (39,30) exploring NW toward home; life 115" (tick 997), then "Bright cells found near (41,29); investigating them before heading home" (tick 1000). It carried the bloom home past the moving things it saw from tick 1053 on, and delivered at tick 1083, its life doubling from 26 to 52; a new bee hatched the same tick.
+
+### Results
+
+| Arm | Year 1, mean (sd, n) | Year 2, mean (sd, n) | Gain, mean (sd, n) | Gain per seed |
+|---|---|---|---|---|
+| `full` | 236.6 (sd 30.0, n 5) | 216.6 (sd 74.7, n 5) | 20.0 (sd 44.7, n 5) | 100, 0, 0, 0, 0 |
+| `no_talk` | 250.0 (sd 0.0, n 5) | 247.8 (sd 4.9, n 5) | 2.2 (sd 4.9, n 5) | 0, 0, 0, 0, 11 |
+
+Paired, `full` minus `no_talk`: seeds 0 to 2, 100, 0, 0 (mean 33.3333, sd 57.735); seeds 0 to 4, 100, 0, 0, 0, -11 (mean 17.8, sd 46.1974). **No consistent difference** either way. (experiments/analysis/output/fig_first_spring_delivery.png)
+
+**Verdict: E3 is not supported.** The one positive gain under `full` came from a bee that happened to be near the bloom when it opened, not from anything passed on at home.
+
+### Controls
+
+- **Ablation:** `no_talk`, the switch that removes culture.
+- **Culture against individual memory:** the two carryover checks were designed for exactly this case, and in every case they rule culture out.
+- **Censoring:** most seeds have no spring delivery in either year, so their gain is 0 by construction (250 minus 250). The measure cannot tell "no change" from "no data".
+
+### What we learned
+
+Knowledge did not cross the year. A colony of about 3 bees, none living from one spring to the next, has almost no one to pass a place on to, and the measure we chose is dominated by where a bee happens to be when the bloom opens. The winter foragers are a surprise: the bees are never told about seasons, and some of them set out in the cold and were in the right place at the turn of the year.
+
+### What we would investigate next
+
+Measure transmission directly: was a spring-bloom coordinate said at home in year 2 before the first spring trip, and by whom? Use an uncensored measure (ticks to the first bloom sighting rather than the first delivery); test a world where bees can live a full year.
+
+## Experiment 4: signals (E4)
+
+### Hypothesis
+
+Pre-registered: with neutral sounds, the sounds come to be tied to context (made near moving things, or near bright cells); with the names "good noise" and "bad noise" the tie is there from the start, because it comes from the words. Primary measure: mutual information between which sound a bee makes and its context at that decision (moving thing in view, bright cell in view, both, neither), with a permutation test (1,000 shuffles of the sound labels within each run). Supported if MI in `full` is above the 95th percentile of its permutation distribution in at least 2 of 3 seeds.
+
+### Experimental setup
+
+Sound-making decisions in every AI arm, from the `sound` and `ctx` fields of decision events. `full` and the other neutral arms against `labels_good_bad`, seeds 0 to 2 (and 3, 4 for `full`). The world treats both sounds the same in every arm: each costs 1 life and can draw hornets with a high hearing gene. Only the names in the prompt differ.
+
+### Variables or parameters
+
+- **Changed:** the sound names in the prompt (`sound-1`, `sound-2` against "good noise", "bad noise"). The world, the logs and the analysis use the neutral names in every arm.
+- **Measured:** sounds made, MI and its permutation percentile, the listener response (share of `flee` or `go_home` at decisions triggered by hearing a sound, against timer decisions).
+
+### Observations
+
+- **Neutral sounds were almost never made:** 3 in 6,610 `full` decisions over 5 seeds, and none in 15,141 decisions of `no_talk`, `no_memory` and `frozen_hornets`. All 3 were `sound-1`, made by a bee carrying bloom home or just arrived, and its notes say why: "heading home W to report, alerting others" (seed 0, tick 124), "continuing home, sounding al[ert]" (seed 4, tick 326).
+- **With the words, sounds were used more, and as the words suggest:** 9 in 4,342 `labels_good_bad` decisions, against 3 in 6,610 for `full`. 8 were "good noise", all made at home: 7 right after a delivery ("Delivered valuable thing home; life 645", seed 0, tick 178), and 1 in answer to another bee's ("Heard good noise from NW", seed 1, tick 447). The one "bad noise" came the moment a bee was stung while carrying: "Life dropped suddenly at (33,15) from moving thing at (33,14); fleeing south" (seed 2, tick 1026).
+- Listeners: 6 decisions in `full` and 13 in `labels_good_bad` were triggered by a sound, too few to compare with the timer base rate.
+
+### Results
+
+| Arm | Sounds per seed | MI (bits) |
+|---|---|---|
+| `full` | 1, 0, 0, 0, 2 | missing in seeds 0 to 3 (fewer than 2 sounds); 0 in seed 4 (both `sound-1`, so MI is 0 by construction) |
+| `no_talk`, `no_memory`, `frozen_hornets` | 0 in every seed | missing |
+| `labels_good_bad` | 4, 3, 2 | 0 in seeds 0 and 1 (one sound only); 1.0 in seed 2 from 2 sounds, where every shuffle gives the same value (permutation p 1.0) |
+
+**Verdict: E4 is not supported, and the primary test could not be run.** MI in `full` was above its permutation 95th percentile in 0 of 3 seeds, because there was nothing to measure. This is the pre-registered negative result: neutral sounds stayed meaningless.
+
+### Controls
+
+- **Prompt effect:** `labels_good_bad` is the control, and it shows the effect: the only sound use with a clear meaning is the one the words supply.
+- **Permutation test:** planned and implemented (experiments/analysis/measures.py, `mi_test`, tested in tests/test_analysis.py), but with 0 to 4 sounds per run it has no power.
+- **Hardcoding audit:** no code ties a sound to a context (see "Hardcoding audit").
+
+### What we learned
+
+Two sounds with a cost and no name are not worth using to these minds: the model weighs 1 life against nothing it can see. Given names, the same model uses them at once, and in the sense of the names. That is a prompt effect, which is exactly what this arm was built to catch, so in this system any meaning a sound has comes from its label. The pre-registered contexts also missed where sounds were made: almost all came at home after a delivery, which the four context classes put under "neither".
+
+### What we would investigate next
+
+A free-sound arm, pre-registered before it runs, to tell "meaningless" apart from "too expensive"; contexts that include home and carrying; listener effects measured on what bees do in the 10 ticks after hearing a sound.
+
+## Further measures (pre-registered, descriptive)
+
+**Naive avoidance.** At each bee's first decision triggered by seeing a moving thing, before it was ever stung, the share that chose `flee` or `go_home`:
+
+| Arm | Mean (sd, n) | Per seed | Timer decisions, per seed (base rate) |
+|---|---|---|---|
+| `full` | 0.857 (sd 0.071, n 5) | 0.7857, 0.8571, 0.9167, 0.7857, 0.9375 | 0.1746, 0.1884, 0.221, 0.1623, 0.2301 |
+| `no_talk` | 0.867 (sd 0.092, n 5) | 0.9231, 0.9286, 0.9231, 0.8462, 0.7143 | 0.1099, 0.1351, 0.1261, 0.1821, 0.1825 |
+| `no_memory` | 1.000 (sd 0.000, n 3) | 1.0, 1.0, 1.0 | 0.2817, 0.2193, 0.1473 |
+| `frozen_hornets` | 0.821 (sd 0.011, n 3) | 0.8125, 0.8182, 0.8333 | 0.1793, 0.1964, 0.1418 |
+| `labels_good_bad` | 0.728 (sd 0.166, n 3) | 0.8, 0.8462, 0.5385 | 0.1723, 0.1553, 0.1292 |
+
+Bees avoid moving things from the first sighting, in every arm and every seed, and most of all with no memory at all. So avoidance is **not** learned from stings or passed on by talk: it is the model's prior about a moving thing in a world where life only falls. We do not count it as adaptation.
+
+**Coordinates in hive talk** (pooled over seeds; the classes are pre-registered, the home split is exploratory): `full` 1,621 pairs, of which 111 near a bloom of the current or previous season, 585 near a moving thing the speaker had seen, and 925 neither, 892 of them within 4 cells of home. `frozen_hornets` 517 (36, 267, 214 with 194 at home); `labels_good_bad` 884 (13, 239, 632 with 622 at home); `no_memory` 54 (0, 53, 1). So coordinates said at home almost all point at home, at a bloom, or at a place where the speaker had seen a moving thing: in `full`, 33 of 1,621 pairs point at none of these.
+
+**Words of harm (exploratory, not pre-registered).** No prompt uses danger, avoid, careful, caution, threat, harm or hurt. Bees used one of them in 0.085 of `full` notes (sd 0.023, n 5) and 0.104 of `no_talk` notes (sd 0.054, n 5), and in 0.219 of what `full` bees said at home (sd 0.130, n 5). The share is no lower without talk, which suggests each bee reaches the idea of harm on its own rather than by hearing it at home.
+
+## Hardcoding audit
+
+Done before the results were written, at the run commit 9cb4e7a.
+
+- `grep -rn -i "sound-1\|sound-2\|good noise\|bad noise" src/ prompts/ experiments/configurations/` finds the sound names only where they are defined (perception.py, render.py), counted (metrics.py) or drawn uniformly at random by random bees (policies.py), and the comment in labels_good_bad.toml. `grep -n -i "sound\|noise"` over render.py, sim.py, hornets.py and the system prompt finds the cost (1 life), the hornets' hearing gene, and the prompt line "A sound costs 1 life. Others nearby hear it and the direction it came from." No rule ties a sound, a direction or a place to a context.
+- `grep -rn -i -E "danger|avoid|careful|caution|threat|harm|hurt"` over prompts/ and the modules that build prompt text (render.py, memory.py, mind.py, perception.py, bees.py) finds only a docstring in render.py that lists words the model never hears.
+- The leak test and the no-hints test (tests/test_mind_prompt.py) pass at 9cb4e7a: no prompt contains a bloom or hornet coordinate the bee had not perceived or heard at home, and none of the 19 banned words appears in the system prompt, the templates, the schema or any rendered prompt.
+
+What the audit cannot rule out is the model's prior knowledge. Naive avoidance shows that prior at work: bees treat moving things as a threat before any of them has been stung.
+
+## Replay and reproducibility
+
+Every AI run above replays offline from its packed cache, with no key and no network:
+
+```bash
+make replay RUN=experiments/results/full/20261106T101558Z/seed-0
+# or, for every AI run:
+for d in experiments/results/{full,no_talk,no_memory,frozen_hornets,labels_good_bad}/20261106T10*/seed-*; do
+  .venv/bin/python experiments/replay_check.py $d; done
+```
+
+Done on 2026-11-06 for all 19 AI runs, at commit 2d4daf7 with one uncommitted edit to experiments/analysis/main_results.py, which the replay does not use (the runs were made at 9cb4e7a; what changed in between is the packed-cache reader and the analysis). Result: **19 of 19 replays identical** in events.jsonl, metrics.jsonl, the decompressed state.jsonl.gz, layout.json and final_metrics, each in 4.9 to 8.7 s. The full output is in experiments/analysis/output/replay_all.log. For `full` seed 0 the replay printed:
+
+```
+original: experiments/results/full/20261106T101558Z/seed-0 (commit 9cb4e7a, 686.016 s)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+```
+
+The cache is committed in full: one `experiments/llm_cache/<arm>_<stamp>_seed-<n>.jsonl.gz` per AI run (19 files, packed by tools/pack_llm_cache.py), plus the pilot's loose entries, 14 MB in total. No run's responses are missing. The scripted arms need no cache: a seed reproduces them exactly.
+
+## Spend
+
+The main runs made 25,738 live model calls and cost $5.3665 at list price (the sum of the per-process ledgers; `full` seed 0's first 250 ticks replayed from the pilot and cost nothing). The project's ledger `.llm_spend.json` stands at $5.5084 over 26,242 calls, against the phase 4 cap of $40 on top of the $0.1419 spent before it. The token totals in "Main runs: shared setup" price to the same figure. Wall time: the 29 main runs started at 10:15:58 and the last finished at 11:02:37 UTC (from the record.json start times and durations), with five to seven processes at once.
 
 ## Negative results
 
-TODO: what did not work, how we know, what it taught us.
+Each of these was pre-registered as a possible outcome and is reported in full in its experiment above.
+
+1. **The AI mind does not out-gather a simple rule (E1).** Expected: `full` delivers more than `rule_bees`. Happened: 1.8 deliveries per 2 years each (sd 1.643 and 1.483, n 5), paired differences 3, 1, -1, -4, 1. How we know: 5 paired seeds, the pre-registered consistency rule. What it taught us: in this world the model's judgement buys safety (fewer trips, fewer stings per trip than rule bees, consistently) but not food, and colonies too small to keep anything.
+2. **Memory and talk do not help gathering (E1).** Expected: removing either lowers deliveries. Happened: both ablations delivered at least as much on average (2.6 and 2.667 against 1.8), with no consistent difference.
+3. **No arms race (E2).** Expected: evolving hornets raise stings per trip in year 2 more than frozen ones. Happened: stings rose in both, and in the scripted arms too; paired differences -0.7283, -0.4121, 0.9819. Genes drifted, so we report drift. It taught us that selection on about 17 stings per run is too weak to measure.
+4. **No seasonal memory (E3).** Expected: an earlier spring delivery in year 2, through talk. Happened: 1 of 5 `full` seeds delivered in year-2 spring, by a bee that set out in winter and never heard the place; no bee lived through both springs. It taught us that the measure is dominated by where a bee is when the bloom opens.
+5. **Neutral sounds stayed meaningless (E4).** Expected: sounds tied to context. Happened: 3 sounds in 6,610 decisions, so mutual information could not be estimated; with labels, sounds were used in the sense of the words. It taught us that in this system a sound's meaning comes from its name.
+6. **Avoidance is not learned (further measures).** We had hoped to see bees learn that moving things hurt. Newborns flee them from the first sighting in every arm, without memory too, so it is the model's prior.
+
+## Limits
+
+- **n = 3 for three AI arms and n = 5 for two.** With these spreads only large, consistent differences can be seen; a real effect of one delivery per run would be missed.
+- **One world size, one difficulty.** Setup sensitivity (world size, timing, population) was not tested for the AI arms. The calibration varied three knobs with scripted bees only.
+- **No prompt-robustness arm.** The spec's paraphrased-prompt stretch was not run, so the AI arms' behaviour may depend on the prompt's wording; `labels_good_bad` shows the words matter for sounds.
+- **One model at one setting** (`claude-haiku-5-5`, effort low, thinking off). A stronger model might use memory and talk differently.
+- **The pre-registered sound contexts** (moving thing or bright cell in view) did not include home or carrying, where most sounds were made.
+- **E3's measure is censored:** most seeds have no spring delivery in either year.
