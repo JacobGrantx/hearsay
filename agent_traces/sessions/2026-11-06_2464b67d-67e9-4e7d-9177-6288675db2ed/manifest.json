@@ -6,48 +6,50 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 38
+    "claude-opus-5-5": 48
   },
   "first_timestamp": "2026-11-06T17:23:44.961Z",
-  "last_timestamp": "2026-11-06T17:30:24.333Z",
+  "last_timestamp": "2026-11-06T17:36:02.950Z",
   "source": {
     "file": "2464b67d-67e9-4e7d-9177-6288675db2ed.jsonl",
-    "sha256": "8c7ea77cbcf05c6d4f7417047968172d34458e3b8ae7240f077c6e03b397fc95",
-    "lines": 114,
+    "sha256": "1434a7734bd40da8f17fd90e80ef9f575d3f7e39bdb14d09a73b39b423789baf",
+    "lines": 145,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 34,
-    "output_tokens": 7766,
-    "cache_creation_input_tokens": 38595,
-    "cache_read_input_tokens": 722949,
-    "api_responses": 17,
+    "input_tokens": 46,
+    "output_tokens": 9314,
+    "cache_creation_input_tokens": 42694,
+    "cache_read_input_tokens": 1066359,
+    "api_responses": 23,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 17
+    "accept/config": 23
   },
   "tool_calls": {
-    "Bash": 16,
-    "Read": 2
+    "Bash": 21,
+    "Read": 3
   },
   "subagents": [],
   "commits_made_in_session": [],
-  "commits_in_time_window": [],
-  "kept_entries": 56,
+  "commits_in_time_window": [
+    "8567c00935d379f910ca2cbd92dd9644fd32905a Video generator: record the render commit before writing outputs, ignoring agent_traces, so its own demo.mp4 no longer marks the render as uncommitted"
+  ],
+  "kept_entries": 72,
   "omitted_entries": {
-    "queue-operation": 4,
-    "attachment": 34,
+    "queue-operation": 6,
+    "attachment": 41,
     "file-history-snapshot": 1,
-    "atis-latch": 8,
-    "last-prompt": 7,
-    "ai-title": 4
+    "atis-latch": 10,
+    "last-prompt": 9,
+    "ai-title": 6
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 15
+    "thinking_omitted": 17
   },
   "missing": {
     "tool_results_stored_outside_log": 0,
