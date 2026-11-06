@@ -66,3 +66,27 @@ def test_assignment_check_reads_json_escapes_as_line_ends():
     assert not sp.find(code_in_trace)
     leaked = r'"export MY_API' + r'_KEY=abcd1234efgh5678\nnext line"'  # split so the hook does not flag this file
     assert sp.find(leaked)
+
+
+def test_harness_meta_and_outside_paths_are_redacted(tmp_path, monkeypatch):
+    monkeypatch.setattr(et, "OUT", tmp_path / "agent_traces")
+    monkeypatch.setattr(et, "RAW_ARCHIVE", tmp_path / "raw")
+    from pathlib import Path as P
+    home = str(P.home())
+    entries = [
+        {"type": "user", "uuid": "u1", "timestamp": "2026-11-06T10:00:01Z", "sessionId": "m", "origin": {"kind": "human"},
+         "message": {"role": "user", "content": "run the thing"}},
+        {"type": "user", "uuid": "u2", "timestamp": "2026-11-06T10:00:02Z", "sessionId": "m", "isMeta": True,
+         "message": {"role": "user", "content": [{"type": "text", "text": "Base directory for this skill: " + home + "/.claude/skills/x  secret playbook"}]}},
+        {"type": "assistant", "uuid": "a1", "timestamp": "2026-11-06T10:00:03Z", "sessionId": "m",
+         "message": {"role": "assistant", "model": "m", "id": "x", "content": [{"type": "tool_use", "id": "t1", "name": "Bash",
+                     "input": {"command": "cat " + home + "/.config/other/.env; ls " + home + "/work/hackathons/digital-life/src"}}]}},
+    ]
+    log = tmp_path / "m.jsonl"
+    log.write_text("\n".join(json.dumps(e) for e in entries) + "\n")
+    et.export_session(log)
+    text = (tmp_path / "agent_traces" / "sessions" / "2026-11-06_m" / "main.jsonl").read_text()
+    assert "secret playbook" not in text and "[REDACTED:harness-meta]" in text
+    assert "/.config/other" not in text and "[REDACTED:path-outside-repo]" in text
+    assert "digital-life/src" in text          # paths inside the repo stay
+    assert "run the thing" in text             # the human prompt stays

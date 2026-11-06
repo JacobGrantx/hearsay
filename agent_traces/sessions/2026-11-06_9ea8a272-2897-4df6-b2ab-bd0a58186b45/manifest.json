@@ -58,7 +58,8 @@
     "cost-state": 1
   },
   "redactions": {
-    "secret": 2
+    "secret": 2,
+    "path-outside-repo": 1
   },
   "transformations": {
     "thinking_omitted": 62

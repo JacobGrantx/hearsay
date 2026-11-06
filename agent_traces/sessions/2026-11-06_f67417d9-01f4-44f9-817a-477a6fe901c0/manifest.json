@@ -64,7 +64,9 @@
     "file-history-delta": 14,
     "cost-state": 1
   },
-  "redactions": {},
+  "redactions": {
+    "path-outside-repo": 4
+  },
   "transformations": {
     "thinking_omitted": 60
   },

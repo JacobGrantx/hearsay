@@ -66,6 +66,11 @@ SUBAGENT_META_KEYS = ["agentType", "description", "toolUseId", "spawnDepth", "pi
 REMINDER_RE = re.compile(r"<system-reminder>[\s\S]*?</system-reminder>")
 IDE_SELECTION_RE = re.compile(r"<ide_selection>[\s\S]*?</ide_selection>")
 COMMIT_RE = re.compile(r"^\[[^\]\n]*?\b([0-9a-f]{7,40})\]", re.M)
+# Paths outside this repository (home folders, user config, other projects) say nothing about
+# this project and can reveal private setup, so they are redacted. /tmp and /dev/shm stay.
+PRIVATE_PATH_RE = re.compile(
+    r"(?:" + re.escape(str(Path.home())) + r"|~|\$HOME)/(?!work/hackathons/digital-life\b)[^\s\"'`),;\]]+"
+)
 
 
 def encode_project_path(p: Path) -> str:
@@ -93,6 +98,8 @@ class Redactor:
             self.counts["ide-selection"] += n
         s, n = secret_patterns.redact(s, self.env_values)
         self.counts["secret"] += n
+        s, n = PRIVATE_PATH_RE.subn("[REDACTED:path-outside-repo]", s)
+        self.counts["path-outside-repo"] += n
         for rx in self.terms:
             s, n = rx.subn("[REDACTED:private]", s)
             self.counts["private"] += n
@@ -153,6 +160,14 @@ def clean_blocks(content, red: Redactor, stats: Counter):
 
 def clean_entry(e: dict, red: Redactor, stats: Counter) -> dict | None:
     out = {k: e[k] for k in ENTRY_KEYS if k in e}
+    m = e.get("message")
+    if e.get("type") == "user" and e.get("isMeta") and isinstance(m, dict):
+        # Harness-generated messages (skill instructions, command output, reminders) carry the
+        # developer's private configuration, not the human or the agent. Keep the entry, drop the text.
+        stats["harness_meta_redacted"] += 1
+        red.counts["harness-meta"] += 1
+        out["message"] = {"role": m.get("role", "user"), "content": [{"type": "text", "text": "[REDACTED:harness-meta]"}]}
+        return out
     if isinstance(out.get("content"), str):
         out["content"] = _truncate(red.text(out["content"]), stats)
     m = e.get("message")

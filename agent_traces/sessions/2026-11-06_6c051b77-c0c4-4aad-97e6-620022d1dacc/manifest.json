@@ -68,9 +68,13 @@
     "file-history-delta": 16,
     "cost-state": 1
   },
-  "redactions": {},
+  "redactions": {
+    "path-outside-repo": 1,
+    "harness-meta": 1
+  },
   "transformations": {
-    "thinking_omitted": 129
+    "thinking_omitted": 129,
+    "harness_meta_redacted": 1
   },
   "missing": {
     "tool_results_stored_outside_log": 0,
