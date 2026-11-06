@@ -1,0 +1,23 @@
+# E1 ablation: AI bees deciding from the present moment only (no episodes, beliefs, recall or remembered places).
+# Full-size world with the calibrated values (EXPERIMENTS.md, "Setup calibration"). Pre-registered in EXPERIMENTS.md.
+# Bee minds: claude-haiku-5-5, effort low, thinking disabled, structured output (src/digital_life/mind.py).
+[experiment]
+name = "no_memory"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Without memory, bees cannot return to bloom they found, so delivery is below `full`."
+seeds = [0, 1, 2]
+
+[params]
+condition = "no_memory"
+width = 80
+height = 48
+season_length = 250
+years = 2
+base_life = 500
+min_bloom_distance = 55
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+mind_model = "claude-haiku-5-5"
+mind_effort = "low"
+mind_max_tokens = 400

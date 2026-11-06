@@ -1,0 +1,23 @@
+# E4 comparison: as `full`, but the two sounds are named "good noise" and "bad noise" in the prompt.
+# Full-size world with the calibrated values (EXPERIMENTS.md, "Setup calibration"). Pre-registered in EXPERIMENTS.md.
+# Bee minds: claude-haiku-5-5, effort low, thinking disabled, structured output (src/digital_life/mind.py).
+[experiment]
+name = "labels_good_bad"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Named sounds are used in a fixed way from the start; neutral sounds in `full` gain less, or slower, context dependence."
+seeds = [0, 1, 2]
+
+[params]
+condition = "labels_good_bad"
+width = 80
+height = 48
+season_length = 250
+years = 2
+base_life = 500
+min_bloom_distance = 55
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+mind_model = "claude-haiku-5-5"
+mind_effort = "low"
+mind_max_tokens = 400

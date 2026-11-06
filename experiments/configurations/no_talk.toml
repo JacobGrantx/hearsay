@@ -1,0 +1,23 @@
+# E1 and E3 ablation: AI bees with memory but no hive talk (`say` removed, nothing heard at home).
+# Full-size world with the calibrated values (EXPERIMENTS.md, "Setup calibration"). Pre-registered in EXPERIMENTS.md.
+# Bee minds: claude-haiku-5-5, effort low, thinking disabled, structured output (src/digital_life/mind.py).
+[experiment]
+name = "no_talk"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Without hive talk, knowledge does not pass between bees: year 2 spring is no earlier than year 1, and delivery is below `full`."
+seeds = [0, 1, 2]
+
+[params]
+condition = "no_talk"
+width = 80
+height = 48
+season_length = 250
+years = 2
+base_life = 500
+min_bloom_distance = 55
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+mind_model = "claude-haiku-5-5"
+mind_effort = "low"
+mind_max_tokens = 400

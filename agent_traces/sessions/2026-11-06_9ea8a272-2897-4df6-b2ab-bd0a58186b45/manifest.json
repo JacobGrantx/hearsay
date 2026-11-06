@@ -6,51 +6,54 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 75
+    "claude-opus-5-5": 93
   },
   "first_timestamp": "2026-11-06T09:49:38.771Z",
-  "last_timestamp": "2026-11-06T10:00:35.843Z",
+  "last_timestamp": "2026-11-06T10:02:56.172Z",
   "source": {
     "file": "9ea8a272-2897-4df6-b2ab-bd0a58186b45.jsonl",
-    "sha256": "2495d08a58385c2f63a9381f76935ec4844ae62fa0ad6fb08d4437b996c0eb53",
-    "lines": 218,
+    "sha256": "27c7aec30b251a7b332364a081afd872bdc51a790b3f88e112354885e547aba4",
+    "lines": 266,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 66,
-    "output_tokens": 53310,
-    "cache_creation_input_tokens": 111489,
-    "cache_read_input_tokens": 2770400,
-    "api_responses": 33,
+    "input_tokens": 80,
+    "output_tokens": 58695,
+    "cache_creation_input_tokens": 119614,
+    "cache_read_input_tokens": 3659269,
+    "api_responses": 40,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 33
+    "accept/config": 41
   },
   "tool_calls": {
-    "Bash": 27,
-    "Write": 7
+    "Bash": 34,
+    "Write": 8
   },
   "subagents": [],
   "commits_made_in_session": [],
-  "commits_in_time_window": [],
-  "kept_entries": 109,
+  "commits_in_time_window": [
+    "031fb4a17b651ea5ecbdd1cd5783330f3e1a590b AI bee mind: neutral system prompt, perception renderer and decision schema, per-bee memory (episodes, beliefs, BM25 recall), AIPolicy with parallel calls and wait fallback; leak, no-hints, replay and condition tests",
+    "1abaff874267272802f69c72a3bfdd2677119e09 Secret scan: an assigned value ends at a backslash, so JSON-escaped newlines in exported traces no longer join code into a false 'token' hit; regression test both ways"
+  ],
+  "kept_entries": 136,
   "omitted_entries": {
-    "ai-title": 15,
+    "ai-title": 18,
     "queue-operation": 2,
-    "attachment": 55,
+    "attachment": 66,
     "file-history-snapshot": 1,
-    "atis-latch": 15,
-    "last-prompt": 14,
-    "file-history-delta": 7
+    "atis-latch": 18,
+    "last-prompt": 17,
+    "file-history-delta": 8
   },
   "redactions": {
     "secret": 2
   },
   "transformations": {
-    "thinking_omitted": 25
+    "thinking_omitted": 30
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

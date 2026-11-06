@@ -1,0 +1,23 @@
+# Phase 2 pilot: one real AI run, full-size world, first spring only (stop_after = 250), seed 0.
+# Checks behaviour, prompt sanity, cost and time before the main runs. Not an experiment; not cited as a result.
+[experiment]
+name = "pilot_full_spring"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Pilot, not an experiment: AI bees leave home, explore, react to what they perceive, and the run fits the time and cost plan."
+seeds = [0]
+
+[params]
+condition = "full"
+width = 80
+height = 48
+season_length = 250
+years = 2
+stop_after = 250
+base_life = 500
+min_bloom_distance = 55
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+mind_model = "claude-haiku-5-5"
+mind_effort = "low"
+mind_max_tokens = 400

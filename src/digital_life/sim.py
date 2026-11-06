@@ -22,7 +22,8 @@ DEFAULTS = dict(
     openness=0.15, rooms=4, min_bloom_distance=55, bloom_spread=1.5,
     base_life=500, life_cap_factor=3, max_bees=12, start_bees=6, queen_floor=2, decide_every=5,
     sound_cost=1, newborn_hold=3, hornet_counts=[4, 6, 8, 0], evolve_every=25, mutation=0.5,
-    sting_cooldown=10, hornet_spawn_distance=25, ambush_rate=0.02, ambush_wait=4, hornet_speed=0.8, smell_base=2.0, smell_step=1.0, log_state=True, log_decisions=True)
+    sting_cooldown=10, hornet_spawn_distance=25, ambush_rate=0.02, ambush_wait=4, hornet_speed=0.8, smell_base=2.0, smell_step=1.0, log_state=True, log_decisions=True,
+    stop_after=None)  # stop_after: end the run early at this tick (pilot runs); the world rules are unchanged
 CONDITION_POLICY = {"rule_bees": "rule", "random_bees": "random", "oracle_bees": "oracle",
                     "full": "ai", "no_talk": "ai", "no_memory": "ai", "labels_good_bad": "ai", "frozen_hornets": "ai"}
 PRIORITY = ("stung", "hornet", "bloom", "sound", "home", "arrived", "life25", "life50", "hatched", "timer")
@@ -214,7 +215,8 @@ class Sim:
         self.t += 1
 
     def run(self) -> dict:
-        while self.t < self.cal.ticks:
+        end = min(self.cal.ticks, self.p["stop_after"] or self.cal.ticks)
+        while self.t < end:
             self.tick()
         self.out.event("end", self.t, bees_alive=len(self.bees))
         self.out.close()
