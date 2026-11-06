@@ -6,31 +6,31 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 203
+    "claude-opus-5-5": 211
   },
   "first_timestamp": "2026-11-06T12:03:19.518Z",
-  "last_timestamp": "2026-11-06T12:36:53.808Z",
+  "last_timestamp": "2026-11-06T12:39:13.999Z",
   "source": {
     "file": "954b5b7b-79b0-486a-870e-9f097f2a57c0.jsonl",
-    "sha256": "28af8f024a86ce4e548c42e4fa665b9b614bd56799a20855755506f16010bb7e",
-    "lines": 602,
+    "sha256": "c207e8d56e35e2978a21e198471db52ac3f05a071c4568c3b79e5dbbce8595b7",
+    "lines": 619,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 210,
-    "output_tokens": 80437,
-    "cache_creation_input_tokens": 194175,
-    "cache_read_input_tokens": 14283016,
-    "api_responses": 105,
+    "input_tokens": 216,
+    "output_tokens": 83969,
+    "cache_creation_input_tokens": 197742,
+    "cache_read_input_tokens": 14903638,
+    "api_responses": 108,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 115
+    "accept/config": 118
   },
   "tool_calls": {
-    "Bash": 92,
+    "Bash": 95,
     "Write": 6,
     "Read": 15,
     "Skill": 2,
@@ -39,6 +39,7 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "0b7885a27c3e1de7d31a5d9b12c00617e90ef5bf Traces: phase 5 session",
     "4081692c43d0d7f3abb020a42cd4d54059ba6137 README: Demonstration links the video, the segment sources and the stills; 69 tests; three prose fixes. Submission draft: demo link and a results line. Build notes: phase 5. AI disclosure: test count",
     "efe56c402260dc2d69d8a122ec6242c0de68339b Demo video (88.5 s, 3.1 MB) rendered by make video in a fresh clone at d3fa660, with SOURCES.md (segments, run directories, ticks, captions) and four stills",
     "204163234b2964f13746bd8575a54657c779dfab Test: find_moments.py finds the video's moments (E5 first finder, hatch and hive talk; first-sight caution; bee 1's stings; E5 winter 7 to 4) from the run directories",
@@ -49,19 +50,21 @@
     "77b94228d15312a07960e0852da635d821166b05 Demo video renderer: storyboard (segments, runs, ticks, captions), cards and charts from the analysis JSON, make_video.py, and make video",
     "a431e0028afdb71541f575751acf85ac4ccb9c13 find_moments.py: scan the cited runs for the video's moments (first delivery, hatches, caution before any sting, sting then talk, hive talk passing a bloom place, old routes, winter, year 2 spring). Viewer: header shows the experiment name from record.json and a --project name"
   ],
-  "kept_entries": 321,
+  "kept_entries": 332,
   "omitted_entries": {
-    "ai-title": 37,
+    "ai-title": 38,
     "queue-operation": 12,
-    "attachment": 151,
+    "attachment": 154,
     "file-history-snapshot": 1,
-    "atis-latch": 37,
-    "last-prompt": 36,
+    "atis-latch": 38,
+    "last-prompt": 37,
     "file-history-delta": 7
   },
-  "redactions": {},
+  "redactions": {
+    "private": 52
+  },
   "transformations": {
-    "thinking_omitted": 72
+    "thinking_omitted": 77
   },
   "missing": {
     "tool_results_stored_outside_log": 1,
