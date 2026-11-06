@@ -112,7 +112,7 @@ def write_sources(path: Path, title: str, repo: str, seconds: float) -> None:
         for a, b, text in s.get("captions", []):
             L.append(f"- `{s['id']}` {a:g} to {b:g} s: {text}")
     L += ["", "Chart numbers come from `experiments/analysis/output/` (written by `make analysis`). Re-render "
-          "everything with `make video` (about 10 minutes; `TITLE=` and `REPO=` override the title and the "
+          "everything with `make video` (about 3 to 10 minutes depending on load; `TITLE=` and `REPO=` override the title and the "
           "repository line).", ""]
     path.write_text("\n".join(L))
 

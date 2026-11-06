@@ -130,7 +130,7 @@ V.init = async function () {
   const run = (V.run = await V.loadRun(window.RUN));
   V.prepareMap(run);
   const L = run.layout, p = parseHash(), st = V.state;
-  const project = window.RUN.project || "Bee colony", exp = window.RUN.experiment || L.condition || "";
+  const project = window.RUN.project || "Hearsay", exp = window.RUN.experiment || L.condition || "";
   $("title").innerHTML = `${esc(project)} <span>${esc(exp)} condition, seed ${esc(L.seed ?? "")}</span>`;
   document.title = `${project}, ${exp} seed ${L.seed ?? ""}`;
   region = p.view;

@@ -18,11 +18,11 @@ SEGMENTS = [
     dict(id="02_world", kind="map", run=MAIN, t0=0, t1=80, seconds=8.0, bee=None, view=None,
          beat="The world", captions=[
              (0.0, 4.0, "The main world: an 80 by 48 maze. Home is on the left, the bloom far to the right."),
-             (4.0, 8.0, "Each bee is a Claude Haiku 5.5 mind. It is never told it is a bee, or what anything is.")]),
+             (4.0, 8.0, "Each bee is a Claude Haiku 5.5 mind. It is never told it is a bee, or what a hornet or a flower is.")]),
     dict(id="03_first_sight", kind="map", run=MAIN, t0=28, t1=44, seconds=5.0, bee=5, view="8,5,42,29",
          beat="Danger: caution before any sting", captions=[
              (0.0, 2.6, "Tick 34. Bee 5 sees a moving thing for the first time. It has never been stung. It flees."),
-             (2.6, 5.0, "Nobody told it moving things hurt. This caution is the model's prior, not learning.")]),
+             (2.6, 5.0, "Not learned from a sting: it comes from the model's prior, the word flee in its prompt, or both.")]),
     dict(id="04_stung", kind="map", run=MAIN, t0=98, t1=183, seconds=6.0, bee=1, view=None,
          beat="Danger: a sting", captions=[
              (0.0, 3.0, "Bee 1 picks up bloom at tick 100. A hornet stings it twice: life 199, then 94."),

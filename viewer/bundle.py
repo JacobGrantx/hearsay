@@ -73,7 +73,7 @@ def _inline_json(obj) -> str:
     return json.dumps(obj, separators=(",", ":"), ensure_ascii=False).replace("</", "<\\/")
 
 
-def build_html(run_dir: Path, project: str = "Bee colony") -> str:
+def build_html(run_dir: Path, project: str = "Hearsay") -> str:
     data = load_run(run_dir)
     data["project"] = project
     template = (SRC / "index.html").read_text()
@@ -90,7 +90,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="Bundle a run directory into one self-contained HTML viewer page.")
     ap.add_argument("run_dir", type=Path, help="a run directory (holds layout.json and state.jsonl.gz)")
     ap.add_argument("-o", "--out", type=Path, help="output HTML (default viewer/out/<run>.html)")
-    ap.add_argument("--project", default="Bee colony", help="project name shown in the header")
+    ap.add_argument("--project", default="Hearsay", help="project name shown in the header")
     args = ap.parse_args(argv)
     out = args.out or HERE / "out" / (re.sub(r"[^A-Za-z0-9._-]+", "_", run_name(args.run_dir)) + ".html")
     out.parent.mkdir(parents=True, exist_ok=True)
