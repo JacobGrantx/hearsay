@@ -216,4 +216,4 @@ Final values: base life L = 500, `min_bloom_distance` = 55, `openness` = 0.15, p
 - **Replay cache size.** About 7 KB per call, so the main runs would add roughly 300 MB. Compress the cache entries (in `llm.py`, keeping old entries readable) before the main runs, or keep only the cited runs' entries.
 - **Notes churn.** Bees write a note at every decision, so the 12 notes cover about the last 60 ticks.
 - **API errors are not cached.** A live run where a call failed after its retries replays with a cache miss at that call. None occurred in the pilot. If one does in a main run, re-run that seed.
-- **`make demo`** still runs rule bees only. The spec also wants it to replay one recorded AI run; the pilot (`pilot_full_spring.toml`, seed 0) replays offline with `LLM_MODE=replay` in about 10 s and could be that run.
+- **`make demo`** still runs rule bees only. The spec also wants it to replay one recorded AI run; the pilot (`pilot_full_spring.toml`, seed 0) replays offline with `LLM_MODE=replay` (checked: identical files) and could be that run.
