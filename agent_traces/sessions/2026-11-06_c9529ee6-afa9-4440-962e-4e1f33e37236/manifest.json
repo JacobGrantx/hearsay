@@ -1,0 +1,69 @@
+{
+  "session_id": "c9529ee6-afa9-4440-962e-4e1f33e37236",
+  "exporter_version": 1,
+  "agent_tool": "Claude Code",
+  "claude_code_versions": [
+    "2.1.296"
+  ],
+  "models": {
+    "claude-opus-5-5": 201
+  },
+  "first_timestamp": "2026-11-06T09:09:13.175Z",
+  "last_timestamp": "2026-11-06T09:47:49.493Z",
+  "source": {
+    "file": "c9529ee6-afa9-4440-962e-4e1f33e37236.jsonl",
+    "sha256": "3e7b9b0368827f02d66d9a2d0c6cfd0fe72ee2cbbf3ef8ce31758ea33c8bfc1f",
+    "lines": 526,
+    "unparseable_lines": 0
+  },
+  "usage_main_agent": {
+    "input_tokens": 146,
+    "output_tokens": 142969,
+    "cache_creation_input_tokens": 222682,
+    "cache_read_input_tokens": 10213872,
+    "api_responses": 73,
+    "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+  },
+  "human_prompts": 0,
+  "unmarked_prompts": 1,
+  "permission_decisions": {
+    "accept/config": 84
+  },
+  "tool_calls": {
+    "Bash": 60,
+    "Read": 2,
+    "Write": 17,
+    "Edit": 5
+  },
+  "subagents": [],
+  "commits_made_in_session": [],
+  "commits_in_time_window": [
+    "8fc454dadf615c8397adf084d37e04a79d92b104 Docs: setup calibration in EXPERIMENTS.md, phase 1 architecture, agent proposals in DECISIONS.md, build handoff notes (module map, policy interface, perception fields, changes from the spec, known issues); log format adds trips_ended and trips_delivered",
+    "ec642b86e32ba95970ab3853a632eb0271a37f57 Sample runs for the viewer: make demo output (3 seeds) and one full-size rule-bee run",
+    "59bd01979d96c05eebcaa0b8dd6e0e7699d7655a Setup calibration runs (3 seeds x 5 points x 3 scripted policies) and table script; calibrated defaults L=500, bloom distance 55, openness 0.15; demo_small and full-size scripted configs; make demo",
+    "27af856db42fea29a216c28305c5d7f0ae073a49 Calibration configs for oracle, rule and random bees",
+    "128e4597a085f3df403fec0dea71a47f3bc72cd5 Calibration fixes: hornets stop pursuing a bee during the sting cooldown, move on 80% of ticks, ambush at a gene-scaled rate; explore falls back to a 90-degree frontier; rule bees re-pick a heading when the way ahead is explored; oracle flee reflex; trip outcomes counted in the season they end",
+    "2e19f63912b9f1f83e2b936d1b7f17571c01107a Simulation with scripted bees: hornets with evolution, bees, senses, motor layer, policies, tick loop, run logging; tests incl. leak and determinism",
+    "572ab1ceae3e4009ea3125b69a68c0bb332b1186 World: seeded braided maze, hive with three entrances, seasonal bloom patches, calendar; tests",
+    "32fcc8e3be82823d1b7f77cca7da89840fa2a560 Build notes: run directory log format for the viewer (layout, per-tick state, events, season metrics)"
+  ],
+  "kept_entries": 287,
+  "omitted_entries": {
+    "ai-title": 37,
+    "queue-operation": 2,
+    "attachment": 107,
+    "file-history-snapshot": 1,
+    "atis-latch": 37,
+    "last-prompt": 37,
+    "file-history-delta": 17,
+    "cost-state": 1
+  },
+  "redactions": {},
+  "transformations": {
+    "thinking_omitted": 81
+  },
+  "missing": {
+    "tool_results_stored_outside_log": 0,
+    "note": "Large tool outputs that Claude Code stored outside the session log are not exported; the log keeps its reference to them."
+  }
+}
