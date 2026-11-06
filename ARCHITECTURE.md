@@ -1,30 +1,65 @@
 # Architecture
 
-TODO: Fill once the system exists. Keep it explainable by every team member (brief section 4.2).
+A bee colony lives in a maze and has to find seasonal bloom while evolving hornets hunt it. Phase 1 (this state of the repo) is the world with no AI: bees are driven by scripted policies through the same interface the AI mind will use. The full spec is docs/spec.md; the build handoff, with the exact log format, is docs/BUILD_NOTES.md.
 
 ## Components
 
-TODO: Each major component, what it owns, where it lives in src/.
+| Component | File | What it owns |
+|---|---|---|
+| World | `src/digital_life/world.py` | The maze, the hive, the bloom patches and the calendar. Generated from the seed and fixed for the run. |
+| Hornets | `src/digital_life/hornets.py` | Hornet genomes, movement, stings and evolution. No AI. |
+| Bees | `src/digital_life/bees.py` | Each bee's state, the life rules, and its senses. |
+| Perception and Decision | `src/digital_life/perception.py` | What a bee's mind receives and what it returns. |
+| Motor layer | `src/digital_life/motor.py` | Turns an intent (explore, go to, go home, flee, wait) into one step, using only the bee's own map. |
+| Policies | `src/digital_life/policies.py` | The minds. Phase 1 has three scripted ones: random, rule and oracle. |
+| Simulation | `src/digital_life/sim.py` | The tick loop that runs everything in a fixed order, and the parameter defaults. |
+| Logging and measures | `src/digital_life/simlog.py`, `metrics.py` | The run directory (layout, per-tick state, events, per-season measures) and the run summary. |
 
 ## How they interact
 
-TODO: Data and control flow per step or tick. Diagram in docs/diagrams/.
+Each tick runs in a fixed order:
+
+1. The season may change: hornets arrive or go dormant.
+2. Every bee senses.
+3. Every bee that is due to decide gets a Perception, and the policy answers for all of them in one call.
+4. Bees move one step through the motor layer.
+5. Hornets move.
+6. Hornets sting.
+7. Life drains and bees with none left die.
+8. The queen tops the colony up to 2 bees.
+9. Every 25 ticks outside winter, the least fit hornet is replaced.
+
+The state of everything is then written as one line of `state.jsonl.gz`, which the viewer replays.
+
+The World is read in only three places: the senses, the hornets (which are part of the environment) and the tick loop's rules (bloom pickup, the hive boundary). A policy never sees it.
 
 ## Key mechanisms
 
-TODO: The mechanisms the life-like behaviour depends on. These are what the ablations in EXPERIMENTS.md switch off.
+- **Maze.** A spanning maze carved by depth-first search on a lattice, plus a few open rooms, plus a share of the remaining inner walls knocked through (`openness`) so there are loops and more than one route between areas. The hive is a 6 x 8 room at the left edge with entrances on its right, top and bottom. Three 3 x 3 bloom patches (spring, summer, autumn) sit in the right half at a set path distance from home, in the same places every year.
+- **Life.** A bee starts with L = 500 and loses 1 a tick, or in winter 2 outside and 0.5 inside. Carrying bloom into the hive doubles its life (capped at 3L) and, if the colony has fewer than 12 bees, hatches a new one. A sting takes half the bee's life and stuns it for 2 ticks. Once per life, entering the hive returns half of what stings took.
+- **Senses and the leak boundary.** A bee sees walls, bees and hornets within 4 cells, and bloom within 6. It hears sounds within 10 as a direction and a rough distance. What it sees goes into its own known map and sightings. Its Perception is built only from that, so it can never contain a bloom cell or a hornet the bee has not perceived. A test checks this on every perception in whole runs.
+- **Motor layer.** Routes are planned with A* on the bee's own map, with unknown cells assumed open. When a wall turns up on the route, the bee replans. `explore` walks to the nearest edge of the known map in the chosen direction. The motor never steps onto a cell the bee has not seen; a test checks this too.
+- **Hornets and evolution.** Each hornet has 10 points spread over three genes: smell (how far it detects bees), hearing (how far it hears bee sounds and how often it follows them) and ambush (how often it waits at old sting spots or the bloom). Its fitness is the life it has removed per tick alive. Every 25 ticks the least fit hornet is replaced by a mutated copy of one chosen in proportion to fitness. After winter, spring's hornets are bred from the fittest of the autumn. Under `frozen_hornets` the genes never change.
+- **Scripted policies.** Random bees pick random intents and sounds. Rule bees explore in a random direction, take bloom they see, carry it home, and turn home at half the life they left with. Oracle bees (calibration only) are told where the bloom is.
 
 ## Design choices and alternatives rejected
 
-TODO: Why this architecture. What else we considered and why we dropped it. Who decided (see DECISIONS.md).
+- **A navigation layer under the mind**, rather than the mind choosing every step. The mind decides every 5 ticks or on an event, and the motor layer walks. This keeps AI calls affordable and makes the mind's choices strategic (where to go, when to flee). Proposed by the agent and accepted by Jacob with the spec.
+- **The policy gets a Perception, never the World.** This makes the leak test possible and means the AI mind in phase 2 plugs in without changes to the tick loop.
+- **Hornets path on the true map**, because they are the environment, not learners. Their adaptation is genetic only.
+- **Calibration changed several hornet rules** (no chase during the sting cooldown, 80% speed, a slower ambush rate) and raised L from 250 to 500. Each is recorded in DECISIONS.md as an agent proposal awaiting Jacob, with the reason.
 
 ## Limits
 
-TODO: What it cannot do, scale limits, known failure modes.
+- The world is hard on purpose and noisy: with 3 seeds, the oracle's spring delivery rate ranged from 0.5 to 0.875 (EXPERIMENTS.md, "Setup calibration").
+- Scripted colonies stay small (mean 2.5 to 4.3 bees over 2 years), close to the queen floor of 2.
+- Bees and hornets can share cells. Vision ignores walls (a bee sees through them within 4 cells).
+- A full 2,000-tick run takes about 5 to 7 s with scripted bees on one CPU and writes about 300 KB.
 
 ## Supporting tooling
 
 - `experiments/run.py`: runs a config across seeds. Records params, seed, git commit and versions per run. Writes metrics, events and a cross-seed summary to experiments/results/.
-- `src/digital_life/llm.py`: the only path for runtime model calls. Records each request and response in `experiments/llm_cache/` so runs replay offline (`LLM_MODE=replay`), and enforces a spend cap.
+- `experiments/analysis/calibration_table.py`: builds the calibration table in EXPERIMENTS.md from the summary.json files.
+- `src/digital_life/llm.py`: the only path for runtime model calls. Records each request and response in `experiments/llm_cache/` so runs replay offline (`LLM_MODE=replay`), and enforces a spend cap. Phase 1 makes no model calls.
 - `tools/export_traces.py`: exports each Claude Code session's original log into agent_traces/, with the redactions listed in agent_traces/README.md. It runs from hooks in .claude/settings.json.
 - `tools/presubmit.py`: checks the repository against the brief's submission checklist. A git pre-commit hook runs its secret scan.

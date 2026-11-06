@@ -95,9 +95,10 @@ One row per season, written at the season's last tick (`step`):
 |---|---|
 | `step`, `year`, `season` | last tick of the season, year (0-based), season name |
 | `trips` | trips that started this season (a trip starts when a bee steps out of the hive) |
+| `trips_ended`, `trips_delivered` | trips that ended this season (home or death), and how many of those delivered |
 | `deliveries` | deliveries this season |
-| `delivery_rate` | deliveries / trips, null if no trips |
-| `stings`, `stings_per_trip` | stings this season, and stings / trips |
+| `delivery_rate` | trips_delivered / trips_ended, null if no trip ended. A trip counts in the season it ends. |
+| `stings`, `stings_per_trip` | stings this season, and stings / trips_ended |
 | `median_to_bloom` | median ticks from leaving the hive to reaching bloom, over trips that reached it; null if none |
 | `first_delivery` | ticks after the season's start of its first delivery; null if none |
 | `bees_end`, `bees_mean` | colony size at the season's end, and mean over its ticks |
@@ -105,3 +106,86 @@ One row per season, written at the season's last tick (`step`):
 | `sounds_1`, `sounds_2` | sounds made this season |
 | `hornets`, `smell`, `hearing`, `ambush` | hornets on the map at the season's end, and their mean genes (null in winter) |
 | `hornet_damage` | life removed by stings this season |
+
+The run summary (`final_metrics` in record.json, and `per_seed` and `across_seeds` in summary.json) is a flat dict built by `metrics.summarise`: totals (`trips`, `deliveries`, `stings`, `delivery_rate`, `stings_per_trip`), the same per season name (`spring_rate`, `spring_trips`, `spring_stings_per_trip`, and so on, summed over both years), `first_delivery_y1_spring` and `first_delivery_y2_spring`, `median_to_bloom`, `hatches`, `queen_hatches`, `deaths`, `bees_mean`, `bees_final`, hornet gene means in the first and last season with hornets (`smell_first`, `smell_last`, ...), and `bloom_distance_<season>`. Null values are left out.
+
+## Module map (src/digital_life/)
+
+| Module | Owns |
+|---|---|
+| `world.py` | `generate()`: seeded braided maze (spanning DFS maze, rooms, walls knocked through at rate `openness`), the hive (6 x 8 at the left edge, entrances right, top and bottom), three 3 x 3 bloom patches in the right half whose centres lie between `min_bloom_distance` and 1.5 times that in path steps from home. `Calendar` for seasons and years. |
+| `hornets.py` | `Swarm`: genome (10 points over smell, hearing and ambush), per-tick movement, stings with the per-pair cooldown, steady-state evolution every 25 ticks, season changes (4, 6, 8, 0 hornets; spring of year 2 bred from the fittest autumn hornets). |
+| `bees.py` | `Bee` state; the life rules `drain`, `sting`, `heal`, `deliver`; `sense()` (the only bee-side code that reads the World) and `perceive()` (builds a Perception from the bee's own state). |
+| `perception.py` | `Perception` and `Decision` dataclasses, direction and distance-band helpers. |
+| `motor.py` | `KnownMap` (the bee's own map: unknown, open, wall, home), A* with unknown cells passable, frontier search for `explore`, `flee`, and `step()`. |
+| `policies.py` | `Policy` base class and the scripted `RandomPolicy`, `RulePolicy`, `OraclePolicy`; `make_policy()`. |
+| `sim.py` | `Sim` (the tick loop), `DEFAULTS` (every parameter and its calibrated value), `run(params, seed, log)` for experiments/run.py. |
+| `metrics.py` | Per-season accumulators and the run summary. |
+| `simlog.py` | Writes the run directory (layout.json, state.jsonl.gz, events through RunLog, metrics rows). |
+
+Order inside one tick (`Sim.tick`): season change (hornets spawn or go dormant) → senses for every bee → one `policy.decide_many()` call for every bee due to decide → sounds and hive talk → bee moves (bloom pickup, then delivery, hatch and heal on entering the hive) → hornet moves → stings → life drain and deaths → queen floor → hornet evolution every 25 ticks outside winter → state line → season metrics row at the season's last tick. Sounds made in a tick are heard by bees and hornets on the next tick.
+
+## Policy interface (where phase 2 plugs in the AI mind)
+
+```python
+class Policy:
+    def decide_many(self, perceptions: list[Perception]) -> list[Decision]: ...  # one call per tick
+    def bee_died(self, bee_id: int) -> None: ...                                 # optional clean-up
+```
+
+- Pass the mind in with `Sim(params, seed, log, policy=MyMind(...))`, or register a name in `policies.make_policy` and set `policy = "<name>"` in the config's params (any condition except the three scripted ones reads `params["policy"]`). sim.py needs no change.
+- `decide_many` gets every due bee at once, so the AI mind can run the model calls for one tick in parallel.
+- A bee decides when it hatches, every `decide_every` (5) ticks, and immediately on: stung, newly sees a hornet, bloom comes into view, hears a sound, the motor reports arrived or blocked, enters the hive, life falls below 50% or 25% of base life L. `Perception.trigger` is the most urgent one (order: stung, hornet, bloom, sound, home, arrived, life25, life50, hatched, timer).
+- Memory belongs to the mind. The sim keeps only the bee's short-term events (the last 8), the events since its last decision, the last 6 things heard at home, and its known map. Episodes, beliefs (`remember`) and recall are for phase 2 to keep per bee id. `Decision.remember` is only logged by the sim.
+- Hive talk: a `say` from a bee inside the hive goes to every other bee inside the hive that tick (into its `heard_at_home`), except under `condition = "no_talk"`. `say` is cut to 30 words.
+- Sounds cost 1 life each (`sound_cost`).
+
+## Perception fields
+
+| Field | Content |
+|---|---|
+| `bee_id`, `trigger` | who is deciding and why now |
+| `position`, `home`, `grid_size` | own cell, the hive centre, map size |
+| `life`, `carrying`, `at_home`, `stunned` | own state (life rounded to 1 decimal; stunned = ticks left) |
+| `view` | 9 strings of 9 symbols centred on the bee: `#` wall, `.` open, `H` home, `*` bloom, `b` other bee, `x` hornet, `@` self, space for off the map |
+| `bees_seen`, `hornets_seen` | absolute cells within vision 4 (square) |
+| `bloom_seen` | this season's bloom cells within 6 (square) |
+| `sounds` | `(sound, direction, band)` heard this tick within 10 (Euclidean); band is near (<= 3), mid (<= 6) or far |
+| `recent_events`, `new_events` | the last 8 events, and all events since the previous decision: dicts with `what` (`saw_mover`, `saw_bright`, `heard`, `picked_up`, `delivered`, `stung`) and `ago` in ticks |
+| `heard_at_home` | `(ago, speaker id, text)`, newest last, up to 6 |
+| `bloom_remembered`, `hornets_remembered` | `(x, y, ago)`: bloom cells this bee has seen in its life, and its last 6 hornet sightings |
+| `explored` | share of cells known in each of 8 directions from home |
+| `intent`, `motor_status` | current intent label; `moving`, `arrived`, `blocked` or `idle` |
+| `life_when_left_home` | life when the bee last stepped out of the hive |
+
+Field names are code, not prompt text. Phase 2 renders them with neutral words (the no-hints test applies to the prompt and its templates). Under `no_memory`, phase 2 should decide which of `recent_events`, `bloom_remembered`, `hornets_remembered` and `heard_at_home` count as memory and drop them in its rendering.
+
+## Conditions in phase 1
+
+`rule_bees`, `random_bees` and `oracle_bees` run now. `frozen_hornets` is wired (no evolution; the hornets use the seed's initial draw of 8 genomes in every season and year), and `no_talk` blocks hive talk in the sim. `full`, `no_memory` and `labels_good_bad` need the AI mind; with a scripted `policy` they run but are not meaningful. The seed gives the same layout and the same initial hornet genomes in every condition.
+
+## Calibration (summary; full table in EXPERIMENTS.md, "Setup calibration")
+
+Final values: base life L = 500, `min_bloom_distance` = 55, `openness` = 0.15, plus hornet constants the spec left open: `ambush_rate` = 0.02, `ambush_wait` = 4, `hornet_speed` = 0.8, smell range 2 + smell gene. At that point, over 3 seeds, the spring delivery rate (trips that delivered / trips that ended in spring) is 0.708 for oracle bees, 0.024 for rule bees and 0.000 for random bees.
+
+## Changes from the spec (agent proposals awaiting Jacob, also in DECISIONS.md)
+
+1. **No chasing during the sting cooldown.** A hornet does not pursue a bee it stung until the 10-tick cooldown ends. Without this, a hornet moving at bee speed followed its victim and stung every 10 ticks until it died, which is the lock the cooldown was meant to prevent.
+2. **Hornets move on 80% of ticks** (`hornet_speed`). At equal speed a fleeing bee could never gain distance, so `flee` was useless.
+3. **Ambush rate.** A free hornet heads for an ambush spot with probability 0.02 x ambush/10 per tick and waits 4 x ambush ticks there. Choosing every tick sent all hornets to camp on the bloom.
+4. **Base life L = 500** (spec start value 250). At 250, oracle bees delivered on 0.524 of spring trips (sd 0.272), and one sting near the bloom usually meant death on the way home.
+5. **Bees inside the hive cannot be stung** (entrances included). The spec says hornets cannot enter hive cells but not whether they can sting across the boundary.
+6. **`explore` falls back to 90 degrees.** If no frontier lies within 50 degrees of the chosen direction, the bee takes the nearest frontier within 90 degrees; if there is none, the motor reports `arrived`.
+7. **Oracle flee reflex.** The calibration-only oracle flees when a hornet is within 3 cells.
+8. **Life thresholds** (the 50% and 25% decision triggers) are fractions of base life L, since life can rise to 3L.
+9. **`min_bloom_distance` is a band.** Patch centres lie between the minimum and 1.5 times it (widened if the maze has too few such cells), so the knob sets difficulty rather than only a floor. On the full map, distances under about 45 cannot be placed in the right half.
+
+## Known issues and notes for the later phases
+
+- The world is hard: even oracle bees average about 1.2 stings per spring trip, and every scripted colony falls to the 2-bee queen floor for long stretches (mean colony size 2.5 to 4.3). Hornets learn to wait at their old sting spots, which are on the bees' route home. An AI colony that avoids those spots, or warns others, has room to do better than the oracle on stings.
+- Hornet evolution is fast. In two exploratory runs (oracle bees, seeds 0 and 1, not recorded), all four spring hornets shared one genome by the end of the first spring (10 replacements per 250 ticks).
+- Spring delivery rates are noisy across 3 seeds (oracle sd 0.191). Use 5 seeds for anything in the README.
+- Scripted bees ignore winter (rule bees keep exploring and die outside at 2 life per tick). That is expected and part of the baseline.
+- Baseline run directories for E1 (`rule_bees`, `random_bees`, 5 seeds each) are not committed yet. Run them at the same commit as the AI runs: about 6 s per seed.
+- Calibration result directories hold no state file (`log_state = false`) and no decision events, to keep them small. A full 2,000-tick run directory is about 300 KB.
+- The test suite takes about 15 to 30 s; the leak and determinism tests run whole small worlds.
