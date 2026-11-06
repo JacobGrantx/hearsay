@@ -22,11 +22,11 @@ Round 1 found the bees wary of moving things at first sight, before any sting, a
 
 > Agents see: units, zone O, K entities, G cells, signals A and B.
 
-The round 1 wording is kept as `vocab = "neutral"`, and every result in this README so far was made with it.
+The round 1 wording is kept as `vocab = "neutral"`. Every round 1 and E5 result in this README used the neutral wording. Round 2 (abstract wording, pre-registered in [EXPERIMENTS.md](EXPERIMENTS.md)) is running; its results will follow.
 
 ## Why digital life?
 
-The property we go deep on is **adaptation, at three speeds**, under seasonal change:
+The thread through every experiment (E1, E3, E5 and round 2) is one question: does knowledge outlive the individual who found it? That is the property we explore in depth. We frame it as **adaptation, at three speeds**, under seasonal change:
 
 | Speed | Mechanism | Ablation that removes it |
 |---|---|---|
