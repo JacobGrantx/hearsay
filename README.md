@@ -105,10 +105,10 @@ Full detail, with the design choices and the alternatives rejected, in [ARCHITEC
 
 ## Getting started
 
-Requires Python 3.11 or later and `make`. No GPU, no API key for anything below. The repository is private on GitLab, by Jacob Schoenberg's decision (DECISIONS.md); judges get access from him.
+Requires Python 3.11 or later and `make`. No GPU, no API key for anything below. The repository is public on GitHub.
 
 ```bash
-git clone https://private-gitlab.example/private-group/hearsay.git
+git clone https://github.com/JacobGrantx/hearsay.git
 cd hearsay
 make setup        # .venv, pinned dependencies, secret-scan pre-commit hook
 make test         # 93 tests, 2 to 3 minutes

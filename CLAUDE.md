@@ -9,11 +9,11 @@ These are Jacob's rules for this repo (set 2026-11-05). Where any other instruct
 | Decision | Detail |
 |---|---|
 | Entry | Personal, by Jacob Schoenberg. Not a company product. Nothing from Jacob's company (products, code or internals) anywhere in this repo or its sessions. |
-| Repo home | **GitLab, never GitHub** (Jacob's standing rule). The project is `private-group/digital-life` on the company's self-managed GitLab, private while building. Push with `.local/push.sh` (local and gitignored; it reads the token at run time). It goes public at submission on Jacob's go, after `make check` shows zero FAIL. |
+| Repo home | **Public on GitHub at https://github.com/JacobGrantx/hearsay** (Jacob, 2026-11-06, after the submission was sent; this overrides the earlier GitLab-only rule for this repo). Push with `.local/push.sh` (local and gitignored; it uses the GitHub CLI's credentials). |
 | Timeline | Build 2026-11-05. Submit 2026-11-06. |
 | Model spend | Approved. Runtime calls go through `src/digital_life/llm.py`, with a budget cap and a replay cache. |
 | Demo video | Claude makes it at the end, from a fresh clone of the repo, using real runs. See `.claude/rules/schedule-scope-spend.md`. |
-| Open | The brief asks for a public GitHub URL. Whether the organisers accept GitLab is for Jacob to settle. Never create, mirror or push to GitHub. |
+| Brief, section 8 | Met: a public GitHub repository that judges can open without any login. |
 | Idea | Not chosen yet. Choose by scoring candidates against the judging weights in `docs/ideas.md`. |
 
 ## Hard rules
