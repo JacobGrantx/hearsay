@@ -6,51 +6,62 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 98
+    "claude-opus-5-5": 203
   },
   "first_timestamp": "2026-11-06T12:03:19.518Z",
-  "last_timestamp": "2026-11-06T12:15:54.234Z",
+  "last_timestamp": "2026-11-06T12:36:53.808Z",
   "source": {
     "file": "954b5b7b-79b0-486a-870e-9f097f2a57c0.jsonl",
-    "sha256": "fcf4a6b3fdf81164028aaa9c379a1a30b496cecc54c00c4b1638905ef18cb893",
-    "lines": 314,
+    "sha256": "28af8f024a86ce4e548c42e4fa665b9b614bd56799a20855755506f16010bb7e",
+    "lines": 602,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 104,
-    "output_tokens": 52772,
-    "cache_creation_input_tokens": 134909,
-    "cache_read_input_tokens": 4726214,
-    "api_responses": 52,
+    "input_tokens": 210,
+    "output_tokens": 80437,
+    "cache_creation_input_tokens": 194175,
+    "cache_read_input_tokens": 14283016,
+    "api_responses": 105,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 56
+    "accept/config": 115
   },
   "tool_calls": {
-    "Bash": 44,
-    "Write": 5,
-    "Read": 7,
-    "Skill": 1
+    "Bash": 92,
+    "Write": 6,
+    "Read": 15,
+    "Skill": 2,
+    "Edit": 1
   },
   "subagents": [],
   "commits_made_in_session": [],
-  "commits_in_time_window": [],
-  "kept_entries": 156,
+  "commits_in_time_window": [
+    "4081692c43d0d7f3abb020a42cd4d54059ba6137 README: Demonstration links the video, the segment sources and the stills; 69 tests; three prose fixes. Submission draft: demo link and a results line. Build notes: phase 5. AI disclosure: test count",
+    "efe56c402260dc2d69d8a122ec6242c0de68339b Demo video (88.5 s, 3.1 MB) rendered by make video in a fresh clone at d3fa660, with SOURCES.md (segments, run directories, ticks, captions) and four stills",
+    "204163234b2964f13746bd8575a54657c779dfab Test: find_moments.py finds the video's moments (E5 first finder, hatch and hive talk; first-sight caution; bee 1's stings; E5 winter 7 to 4) from the run directories",
+    "d3fa660369a9c33b8cecee13219bd0c8e260a902 Video caption (summer stings beside the old spring patch), the render commit in SOURCES.md, and the DECISIONS wording. These are the changes the message of 9663aea describes: that commit's git add failed on a removed path, so it holds only the .gitkeep deletions",
+    "9663aea731f54de82e9b52e6f76ffa703f6e194c Video: the summer stings were at (35,2), beside the old spring patch, so the caption says beside; SOURCES.md records the render commit. Remove the empty placeholder folders (assets, docs/diagrams) and the demo .gitkeep files",
+    "379d4ee8f9ad2111d8cddc5ab2f0726593159081 Storyboard: segment 8 starts at tick 171.5 so bee 6's tick-172 note reaches the panel under its caption. DECISIONS: the video storyboard and the viewer header. AI disclosure and traces README: phase 5",
+    "bc6073fd33d2f2b1f5468f4b77e05362c7fb8970 Traces: phase 5 session",
+    "77b94228d15312a07960e0852da635d821166b05 Demo video renderer: storyboard (segments, runs, ticks, captions), cards and charts from the analysis JSON, make_video.py, and make video",
+    "a431e0028afdb71541f575751acf85ac4ccb9c13 find_moments.py: scan the cited runs for the video's moments (first delivery, hatches, caution before any sting, sting then talk, hive talk passing a bloom place, old routes, winter, year 2 spring). Viewer: header shows the experiment name from record.json and a --project name"
+  ],
+  "kept_entries": 321,
   "omitted_entries": {
-    "ai-title": 22,
-    "queue-operation": 4,
-    "attachment": 83,
+    "ai-title": 37,
+    "queue-operation": 12,
+    "attachment": 151,
     "file-history-snapshot": 1,
-    "atis-latch": 22,
-    "last-prompt": 21,
-    "file-history-delta": 5
+    "atis-latch": 37,
+    "last-prompt": 36,
+    "file-history-delta": 7
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 35
+    "thinking_omitted": 72
   },
   "missing": {
     "tool_results_stored_outside_log": 1,
