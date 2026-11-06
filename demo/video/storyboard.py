@@ -49,7 +49,7 @@ SEGMENTS = [
     dict(id="10_summer", kind="map", run=E5, t0=298, t1=440, seconds=8.0, bee=1, view=None,
          beat="Seasons: the bloom moves", captions=[
              (0.0, 3.0, "Summer. The bloom has moved. Bee 1 heads back to (37,3), where spring's bloom was."),
-             (3.0, 5.4, "Ticks 355 and 357: two stings at the old spring place, now empty."),
+             (3.0, 5.4, "Ticks 355 and 357: two stings beside the old spring place, now empty."),
              (5.4, 8.0, "Fleeing home, it sees the summer bloom, takes it, and delivers at tick 436.")]),
     dict(id="11_winter", kind="map", run=E5, t0=740, t1=1000, seconds=4.5, bee=None, view=None,
          beat="Seasons: winter", captions=[
