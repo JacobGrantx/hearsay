@@ -157,6 +157,32 @@ From the feasibility note: about $0.0001 per decision. The pilot (below) gives t
 1. **Seeds 3 and 4 for `full` and `no_talk`** (2026-11-06, 10:32 UTC, during the main runs). The pilot's cost held up (about $0.37 per 2-year run), so the extension the shared design allows "budget allowing" was started for the two arms the likely headlines compare: `full` against `rule_bees` (which already has seeds 0 to 4) in E1, and `full` against `no_talk` in E1 and E3. It was decided after seed 0 of each arm had finished and before seeds 1 and 2 had, and it runs whatever the outcome. The pre-registered verdicts stay on seeds 0 to 2; the 5-seed comparisons are reported beside them, with the same rule (same sign on all 5 paired seeds, and mean paired difference larger than its sd).
 2. **Five AI processes at once** (2026-11-06, 10:16 UTC, at launch). Each AI arm ran as its own process, seeds one after another, with its own replay-cache folder and spend ledger, from a clean git worktree at commit 9cb4e7a, so that later commits could not change a running experiment. This changes no analysis.
 
+### E5: talk with something to carry (post-hoc follow-up, registered 2026-11-06)
+
+**Post hoc.** E5 was designed after the main results, because of them: in E1 and E3 the colony found the bloom so rarely ("Why trips failed") that transmission by talk never got a fair test. E5 does not replace or reinterpret E1 to E4; their verdicts stand. Written and committed (subject "Pre-registration E5:") before any E5 AI run.
+
+- **Question:** does talk at home carry knowledge once there is knowledge to carry?
+- **World:** the "E5 world" (Setup calibration), chosen with scripted bees only: 56 x 34, `min_bloom_distance` 38, `hornet_spawn_distance` 18, `hornet_counts` [2, 3, 4, 0], 1 year (1,000 ticks), everything else as in the main world.
+- **Arms and configs:** `e5_full` (condition `full`) and `e5_no_talk` (condition `no_talk`), configs `experiments/configurations/e5_full.toml` and `e5_no_talk.toml`. Same prompt template, perception renderer, model (`claude-haiku-5-5`, effort low, thinking disabled, structured output, max 400 tokens) and decision cadence as the main runs; the code is unchanged since the main runs except for analysis and tools.
+- **Seeds:** 0 to 4 in each arm, paired by seed (a seed fixes the maze, bloom sites and first hornets in both arms). Each seed runs as its own process from a clean clone, with its own cache folder and spend ledger. No run is dropped; a crash or more than 5% `wait` fallbacks is reported and flagged.
+- **Spend cap:** the project ledger stays at or below $15 in total (it stood at $5.5084 before E5). Each process has `LLM_BUDGET_USD` 0.90.
+
+**(a) Gathering.** Hypothesis: `e5_full` delivers more than `e5_no_talk`.
+- Primary measure: total `deliveries` per 1-year run (`final_metrics` in record.json).
+- Supported if the paired difference (`e5_full` minus `e5_no_talk`) has the same sign (positive) on all 5 seeds and its mean is larger than its sd: the pre-registered consistency rule of the main runs. Anything weaker is "no consistent difference".
+- Secondary, descriptive: spring deliveries, `delivery_rate`, trips, stings per trip, `bees_mean`, and ticks from the start of each season to the colony's first bloom sighting (censored at 250).
+
+**(b) Talk-informed deliveries.** Hypothesis: in `e5_full`, some deliveries are made by bees whose first knowledge of that season's bloom came from talk at home.
+- A delivery (a `delivery` event) belongs to the bee's latest `bloom` pickup before it; "that season" is the season of the pickup tick, and its bloom cells are `layout.json` `bloom[season]`.
+- **First sighting:** the first tick at which the bee's logged position (state.jsonl.gz) is within 6 cells (bloom vision, square: max(|dx|, |dy|) <= 6) of any of that season's bloom cells while that season is current.
+- **Heard:** a `say` event whose `heard_by` lists the bee and whose text holds a coordinate pair "(x, y)" within 3 cells (max(|dx|, |dy|) <= 3) of any of that season's bloom cells, the same rule as the main runs' talk classes.
+- **Talk-informed delivery:** the bee heard such a coordinate strictly before its first sighting of that season's bloom. Counted per run; `e5_no_talk` is 0 by construction (nothing is heard) and is reported only as a check.
+- **Acted on talk (stricter, secondary):** a talk-informed delivery where, between hearing and first sighting, the bee chose `go_to` with a target within 3 cells of a bloom cell of that season. This separates a bee that followed what it heard from one that heard a coordinate near the bloom (for example a warning about moving things there) and then found the bloom by its own exploring.
+- **Reported:** the count per seed, mean, sd and n; and for every talk-informed delivery the bee, the delivery tick, what it heard (text, tick) and from whom, and whether the speaker had itself seen the bloom by then.
+- **Supported if** there is at least one talk-informed delivery in at least 2 of the 5 seeds. We only use the word "transmission" for deliveries that also pass the acted-on-talk check.
+
+**Not tested:** year 2 (runs are 1 year), sounds (E4), hornet adaptation (E2). The analysis is a script that reads the run directories alone (`experiments/analysis/e5_results.py`), written after this commit and before looking at any E5 result (while the runs go, only liveness, errors and spend are checked); any change of plan after the runs start is listed as an amendment, dated, and marked as made after the runs.
+
 ## Pilot (phase 2): one full-size spring, not a result
 
 A plumbing and sizing check, run after the pre-registration commit and before any main run. n = 1, so nothing here is a finding. Run directory: `experiments/results/pilot_full_spring/20261106T100558Z/seed-0` (config `pilot_full_spring.toml`: condition `full`, seed 0, full-size world, stopped at tick 250, commit c2052a2, `git_dirty: false`). Numbers below come from its record.json and events.jsonl, summarised by `experiments/analysis/mind_report.py`.
