@@ -85,6 +85,11 @@ def collect() -> dict:
         "naive_avoidance": {c: seeds(c, m.naive_avoidance) for c in AI},
         "naive_avoidance_share": {c: describe(seeds(c, lambda r: m.naive_avoidance(r)["flee_or_home"])) for c in AI},
     }
+    hw = {c: seeds(c, m.harm_words) for c in AI}
+    out["exploratory"] = {"harm_words": hw,
+                          "harm_note_share": {c: describe({s: v["note_share"] for s, v in hw[c].items()}) for c in AI},
+                          "harm_say_share": {c: describe({s: v["say_share"] for s, v in hw[c].items()}) for c in AI},
+                          "says_heard_by_anyone": {c: describe({s: v["says_heard_by_anyone"] for s, v in hw[c].items()}) for c in AI}}
     return out
 
 
@@ -135,6 +140,10 @@ def markdown(r: dict) -> str:
     L += ["", "**Listener response** (share of flee or go_home)", ""] + [f"- {c} seed {s}: {v}" for c, sv in r["E4"]["listener"].items() for s, v in sv.items()]
     L += ["", "## Further measures", "", "**Coordinates in hive talk** (pooled over seeds)", ""] + [f"- {c}: {v}" for c, v in r["further"]["talk_claims_pooled"].items()]
     L += [""] + table("naive avoidance: share of flee or go_home at a bee's first sighting, before any sting", r["further"]["naive_avoidance_share"], AI)
+    L += ["## Exploratory (not pre-registered)", ""]
+    L += table("share of notes using a word of harm or caution (" + ", ".join(m.HARM_WORDS) + ")", r["exploratory"]["harm_note_share"], AI)
+    L += table("share of words said at home using one", r["exploratory"]["harm_say_share"], AI)
+    L += table("share of words said at home that another bee heard", r["exploratory"]["says_heard_by_anyone"], AI)
     return "\n".join(L) + "\n"
 
 

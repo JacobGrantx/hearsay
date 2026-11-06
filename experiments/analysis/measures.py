@@ -196,3 +196,23 @@ def mind_health(run: Run) -> dict:
             "fallback_share": round(fallbacks / n, 4) if n else None, "flagged": bool(n and fallbacks / n > 0.05),
             "input_tokens": sum(e.get("usage", {}).get("input_tokens", 0) for e in decisions),
             "output_tokens": sum(e.get("usage", {}).get("output_tokens", 0) for e in decisions)}
+
+
+# ---------- Exploratory (not pre-registered; labelled as such wherever quoted) ----------
+
+HARM_WORDS = ("danger", "avoid", "careful", "caution", "threat", "harm", "hurt")
+
+
+def harm_words(run: Run) -> dict:
+    """Share of decisions whose note or words at home use a word of harm or caution. None of these
+    words appears in any prompt (the no-hints test bans danger and avoid; the others were checked by grep)."""
+    decisions = run.of("decision")
+    says = run.of("say")
+    def hit(text):
+        return any(w in (text or "").lower() for w in HARM_WORDS)
+    return {"decisions": len(decisions),
+            "note_share": round(sum(hit(e.get("remember")) for e in decisions) / len(decisions), 4)
+            if any(e.get("remember") for e in decisions) else None,  # None under no_memory, which has no notes
+            "says": len(says),
+            "say_share": round(sum(hit(e["text"]) for e in says) / len(says), 4) if says else None,
+            "says_heard_by_anyone": round(sum(bool(e.get("heard_by")) for e in says) / len(says), 4) if says else None}

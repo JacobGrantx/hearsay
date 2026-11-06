@@ -1,0 +1,3062 @@
+{
+ "runs": {
+  "full": {
+   "0": "full/20261106T101558Z/seed-0"
+  },
+  "no_talk": {
+   "0": "no_talk/20261106T101558Z/seed-0"
+  },
+  "no_memory": {
+   "0": "no_memory/20261106T101558Z/seed-0"
+  },
+  "frozen_hornets": {
+   "0": "frozen_hornets/20261106T101558Z/seed-0"
+  },
+  "labels_good_bad": {
+   "0": "labels_good_bad/20261106T101558Z/seed-0"
+  },
+  "rule_bees": {
+   "0": "rule_bees/20261106T101558Z/seed-0",
+   "1": "rule_bees/20261106T101558Z/seed-1",
+   "2": "rule_bees/20261106T101558Z/seed-2",
+   "3": "rule_bees/20261106T101558Z/seed-3",
+   "4": "rule_bees/20261106T101558Z/seed-4"
+  },
+  "random_bees": {
+   "0": "random_bees/20261106T101558Z/seed-0",
+   "1": "random_bees/20261106T101558Z/seed-1",
+   "2": "random_bees/20261106T101558Z/seed-2",
+   "3": "random_bees/20261106T101558Z/seed-3",
+   "4": "random_bees/20261106T101558Z/seed-4"
+  }
+ },
+ "provenance": {
+  "full": [
+   [
+    "9cb4e7a9d3fb765e276d82ad886c7d7bd4d2230e",
+    false
+   ]
+  ],
+  "no_talk": [
+   [
+    "9cb4e7a9d3fb765e276d82ad886c7d7bd4d2230e",
+    false
+   ]
+  ],
+  "no_memory": [
+   [
+    "9cb4e7a9d3fb765e276d82ad886c7d7bd4d2230e",
+    false
+   ]
+  ],
+  "frozen_hornets": [
+   [
+    "9cb4e7a9d3fb765e276d82ad886c7d7bd4d2230e",
+    false
+   ]
+  ],
+  "labels_good_bad": [
+   [
+    "9cb4e7a9d3fb765e276d82ad886c7d7bd4d2230e",
+    false
+   ]
+  ],
+  "rule_bees": [
+   [
+    "9cb4e7a9d3fb765e276d82ad886c7d7bd4d2230e",
+    false
+   ]
+  ],
+  "random_bees": [
+   [
+    "9cb4e7a9d3fb765e276d82ad886c7d7bd4d2230e",
+    false
+   ]
+  ]
+ },
+ "errors": {
+  "full": {},
+  "no_talk": {},
+  "no_memory": {},
+  "frozen_hornets": {},
+  "labels_good_bad": {},
+  "rule_bees": {},
+  "random_bees": {}
+ },
+ "health": {
+  "full": {
+   "0": {
+    "decisions": 1440,
+    "mind_errors": 0,
+    "fallbacks": 0,
+    "fallback_share": 0.0,
+    "flagged": false,
+    "input_tokens": 3116356,
+    "output_tokens": 115978
+   }
+  },
+  "no_talk": {
+   "0": {
+    "decisions": 1398,
+    "mind_errors": 0,
+    "fallbacks": 0,
+    "fallback_share": 0.0,
+    "flagged": false,
+    "input_tokens": 2377035,
+    "output_tokens": 92158
+   }
+  },
+  "no_memory": {
+   "0": {
+    "decisions": 1491,
+    "mind_errors": 0,
+    "fallbacks": 0,
+    "fallback_share": 0.0,
+    "flagged": false,
+    "input_tokens": 1623446,
+    "output_tokens": 57911
+   }
+  },
+  "frozen_hornets": {
+   "0": {
+    "decisions": 1488,
+    "mind_errors": 0,
+    "fallbacks": 0,
+    "fallback_share": 0.0,
+    "flagged": false,
+    "input_tokens": 3122439,
+    "output_tokens": 117980
+   }
+  },
+  "labels_good_bad": {
+   "0": {
+    "decisions": 1747,
+    "mind_errors": 0,
+    "fallbacks": 0,
+    "fallback_share": 0.0,
+    "flagged": false,
+    "input_tokens": 3842750,
+    "output_tokens": 146435
+   }
+  }
+ },
+ "E1": {
+  "by_condition": {
+   "deliveries": {
+    "full": {
+     "n": 1,
+     "mean": 4.0,
+     "sd": null,
+     "per_seed": {
+      "0": 4
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 2.0,
+     "sd": null,
+     "per_seed": {
+      "0": 2
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 2.0,
+     "sd": null,
+     "per_seed": {
+      "0": 2
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 5.0,
+     "sd": null,
+     "per_seed": {
+      "0": 5
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 6.0,
+     "sd": null,
+     "per_seed": {
+      "0": 6
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 1.8,
+     "sd": 1.4832,
+     "per_seed": {
+      "0": 1,
+      "1": 0,
+      "2": 2,
+      "3": 4,
+      "4": 2
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.0,
+     "sd": 0.0,
+     "per_seed": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+     }
+    }
+   },
+   "delivery_rate": {
+    "full": {
+     "n": 1,
+     "mean": 0.1,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 0.0465,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0465
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 0.0222,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0222
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 0.1136,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1136
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 0.1579,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1579
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 0.0303,
+     "sd": 0.0259,
+     "per_seed": {
+      "0": 0.0189,
+      "1": 0.0,
+      "2": 0.0267,
+      "3": 0.0702,
+      "4": 0.0357
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.0,
+     "sd": 0.0,
+     "per_seed": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0
+     }
+    }
+   },
+   "median_to_bloom": {
+    "full": {
+     "n": 1,
+     "mean": 83.5,
+     "sd": null,
+     "per_seed": {
+      "0": 83.5
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 128.5,
+     "sd": null,
+     "per_seed": {
+      "0": 128.5
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 143.0,
+     "sd": null,
+     "per_seed": {
+      "0": 143.0
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 79.75,
+     "sd": null,
+     "per_seed": {
+      "0": 79.75
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 68.5,
+     "sd": null,
+     "per_seed": {
+      "0": 68.5
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 118.4,
+     "sd": 38.307,
+     "per_seed": {
+      "0": 88,
+      "1": 80,
+      "2": 142.5,
+      "3": 110,
+      "4": 171.5
+     }
+    },
+    "random_bees": {
+     "n": 0,
+     "mean": null,
+     "sd": null,
+     "per_seed": {
+      "0": null,
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null
+     }
+    }
+   },
+   "stings_per_trip": {
+    "full": {
+     "n": 1,
+     "mean": 0.2,
+     "sd": null,
+     "per_seed": {
+      "0": 0.2
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 0.1163,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1163
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 0.1444,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1444
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 0.4318,
+     "sd": null,
+     "per_seed": {
+      "0": 0.4318
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 0.3684,
+     "sd": null,
+     "per_seed": {
+      "0": 0.3684
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 0.5863,
+     "sd": 0.179,
+     "per_seed": {
+      "0": 0.3208,
+      "1": 0.5088,
+      "2": 0.72,
+      "3": 0.614,
+      "4": 0.7679
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.1599,
+     "sd": 0.0911,
+     "per_seed": {
+      "0": 0.1527,
+      "1": 0.292,
+      "2": 0.0377,
+      "3": 0.1389,
+      "4": 0.1783
+     }
+    }
+   },
+   "bees_mean": {
+    "full": {
+     "n": 1,
+     "mean": 3.261,
+     "sd": null,
+     "per_seed": {
+      "0": 3.261
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 3.135,
+     "sd": null,
+     "per_seed": {
+      "0": 3.135
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 3.018,
+     "sd": null,
+     "per_seed": {
+      "0": 3.018
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 3.418,
+     "sd": null,
+     "per_seed": {
+      "0": 3.418
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 3.994,
+     "sd": null,
+     "per_seed": {
+      "0": 3.994
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 2.7632,
+     "sd": 0.1592,
+     "per_seed": {
+      "0": 2.885,
+      "1": 2.604,
+      "2": 2.692,
+      "3": 2.976,
+      "4": 2.659
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 2.552,
+     "sd": 0.0617,
+     "per_seed": {
+      "0": 2.461,
+      "1": 2.515,
+      "2": 2.587,
+      "3": 2.603,
+      "4": 2.594
+     }
+    }
+   },
+   "spring_deliveries": {
+    "full": {
+     "n": 1,
+     "mean": 2.0,
+     "sd": null,
+     "per_seed": {
+      "0": 2
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 0.0,
+     "sd": null,
+     "per_seed": {
+      "0": 0
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 0.0,
+     "sd": null,
+     "per_seed": {
+      "0": 0
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 1.0,
+     "sd": null,
+     "per_seed": {
+      "0": 1
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 1.0,
+     "sd": null,
+     "per_seed": {
+      "0": 1
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 0.2,
+     "sd": 0.4472,
+     "per_seed": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "4": 0
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.0,
+     "sd": 0.0,
+     "per_seed": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+     }
+    }
+   },
+   "summer_deliveries": {
+    "full": {
+     "n": 1,
+     "mean": 2.0,
+     "sd": null,
+     "per_seed": {
+      "0": 2
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 1.0,
+     "sd": null,
+     "per_seed": {
+      "0": 1
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 1.0,
+     "sd": null,
+     "per_seed": {
+      "0": 1
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 2.0,
+     "sd": null,
+     "per_seed": {
+      "0": 2
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 3.0,
+     "sd": null,
+     "per_seed": {
+      "0": 3
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 0.8,
+     "sd": 0.4472,
+     "per_seed": {
+      "0": 1,
+      "1": 0,
+      "2": 1,
+      "3": 1,
+      "4": 1
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.0,
+     "sd": 0.0,
+     "per_seed": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+     }
+    }
+   },
+   "autumn_deliveries": {
+    "full": {
+     "n": 1,
+     "mean": 0.0,
+     "sd": null,
+     "per_seed": {
+      "0": 0
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 1.0,
+     "sd": null,
+     "per_seed": {
+      "0": 1
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 0.0,
+     "sd": null,
+     "per_seed": {
+      "0": 0
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 2.0,
+     "sd": null,
+     "per_seed": {
+      "0": 2
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 2.0,
+     "sd": null,
+     "per_seed": {
+      "0": 2
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 0.8,
+     "sd": 1.3038,
+     "per_seed": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 3,
+      "4": 1
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.0,
+     "sd": 0.0,
+     "per_seed": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+     }
+    }
+   },
+   "spring_rate": {
+    "full": {
+     "n": 1,
+     "mean": 0.1667,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1667
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 0.0,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 0.0,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 0.1111,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1111
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 0.1,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 0.0143,
+     "sd": 0.0319,
+     "per_seed": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0714,
+      "3": 0.0,
+      "4": 0.0
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.0,
+     "sd": 0.0,
+     "per_seed": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0
+     }
+    }
+   },
+   "summer_rate": {
+    "full": {
+     "n": 1,
+     "mean": 0.1111,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1111
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 0.0714,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0714
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 0.0263,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0263
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 0.1429,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1429
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 0.2727,
+     "sd": null,
+     "per_seed": {
+      "0": 0.2727
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 0.0371,
+     "sd": 0.0212,
+     "per_seed": {
+      "0": 0.0455,
+      "1": 0.0,
+      "2": 0.04,
+      "3": 0.0526,
+      "4": 0.0476
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.0,
+     "sd": 0.0,
+     "per_seed": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0
+     }
+    }
+   },
+   "autumn_rate": {
+    "full": {
+     "n": 1,
+     "mean": 0.0,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0
+     }
+    },
+    "no_talk": {
+     "n": 1,
+     "mean": 0.0714,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0714
+     }
+    },
+    "no_memory": {
+     "n": 1,
+     "mean": 0.0,
+     "sd": null,
+     "per_seed": {
+      "0": 0.0
+     }
+    },
+    "frozen_hornets": {
+     "n": 1,
+     "mean": 0.1429,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1429
+     }
+    },
+    "labels_good_bad": {
+     "n": 1,
+     "mean": 0.1538,
+     "sd": null,
+     "per_seed": {
+      "0": 0.1538
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 0.0486,
+     "sd": 0.0771,
+     "per_seed": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.1765,
+      "4": 0.0667
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 0.0,
+     "sd": 0.0,
+     "per_seed": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0
+     }
+    }
+   }
+  },
+  "paired": {
+   "deliveries": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 3
+     },
+     "mean": 3.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 4
+     },
+     "mean": 4.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "delivery_rate": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.0535
+     },
+     "mean": 0.0535,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 0.0778
+     },
+     "mean": 0.0778,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.0811
+     },
+     "mean": 0.0811,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.1
+     },
+     "mean": 0.1,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "median_to_bloom": {
+    "full - no_talk": {
+     "diffs": {
+      "0": -45.0
+     },
+     "mean": -45.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": -59.5
+     },
+     "mean": -59.5,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": -4.5
+     },
+     "mean": -4.5,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {},
+     "mean": null,
+     "sd": null,
+     "n": 0,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "stings_per_trip": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.0837
+     },
+     "mean": 0.0837,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 0.0556
+     },
+     "mean": 0.0556,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": -0.1208
+     },
+     "mean": -0.1208,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.0473
+     },
+     "mean": 0.0473,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "bees_mean": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.126
+     },
+     "mean": 0.126,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 0.243
+     },
+     "mean": 0.243,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.376
+     },
+     "mean": 0.376,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.8
+     },
+     "mean": 0.8,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "spring_deliveries": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "summer_deliveries": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 1
+     },
+     "mean": 1.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 1
+     },
+     "mean": 1.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 1
+     },
+     "mean": 1.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "autumn_deliveries": {
+    "full - no_talk": {
+     "diffs": {
+      "0": -1
+     },
+     "mean": -1.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "spring_rate": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.1667
+     },
+     "mean": 0.1667,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 0.1667
+     },
+     "mean": 0.1667,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.1667
+     },
+     "mean": 0.1667,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.1667
+     },
+     "mean": 0.1667,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "summer_rate": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.0397
+     },
+     "mean": 0.0397,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 0.0848
+     },
+     "mean": 0.0848,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.0656
+     },
+     "mean": 0.0656,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.1111
+     },
+     "mean": 0.1111,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "autumn_rate": {
+    "full - no_talk": {
+     "diffs": {
+      "0": -0.0714
+     },
+     "mean": -0.0714,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": 0.0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   }
+  },
+  "paired_extended": {
+   "deliveries": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 3
+     },
+     "mean": 3.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 4
+     },
+     "mean": 4.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "delivery_rate": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.0535
+     },
+     "mean": 0.0535,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.0811
+     },
+     "mean": 0.0811,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.1
+     },
+     "mean": 0.1,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "median_to_bloom": {
+    "full - no_talk": {
+     "diffs": {
+      "0": -45.0
+     },
+     "mean": -45.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": -4.5
+     },
+     "mean": -4.5,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {},
+     "mean": null,
+     "sd": null,
+     "n": 0,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "stings_per_trip": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.0837
+     },
+     "mean": 0.0837,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": -0.1208
+     },
+     "mean": -0.1208,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.0473
+     },
+     "mean": 0.0473,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "bees_mean": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.126
+     },
+     "mean": 0.126,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.376
+     },
+     "mean": 0.376,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.8
+     },
+     "mean": 0.8,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "spring_deliveries": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "summer_deliveries": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 1
+     },
+     "mean": 1.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 1
+     },
+     "mean": 1.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 2
+     },
+     "mean": 2.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "autumn_deliveries": {
+    "full - no_talk": {
+     "diffs": {
+      "0": -1
+     },
+     "mean": -1.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "spring_rate": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.1667
+     },
+     "mean": 0.1667,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.1667
+     },
+     "mean": 0.1667,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.1667
+     },
+     "mean": 0.1667,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "summer_rate": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 0.0397
+     },
+     "mean": 0.0397,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.0656
+     },
+     "mean": 0.0656,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.1111
+     },
+     "mean": 0.1111,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "autumn_rate": {
+    "full - no_talk": {
+     "diffs": {
+      "0": -0.0714
+     },
+     "mean": -0.0714,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": 0.0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": 0.0
+     },
+     "mean": 0.0,
+     "sd": null,
+     "n": 1,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   }
+  },
+  "deliveries_by_season": {
+   "full": {
+    "0": [
+     1,
+     1,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0
+    ]
+   },
+   "no_talk": {
+    "0": [
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "no_memory": {
+    "0": [
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0
+    ]
+   },
+   "frozen_hornets": {
+    "0": [
+     1,
+     2,
+     0,
+     0,
+     0,
+     0,
+     2,
+     0
+    ]
+   },
+   "labels_good_bad": {
+    "0": [
+     1,
+     3,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   "rule_bees": {
+    "0": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    "1": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "2": [
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "3": [
+     0,
+     1,
+     2,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "4": [
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "random_bees": {
+    "0": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "1": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "2": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "3": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "4": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  }
+ },
+ "E2": {
+  "sting_change": {
+   "full": {
+    "n": 1,
+    "mean": -0.0083,
+    "sd": null,
+    "per_seed": {
+     "0": -0.0083
+    }
+   },
+   "no_talk": {
+    "n": 1,
+    "mean": 0.1857,
+    "sd": null,
+    "per_seed": {
+     "0": 0.1857
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 0.2513,
+    "sd": null,
+    "per_seed": {
+     "0": 0.2513
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 0.72,
+    "sd": null,
+    "per_seed": {
+     "0": 0.72
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 0.0212,
+    "sd": null,
+    "per_seed": {
+     "0": 0.0212
+    }
+   },
+   "rule_bees": {
+    "n": 5,
+    "mean": 0.1919,
+    "sd": 0.3106,
+    "per_seed": {
+     "0": 0.2811,
+     "1": 0.0104,
+     "2": -0.0815,
+     "3": 0.6936,
+     "4": 0.056
+    }
+   },
+   "random_bees": {
+    "n": 5,
+    "mean": 0.1552,
+    "sd": 0.2528,
+    "per_seed": {
+     "0": -0.0944,
+     "1": -0.0197,
+     "2": 0.1538,
+     "3": 0.1782,
+     "4": 0.558
+    }
+   }
+  },
+  "stings_per_trip_y1": {
+   "full": {
+    "n": 1,
+    "mean": 0.2083,
+    "sd": null,
+    "per_seed": {
+     "0": 0.2083
+    }
+   },
+   "no_talk": {
+    "n": 1,
+    "mean": 0.1,
+    "sd": null,
+    "per_seed": {
+     "0": 0.1
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 0.0612,
+    "sd": null,
+    "per_seed": {
+     "0": 0.0612
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 0.28,
+    "sd": null,
+    "per_seed": {
+     "0": 0.28
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 0.4074,
+    "sd": null,
+    "per_seed": {
+     "0": 0.4074
+    }
+   },
+   "rule_bees": {
+    "n": 5,
+    "mean": 0.6317,
+    "sd": 0.2574,
+    "per_seed": {
+     "0": 0.2903,
+     "1": 0.6562,
+     "2": 0.9091,
+     "3": 0.4643,
+     "4": 0.8387
+    }
+   },
+   "random_bees": {
+    "n": 5,
+    "mean": 0.1399,
+    "sd": 0.1406,
+    "per_seed": {
+     "0": 0.2373,
+     "1": 0.3293,
+     "2": 0.0,
+     "3": 0.1075,
+     "4": 0.0253
+    }
+   }
+  },
+  "stings_per_trip_y2": {
+   "full": {
+    "n": 1,
+    "mean": 0.2,
+    "sd": null,
+    "per_seed": {
+     "0": 0.2
+    }
+   },
+   "no_talk": {
+    "n": 1,
+    "mean": 0.2857,
+    "sd": null,
+    "per_seed": {
+     "0": 0.2857
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 0.3125,
+    "sd": null,
+    "per_seed": {
+     "0": 0.3125
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 1.0,
+    "sd": null,
+    "per_seed": {
+     "0": 1.0
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 0.4286,
+    "sd": null,
+    "per_seed": {
+     "0": 0.4286
+    }
+   },
+   "rule_bees": {
+    "n": 5,
+    "mean": 0.8237,
+    "sd": 0.2264,
+    "per_seed": {
+     "0": 0.5714,
+     "1": 0.6667,
+     "2": 0.8276,
+     "3": 1.1579,
+     "4": 0.8947
+    }
+   },
+   "random_bees": {
+    "n": 5,
+    "mean": 0.2951,
+    "sd": 0.1778,
+    "per_seed": {
+     "0": 0.1429,
+     "1": 0.3095,
+     "2": 0.1538,
+     "3": 0.2857,
+     "4": 0.5833
+    }
+   }
+  },
+  "paired": {
+   "full - frozen_hornets": {
+    "diffs": {
+     "0": -0.7283
+    },
+    "mean": -0.7283,
+    "sd": null,
+    "n": 1,
+    "same_sign": false,
+    "consistent": false,
+    "verdict": "no consistent difference"
+   }
+  },
+  "damage_per_bee_tick_outside": {
+   "full": {
+    "0": {
+     "0": 0.22496662216288385,
+     "1": 0.10552407932011332
+    }
+   },
+   "no_talk": {
+    "0": {
+     "0": 0.08109965635738832,
+     "1": 0.26692836113837093
+    }
+   },
+   "no_memory": {
+    "0": {
+     "0": 0.2,
+     "1": 0.6651728553137004
+    }
+   },
+   "frozen_hornets": {
+    "0": {
+     "0": 0.37893424742910564,
+     "1": 0.9922239502332815
+    }
+   },
+   "labels_good_bad": {
+    "0": {
+     "0": 0.2975352112676056,
+     "1": 0.28912213740458015
+    }
+   },
+   "rule_bees": {
+    "0": {
+     "0": 0.2524132999642474,
+     "1": 0.6086118251928021
+    },
+    "1": {
+     "0": 0.9837728194726166,
+     "1": 0.48730606488011285
+    },
+    "2": {
+     "0": 1.2334348819497334,
+     "1": 2.148360655737705
+    },
+    "3": {
+     "0": 0.4437814070351759,
+     "1": 1.3725925925925926
+    },
+    "4": {
+     "0": 1.043982407037185,
+     "1": 1.182492581602374
+    }
+   },
+   "random_bees": {
+    "0": {
+     "0": 1.5278450363196125,
+     "1": 0.8772522522522522
+    },
+    "1": {
+     "0": 1.473924977127173,
+     "1": 0.9535398230088495
+    },
+    "2": {
+     "0": 0.0,
+     "1": 0.8738255033557047
+    },
+    "3": {
+     "0": 0.5366336633663367,
+     "1": 1.1686182669789227
+    },
+    "4": {
+     "0": 0.33032046014790467,
+     "1": 2.072340425531915
+    }
+   }
+  },
+  "gene_means": {
+   "full": {
+    "0": [
+     {
+      "year": 0,
+      "season": "spring",
+      "smell": 0.5,
+      "hearing": 5.75,
+      "ambush": 3.75
+     },
+     {
+      "year": 0,
+      "season": "summer",
+      "smell": 0.667,
+      "hearing": 5.833,
+      "ambush": 3.5
+     },
+     {
+      "year": 0,
+      "season": "autumn",
+      "smell": 0.75,
+      "hearing": 5.375,
+      "ambush": 3.875
+     },
+     {
+      "year": 1,
+      "season": "spring",
+      "smell": 0.75,
+      "hearing": 5.0,
+      "ambush": 4.25
+     },
+     {
+      "year": 1,
+      "season": "summer",
+      "smell": 0.333,
+      "hearing": 5.333,
+      "ambush": 4.333
+     },
+     {
+      "year": 1,
+      "season": "autumn",
+      "smell": 0.125,
+      "hearing": 4.875,
+      "ambush": 5.0
+     }
+    ]
+   },
+   "frozen_hornets": {
+    "0": [
+     {
+      "year": 0,
+      "season": "spring",
+      "smell": 2.75,
+      "hearing": 4.5,
+      "ambush": 2.75
+     },
+     {
+      "year": 0,
+      "season": "summer",
+      "smell": 4.167,
+      "hearing": 3.5,
+      "ambush": 2.333
+     },
+     {
+      "year": 0,
+      "season": "autumn",
+      "smell": 4.0,
+      "hearing": 3.375,
+      "ambush": 2.625
+     },
+     {
+      "year": 1,
+      "season": "spring",
+      "smell": 2.75,
+      "hearing": 4.5,
+      "ambush": 2.75
+     },
+     {
+      "year": 1,
+      "season": "summer",
+      "smell": 4.167,
+      "hearing": 3.5,
+      "ambush": 2.333
+     },
+     {
+      "year": 1,
+      "season": "autumn",
+      "smell": 4.0,
+      "hearing": 3.375,
+      "ambush": 2.625
+     }
+    ]
+   }
+  }
+ },
+ "E3": {
+  "first_delivery_y1": {
+   "full": {
+    "n": 1,
+    "mean": 183.0,
+    "sd": null,
+    "per_seed": {
+     "0": 183
+    }
+   },
+   "no_talk": {
+    "n": 1,
+    "mean": 250.0,
+    "sd": null,
+    "per_seed": {
+     "0": 250
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 250.0,
+    "sd": null,
+    "per_seed": {
+     "0": 250
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 135.0,
+    "sd": null,
+    "per_seed": {
+     "0": 135
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 177.0,
+    "sd": null,
+    "per_seed": {
+     "0": 177
+    }
+   },
+   "rule_bees": {
+    "n": 5,
+    "mean": 245.8,
+    "sd": 9.3915,
+    "per_seed": {
+     "0": 250,
+     "1": 250,
+     "2": 229,
+     "3": 250,
+     "4": 250
+    }
+   },
+   "random_bees": {
+    "n": 5,
+    "mean": 250.0,
+    "sd": 0.0,
+    "per_seed": {
+     "0": 250,
+     "1": 250,
+     "2": 250,
+     "3": 250,
+     "4": 250
+    }
+   }
+  },
+  "first_delivery_y2": {
+   "full": {
+    "n": 1,
+    "mean": 83.0,
+    "sd": null,
+    "per_seed": {
+     "0": 83
+    }
+   },
+   "no_talk": {
+    "n": 1,
+    "mean": 250.0,
+    "sd": null,
+    "per_seed": {
+     "0": 250
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 250.0,
+    "sd": null,
+    "per_seed": {
+     "0": 250
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 250.0,
+    "sd": null,
+    "per_seed": {
+     "0": 250
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 250.0,
+    "sd": null,
+    "per_seed": {
+     "0": 250
+    }
+   },
+   "rule_bees": {
+    "n": 5,
+    "mean": 250.0,
+    "sd": 0.0,
+    "per_seed": {
+     "0": 250,
+     "1": 250,
+     "2": 250,
+     "3": 250,
+     "4": 250
+    }
+   },
+   "random_bees": {
+    "n": 5,
+    "mean": 250.0,
+    "sd": 0.0,
+    "per_seed": {
+     "0": 250,
+     "1": 250,
+     "2": 250,
+     "3": 250,
+     "4": 250
+    }
+   }
+  },
+  "gain": {
+   "full": {
+    "n": 1,
+    "mean": 100.0,
+    "sd": null,
+    "per_seed": {
+     "0": 100
+    }
+   },
+   "no_talk": {
+    "n": 1,
+    "mean": 0.0,
+    "sd": null,
+    "per_seed": {
+     "0": 0
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 0.0,
+    "sd": null,
+    "per_seed": {
+     "0": 0
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": -115.0,
+    "sd": null,
+    "per_seed": {
+     "0": -115
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": -73.0,
+    "sd": null,
+    "per_seed": {
+     "0": -73
+    }
+   },
+   "rule_bees": {
+    "n": 5,
+    "mean": -4.2,
+    "sd": 9.3915,
+    "per_seed": {
+     "0": 0,
+     "1": 0,
+     "2": -21,
+     "3": 0,
+     "4": 0
+    }
+   },
+   "random_bees": {
+    "n": 5,
+    "mean": 0.0,
+    "sd": 0.0,
+    "per_seed": {
+     "0": 0,
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0
+    }
+   }
+  },
+  "paired": {
+   "full - no_talk": {
+    "diffs": {
+     "0": 100
+    },
+    "mean": 100.0,
+    "sd": null,
+    "n": 1,
+    "same_sign": false,
+    "consistent": false,
+    "verdict": "no consistent difference"
+   }
+  },
+  "paired_extended": {
+   "full - no_talk": {
+    "diffs": {
+     "0": 100
+    },
+    "mean": 100.0,
+    "sd": null,
+    "n": 1,
+    "same_sign": false,
+    "consistent": false,
+    "verdict": "no consistent difference"
+   }
+  },
+  "carryover": {
+   "full": {
+    "0": {
+     "bees_alive_both_springs": [],
+     "forager": 9,
+     "forager_alive_y1_spring": false,
+     "forager_heard_bloom_coord": false,
+     "forager_left": 806,
+     "forager_left_before_spring": true
+    }
+   },
+   "no_talk": {
+    "0": {
+     "bees_alive_both_springs": [],
+     "forager": null,
+     "forager_alive_y1_spring": null,
+     "forager_heard_bloom_coord": null
+    }
+   },
+   "no_memory": {
+    "0": {
+     "bees_alive_both_springs": [],
+     "forager": null,
+     "forager_alive_y1_spring": null,
+     "forager_heard_bloom_coord": null
+    }
+   },
+   "frozen_hornets": {
+    "0": {
+     "bees_alive_both_springs": [],
+     "forager": null,
+     "forager_alive_y1_spring": null,
+     "forager_heard_bloom_coord": null
+    }
+   },
+   "labels_good_bad": {
+    "0": {
+     "bees_alive_both_springs": [
+      3
+     ],
+     "forager": null,
+     "forager_alive_y1_spring": null,
+     "forager_heard_bloom_coord": null
+    }
+   }
+  }
+ },
+ "E4": {
+  "all": {
+   "full": {
+    "0": {
+     "n_sounds": 1,
+     "by_sound": {
+      "sound-1": 1
+     },
+     "by_context": {
+      "sound-1|bright": 1
+     },
+     "mi": null,
+     "note": "missing: fewer than 2 sounds"
+    }
+   },
+   "no_talk": {
+    "0": {
+     "n_sounds": 0,
+     "by_sound": {},
+     "by_context": {},
+     "mi": null,
+     "note": "missing: fewer than 2 sounds"
+    }
+   },
+   "no_memory": {
+    "0": {
+     "n_sounds": 0,
+     "by_sound": {},
+     "by_context": {},
+     "mi": null,
+     "note": "missing: fewer than 2 sounds"
+    }
+   },
+   "frozen_hornets": {
+    "0": {
+     "n_sounds": 0,
+     "by_sound": {},
+     "by_context": {},
+     "mi": null,
+     "note": "missing: fewer than 2 sounds"
+    }
+   },
+   "labels_good_bad": {
+    "0": {
+     "n_sounds": 4,
+     "by_sound": {
+      "sound-1": 4
+     },
+     "by_context": {
+      "sound-1|neither": 4
+     },
+     "mi": 0.0,
+     "perm_p95": 0.0,
+     "perm_p": 1.0,
+     "above_p95": false,
+     "note": "degenerate: one sound or one context only, so MI is 0"
+    }
+   }
+  },
+  "full_y1": {
+   "0": {
+    "n_sounds": 1,
+    "by_sound": {
+     "sound-1": 1
+    },
+    "by_context": {
+     "sound-1|bright": 1
+    },
+    "mi": null,
+    "note": "missing: fewer than 2 sounds"
+   }
+  },
+  "full_y2": {
+   "0": {
+    "n_sounds": 0,
+    "by_sound": {},
+    "by_context": {},
+    "mi": null,
+    "note": "missing: fewer than 2 sounds"
+   }
+  },
+  "first_spring": {
+   "full": {
+    "0": {
+     "n_sounds": 1,
+     "by_sound": {
+      "sound-1": 1
+     },
+     "by_context": {
+      "sound-1|bright": 1
+     },
+     "mi": null,
+     "note": "missing: fewer than 2 sounds"
+    }
+   },
+   "labels_good_bad": {
+    "0": {
+     "n_sounds": 1,
+     "by_sound": {
+      "sound-1": 1
+     },
+     "by_context": {
+      "sound-1|neither": 1
+     },
+     "mi": null,
+     "note": "missing: fewer than 2 sounds"
+    }
+   }
+  },
+  "listener": {
+   "full": {
+    "0": {
+     "sound": {
+      "n": 1,
+      "flee_or_home": 1.0
+     },
+     "timer": {
+      "n": 1128,
+      "flee_or_home": 0.1746
+     }
+    }
+   },
+   "no_talk": {
+    "0": {
+     "sound": {
+      "n": 0,
+      "flee_or_home": null
+     },
+     "timer": {
+      "n": 1074,
+      "flee_or_home": 0.1099
+     }
+    }
+   },
+   "no_memory": {
+    "0": {
+     "sound": {
+      "n": 0,
+      "flee_or_home": null
+     },
+     "timer": {
+      "n": 891,
+      "flee_or_home": 0.2817
+     }
+    }
+   },
+   "frozen_hornets": {
+    "0": {
+     "sound": {
+      "n": 0,
+      "flee_or_home": null
+     },
+     "timer": {
+      "n": 1210,
+      "flee_or_home": 0.1793
+     }
+    }
+   },
+   "labels_good_bad": {
+    "0": {
+     "sound": {
+      "n": 9,
+      "flee_or_home": 0.2222
+     },
+     "timer": {
+      "n": 1416,
+      "flee_or_home": 0.1723
+     }
+    }
+   }
+  },
+  "supported": false,
+  "full_seeds_above_p95": 0
+ },
+ "further": {
+  "talk_claims": {
+   "full": {
+    "0": {
+     "neither": 249,
+     "mover": 124,
+     "bloom": 73
+    }
+   },
+   "no_talk": {
+    "0": {}
+   },
+   "no_memory": {
+    "0": {
+     "mover": 49,
+     "neither": 1
+    }
+   },
+   "frozen_hornets": {
+    "0": {
+     "neither": 117,
+     "mover": 155,
+     "bloom": 8
+    }
+   },
+   "labels_good_bad": {
+    "0": {
+     "neither": 468,
+     "mover": 177
+    }
+   }
+  },
+  "talk_claims_pooled": {
+   "full": {
+    "neither": 249,
+    "mover": 124,
+    "bloom": 73
+   },
+   "no_talk": {},
+   "no_memory": {
+    "mover": 49,
+    "neither": 1
+   },
+   "frozen_hornets": {
+    "neither": 117,
+    "mover": 155,
+    "bloom": 8
+   },
+   "labels_good_bad": {
+    "neither": 468,
+    "mover": 177
+   }
+  },
+  "naive_avoidance": {
+   "full": {
+    "0": {
+     "n": 14,
+     "flee_or_home": 0.7857
+    }
+   },
+   "no_talk": {
+    "0": {
+     "n": 13,
+     "flee_or_home": 0.9231
+    }
+   },
+   "no_memory": {
+    "0": {
+     "n": 14,
+     "flee_or_home": 1.0
+    }
+   },
+   "frozen_hornets": {
+    "0": {
+     "n": 16,
+     "flee_or_home": 0.8125
+    }
+   },
+   "labels_good_bad": {
+    "0": {
+     "n": 15,
+     "flee_or_home": 0.8
+    }
+   }
+  },
+  "naive_avoidance_share": {
+   "full": {
+    "n": 1,
+    "mean": 0.7857,
+    "sd": null,
+    "per_seed": {
+     "0": 0.7857
+    }
+   },
+   "no_talk": {
+    "n": 1,
+    "mean": 0.9231,
+    "sd": null,
+    "per_seed": {
+     "0": 0.9231
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 1.0,
+    "sd": null,
+    "per_seed": {
+     "0": 1.0
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 0.8125,
+    "sd": null,
+    "per_seed": {
+     "0": 0.8125
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 0.8,
+    "sd": null,
+    "per_seed": {
+     "0": 0.8
+    }
+   }
+  }
+ },
+ "exploratory": {
+  "harm_words": {
+   "full": {
+    "0": {
+     "decisions": 1440,
+     "note_share": 0.1194,
+     "says": 305,
+     "say_share": 0.2689,
+     "says_heard_by_anyone": 0.7082
+    }
+   },
+   "no_talk": {
+    "0": {
+     "decisions": 1398,
+     "note_share": 0.1266,
+     "says": 0,
+     "say_share": null,
+     "says_heard_by_anyone": null
+    }
+   },
+   "no_memory": {
+    "0": {
+     "decisions": 1491,
+     "note_share": 0.0,
+     "says": 153,
+     "say_share": 0.0196,
+     "says_heard_by_anyone": 0.6928
+    }
+   },
+   "frozen_hornets": {
+    "0": {
+     "decisions": 1488,
+     "note_share": 0.0652,
+     "says": 270,
+     "say_share": 0.1037,
+     "says_heard_by_anyone": 0.663
+    }
+   },
+   "labels_good_bad": {
+    "0": {
+     "decisions": 1747,
+     "note_share": 0.0235,
+     "says": 563,
+     "say_share": 0.0124,
+     "says_heard_by_anyone": 0.8561
+    }
+   }
+  },
+  "harm_note_share": {
+   "full": {
+    "n": 1,
+    "mean": 0.1194,
+    "sd": null,
+    "per_seed": {
+     "0": 0.1194
+    }
+   },
+   "no_talk": {
+    "n": 1,
+    "mean": 0.1266,
+    "sd": null,
+    "per_seed": {
+     "0": 0.1266
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 0.0,
+    "sd": null,
+    "per_seed": {
+     "0": 0.0
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 0.0652,
+    "sd": null,
+    "per_seed": {
+     "0": 0.0652
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 0.0235,
+    "sd": null,
+    "per_seed": {
+     "0": 0.0235
+    }
+   }
+  },
+  "harm_say_share": {
+   "full": {
+    "n": 1,
+    "mean": 0.2689,
+    "sd": null,
+    "per_seed": {
+     "0": 0.2689
+    }
+   },
+   "no_talk": {
+    "n": 0,
+    "mean": null,
+    "sd": null,
+    "per_seed": {
+     "0": null
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 0.0196,
+    "sd": null,
+    "per_seed": {
+     "0": 0.0196
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 0.1037,
+    "sd": null,
+    "per_seed": {
+     "0": 0.1037
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 0.0124,
+    "sd": null,
+    "per_seed": {
+     "0": 0.0124
+    }
+   }
+  },
+  "says_heard_by_anyone": {
+   "full": {
+    "n": 1,
+    "mean": 0.7082,
+    "sd": null,
+    "per_seed": {
+     "0": 0.7082
+    }
+   },
+   "no_talk": {
+    "n": 0,
+    "mean": null,
+    "sd": null,
+    "per_seed": {
+     "0": null
+    }
+   },
+   "no_memory": {
+    "n": 1,
+    "mean": 0.6928,
+    "sd": null,
+    "per_seed": {
+     "0": 0.6928
+    }
+   },
+   "frozen_hornets": {
+    "n": 1,
+    "mean": 0.663,
+    "sd": null,
+    "per_seed": {
+     "0": 0.663
+    }
+   },
+   "labels_good_bad": {
+    "n": 1,
+    "mean": 0.8561,
+    "sd": null,
+    "per_seed": {
+     "0": 0.8561
+    }
+   }
+  }
+ }
+}
