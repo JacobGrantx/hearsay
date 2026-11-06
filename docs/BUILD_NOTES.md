@@ -227,3 +227,13 @@ Written by the phase 4 build session (Claude Code, 2026-11-06).
 - **Replay check:** `make replay RUN=<seed dir>` (experiments/replay_check.py). `make demo` replays `full` seed 0.
 - **Analysis:** `make analysis`. `experiments/analysis/runs.py` names the main batch (`MAIN_STAMP`) and the amendment-1 batches (`EXTENSIONS`); `DL_RESULTS` points it at another results folder.
 - **For the video:** the README still is `viewer/capture.py` on `full` seed 0 at tick 1053 following bee 9 (the winter forager, EXPERIMENTS.md E3). Other moments worth showing: the "Bright cells near (41,29) still dangerous" talk in `full` seed 0 (tick 214), and the one "bad noise" in `labels_good_bad` seed 2 (tick 1026).
+
+## Phase 4b: E5, a post-hoc follow-up
+
+Written by the phase 4b build session (Claude Code, 2026-11-06). E5 asks whether talk at home carries knowledge once there is knowledge to carry. It is post hoc, motivated by E1 and E3; the main negative results stand as they are.
+
+- **Diagnosis first:** `experiments/analysis/trip_diagnosis.py` (EXPERIMENTS.md, "Why trips failed"). In the main world, bees rarely found the bloom; once found, it mostly got home.
+- **The E5 world** is the main world at scale s = 0.7: 56 x 34, `min_bloom_distance` 38, `hornet_spawn_distance` 18, `hornet_counts` [2, 3, 4, 0], 1 year. Chosen with scripted bees only (`calibrate_e5.toml`, EXPERIMENTS.md, "E5 world"). `min_bloom_distance` alone does nothing below 55 on the 80 x 48 map, because bloom must lie in the right half and the placer widens the band.
+- **Runs:** `e5_full.toml` and `e5_no_talk.toml`, seeds 0 to 4, one process per seed (tags `s0` to `s4`, batch stamp `20261106T112913Z`), from a clean worktree at commit 2b99282 on /dev/shm, each with its own `LLM_CACHE_DIR`, `LLM_SPEND_FILE` and `LLM_BUDGET_USD` 0.90.
+- **Analysis:** `experiments/analysis/e5_results.py` (also run by `make analysis`); `DL_E5_STAMP` picks another batch.
+- **Packs:** E5 caches are packed with `tools/pack_llm_cache.py --order run` (entries by bee and tick), about half the size of key order. The main runs' packs are unchanged.

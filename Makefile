@@ -30,3 +30,5 @@ check:            ## presubmit check against the brief
 analysis:         ## recompute every pre-registered measure and the figures from the run directories
 	$(PY) experiments/analysis/main_results.py
 	$(PY) experiments/analysis/figures.py
+	$(PY) experiments/analysis/trip_diagnosis.py > /dev/null
+	$(PY) experiments/analysis/e5_results.py > /dev/null
