@@ -59,9 +59,13 @@ V.drawLive = function (ctx, run, tau, px, selected) {
   }
 
   // Bees: warm yellow, a thin ring for life left out of the cap, a green dot when carrying.
+  const offA = spread(beesA, bf), offB = spread([...beesB.values()], bf);
   for (const b of beesA) {
     const id = b[bf.id];
-    const [x, y] = lerpPos(b, beesB.get(id), f, bf.x, bf.y);
+    const oa = offA.get(id), ob = beesB.has(id) ? offB.get(id) : oa;
+    let [x, y] = lerpPos(b, beesB.get(id), f, bf.x, bf.y);
+    x += oa[0] + (ob[0] - oa[0]) * f;
+    y += oa[1] + (ob[1] - oa[1]) * f;
     const stunned = b[bf.stunned] > 0;
     const r = 0.34;
     if (id === selected) selectionMarks(ctx, run, b, x, y, r, px);
@@ -107,6 +111,26 @@ V.drawLive = function (ctx, run, tau, px, selected) {
   }
   return drawn;
 };
+
+// Bees sharing a cell are fanned out around its centre (by id order), so each stays visible
+// and clickable. Offsets are a function of the tick's state only.
+function spread(list, bf) {
+  const groups = new Map(), off = new Map();
+  for (const b of list) {
+    const k = b[bf.x] * 100003 + b[bf.y];
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(b[bf.id]);
+  }
+  for (const ids of groups.values()) {
+    ids.sort((a, b) => a - b);
+    const r = ids.length > 1 ? 0.26 : 0;
+    ids.forEach((id, i) => {
+      const a = -Math.PI / 2 + (TAU * i) / ids.length;
+      off.set(id, [Math.cos(a) * r, Math.sin(a) * r]);
+    });
+  }
+  return off;
+}
 
 function beeBody(ctx, x, y, r, fill, edge, px, stripes) {
   ctx.fillStyle = fill;

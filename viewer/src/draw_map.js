@@ -40,21 +40,20 @@ V.seasons = {
 
 V.prepareMap = function (run) {
   const L = run.layout;
-  const walls = [], hive = [], entrances = [];
+  const runs = { "#": [], H: [], E: [] };
   L.rows.forEach((row, y) => {
-    let start = -1;
-    for (let x = 0; x <= row.length; x++) {
-      const isWall = row[x] === "#";
-      if (isWall && start < 0) start = x;
-      if (!isWall && start >= 0) { walls.push([start, y, x - start]); start = -1; }
-      if (row[x] === "H") hive.push([x, y]);
-      if (row[x] === "E") entrances.push([x, y]);
+    let start = 0;
+    for (let x = 1; x <= row.length; x++) {
+      if (row[x] === row[start]) continue;
+      if (runs[row[start]]) runs[row[start]].push([start, y, x - start]);
+      start = x;
     }
   });
-  const hx = hive.map((c) => c[0]), hy = hive.map((c) => c[1]);
+  const hive = mergeRects(runs.H);
   run.map = {
-    walls, hive, entrances,
-    hiveBox: hive.length ? [Math.min(...hx), Math.min(...hy), Math.max(...hx) + 1, Math.max(...hy) + 1] : null,
+    walls: mergeRects(runs["#"]), hive, entrances: mergeRects(runs.E),
+    hiveBox: hive.length ? [Math.min(...hive.map((r) => r[0])), Math.min(...hive.map((r) => r[1])),
+      Math.max(...hive.map((r) => r[0] + r[2])), Math.max(...hive.map((r) => r[1] + r[3]))] : null,
   };
   // The tick at which each tick's season began, for the tint crossfade.
   run.seasonStart = new Int32Array(run.lastTick + 1);
@@ -72,11 +71,11 @@ V.drawMap = function (ctx, run, tau, px) {
 
   // Hive interior with a faint comb pattern, clipped to hive cells.
   // Cells are filled as one path, so neighbouring cells show no anti-aliased seams.
-  fillCells(ctx, P.hive, m.hive.map(([x, y]) => [x, y, 1]));
+  fillCells(ctx, P.hive, m.hive);
   if (m.hiveBox) {
     ctx.save();
     ctx.beginPath();
-    for (const [x, y] of m.hive) ctx.rect(x, y, 1, 1);
+    for (const [x, y, w, h] of m.hive) ctx.rect(x, y, w, h);
     ctx.clip();
     ctx.strokeStyle = P.hiveLine;
     ctx.lineWidth = px(1);
@@ -87,7 +86,7 @@ V.drawMap = function (ctx, run, tau, px) {
     ctx.stroke();
     ctx.restore();
   }
-  fillCells(ctx, P.entrance, m.entrances.map(([x, y]) => [x, y, 1]));
+  fillCells(ctx, P.entrance, m.entrances);
 
   // Walls as merged horizontal runs, with a hairline edge so corridors read clearly.
   fillCells(ctx, P.wall, m.walls);
@@ -117,11 +116,32 @@ V.drawMap = function (ctx, run, tau, px) {
   }
 };
 
-function fillCells(ctx, color, runs) {
+function fillCells(ctx, color, rects) {
   ctx.fillStyle = color;
   ctx.beginPath();
-  for (const [x, y, w] of runs) ctx.rect(x, y, w, 1);
+  for (const [x, y, w, h] of rects) ctx.rect(x, y, w, h);
   ctx.fill();
+}
+
+// Merge row runs [x, y, w] into rectangles [x, y, w, h] by stacking identical runs in
+// consecutive rows. Fewer shared edges means no anti-aliasing seams inside rooms and walls.
+function mergeRects(runs) {
+  const rows = new Map(), out = [];
+  for (const [x, y, w] of runs) {
+    if (!rows.has(y)) rows.set(y, []);
+    rows.get(y).push([x, w]);
+  }
+  let open = new Map();
+  for (const y of [...rows.keys()].sort((a, b) => a - b)) {
+    const next = new Map();
+    for (const [x, w] of rows.get(y)) {
+      const k = x * 100003 + w, r = open.get(k);
+      if (r && r[1] + r[3] === y) { r[3]++; next.set(k, r); }
+      else { const nr = [x, y, w, 1]; out.push(nr); next.set(k, nr); }
+    }
+    open = next;
+  }
+  return out;
 }
 
 function hexPath(ctx, cx, cy, s) {
