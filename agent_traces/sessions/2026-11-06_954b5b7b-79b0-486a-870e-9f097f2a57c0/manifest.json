@@ -1,0 +1,59 @@
+{
+  "session_id": "954b5b7b-79b0-486a-870e-9f097f2a57c0",
+  "exporter_version": 1,
+  "agent_tool": "Claude Code",
+  "claude_code_versions": [
+    "2.1.296"
+  ],
+  "models": {
+    "claude-opus-5-5": 98
+  },
+  "first_timestamp": "2026-11-06T12:03:19.518Z",
+  "last_timestamp": "2026-11-06T12:15:54.234Z",
+  "source": {
+    "file": "954b5b7b-79b0-486a-870e-9f097f2a57c0.jsonl",
+    "sha256": "fcf4a6b3fdf81164028aaa9c379a1a30b496cecc54c00c4b1638905ef18cb893",
+    "lines": 314,
+    "unparseable_lines": 0
+  },
+  "usage_main_agent": {
+    "input_tokens": 104,
+    "output_tokens": 52772,
+    "cache_creation_input_tokens": 134909,
+    "cache_read_input_tokens": 4726214,
+    "api_responses": 52,
+    "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+  },
+  "human_prompts": 0,
+  "unmarked_prompts": 1,
+  "permission_decisions": {
+    "accept/config": 56
+  },
+  "tool_calls": {
+    "Bash": 44,
+    "Write": 5,
+    "Read": 7,
+    "Skill": 1
+  },
+  "subagents": [],
+  "commits_made_in_session": [],
+  "commits_in_time_window": [],
+  "kept_entries": 156,
+  "omitted_entries": {
+    "ai-title": 22,
+    "queue-operation": 4,
+    "attachment": 83,
+    "file-history-snapshot": 1,
+    "atis-latch": 22,
+    "last-prompt": 21,
+    "file-history-delta": 5
+  },
+  "redactions": {},
+  "transformations": {
+    "thinking_omitted": 35
+  },
+  "missing": {
+    "tool_results_stored_outside_log": 1,
+    "note": "Large tool outputs that Claude Code stored outside the session log are not exported; the log keeps its reference to them."
+  }
+}
