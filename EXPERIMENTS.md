@@ -698,3 +698,18 @@ All from `events.jsonl` (and `state.jsonl.gz` for positions), computed by `exper
 ### Controls
 
 - **Talk ablation:** B_no_talk (H7, H8). **Baseline:** scripted rule and random bees in the same world (what DDs look like when hardcoded, and by chance). **Prompt:** A_full against B_full is the one-sentence prompt change; N_full against B_full is the word change (H6). **Hardcoding audit:** the B prompt never says what flag F or zone O does (tests/test_vocab.py checks it word by word); the only link a B unit gets is the event "your counter C rose" after a delivery. **Setup:** E5 world, one world size only; this is a limit of round 2.
+
+### Setup calibration (round 2 world, scripted bees, a baseline, not tuning)
+
+Run after the pre-registration commit and before looking at any AI run, with no change to the world afterwards. Configs `r2_rule.toml` and `r2_random.toml` with `--set years=2`, seeds 0 to 2, commit 58aa4bb, `git_dirty` false. Run directories: `experiments/results/r2_rule/20261106T165550Z_calib2y` and `experiments/results/r2_random/20261106T165550Z_calib2y`. Numbers from their summary.json (mean, sd, n = 3; per seed 0, 1, 2):
+
+| Over 2 years | Rule bees | Random bees |
+|---|---|---|
+| Deliveries | 21.33 (sd 10.26; 24, 10, 30) | 0.0 (sd 0.0; 0, 0, 0) |
+| Trips | 182.67 (sd 11.93) | 359.33 (sd 39.37) |
+| Delivery rate per trip | 0.1162 (sd 0.0509) | 0.0 |
+| Hatches from deliveries | 14.0 (sd 6.08) | 0.0 |
+| Stings | 102.33 (sd 20.43) | 7.33 (sd 3.51) |
+| Mean colony size | 7.29 (sd 1.83; 8.771, 5.237, 7.849) | 4.81 (sd 0.09) |
+
+Steady hatching works as specified: rule seed 0 logged 21 hatches with cause "steady" in 2 years. So the round 2 world can be delivered to by a hardcoded policy and never by chance in 2 years. The AI arms run to the 10:05 PT stop; the scripted arms were also run to the stop (stamp 20261106T165720Z) for the pre-registered baselines.

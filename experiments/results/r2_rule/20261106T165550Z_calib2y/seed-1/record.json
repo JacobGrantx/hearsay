@@ -1,0 +1,80 @@
+{
+  "experiment": "r2_rule",
+  "hypothesis": "Round 2 scripted baseline (rule bees) for deliveries and deliberate deliveries in the round 2 world.",
+  "entrypoint": "digital_life.sim:run",
+  "params": {
+    "condition": "rule_bees",
+    "shared_clock": true,
+    "steady_hatch": 60,
+    "stop_wallclock_utc": "2026-11-06T18:05:00Z",
+    "width": 56,
+    "height": 34,
+    "season_length": 250,
+    "years": 2,
+    "base_life": 500,
+    "min_bloom_distance": 38,
+    "hornet_spawn_distance": 18,
+    "hornet_counts": [
+      2,
+      3,
+      4,
+      0
+    ],
+    "openness": 0.15,
+    "ambush_rate": 0.02,
+    "hornet_speed": 0.8
+  },
+  "overrides": [
+    "years=2"
+  ],
+  "seed": 1,
+  "started": "2026-11-06T16:55:55Z",
+  "seconds": 2.833,
+  "final_metrics": {
+    "trips": 173,
+    "deliveries": 10,
+    "stings": 111,
+    "delivery_rate": 0.0585,
+    "stings_per_trip": 0.6491,
+    "spring_trips": 29,
+    "spring_deliveries": 2,
+    "spring_rate": 0.069,
+    "spring_stings_per_trip": 0.4483,
+    "summer_trips": 73,
+    "summer_deliveries": 5,
+    "summer_rate": 0.0685,
+    "summer_stings_per_trip": 0.8493,
+    "autumn_trips": 47,
+    "autumn_deliveries": 2,
+    "autumn_rate": 0.0426,
+    "autumn_stings_per_trip": 0.766,
+    "first_delivery_y1_spring": 215,
+    "median_to_bloom": 59.0,
+    "hatches": 7,
+    "queen_hatches": 2,
+    "deaths": 36,
+    "bees_mean": 5.237,
+    "bees_final": 2,
+    "smell_first": 5.0,
+    "smell_last": 5.0,
+    "hearing_first": 1.5,
+    "hearing_last": 0.25,
+    "ambush_first": 3.5,
+    "ambush_last": 4.75,
+    "bloom_distance_spring": 53,
+    "bloom_distance_summer": 57,
+    "bloom_distance_autumn": 50
+  },
+  "error": null,
+  "provenance": {
+    "git_commit": "58aa4bb3fb7441bb309a1664c114ecf1904dc689",
+    "git_dirty": false,
+    "python": "3.12.8",
+    "platform": "Linux-7.0.0-1014-gcp-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.5.4",
+      "matplotlib": "3.11.2",
+      "anthropic": "2.6.0"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# Round 2, scripted R2_rule (pre-registered in EXPERIMENTS.md, "Round 2"): rule bees, no model.
+# Round 2 world: the E5 world (s = 0.7) plus steady hatching and the shared decision clock. Set for 8 years; every
+# run ends at the first season boundary after stop_wallclock_utc (10:05 PT), recorded as stopped_at_tick.
+# No model: the stop and the shared clock apply as in the AI arms.
+[experiment]
+name = "r2_rule"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Round 2 scripted baseline (rule bees) for deliveries and deliberate deliveries in the round 2 world."
+seeds = [0, 1, 2]
+
+[params]
+condition = "rule_bees"
+shared_clock = true
+steady_hatch = 60
+stop_wallclock_utc = "2026-11-06T18:05:00Z"
+width = 56
+height = 34
+season_length = 250
+years = 8
+base_life = 500
+min_bloom_distance = 38
+hornet_spawn_distance = 18
+hornet_counts = [2, 3, 4, 0]
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8

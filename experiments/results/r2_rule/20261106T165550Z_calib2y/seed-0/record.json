@@ -1,0 +1,81 @@
+{
+  "experiment": "r2_rule",
+  "hypothesis": "Round 2 scripted baseline (rule bees) for deliveries and deliberate deliveries in the round 2 world.",
+  "entrypoint": "digital_life.sim:run",
+  "params": {
+    "condition": "rule_bees",
+    "shared_clock": true,
+    "steady_hatch": 60,
+    "stop_wallclock_utc": "2026-11-06T18:05:00Z",
+    "width": 56,
+    "height": 34,
+    "season_length": 250,
+    "years": 2,
+    "base_life": 500,
+    "min_bloom_distance": 38,
+    "hornet_spawn_distance": 18,
+    "hornet_counts": [
+      2,
+      3,
+      4,
+      0
+    ],
+    "openness": 0.15,
+    "ambush_rate": 0.02,
+    "hornet_speed": 0.8
+  },
+  "overrides": [
+    "years=2"
+  ],
+  "seed": 0,
+  "started": "2026-11-06T16:55:50Z",
+  "seconds": 4.728,
+  "final_metrics": {
+    "trips": 179,
+    "deliveries": 24,
+    "stings": 79,
+    "delivery_rate": 0.1356,
+    "stings_per_trip": 0.4463,
+    "spring_trips": 27,
+    "spring_deliveries": 4,
+    "spring_rate": 0.1481,
+    "spring_stings_per_trip": 0.3704,
+    "summer_trips": 52,
+    "summer_deliveries": 7,
+    "summer_rate": 0.1346,
+    "summer_stings_per_trip": 0.5385,
+    "autumn_trips": 56,
+    "autumn_deliveries": 9,
+    "autumn_rate": 0.1607,
+    "autumn_stings_per_trip": 0.7321,
+    "first_delivery_y1_spring": 134,
+    "first_delivery_y2_spring": 136,
+    "median_to_bloom": 66.0,
+    "hatches": 18,
+    "queen_hatches": 0,
+    "deaths": 42,
+    "bees_mean": 8.771,
+    "bees_final": 3,
+    "smell_first": 1.0,
+    "smell_last": 2.75,
+    "hearing_first": 6.0,
+    "hearing_last": 4.25,
+    "ambush_first": 3.0,
+    "ambush_last": 3.0,
+    "bloom_distance_spring": 54,
+    "bloom_distance_summer": 57,
+    "bloom_distance_autumn": 56
+  },
+  "error": null,
+  "provenance": {
+    "git_commit": "58aa4bb3fb7441bb309a1664c114ecf1904dc689",
+    "git_dirty": false,
+    "python": "3.12.8",
+    "platform": "Linux-7.0.0-1014-gcp-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.5.4",
+      "matplotlib": "3.11.2",
+      "anthropic": "2.6.0"
+    }
+  }
+}
