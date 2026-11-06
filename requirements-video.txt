@@ -1,0 +1,8 @@
+# Optional: only for the narrated demo video (demo/video/narrate.py, run by `make video`).
+# Install in a separate venv and point KOKORO_PYTHON at its python; put kokoro-v1.0.onnx and
+# voices-v1.0.bin (kokoro-onnx's model-files-v1.0 release; Kokoro-82M, Apache 2.0) in $KOKORO_MODELS.
+# `make demo`, the tests and the experiments do not need any of this.
+kokoro-onnx==0.6.1
+onnxruntime==1.31.0
+soundfile==0.14.0
+numpy==2.5.4

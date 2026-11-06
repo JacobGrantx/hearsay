@@ -66,9 +66,10 @@ def title_card(project: str, out: Path) -> None:
         _hex(d, 640 + dx, 210 + dy, 30, BEE if i == 0 else "#f6e3a3")
     f = font(64, True)
     d.text((W / 2, 340), project, font=f, fill=INK, anchor="mm")
-    sub = "Language-model bees in a maze, hornets that evolve, and knowledge that dies unless it is told at home."
+    d.text((W / 2, 418), "Can knowledge outlive the one who found it?", font=font(32, True), fill=ACCENT, anchor="mm")
+    sub = "Language-model bees in a maze find things, can share them only at home, and die."
     for i, line in enumerate(wrap(d, sub, font(26), 900)):
-        d.text((W / 2, 420 + 38 * i), line, font=font(26), fill=SOFT, anchor="mm")
+        d.text((W / 2, 480 + 38 * i), line, font=font(26), fill=SOFT, anchor="mm")
     d.text((W / 2, 640), "Every frame that follows is a replay of a logged run.", font=font(20), fill=SOFT, anchor="mm")
     img.save(out)
 
@@ -117,4 +118,33 @@ def hypotheses_card(out: Path) -> None:
         d.text((180, y + 22), hyp, font=font(21), fill=SOFT, anchor="lm")
         d.text((180, y + 54), res, font=font(23, True), fill=INK, anchor="lm")
     d.text((80, 676), "Source: experiments/analysis/output/main_results.json and e5_results.json", font=font(17), fill=SOFT)
+    img.save(out)
+
+
+def brief_card(out: Path) -> None:
+    """The brief's five judging criteria and weights (docs/challenge-brief.txt, section 11), each with what answers it."""
+    rows = [
+        ("Technical depth", "30%", "Evolving hornet genomes, per-bee memory with recall, a navigation layer,",
+         "a leak-tested perception boundary, byte-identical replay"),
+        ("Originality and creativity", "25%", "Culture and memory in a grounded, mortal colony,",
+         "not a text-only chat"),
+        ("Behaviour and experimentation", "20%", "Hypotheses registered in advance, ablations and baselines,",
+         "negative results reported as such"),
+        ("Engineering and reproducibility", "15%", "make demo replays a logged run with no API key;",
+         "fixed seeds, configs and tests"),
+        ("Effective use of tools, including AI", "10%", "Every agent session's trace is in the repository;",
+         "AI_DISCLOSURE.md says who did what"),
+    ]
+    img, d = _base()
+    d.text((80, 62), "How Hearsay meets the brief", font=font(38, True), fill=INK)
+    d.text((80, 116), "The five judging criteria and their weights, from the challenge brief.", font=font(22),
+           fill=SOFT)
+    for i, (name, weight, a, b) in enumerate(rows):
+        y = 168 + 100 * i
+        d.rounded_rectangle([80, y, 1200, y + 86], radius=10, fill=CARD, outline=LINE)
+        d.text((104, y + 43), weight, font=font(28, True), fill=ACCENT, anchor="lm")
+        d.text((210, y + 22), name, font=font(23, True), fill=INK, anchor="lm")
+        d.text((210, y + 50), a, font=font(19), fill=SOFT, anchor="lm")
+        d.text((210, y + 72), b, font=font(19), fill=SOFT, anchor="lm")
+    d.text((80, 684), "Source: docs/challenge-brief.txt, section 11", font=font(17), fill=SOFT)
     img.save(out)
