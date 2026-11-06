@@ -208,3 +208,12 @@ Final values: base life L = 500, `min_bloom_distance` = 55, `openness` = 0.15, p
 - Baseline run directories for E1 (`rule_bees`, `random_bees`, 5 seeds each) are not committed yet. Run them at the same commit as the AI runs: about 6 s per seed.
 - Calibration result directories hold no state file (`log_state = false`) and no decision events, to keep them small. A full 2,000-tick run directory is about 300 KB.
 - The test suite takes about 15 to 30 s; the leak and determinism tests run whole small worlds.
+
+## Known issues after phase 2 (for the main runs)
+
+- **Sounds are almost never made.** In the pilot, 1 of 355 decisions made a sound (EXPERIMENTS.md, "Pilot"). Nothing was changed, since the cost is a world rule and the prompt states it truthfully. If the main runs look the same, E4 is a pre-registered negative result. Whether to test a free-sound variant is Jacob's call, and it would be a new arm, not a fix.
+- **Run time and cost.** The pilot spring took 166 s and $0.0856. Projected: about 22 minutes and $0.70 per 2,000-tick run, so run the 15 AI runs in parallel processes (one config per process; the runner runs a config's seeds one after another). The thread pool allows 16 calls at once per process; 40 concurrent calls were tested without rate-limit errors.
+- **Replay cache size.** About 7 KB per call, so the main runs would add roughly 300 MB. Compress the cache entries (in `llm.py`, keeping old entries readable) before the main runs, or keep only the cited runs' entries.
+- **Notes churn.** Bees write a note at every decision, so the 12 notes cover about the last 60 ticks.
+- **API errors are not cached.** A live run where a call failed after its retries replays with a cache miss at that call. None occurred in the pilot. If one does in a main run, re-run that seed.
+- **`make demo`** still runs rule bees only. The spec also wants it to replay one recorded AI run; the pilot (`pilot_full_spring.toml`, seed 0) replays offline with `LLM_MODE=replay` in about 10 s and could be that run.
