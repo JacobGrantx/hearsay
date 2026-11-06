@@ -1,4 +1,5 @@
 """Packed replay caches: a run packed by tools/pack_llm_cache.py replays offline with no loose entries left."""
+import gzip
 import json
 import shutil
 from types import SimpleNamespace
@@ -65,3 +66,16 @@ def test_pack_is_byte_stable_and_reports_missing(cache, tmp_path):
     out2, _, _ = pk.pack(run, pk.loose_index(cache), cache)
     assert n == 1 and problems == ["deadbeef0000: 0 cache entries"]
     assert out2.read_bytes() == first
+
+
+def test_run_order_pack_holds_the_same_entries_and_is_byte_stable(cache, tmp_path):
+    fake = FakeClient()
+    calls = [llm.complete("view", tag=f"0:{t}:0:full", client=fake) for t in range(4)]
+    run = fake_run(tmp_path, [c.key for c in reversed(calls)])  # first use in the run differs from key order
+    by_key = pk.pack(run, pk.loose_index(cache), tmp_path / "k")[0].read_bytes()
+    out, n, problems = pk.pack(run, pk.loose_index(cache), tmp_path / "r", order="run")
+    first = out.read_bytes()
+    assert (n, problems) == (4, []) and pk.pack(run, pk.loose_index(cache), tmp_path / "r", order="run")[0].read_bytes() == first
+    run_lines = gzip.decompress(first).decode().splitlines()
+    assert sorted(run_lines) == gzip.decompress(by_key).decode().splitlines()
+    assert [json.loads(line)["key"] for line in run_lines] == [c.key for c in reversed(calls)]
