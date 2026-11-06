@@ -51,7 +51,7 @@ Persistence (knowledge outliving every bee that gained it), interaction (talk, s
 | Summer: back to the old spring place | same | 298 to 440 | bee 1 |
 | Winter: the colony falls from 7 to 4 | same | 740 to 1000 | the colony |
 
-Captions, frame steps and chart sources are in [demo/recordings/SOURCES.md](demo/recordings/SOURCES.md). The moments were found in the logs by `experiments/analysis/find_moments.py`, and every tick, life value and quote in a caption is copied from the run's events. `make video` re-renders the whole video from the run directories in about 3 minutes (`TITLE=` and `REPO=` change the title and the repository line; it needs ffmpeg and the viewer's headless shell, see [viewer/README.md](viewer/README.md)).
+Captions, frame steps and chart sources are in [demo/recordings/SOURCES.md](demo/recordings/SOURCES.md). The moments were found in the logs by `experiments/analysis/find_moments.py`, and every tick, life value and quote in a caption is copied from the run's events. `make video` re-renders the whole video from the run directories in about 3 to 10 minutes depending on load (`TITLE=` and `REPO=` change the title and the repository line; it needs ffmpeg and the viewer's headless shell, see [viewer/README.md](viewer/README.md)).
 
 Stills from the viewer:
 
