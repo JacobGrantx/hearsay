@@ -29,7 +29,8 @@ SEGMENTS = [
              (4.0, 8.0, "Each bee: a Claude Haiku 5.5 mind, never told what anything is.")],
          narration="Each bee is a Claude Haiku 5.5 mind. It sees only nearby cells, keeps its own memories, "
                    "and can talk only at home. Hornets evolve by selection and mutation. Seasons move the "
-                   "bloom. And nothing tells the bees what anything is."),
+                   "bloom. The bees are never told what the hornets or the bloom are; they get only plain "
+                   "words like moving thing and bright cell."),
     dict(id="03_first_sight", kind="map", run=MAIN, t0=28, t1=44, seconds=5.0, bee=5, view="8,5,42,29",
          beat="Danger: caution before any sting", captions=[
              (0.0, 2.6, "Tick 34. Bee 5's first moving thing. Never stung. It flees."),
