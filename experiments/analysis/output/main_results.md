@@ -2,11 +2,11 @@
 
 Run directories:
 
-- full: ['full/20261106T101558Z'], seeds [0]
-- no_talk: ['no_talk/20261106T101558Z'], seeds [0]
-- no_memory: ['no_memory/20261106T101558Z'], seeds [0]
-- frozen_hornets: ['frozen_hornets/20261106T101558Z'], seeds [0]
-- labels_good_bad: ['labels_good_bad/20261106T101558Z'], seeds [0]
+- full: ['full/20261106T101558Z', 'full/20261106T103203Z_seeds34'], seeds [0, 1, 2, 3, 4]
+- no_talk: ['no_talk/20261106T101558Z', 'no_talk/20261106T103203Z_seeds34'], seeds [0, 1, 2, 3, 4]
+- no_memory: ['no_memory/20261106T101558Z'], seeds [0, 1, 2]
+- frozen_hornets: ['frozen_hornets/20261106T101558Z'], seeds [0, 1, 2]
+- labels_good_bad: ['labels_good_bad/20261106T101558Z'], seeds [0, 1, 2]
 - rule_bees: ['rule_bees/20261106T101558Z'], seeds [0, 1, 2, 3, 4]
 - random_bees: ['random_bees/20261106T101558Z'], seeds [0, 1, 2, 3, 4]
 
@@ -18,10 +18,24 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 | condition | seed | decisions | mind_error | fallbacks | share | flagged | input tokens | output tokens |
 |---|---|---|---|---|---|---|---|---|
 | full | 0 | 1440 | 0 | 0 | 0.0 | False | 3116356 | 115978 |
+| full | 1 | 1335 | 0 | 0 | 0.0 | False | 2548231 | 100998 |
+| full | 2 | 1281 | 0 | 0 | 0.0 | False | 2477268 | 96452 |
+| full | 3 | 1238 | 0 | 0 | 0.0 | False | 2298049 | 95212 |
+| full | 4 | 1316 | 0 | 0 | 0.0 | False | 2612774 | 106888 |
 | no_talk | 0 | 1398 | 0 | 0 | 0.0 | False | 2377035 | 92158 |
+| no_talk | 1 | 1532 | 0 | 0 | 0.0 | False | 2551858 | 100138 |
+| no_talk | 2 | 1278 | 0 | 0 | 0.0 | False | 2126798 | 84630 |
+| no_talk | 3 | 1230 | 0 | 0 | 0.0 | False | 2056196 | 81152 |
+| no_talk | 4 | 1326 | 0 | 0 | 0.0 | False | 2219436 | 87971 |
 | no_memory | 0 | 1491 | 0 | 0 | 0.0 | False | 1623446 | 57911 |
+| no_memory | 1 | 1609 | 0 | 0 | 0.0 | False | 1739058 | 59932 |
+| no_memory | 2 | 1310 | 0 | 0 | 0.0 | False | 1402732 | 48204 |
 | frozen_hornets | 0 | 1488 | 0 | 0 | 0.0 | False | 3122439 | 117980 |
+| frozen_hornets | 1 | 1293 | 0 | 0 | 0.0 | False | 2552356 | 97480 |
+| frozen_hornets | 2 | 1186 | 0 | 0 | 0.0 | False | 2155919 | 87922 |
 | labels_good_bad | 0 | 1747 | 0 | 0 | 0.0 | False | 3842750 | 146435 |
+| labels_good_bad | 1 | 1364 | 0 | 0 | 0.0 | False | 2576144 | 100400 |
+| labels_good_bad | 2 | 1231 | 0 | 0 | 0.0 | False | 2276040 | 91242 |
 
 ## E1: learning and culture
 
@@ -29,11 +43,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 4.000 (sd n/a, n 1) | {'0': 4} |
-| no_talk | 2.000 (sd n/a, n 1) | {'0': 2} |
-| no_memory | 2.000 (sd n/a, n 1) | {'0': 2} |
-| frozen_hornets | 5.000 (sd n/a, n 1) | {'0': 5} |
-| labels_good_bad | 6.000 (sd n/a, n 1) | {'0': 6} |
+| full | 1.800 (sd 1.643, n 5) | {'0': 4, '1': 1, '2': 1, '3': 0, '4': 3} |
+| no_talk | 2.600 (sd 1.817, n 5) | {'0': 2, '1': 5, '2': 1, '3': 1, '4': 4} |
+| no_memory | 2.667 (sd 2.082, n 3) | {'0': 2, '1': 5, '2': 1} |
+| frozen_hornets | 2.000 (sd 2.646, n 3) | {'0': 5, '1': 1, '2': 0} |
+| labels_good_bad | 3.000 (sd 2.646, n 3) | {'0': 6, '1': 2, '2': 1} |
 | rule_bees | 1.800 (sd 1.483, n 5) | {'0': 1, '1': 0, '2': 2, '3': 4, '4': 2} |
 | random_bees | 0.000 (sd 0.000, n 5) | {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0} |
 
@@ -41,11 +55,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.100 (sd n/a, n 1) | {'0': 0.1} |
-| no_talk | 0.046 (sd n/a, n 1) | {'0': 0.0465} |
-| no_memory | 0.022 (sd n/a, n 1) | {'0': 0.0222} |
-| frozen_hornets | 0.114 (sd n/a, n 1) | {'0': 0.1136} |
-| labels_good_bad | 0.158 (sd n/a, n 1) | {'0': 0.1579} |
+| full | 0.052 (sd 0.046, n 5) | {'0': 0.1, '1': 0.037, '2': 0.0238, '3': 0.0, '4': 0.1} |
+| no_talk | 0.080 (sd 0.061, n 5) | {'0': 0.0465, '1': 0.1613, '2': 0.0286, '3': 0.0333, '4': 0.129} |
+| no_memory | 0.052 (sd 0.040, n 3) | {'0': 0.0222, '1': 0.098, '2': 0.037} |
+| frozen_hornets | 0.046 (sd 0.060, n 3) | {'0': 0.1136, '1': 0.0244, '2': 0.0} |
+| labels_good_bad | 0.087 (sd 0.064, n 3) | {'0': 0.1579, '1': 0.069, '2': 0.0333} |
 | rule_bees | 0.030 (sd 0.026, n 5) | {'0': 0.0189, '1': 0.0, '2': 0.0267, '3': 0.0702, '4': 0.0357} |
 | random_bees | 0.000 (sd 0.000, n 5) | {'0': 0.0, '1': 0.0, '2': 0.0, '3': 0.0, '4': 0.0} |
 
@@ -53,11 +67,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 83.500 (sd n/a, n 1) | {'0': 83.5} |
-| no_talk | 128.500 (sd n/a, n 1) | {'0': 128.5} |
-| no_memory | 143.000 (sd n/a, n 1) | {'0': 143.0} |
-| frozen_hornets | 79.750 (sd n/a, n 1) | {'0': 79.75} |
-| labels_good_bad | 68.500 (sd n/a, n 1) | {'0': 68.5} |
+| full | 167.400 (sd 53.483, n 5) | {'0': 83.5, '1': 226.5, '2': 186, '3': 187, '4': 154.0} |
+| no_talk | 170.350 (sd 77.365, n 5) | {'0': 128.5, '1': 158.75, '2': 267.0, '3': 225.5, '4': 72} |
+| no_memory | 173.500 (sd 48.562, n 3) | {'0': 143.0, '1': 148.0, '2': 229.5} |
+| frozen_hornets | 123.917 (sd 49.870, n 3) | {'0': 79.75, '1': 114.0, '2': 178} |
+| labels_good_bad | 140.167 (sd 84.268, n 3) | {'0': 68.5, '1': 233.0, '2': 119} |
 | rule_bees | 118.400 (sd 38.307, n 5) | {'0': 88, '1': 80, '2': 142.5, '3': 110, '4': 171.5} |
 | random_bees | missing (n 0) | {'0': None, '1': None, '2': None, '3': None, '4': None} |
 
@@ -65,11 +79,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.200 (sd n/a, n 1) | {'0': 0.2} |
-| no_talk | 0.116 (sd n/a, n 1) | {'0': 0.1163} |
-| no_memory | 0.144 (sd n/a, n 1) | {'0': 0.1444} |
-| frozen_hornets | 0.432 (sd n/a, n 1) | {'0': 0.4318} |
-| labels_good_bad | 0.368 (sd n/a, n 1) | {'0': 0.3684} |
+| full | 0.516 (sd 0.228, n 5) | {'0': 0.2, '1': 0.4815, '2': 0.4762, '3': 0.5882, '4': 0.8333} |
+| no_talk | 0.468 (sd 0.263, n 5) | {'0': 0.1163, '1': 0.3226, '2': 0.4857, '3': 0.8, '4': 0.6129} |
+| no_memory | 0.169 (sd 0.040, n 3) | {'0': 0.1444, '1': 0.2157, '2': 0.1481} |
+| frozen_hornets | 0.460 (sd 0.158, n 3) | {'0': 0.4318, '1': 0.3171, '2': 0.6296} |
+| labels_good_bad | 0.426 (sd 0.185, n 3) | {'0': 0.3684, '1': 0.2759, '2': 0.6333} |
 | rule_bees | 0.586 (sd 0.179, n 5) | {'0': 0.3208, '1': 0.5088, '2': 0.72, '3': 0.614, '4': 0.7679} |
 | random_bees | 0.160 (sd 0.091, n 5) | {'0': 0.1527, '1': 0.292, '2': 0.0377, '3': 0.1389, '4': 0.1783} |
 
@@ -77,11 +91,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 3.261 (sd n/a, n 1) | {'0': 3.261} |
-| no_talk | 3.135 (sd n/a, n 1) | {'0': 3.135} |
-| no_memory | 3.018 (sd n/a, n 1) | {'0': 3.018} |
-| frozen_hornets | 3.418 (sd n/a, n 1) | {'0': 3.418} |
-| labels_good_bad | 3.994 (sd n/a, n 1) | {'0': 3.994} |
+| full | 2.977 (sd 0.178, n 5) | {'0': 3.261, '1': 2.964, '2': 2.904, '3': 2.777, '4': 2.978} |
+| no_talk | 3.050 (sd 0.269, n 5) | {'0': 3.135, '1': 3.467, '2': 2.879, '3': 2.776, '4': 2.994} |
+| no_memory | 3.213 (sd 0.380, n 3) | {'0': 3.018, '1': 3.651, '2': 2.97} |
+| frozen_hornets | 2.997 (sd 0.378, n 3) | {'0': 3.418, '1': 2.886, '2': 2.687} |
+| labels_good_bad | 3.303 (sd 0.616, n 3) | {'0': 3.994, '1': 3.104, '2': 2.812} |
 | rule_bees | 2.763 (sd 0.159, n 5) | {'0': 2.885, '1': 2.604, '2': 2.692, '3': 2.976, '4': 2.659} |
 | random_bees | 2.552 (sd 0.062, n 5) | {'0': 2.461, '1': 2.515, '2': 2.587, '3': 2.603, '4': 2.594} |
 
@@ -89,11 +103,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 2.000 (sd n/a, n 1) | {'0': 2} |
-| no_talk | 0.000 (sd n/a, n 1) | {'0': 0} |
-| no_memory | 0.000 (sd n/a, n 1) | {'0': 0} |
-| frozen_hornets | 1.000 (sd n/a, n 1) | {'0': 1} |
-| labels_good_bad | 1.000 (sd n/a, n 1) | {'0': 1} |
+| full | 0.400 (sd 0.894, n 5) | {'0': 2, '1': 0, '2': 0, '3': 0, '4': 0} |
+| no_talk | 0.200 (sd 0.447, n 5) | {'0': 0, '1': 0, '2': 0, '3': 0, '4': 1} |
+| no_memory | 0.333 (sd 0.577, n 3) | {'0': 0, '1': 0, '2': 1} |
+| frozen_hornets | 0.333 (sd 0.577, n 3) | {'0': 1, '1': 0, '2': 0} |
+| labels_good_bad | 0.667 (sd 0.577, n 3) | {'0': 1, '1': 0, '2': 1} |
 | rule_bees | 0.200 (sd 0.447, n 5) | {'0': 0, '1': 0, '2': 1, '3': 0, '4': 0} |
 | random_bees | 0.000 (sd 0.000, n 5) | {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0} |
 
@@ -101,11 +115,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 2.000 (sd n/a, n 1) | {'0': 2} |
-| no_talk | 1.000 (sd n/a, n 1) | {'0': 1} |
-| no_memory | 1.000 (sd n/a, n 1) | {'0': 1} |
-| frozen_hornets | 2.000 (sd n/a, n 1) | {'0': 2} |
-| labels_good_bad | 3.000 (sd n/a, n 1) | {'0': 3} |
+| full | 1.400 (sd 1.140, n 5) | {'0': 2, '1': 1, '2': 1, '3': 0, '4': 3} |
+| no_talk | 1.400 (sd 0.548, n 5) | {'0': 1, '1': 2, '2': 1, '3': 1, '4': 2} |
+| no_memory | 1.667 (sd 2.082, n 3) | {'0': 1, '1': 4, '2': 0} |
+| frozen_hornets | 1.000 (sd 1.000, n 3) | {'0': 2, '1': 1, '2': 0} |
+| labels_good_bad | 1.667 (sd 1.528, n 3) | {'0': 3, '1': 2, '2': 0} |
 | rule_bees | 0.800 (sd 0.447, n 5) | {'0': 1, '1': 0, '2': 1, '3': 1, '4': 1} |
 | random_bees | 0.000 (sd 0.000, n 5) | {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0} |
 
@@ -113,11 +127,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.000 (sd n/a, n 1) | {'0': 0} |
-| no_talk | 1.000 (sd n/a, n 1) | {'0': 1} |
-| no_memory | 0.000 (sd n/a, n 1) | {'0': 0} |
-| frozen_hornets | 2.000 (sd n/a, n 1) | {'0': 2} |
-| labels_good_bad | 2.000 (sd n/a, n 1) | {'0': 2} |
+| full | 0.000 (sd 0.000, n 5) | {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0} |
+| no_talk | 1.000 (sd 1.225, n 5) | {'0': 1, '1': 3, '2': 0, '3': 0, '4': 1} |
+| no_memory | 0.333 (sd 0.577, n 3) | {'0': 0, '1': 1, '2': 0} |
+| frozen_hornets | 0.667 (sd 1.155, n 3) | {'0': 2, '1': 0, '2': 0} |
+| labels_good_bad | 0.667 (sd 1.155, n 3) | {'0': 2, '1': 0, '2': 0} |
 | rule_bees | 0.800 (sd 1.304, n 5) | {'0': 0, '1': 0, '2': 0, '3': 3, '4': 1} |
 | random_bees | 0.000 (sd 0.000, n 5) | {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0} |
 
@@ -125,11 +139,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.167 (sd n/a, n 1) | {'0': 0.1667} |
-| no_talk | 0.000 (sd n/a, n 1) | {'0': 0.0} |
-| no_memory | 0.000 (sd n/a, n 1) | {'0': 0.0} |
-| frozen_hornets | 0.111 (sd n/a, n 1) | {'0': 0.1111} |
-| labels_good_bad | 0.100 (sd n/a, n 1) | {'0': 0.1} |
+| full | 0.033 (sd 0.075, n 5) | {'0': 0.1667, '1': 0.0, '2': 0.0, '3': 0.0, '4': 0.0} |
+| no_talk | 0.033 (sd 0.075, n 5) | {'0': 0.0, '1': 0.0, '2': 0.0, '3': 0.0, '4': 0.1667} |
+| no_memory | 0.067 (sd 0.116, n 3) | {'0': 0.0, '1': 0.0, '2': 0.2} |
+| frozen_hornets | 0.037 (sd 0.064, n 3) | {'0': 0.1111, '1': 0.0, '2': 0.0} |
+| labels_good_bad | 0.070 (sd 0.061, n 3) | {'0': 0.1, '1': 0.0, '2': 0.1111} |
 | rule_bees | 0.014 (sd 0.032, n 5) | {'0': 0.0, '1': 0.0, '2': 0.0714, '3': 0.0, '4': 0.0} |
 | random_bees | 0.000 (sd 0.000, n 5) | {'0': 0.0, '1': 0.0, '2': 0.0, '3': 0.0, '4': 0.0} |
 
@@ -137,11 +151,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.111 (sd n/a, n 1) | {'0': 0.1111} |
-| no_talk | 0.071 (sd n/a, n 1) | {'0': 0.0714} |
-| no_memory | 0.026 (sd n/a, n 1) | {'0': 0.0263} |
-| frozen_hornets | 0.143 (sd n/a, n 1) | {'0': 0.1429} |
-| labels_good_bad | 0.273 (sd n/a, n 1) | {'0': 0.2727} |
+| full | 0.089 (sd 0.071, n 5) | {'0': 0.1111, '1': 0.1, '2': 0.0476, '3': 0.0, '4': 0.1875} |
+| no_talk | 0.098 (sd 0.041, n 5) | {'0': 0.0714, '1': 0.1429, '2': 0.0625, '3': 0.0714, '4': 0.1429} |
+| no_memory | 0.104 (sd 0.158, n 3) | {'0': 0.0263, '1': 0.2857, '2': 0.0} |
+| frozen_hornets | 0.070 (sd 0.071, n 3) | {'0': 0.1429, '1': 0.0667, '2': 0.0} |
+| labels_good_bad | 0.146 (sd 0.138, n 3) | {'0': 0.2727, '1': 0.1667, '2': 0.0} |
 | rule_bees | 0.037 (sd 0.021, n 5) | {'0': 0.0455, '1': 0.0, '2': 0.04, '3': 0.0526, '4': 0.0476} |
 | random_bees | 0.000 (sd 0.000, n 5) | {'0': 0.0, '1': 0.0, '2': 0.0, '3': 0.0, '4': 0.0} |
 
@@ -149,11 +163,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.000 (sd n/a, n 1) | {'0': 0.0} |
-| no_talk | 0.071 (sd n/a, n 1) | {'0': 0.0714} |
-| no_memory | 0.000 (sd n/a, n 1) | {'0': 0.0} |
-| frozen_hornets | 0.143 (sd n/a, n 1) | {'0': 0.1429} |
-| labels_good_bad | 0.154 (sd n/a, n 1) | {'0': 0.1538} |
+| full | 0.000 (sd 0.000, n 5) | {'0': 0.0, '1': 0.0, '2': 0.0, '3': 0.0, '4': 0.0} |
+| no_talk | 0.110 (sd 0.138, n 5) | {'0': 0.0714, '1': 0.3333, '2': 0.0, '3': 0.0, '4': 0.1429} |
+| no_memory | 0.018 (sd 0.032, n 3) | {'0': 0.0, '1': 0.0556, '2': 0.0} |
+| frozen_hornets | 0.048 (sd 0.083, n 3) | {'0': 0.1429, '1': 0.0, '2': 0.0} |
+| labels_good_bad | 0.051 (sd 0.089, n 3) | {'0': 0.1538, '1': 0.0, '2': 0.0} |
 | rule_bees | 0.049 (sd 0.077, n 5) | {'0': 0.0, '1': 0.0, '2': 0.0, '3': 0.1765, '4': 0.0667} |
 | random_bees | 0.000 (sd 0.000, n 5) | {'0': 0.0, '1': 0.0, '2': 0.0, '3': 0.0, '4': 0.0} |
 
@@ -161,36 +175,36 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | comparison | n | per-seed differences | mean | sd | verdict |
 |---|---|---|---|---|---|
-| full - no_talk | 1 | {'0': 2} | 2.0 | None | no consistent difference |
-| full - no_memory | 1 | {'0': 2} | 2.0 | None | no consistent difference |
-| full - rule_bees | 1 | {'0': 3} | 3.0 | None | no consistent difference |
-| full - random_bees | 1 | {'0': 4} | 4.0 | None | no consistent difference |
+| full - no_talk | 3 | {'0': 2, '1': -4, '2': 0} | -0.6667 | 3.0551 | no consistent difference |
+| full - no_memory | 3 | {'0': 2, '1': -4, '2': 0} | -0.6667 | 3.0551 | no consistent difference |
+| full - rule_bees | 3 | {'0': 3, '1': 1, '2': -1} | 1.0 | 2.0 | no consistent difference |
+| full - random_bees | 3 | {'0': 4, '1': 1, '2': 1} | 2.0 | 1.7321 | consistently higher |
 
 **E1 primary, extended to seeds 0 to 4 (amendment 1)** (paired by seed)
 
 | comparison | n | per-seed differences | mean | sd | verdict |
 |---|---|---|---|---|---|
-| full - no_talk | 1 | {'0': 2} | 2.0 | None | no consistent difference |
-| full - rule_bees | 1 | {'0': 3} | 3.0 | None | no consistent difference |
-| full - random_bees | 1 | {'0': 4} | 4.0 | None | no consistent difference |
+| full - no_talk | 5 | {'0': 2, '1': -4, '2': 0, '3': -1, '4': -1} | -0.8 | 2.1679 | no consistent difference |
+| full - rule_bees | 5 | {'0': 3, '1': 1, '2': -1, '3': -4, '4': 1} | 0.0 | 2.6458 | no consistent difference |
+| full - random_bees | 5 | {'0': 4, '1': 1, '2': 1, '3': 0, '4': 3} | 1.8 | 1.6432 | no consistent difference |
 
 **E1 secondary: delivery_rate** (paired by seed)
 
 | comparison | n | per-seed differences | mean | sd | verdict |
 |---|---|---|---|---|---|
-| full - no_talk | 1 | {'0': 0.0535} | 0.0535 | None | no consistent difference |
-| full - no_memory | 1 | {'0': 0.0778} | 0.0778 | None | no consistent difference |
-| full - rule_bees | 1 | {'0': 0.0811} | 0.0811 | None | no consistent difference |
-| full - random_bees | 1 | {'0': 0.1} | 0.1 | None | no consistent difference |
+| full - no_talk | 3 | {'0': 0.0535, '1': -0.1243, '2': -0.0048} | -0.0252 | 0.0906 | no consistent difference |
+| full - no_memory | 3 | {'0': 0.0778, '1': -0.061, '2': -0.0132} | 0.0012 | 0.0705 | no consistent difference |
+| full - rule_bees | 3 | {'0': 0.0811, '1': 0.037, '2': -0.0029} | 0.0384 | 0.042 | no consistent difference |
+| full - random_bees | 3 | {'0': 0.1, '1': 0.037, '2': 0.0238} | 0.0536 | 0.0407 | consistently higher |
 
 **E1 secondary: stings_per_trip** (paired by seed)
 
 | comparison | n | per-seed differences | mean | sd | verdict |
 |---|---|---|---|---|---|
-| full - no_talk | 1 | {'0': 0.0837} | 0.0837 | None | no consistent difference |
-| full - no_memory | 1 | {'0': 0.0556} | 0.0556 | None | no consistent difference |
-| full - rule_bees | 1 | {'0': -0.1208} | -0.1208 | None | no consistent difference |
-| full - random_bees | 1 | {'0': 0.0473} | 0.0473 | None | no consistent difference |
+| full - no_talk | 3 | {'0': 0.0837, '1': 0.1589, '2': -0.0095} | 0.0777 | 0.0844 | no consistent difference |
+| full - no_memory | 3 | {'0': 0.0556, '1': 0.2658, '2': 0.3281} | 0.2165 | 0.1428 | consistently higher |
+| full - rule_bees | 3 | {'0': -0.1208, '1': -0.0273, '2': -0.2438} | -0.1306 | 0.1086 | consistently lower |
+| full - random_bees | 3 | {'0': 0.0473, '1': 0.1895, '2': 0.4385} | 0.2251 | 0.198 | consistently higher |
 
 ## E2: arms race
 
@@ -198,11 +212,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.208 (sd n/a, n 1) | {'0': 0.2083} |
-| no_talk | 0.100 (sd n/a, n 1) | {'0': 0.1} |
-| no_memory | 0.061 (sd n/a, n 1) | {'0': 0.0612} |
-| frozen_hornets | 0.280 (sd n/a, n 1) | {'0': 0.28} |
-| labels_good_bad | 0.407 (sd n/a, n 1) | {'0': 0.4074} |
+| full | 0.537 (sd 0.284, n 5) | {'0': 0.2083, '1': 0.7692, '2': 0.3667, '3': 0.45, '4': 0.8889} |
+| no_talk | 0.563 (sd 0.315, n 5) | {'0': 0.1, '1': 0.45, '2': 0.6, '3': 0.9412, '4': 0.7222} |
+| no_memory | 0.178 (sd 0.113, n 3) | {'0': 0.0612, '1': 0.2857, '2': 0.1875} |
+| frozen_hornets | 0.495 (sd 0.289, n 3) | {'0': 0.28, '1': 0.381, '2': 0.8235} |
+| labels_good_bad | 0.461 (sd 0.315, n 3) | {'0': 0.4074, '1': 0.1765, '2': 0.8} |
 | rule_bees | 0.632 (sd 0.257, n 5) | {'0': 0.2903, '1': 0.6562, '2': 0.9091, '3': 0.4643, '4': 0.8387} |
 | random_bees | 0.140 (sd 0.141, n 5) | {'0': 0.2373, '1': 0.3293, '2': 0.0, '3': 0.1075, '4': 0.0253} |
 
@@ -210,11 +224,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.200 (sd n/a, n 1) | {'0': 0.2} |
-| no_talk | 0.286 (sd n/a, n 1) | {'0': 0.2857} |
-| no_memory | 0.312 (sd n/a, n 1) | {'0': 0.3125} |
-| frozen_hornets | 1.000 (sd n/a, n 1) | {'0': 1.0} |
-| labels_good_bad | 0.429 (sd n/a, n 1) | {'0': 0.4286} |
+| full | 0.852 (sd 0.559, n 5) | {'0': 0.2, '1': 0.3333, '2': 1.125, '3': 1.1, '4': 1.5} |
+| no_talk | 0.490 (sd 0.252, n 5) | {'0': 0.2857, '1': 0.2, '2': 0.5, '3': 0.8, '4': 0.6667} |
+| no_memory | 0.207 (sd 0.092, n 3) | {'0': 0.3125, '1': 0.1429, '2': 0.1667} |
+| frozen_hornets | 0.652 (sd 0.325, n 3) | {'0': 1.0, '1': 0.3571, '2': 0.6} |
+| labels_good_bad | 0.633 (sd 0.202, n 3) | {'0': 0.4286, '1': 0.8333, '2': 0.6364} |
 | rule_bees | 0.824 (sd 0.226, n 5) | {'0': 0.5714, '1': 0.6667, '2': 0.8276, '3': 1.1579, '4': 0.8947} |
 | random_bees | 0.295 (sd 0.178, n 5) | {'0': 0.1429, '1': 0.3095, '2': 0.1538, '3': 0.2857, '4': 0.5833} |
 
@@ -222,11 +236,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | -0.008 (sd n/a, n 1) | {'0': -0.0083} |
-| no_talk | 0.186 (sd n/a, n 1) | {'0': 0.1857} |
-| no_memory | 0.251 (sd n/a, n 1) | {'0': 0.2513} |
-| frozen_hornets | 0.720 (sd n/a, n 1) | {'0': 0.72} |
-| labels_good_bad | 0.021 (sd n/a, n 1) | {'0': 0.0212} |
+| full | 0.315 (sd 0.516, n 5) | {'0': -0.0083, '1': -0.4359, '2': 0.7583, '3': 0.65, '4': 0.6111} |
+| no_talk | -0.072 (sd 0.161, n 5) | {'0': 0.1857, '1': -0.25, '2': -0.1, '3': -0.1412, '4': -0.0556} |
+| no_memory | 0.029 (sd 0.202, n 3) | {'0': 0.2513, '1': -0.1429, '2': -0.0208} |
+| frozen_hornets | 0.158 (sd 0.497, n 3) | {'0': 0.72, '1': -0.0238, '2': -0.2235} |
+| labels_good_bad | 0.172 (sd 0.430, n 3) | {'0': 0.0212, '1': 0.6569, '2': -0.1636} |
 | rule_bees | 0.192 (sd 0.311, n 5) | {'0': 0.2811, '1': 0.0104, '2': -0.0815, '3': 0.6936, '4': 0.056} |
 | random_bees | 0.155 (sd 0.253, n 5) | {'0': -0.0944, '1': -0.0197, '2': 0.1538, '3': 0.1782, '4': 0.558} |
 
@@ -234,7 +248,7 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | comparison | n | per-seed differences | mean | sd | verdict |
 |---|---|---|---|---|---|
-| full - frozen_hornets | 1 | {'0': -0.7283} | -0.7283 | None | no consistent difference |
+| full - frozen_hornets | 3 | {'0': -0.7283, '1': -0.4121, '2': 0.9819} | -0.0529 | 0.9099 | no consistent difference |
 
 ## E3: seasonal memory
 
@@ -242,11 +256,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 183.0 (sd n/a, n 1) | {'0': 183} |
-| no_talk | 250.0 (sd n/a, n 1) | {'0': 250} |
-| no_memory | 250.0 (sd n/a, n 1) | {'0': 250} |
-| frozen_hornets | 135.0 (sd n/a, n 1) | {'0': 135} |
-| labels_good_bad | 177.0 (sd n/a, n 1) | {'0': 177} |
+| full | 236.6 (sd 30.0, n 5) | {'0': 183, '1': 250, '2': 250, '3': 250, '4': 250} |
+| no_talk | 250.0 (sd 0.0, n 5) | {'0': 250, '1': 250, '2': 250, '3': 250, '4': 250} |
+| no_memory | 250.0 (sd 0.0, n 3) | {'0': 250, '1': 250, '2': 250} |
+| frozen_hornets | 211.7 (sd 66.4, n 3) | {'0': 135, '1': 250, '2': 250} |
+| labels_good_bad | 225.7 (sd 42.1, n 3) | {'0': 177, '1': 250, '2': 250} |
 | rule_bees | 245.8 (sd 9.4, n 5) | {'0': 250, '1': 250, '2': 229, '3': 250, '4': 250} |
 | random_bees | 250.0 (sd 0.0, n 5) | {'0': 250, '1': 250, '2': 250, '3': 250, '4': 250} |
 
@@ -254,11 +268,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 83.0 (sd n/a, n 1) | {'0': 83} |
-| no_talk | 250.0 (sd n/a, n 1) | {'0': 250} |
-| no_memory | 250.0 (sd n/a, n 1) | {'0': 250} |
-| frozen_hornets | 250.0 (sd n/a, n 1) | {'0': 250} |
-| labels_good_bad | 250.0 (sd n/a, n 1) | {'0': 250} |
+| full | 216.6 (sd 74.7, n 5) | {'0': 83, '1': 250, '2': 250, '3': 250, '4': 250} |
+| no_talk | 247.8 (sd 4.9, n 5) | {'0': 250, '1': 250, '2': 250, '3': 250, '4': 239} |
+| no_memory | 203.7 (sd 80.3, n 3) | {'0': 250, '1': 250, '2': 111} |
+| frozen_hornets | 250.0 (sd 0.0, n 3) | {'0': 250, '1': 250, '2': 250} |
+| labels_good_bad | 199.0 (sd 88.3, n 3) | {'0': 250, '1': 250, '2': 97} |
 | rule_bees | 250.0 (sd 0.0, n 5) | {'0': 250, '1': 250, '2': 250, '3': 250, '4': 250} |
 | random_bees | 250.0 (sd 0.0, n 5) | {'0': 250, '1': 250, '2': 250, '3': 250, '4': 250} |
 
@@ -266,11 +280,11 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 100.0 (sd n/a, n 1) | {'0': 100} |
-| no_talk | 0.0 (sd n/a, n 1) | {'0': 0} |
-| no_memory | 0.0 (sd n/a, n 1) | {'0': 0} |
-| frozen_hornets | -115.0 (sd n/a, n 1) | {'0': -115} |
-| labels_good_bad | -73.0 (sd n/a, n 1) | {'0': -73} |
+| full | 20.0 (sd 44.7, n 5) | {'0': 100, '1': 0, '2': 0, '3': 0, '4': 0} |
+| no_talk | 2.2 (sd 4.9, n 5) | {'0': 0, '1': 0, '2': 0, '3': 0, '4': 11} |
+| no_memory | 46.3 (sd 80.3, n 3) | {'0': 0, '1': 0, '2': 139} |
+| frozen_hornets | -38.3 (sd 66.4, n 3) | {'0': -115, '1': 0, '2': 0} |
+| labels_good_bad | 26.7 (sd 115.3, n 3) | {'0': -73, '1': 0, '2': 153} |
 | rule_bees | -4.2 (sd 9.4, n 5) | {'0': 0, '1': 0, '2': -21, '3': 0, '4': 0} |
 | random_bees | 0.0 (sd 0.0, n 5) | {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0} |
 
@@ -278,21 +292,35 @@ Crashed seeds: {'full': {}, 'no_talk': {}, 'no_memory': {}, 'frozen_hornets': {}
 
 | comparison | n | per-seed differences | mean | sd | verdict |
 |---|---|---|---|---|---|
-| full - no_talk | 1 | {'0': 100} | 100.0 | None | no consistent difference |
+| full - no_talk | 3 | {'0': 100, '1': 0, '2': 0} | 33.3333 | 57.735 | no consistent difference |
 
 **E3 primary, extended to seeds 0 to 4 (amendment 1)** (paired by seed)
 
 | comparison | n | per-seed differences | mean | sd | verdict |
 |---|---|---|---|---|---|
-| full - no_talk | 1 | {'0': 100} | 100.0 | None | no consistent difference |
+| full - no_talk | 5 | {'0': 100, '1': 0, '2': 0, '3': 0, '4': -11} | 17.8 | 46.1974 | no consistent difference |
 
 **Carryover**
 
 - full seed 0: {'bees_alive_both_springs': [], 'forager': 9, 'forager_alive_y1_spring': False, 'forager_heard_bloom_coord': False, 'forager_left': 806, 'forager_left_before_spring': True}
+- full seed 1: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- full seed 2: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- full seed 3: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- full seed 4: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
 - no_talk seed 0: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- no_talk seed 1: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- no_talk seed 2: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- no_talk seed 3: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- no_talk seed 4: {'bees_alive_both_springs': [], 'forager': 9, 'forager_alive_y1_spring': False, 'forager_heard_bloom_coord': False, 'forager_left': 895, 'forager_left_before_spring': True}
 - no_memory seed 0: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- no_memory seed 1: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- no_memory seed 2: {'bees_alive_both_springs': [], 'forager': 8, 'forager_alive_y1_spring': False, 'forager_heard_bloom_coord': False, 'forager_left': 882, 'forager_left_before_spring': True}
 - frozen_hornets seed 0: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- frozen_hornets seed 1: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- frozen_hornets seed 2: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
 - labels_good_bad seed 0: {'bees_alive_both_springs': [3], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- labels_good_bad seed 1: {'bees_alive_both_springs': [], 'forager': None, 'forager_alive_y1_spring': None, 'forager_heard_bloom_coord': None}
+- labels_good_bad seed 2: {'bees_alive_both_springs': [], 'forager': 9, 'forager_alive_y1_spring': False, 'forager_heard_bloom_coord': False, 'forager_left': 881, 'forager_left_before_spring': True}
 
 ## E4: signals
 
@@ -301,38 +329,66 @@ Supported (full above its permutation 95th percentile in at least 2 of 3 seeds):
 | condition | seed | sounds | by sound | MI (bits) | perm p95 | perm p | note |
 |---|---|---|---|---|---|---|---|
 | full | 0 | 1 | {'sound-1': 1} | None | None | None | missing: fewer than 2 sounds |
+| full | 1 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| full | 2 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| full | 3 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| full | 4 | 2 | {'sound-1': 2} | 0.0 | 0.0 | 1.0 | degenerate: one sound or one context only, so MI is 0 |
 | no_talk | 0 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| no_talk | 1 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| no_talk | 2 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| no_talk | 3 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| no_talk | 4 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
 | no_memory | 0 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| no_memory | 1 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| no_memory | 2 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
 | frozen_hornets | 0 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| frozen_hornets | 1 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
+| frozen_hornets | 2 | 0 | {} | None | None | None | missing: fewer than 2 sounds |
 | labels_good_bad | 0 | 4 | {'sound-1': 4} | 0.0 | 0.0 | 1.0 | degenerate: one sound or one context only, so MI is 0 |
+| labels_good_bad | 1 | 3 | {'sound-1': 3} | 0.0 | 0.0 | 1.0 | degenerate: one sound or one context only, so MI is 0 |
+| labels_good_bad | 2 | 2 | {'sound-2': 1, 'sound-1': 1} | 1.0 | 1.0 | 1.0 |  |
 
 **Listener response** (share of flee or go_home)
 
 - full seed 0: {'sound': {'n': 1, 'flee_or_home': 1.0}, 'timer': {'n': 1128, 'flee_or_home': 0.1746}}
+- full seed 1: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 1003, 'flee_or_home': 0.1884}}
+- full seed 2: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 991, 'flee_or_home': 0.221}}
+- full seed 3: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 961, 'flee_or_home': 0.1623}}
+- full seed 4: {'sound': {'n': 5, 'flee_or_home': 0.2}, 'timer': {'n': 1043, 'flee_or_home': 0.2301}}
 - no_talk seed 0: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 1074, 'flee_or_home': 0.1099}}
+- no_talk seed 1: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 1199, 'flee_or_home': 0.1351}}
+- no_talk seed 2: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 999, 'flee_or_home': 0.1261}}
+- no_talk seed 3: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 950, 'flee_or_home': 0.1821}}
+- no_talk seed 4: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 1041, 'flee_or_home': 0.1825}}
 - no_memory seed 0: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 891, 'flee_or_home': 0.2817}}
+- no_memory seed 1: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 1272, 'flee_or_home': 0.2193}}
+- no_memory seed 2: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 1052, 'flee_or_home': 0.1473}}
 - frozen_hornets seed 0: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 1210, 'flee_or_home': 0.1793}}
+- frozen_hornets seed 1: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 1003, 'flee_or_home': 0.1964}}
+- frozen_hornets seed 2: {'sound': {'n': 0, 'flee_or_home': None}, 'timer': {'n': 945, 'flee_or_home': 0.1418}}
 - labels_good_bad seed 0: {'sound': {'n': 9, 'flee_or_home': 0.2222}, 'timer': {'n': 1416, 'flee_or_home': 0.1723}}
+- labels_good_bad seed 1: {'sound': {'n': 3, 'flee_or_home': 0.3333}, 'timer': {'n': 1088, 'flee_or_home': 0.1553}}
+- labels_good_bad seed 2: {'sound': {'n': 1, 'flee_or_home': 0.0}, 'timer': {'n': 983, 'flee_or_home': 0.1292}}
 
 ## Further measures
 
 **Coordinates in hive talk** (pooled over seeds)
 
-- full: {'neither': 249, 'mover': 124, 'bloom': 73}
+- full: {'neither': 925, 'mover': 585, 'bloom': 111}
 - no_talk: {}
-- no_memory: {'mover': 49, 'neither': 1}
-- frozen_hornets: {'neither': 117, 'mover': 155, 'bloom': 8}
-- labels_good_bad: {'neither': 468, 'mover': 177}
+- no_memory: {'mover': 53, 'neither': 1}
+- frozen_hornets: {'neither': 214, 'mover': 267, 'bloom': 36}
+- labels_good_bad: {'neither': 632, 'mover': 239, 'bloom': 13}
 
 **naive avoidance: share of flee or go_home at a bee's first sighting, before any sting**
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.786 (sd n/a, n 1) | {'0': 0.7857} |
-| no_talk | 0.923 (sd n/a, n 1) | {'0': 0.9231} |
-| no_memory | 1.000 (sd n/a, n 1) | {'0': 1.0} |
-| frozen_hornets | 0.812 (sd n/a, n 1) | {'0': 0.8125} |
-| labels_good_bad | 0.800 (sd n/a, n 1) | {'0': 0.8} |
+| full | 0.857 (sd 0.071, n 5) | {'0': 0.7857, '1': 0.8571, '2': 0.9167, '3': 0.7857, '4': 0.9375} |
+| no_talk | 0.867 (sd 0.092, n 5) | {'0': 0.9231, '1': 0.9286, '2': 0.9231, '3': 0.8462, '4': 0.7143} |
+| no_memory | 1.000 (sd 0.000, n 3) | {'0': 1.0, '1': 1.0, '2': 1.0} |
+| frozen_hornets | 0.821 (sd 0.011, n 3) | {'0': 0.8125, '1': 0.8182, '2': 0.8333} |
+| labels_good_bad | 0.728 (sd 0.166, n 3) | {'0': 0.8, '1': 0.8462, '2': 0.5385} |
 
 ## Exploratory (not pre-registered)
 
@@ -340,29 +396,29 @@ Supported (full above its permutation 95th percentile in at least 2 of 3 seeds):
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.119 (sd n/a, n 1) | {'0': 0.1194} |
-| no_talk | 0.127 (sd n/a, n 1) | {'0': 0.1266} |
-| no_memory | 0.000 (sd n/a, n 1) | {'0': 0.0} |
-| frozen_hornets | 0.065 (sd n/a, n 1) | {'0': 0.0652} |
-| labels_good_bad | 0.024 (sd n/a, n 1) | {'0': 0.0235} |
+| full | 0.085 (sd 0.023, n 5) | {'0': 0.1194, '1': 0.0674, '2': 0.0945, '3': 0.0614, '4': 0.0828} |
+| no_talk | 0.104 (sd 0.054, n 5) | {'0': 0.1266, '1': 0.0503, '2': 0.1502, '3': 0.0423, '4': 0.1508} |
+| no_memory | missing (n 0) | {'0': None, '1': None, '2': None} |
+| frozen_hornets | 0.063 (sd 0.018, n 3) | {'0': 0.0652, '1': 0.0433, '2': 0.0793} |
+| labels_good_bad | 0.054 (sd 0.027, n 3) | {'0': 0.0235, '1': 0.0623, '2': 0.0755} |
 
 **share of words said at home using one**
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.269 (sd n/a, n 1) | {'0': 0.2689} |
-| no_talk | missing (n 0) | {'0': None} |
-| no_memory | 0.020 (sd n/a, n 1) | {'0': 0.0196} |
-| frozen_hornets | 0.104 (sd n/a, n 1) | {'0': 0.1037} |
-| labels_good_bad | 0.012 (sd n/a, n 1) | {'0': 0.0124} |
+| full | 0.219 (sd 0.130, n 5) | {'0': 0.2689, '1': 0.1694, '2': 0.3944, '3': 0.2228, '4': 0.04} |
+| no_talk | missing (n 0) | {'0': None, '1': None, '2': None, '3': None, '4': None} |
+| no_memory | 0.006 (sd 0.011, n 3) | {'0': 0.0196, '1': 0.0, '2': 0.0} |
+| frozen_hornets | 0.187 (sd 0.157, n 3) | {'0': 0.1037, '1': 0.0884, '2': 0.3684} |
+| labels_good_bad | 0.069 (sd 0.050, n 3) | {'0': 0.0124, '1': 0.1034, '2': 0.092} |
 
 **share of words said at home that another bee heard**
 
 | condition | mean (sd, n) | per seed |
 |---|---|---|
-| full | 0.708 (sd n/a, n 1) | {'0': 0.7082} |
-| no_talk | missing (n 0) | {'0': None} |
-| no_memory | 0.693 (sd n/a, n 1) | {'0': 0.6928} |
-| frozen_hornets | 0.663 (sd n/a, n 1) | {'0': 0.663} |
-| labels_good_bad | 0.856 (sd n/a, n 1) | {'0': 0.8561} |
+| full | 0.595 (sd 0.081, n 5) | {'0': 0.7082, '1': 0.5027, '2': 0.6333, '3': 0.538, '4': 0.5947} |
+| no_talk | missing (n 0) | {'0': None, '1': None, '2': None, '3': None, '4': None} |
+| no_memory | 0.525 (sd 0.145, n 3) | {'0': 0.6928, '1': 0.4462, '2': 0.4375} |
+| frozen_hornets | 0.529 (sd 0.187, n 3) | {'0': 0.663, '1': 0.6077, '2': 0.3158} |
+| labels_good_bad | 0.653 (sd 0.179, n 3) | {'0': 0.8561, '1': 0.5172, '2': 0.5862} |
 
