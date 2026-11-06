@@ -4,7 +4,9 @@
 
 **What was changed.** Only the exported trace files (`agent_traces/sessions/**.jsonl` and `agent_traces/events/**.jsonl`), in every commit, were re-redacted with the exporter's current rules (`[REDACTED:harness-meta]`, `[REDACTED:path-outside-repo]`). The tool was git-filter-repo with a file-info callback. No commit was removed, squashed, reordered or re-dated. Commit messages are unchanged, apart from git-filter-repo updating commit ids quoted inside them.
 
-**Checks, run on the rewritten history before pushing.** 83 commits before and after. The tree of the newest commit is byte-identical to the one before the rewrite. No commit adds or removes any of the leaked strings.
+**Two passes.** The first pass handled skill instructions and outside paths. A stricter scan added afterwards (tools/private_scan.py) then found a directory listing that named other projects' scratch folders, so a second pass also applied the private-terms list and redacted those folder names.
+
+**Checks, run on the rewritten history before pushing.** 83 commits before and after. The tree of the newest commit is byte-identical to the one before the rewrite. No commit adds or removes any of the leaked strings, and `tools/private_scan.py` finds nothing in any version of any trace file in history (`make check` runs this on every check).
 
 **Where.** The cleaned history was pushed to a new project, so the earlier objects never reach a public copy. The earlier project is still private. Archiving it needs owner rights the developer does not hold, so a group owner should delete it.
 
