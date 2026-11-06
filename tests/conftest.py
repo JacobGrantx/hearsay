@@ -11,7 +11,7 @@ from digital_life import llm
 
 COORD = re.compile(r"\((\d+), (\d+)\)")
 DIRS = ("N", "NE", "E", "SE", "S", "SW", "W", "NW")
-INTENTS = ("explore", "explore", "go_to", "go_to", "go_home", "flee", "wait")
+TWICE = ("explore", "go_to")  # the fake picks these twice as often as the other intents
 
 
 class FakeMind:
@@ -36,13 +36,16 @@ class FakeMind:
         coords = COORD.findall(text)
         x, y = (int(v) for v in coords[h % len(coords)]) if coords else (0, 0)
         props = kw["output_config"]["format"]["schema"]["properties"]
-        intent = INTENTS[h % len(INTENTS)]
+        intents = [i for i in props["intent"]["enum"] for _ in range(2 if i in TWICE else 1)]
+        intent = intents[h % len(intents)]
+        sound = "sound" if "sound" in props else "signal"  # the schema keys depend on the vocabulary
         d = {"intent": intent if (coords or intent != "go_to") else "explore", "direction": DIRS[(h >> 8) % 8],
-             "x": x, "y": y, "sound": props["sound"]["enum"][(h >> 16) % 3]}
+             "x": x, "y": y, sound: props[sound]["enum"][(h >> 16) % 3]}
         if "remember" in props:
             d["remember"] = f"mark ({x}, {y})" if (h >> 20) % 2 else ""
-        if "say" in props:
-            d["say"] = f"look at ({x}, {y})"
+        for say in ("say", "broadcast"):
+            if say in props:
+                d[say] = f"look at ({x}, {y})"
         reply = "not json" if n in self.garbage else json.dumps(d)
         return SimpleNamespace(content=[SimpleNamespace(type="text", text=reply)], model=kw["model"], stop_reason="end_turn",
                                usage=SimpleNamespace(input_tokens=len(text) // 4, output_tokens=40,

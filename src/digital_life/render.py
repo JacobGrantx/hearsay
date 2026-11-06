@@ -1,95 +1,69 @@
 """The bee mind's words: the system prompt, Perception rendered as text, the decision schema and the parser.
 
-Every piece of fixed text a prompt can contain lives here or in prompts/bee_system.txt, so the no-hints test
-(tests/test_mind.py) can check all of it for words that would tell the model what the world is. The model
-never hears bee, hive, bloom, hornet, season, food, danger and the like: it gets a grid, a home, bright cells,
-moving things, two sounds and a life number, and has to work out the rest.
+Every piece of fixed text a prompt can contain comes from the chosen vocabulary (vocab.py) and its prompt
+template, so the no-hints tests (tests/test_mind_prompt.py, tests/test_vocab.py) can check all of it for words
+that would tell the model what the world is. Under `neutral` the model gets a grid, a home, bright cells, moving
+things, two sounds and a life number; under `abstract` (the default) zone O, G cells, K entities, two signals and
+a counter C. It never hears bee, hive, bloom, hornet, season, food, danger and the like.
 """
 from __future__ import annotations
 
 import json
-from pathlib import Path
 
-from .perception import DIRECTIONS, INTENTS, Decision, Perception
+from . import vocab as vocabs
+from .perception import DIRECTIONS, Decision, Perception
+from .vocab import SIM_SOUNDS, Vocab
 
-PROMPT_FILE = Path(__file__).resolve().parents[2] / "prompts" / "bee_system.txt"
-NEUTRAL_SOUNDS = ("sound-1", "sound-2")
 LABELLED_SOUNDS = ("good noise", "bad noise")  # only under labels_good_bad
-
-SYSTEM_PARTS = {
-    "memory_part": ", things you noted, and things you recall",
-    "talk_part": "\n- words other members said while you were at home.",
-    "remember_line": "\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.",
-    "say_line": "\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.",
-}
-TRIGGER_TEXT = {
-    "timer": "a few moments have passed",
-    "stung": "your life just dropped suddenly",
-    "hornet": "a moving thing came into view",
-    "bloom": "bright cells came into view",
-    "sound": "you heard a sound",
-    "home": "you entered home",
-    "arrived": "you reached the end of your route",
-    "life25": "your life fell below a quarter of its starting amount",
-    "life50": "your life fell below half of its starting amount",
-    "hatched": "you have just come into being, at home",
-}
-EVENT_TEXT = {
-    "saw_mover": "saw moving things at {at}",
-    "saw_bright": "saw bright cells near {at}",
-    "heard": "heard {sounds}",
-    "picked_up": "touched a bright cell and began carrying something",
-    "delivered": "carried it into home, and your life rose",
-    "stung": "lost half your life in an instant at {at}, and could not move for 2 moments",
-    "heard_home": "at home, member {who} said: \"{text}\"",
-}
-BAND_TEXT = {"near": "near", "mid": "middle distance", "far": "far"}
-STATUS_TEXT = {"moving": "under way", "arrived": "route ended", "blocked": "route ended", "idle": "not started"}
-VIEW_SYMBOLS = str.maketrans({"b": "m"})  # the sim marks other members "b"; the prompt calls them "m"
+DEFAULT = vocabs.get()
 
 
-def sound_names(condition: str) -> tuple[str, str]:
-    return LABELLED_SOUNDS if condition == "labels_good_bad" else NEUTRAL_SOUNDS
+def sound_names(condition: str, v: Vocab = DEFAULT) -> tuple[str, str]:
+    return LABELLED_SOUNDS if condition == "labels_good_bad" else v.sounds
 
 
-def system_prompt(condition: str, width: int, height: int) -> str:
-    s1, s2 = sound_names(condition)
+def system_prompt(condition: str, width: int, height: int, v: Vocab = DEFAULT) -> str:
+    s1, s2 = sound_names(condition, v)
     memory, talk = condition != "no_memory", condition != "no_talk"
-    return PROMPT_FILE.read_text().format(
+    return v.prompt_file.read_text().format(
         width=width, height=height, sound_1=s1, sound_2=s2,
-        memory_part=SYSTEM_PARTS["memory_part"] if memory else "",
-        talk_part=SYSTEM_PARTS["talk_part"] if talk else "",
-        remember_line=SYSTEM_PARTS["remember_line"] if memory else "",
-        say_line=SYSTEM_PARTS["say_line"] if talk else "").strip()
+        memory_part=v.parts["memory_part"] if memory else "",
+        talk_part=v.parts["talk_part"] if talk else "",
+        remember_line=v.parts["remember_line"] if memory else "",
+        say_line=v.parts["say_line"] if talk else "").strip()
 
 
 def xy(c) -> str:
     return f"({c[0]}, {c[1]})"
 
 
-def event_text(e: dict, names: tuple[str, str]) -> str:
+def sounds_text(sounds, names: tuple[str, str], v: Vocab) -> str:
+    return "; ".join(v.lines["sound"].format(name=sound_label(s, names), dir=d, band=v.band[b]) for s, d, b in sounds)
+
+
+def event_text(e: dict, names: tuple[str, str], v: Vocab = DEFAULT) -> str:
     what = e["what"]
     if what == "heard":
-        sounds = "; ".join(f"{sound_label(s, names)} from the {d}, {BAND_TEXT[b]}" for s, d, b in e["sounds"])
-        return EVENT_TEXT["heard"].format(sounds=sounds)
+        return v.event["heard"].format(sounds=sounds_text(e["sounds"], names, v))
     at = e.get("at")
     if at and isinstance(at[0], list):
         at = ", ".join(xy(c) for c in at)
     elif at:
         at = xy(at)
-    return EVENT_TEXT[what].format(at=at)
+    return v.event[what].format(at=at)
 
 
 def sound_label(sound: str, names: tuple[str, str]) -> str:
-    return names[NEUTRAL_SOUNDS.index(sound)] if sound in NEUTRAL_SOUNDS else sound
+    return names[SIM_SOUNDS.index(sound)] if sound in SIM_SOUNDS else sound
 
 
-def intent_text(label: str) -> str:
+def intent_text(label: str, v: Vocab = DEFAULT) -> str:
     if not label:
-        return "none yet"
+        return v.lines["no_intent"]
     if label.startswith("go_to:"):
         return f"go_to ({label[6:].replace(',', ', ')})"
-    return label.replace(":", " ")
+    kind, _, arg = label.partition(":")
+    return f"{v.model_intent(kind)} {arg}" if arg else v.model_intent(kind)
 
 
 def clusters(cells: list[tuple[int, int, int]]) -> list[tuple[tuple[int, int], int]]:
@@ -110,82 +84,85 @@ def clusters(cells: list[tuple[int, int, int]]) -> list[tuple[tuple[int, int], i
     return out
 
 
-def render(p: Perception, names: tuple[str, str], *, memory: bool, talk: bool, notes=(), recalled=(), since: int = 5) -> str:
+def render(p: Perception, names: tuple[str, str], v: Vocab = DEFAULT, *, memory: bool, talk: bool, notes=(), recalled=(),
+           since: int = 5) -> str:
     """The user message for one decision. Under no_memory (memory=False) only the present is shown:
     what happened and what was said at home since the bee last decided, plus where home is."""
-    yn = lambda v: "yes" if v else "no"  # noqa: E731
-    out = [f"Now: {TRIGGER_TEXT[p.trigger]}.",
-           f"You are at {xy(p.position)}. Home is {xy(p.home)}. Life {p.life:g}. Carrying: {yn(p.carrying)}. At home: {yn(p.at_home)}."]
+    yn = lambda b: "yes" if b else "no"  # noqa: E731
+    cells = lambda cs: ", ".join(xy(c) for c in cs)  # noqa: E731
+    items = lambda es: "; ".join(f"{e['ago']} ago, {event_text(e, names, v)}" for e in es)  # noqa: E731
+    L = v.lines
+    out = [L["now"].format(trigger=v.trigger[p.trigger]),
+           L["state"].format(pos=xy(p.position), home=xy(p.home), life=f"{p.life:g}", carrying=yn(p.carrying), at_home=yn(p.at_home))]
     if p.stunned:
-        out.append(f"You cannot move for {p.stunned} more moments.")
-    out.append(f"Current intent: {intent_text(p.intent)} ({STATUS_TEXT.get(p.motor_status, p.motor_status)}).")
-    out.append("View:")
-    out += [row.translate(VIEW_SYMBOLS) for row in p.view]
+        out.append(L["stunned"].format(n=p.stunned))
+    out.append(L["intent"].format(intent=intent_text(p.intent, v), status=v.status.get(p.motor_status, p.motor_status)))
+    out.append(L["view"])
+    view = str.maketrans(v.view)
+    out += [row.translate(view) for row in p.view]
     if p.hornets_seen:
-        out.append("Moving things in view: " + ", ".join(xy(c) for c in p.hornets_seen) + ".")
+        out.append(L["movers"].format(cells=cells(p.hornets_seen)))
     if p.bees_seen:
-        out.append("Other members in view: " + ", ".join(xy(c) for c in p.bees_seen) + ".")
+        out.append(L["others"].format(cells=cells(p.bees_seen)))
     if p.bloom_seen:
-        out.append("Bright cells in view: " + ", ".join(xy(c) for c in p.bloom_seen) + ".")
-    heard = "; ".join(f"{sound_label(s, names)} from the {d}, {BAND_TEXT[b]}" for s, d, b in p.sounds)
-    out.append(f"Sounds now: {heard or 'none'}.")
+        out.append(L["bright"].format(cells=cells(p.bloom_seen)))
+    out.append(L["sounds"].format(sounds=sounds_text(p.sounds, names, v) or "none"))
     new = [e for e in p.new_events if e["what"] != "heard" or e["ago"] > 0]
     if new:
-        out.append("Since you last decided: " + "; ".join(f"{e['ago']} ago, {event_text(e, names)}" for e in new) + ".")
+        out.append(L["new"].format(items=items(new)))
     if memory:
         older = [e for e in p.recent_events if e not in p.new_events]
         if older:
-            out.append("Earlier: " + "; ".join(f"{e['ago']} ago, {event_text(e, names)}" for e in older) + ".")
+            out.append(L["older"].format(items=items(older)))
         if notes:
-            out.append("Your notes, oldest first: " + " | ".join(notes))
+            out.append(L["notes"].format(notes=" | ".join(notes)))
         if recalled:
-            out.append("You recall: " + "; ".join(f"{a} ago, {text}" for a, text in recalled) + ".")
+            out.append(L["recall"].format(items="; ".join(f"{a} ago, {text}" for a, text in recalled)))
     if talk:
         said = [h for h in p.heard_at_home if memory or h[0] <= since]
         if said:
-            out.append("Heard at home: " + " ".join(f"[{a} ago, member {who}] \"{text}\"" for a, who, text in said))
-    out.append(f"Places you know: home {xy(p.home)}.")
+            out.append(L["heard"].format(items=" ".join(L["heard_item"].format(ago=a, who=who, text=text) for a, who, text in said)))
+    out.append(L["places"].format(home=xy(p.home)))
     if memory:
         spots = clusters(p.bloom_remembered)
         if spots:
-            out.append("Bright spots you have seen: " + ", ".join(f"around {xy(c)} {a} ago" for c, a in spots) + ".")
+            out.append(L["spots"].format(items=", ".join(f"around {xy(c)} {a} ago" for c, a in spots)))
         movers = {}
         for x, y, a in p.hornets_remembered:
             movers[(x, y)] = min(a, movers.get((x, y), a))
         if movers:
-            out.append("Moving things you have seen: " + ", ".join(f"{xy(c)} {a} ago" for c, a in movers.items()) + ".")
-        out.append("Share of the place you have seen, by direction from home: "
-                   + ", ".join(f"{d} {round(100 * p.explored.get(d, 0))}%" for d in DIRECTIONS) + ".")
-    out.append("Choose your action.")
+            out.append(L["movers_seen"].format(items=", ".join(f"{xy(c)} {a} ago" for c, a in movers.items())))
+        out.append(L["explored"].format(items=", ".join(f"{d} {round(100 * p.explored.get(d, 0))}%" for d in DIRECTIONS)))
+    out.append(L["choose"])
     return "\n".join(out)
 
 
-def decision_schema(condition: str) -> dict:
+def decision_schema(condition: str, v: Vocab = DEFAULT) -> dict:
     props = {
-        "intent": {"type": "string", "enum": list(INTENTS)},
+        "intent": {"type": "string", "enum": list(v.intents)},
         "direction": {"type": "string", "enum": list(DIRECTIONS)},
         "x": {"type": "integer"},
         "y": {"type": "integer"},
-        "sound": {"type": "string", "enum": ["none", *sound_names(condition)]},
+        v.keys["sound"]: {"type": "string", "enum": ["none", *sound_names(condition, v)]},
     }
     if condition != "no_memory":
         props["remember"] = {"type": "string"}
     if condition != "no_talk":
-        props["say"] = {"type": "string"}
+        props[v.keys["say"]] = {"type": "string"}
     return {"type": "object", "properties": props, "required": list(props), "additionalProperties": False}
 
 
-def parse(text: str, condition: str, grid: tuple[int, int]) -> Decision:
-    """Model reply (JSON matching decision_schema) -> Decision. Raises ValueError on a malformed reply."""
+def parse(text: str, condition: str, grid: tuple[int, int], v: Vocab = DEFAULT) -> Decision:
+    """Model reply (JSON matching decision_schema) -> Decision in the sim's terms. Raises ValueError on a malformed reply."""
     d = json.loads(text)
-    if not isinstance(d, dict) or d.get("intent") not in INTENTS:
+    if not isinstance(d, dict) or d.get("intent") not in v.intents:
         raise ValueError(f"bad decision: {text[:120]!r}")
-    names = sound_names(condition)
-    sound = d.get("sound", "none")
-    sound = NEUTRAL_SOUNDS[names.index(sound)] if sound in names else "none"
+    intent, names = v.sim_intent(d["intent"]), sound_names(condition, v)
+    sound = d.get(v.keys["sound"], "none")
+    sound = SIM_SOUNDS[names.index(sound)] if sound in names else "none"
     target = None
-    if d["intent"] == "go_to":
+    if intent == "go_to":
         target = (min(max(int(d.get("x", 0)), 0), grid[0] - 1), min(max(int(d.get("y", 0)), 0), grid[1] - 1))
-    return Decision(intent=d["intent"], direction=d.get("direction"), target=target, sound=sound,
+    return Decision(intent=intent, direction=d.get("direction"), target=target, sound=sound,
                     remember=d.get("remember", "") if condition != "no_memory" else "",
-                    say=d.get("say", "") if condition != "no_talk" else "")
+                    say=d.get(v.keys["say"], "") if condition != "no_talk" else "")

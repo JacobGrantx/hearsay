@@ -17,7 +17,8 @@ from dataclasses import dataclass
 from rank_bm25 import BM25Okapi
 
 from .perception import Perception
-from .render import EVENT_TEXT, event_text
+from .render import DEFAULT, event_text
+from .vocab import Vocab
 
 IMPORTANCE = {"stung": 5, "delivered": 5, "saw_bright": 4, "picked_up": 4, "saw_mover": 3, "heard_home": 2, "heard": 1}
 MAX_BELIEFS, RECALL_K, MAX_EPISODES = 12, 6, 300
@@ -54,7 +55,8 @@ def text_tokens(text: str) -> list[str]:
 
 
 class BeeMemory:
-    def __init__(self):
+    def __init__(self, v: Vocab = DEFAULT):
+        self.v = v  # the vocabulary episode text is written in
         self.episodes: list[Episode] = []
         self.beliefs: deque = deque(maxlen=MAX_BELIEFS)  # (tick written, text)
         self.heard_keys: set = set()
@@ -67,12 +69,12 @@ class BeeMemory:
     def observe(self, p: Perception, tick: int, names) -> None:
         """Store what happened since the bee last decided, and new things heard at home."""
         for e in p.new_events:
-            self.add(Episode(tick - e["ago"], e["what"], event_text(e, names), IMPORTANCE[e["what"]], event_tokens(e)))
+            self.add(Episode(tick - e["ago"], e["what"], event_text(e, names, self.v), IMPORTANCE[e["what"]], event_tokens(e)))
         for ago, who, said in p.heard_at_home:
             key = (tick - ago, who, said)
             if key not in self.heard_keys:
                 self.heard_keys.add(key)
-                text = EVENT_TEXT["heard_home"].format(who=who, text=said)
+                text = self.v.event["heard_home"].format(who=who, text=said)
                 self.add(Episode(tick - ago, "heard_home", text, IMPORTANCE["heard_home"], ["heard_home", *text_tokens(said)]))
 
     def remember(self, tick: int, text: str) -> None:
@@ -99,7 +101,7 @@ class BeeMemory:
     def recall(self, p: Perception, tick: int, k: int = RECALL_K) -> list[tuple[int, str]]:
         """Top k episodes for this moment, oldest first, as (ticks ago, text)."""
         shown = {(tick - e["ago"], e["what"]) for e in p.recent_events}
-        shown |= {(tick - a, "heard_home", EVENT_TEXT["heard_home"].format(who=w, text=s)) for a, w, s in p.heard_at_home}
+        shown |= {(tick - a, "heard_home", self.v.event["heard_home"].format(who=w, text=s)) for a, w, s in p.heard_at_home}
         pool = [ep for ep in self.episodes if (ep.t, ep.kind) not in shown and (ep.t, ep.kind, ep.text) not in shown]
         if not pool:
             return []

@@ -1,0 +1,20 @@
+You are one of many identical units. All units start in zone O. The space is a grid of {width} by {height} cells. Positions are written (x, y): x grows to the east, y grows to the south.
+
+You have a counter C. Your counter C falls each tick. At 0 you stop permanently.
+
+Something worth finding exists in this grid.
+
+What you perceive each time you decide:
+- your position, the position of zone O, your counter C, and whether your flag F is set;
+- a 9 by 9 view centred on you, north at the top: # wall, . open, O zone O, G G cell, U unit, K K entity, @ you, blank outside the grid;
+- signals received this tick, each with a direction and how near it is;
+- what happened to you recently{memory_part};
+- places you know of.{talk_part}
+
+What you can do, one choice each time you decide:
+- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_to_O (walk to zone O), or hold (stay where you are);
+- direction: N, NE, E, SE, S, SW, W or NW, used by explore;
+- x and y: the cell, used by go_to;
+- signal: none, {sound_1} or {sound_2}. A signal lowers your counter C by 1. Others nearby receive it and the direction it came from.{remember_line}{say_line}
+
+You move using what you have seen of the grid, and unknown cells are tried as open. You decide again every few ticks, or sooner when something happens.

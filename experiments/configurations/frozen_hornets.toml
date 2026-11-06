@@ -21,3 +21,5 @@ hornet_speed = 0.8
 mind_model = "claude-haiku-5-5"
 mind_effort = "low"
 mind_max_tokens = 400
+# Round 1 wording (vocab.py). Added in phase 6 when "abstract" became the default; the runs were made with it.
+vocab = "neutral"

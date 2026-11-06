@@ -1,7 +1,7 @@
 """The AI bee mind: a Policy that asks a language model what each bee does next.
 
 Per decision: store what happened since the bee last decided as episodes, recall the most useful ones,
-render the Perception as neutral text, call digital_life.llm.complete with structured output, parse the
+render the Perception in the run's vocabulary (vocab.py), call digital_life.llm.complete with structured output, parse the
 reply into a Decision and store any `remember` note. The calls of one tick run in parallel, but memory is
 read before and written after them in the sim's fixed bee-id order, so a replayed run is identical.
 
@@ -14,6 +14,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 
 from . import llm
+from . import vocab as vocabs
 from .memory import BeeMemory
 from .perception import Decision, Perception
 from .policies import Policy
@@ -34,9 +35,10 @@ class AIPolicy(Policy):
         self.max_tokens = params.get("mind_max_tokens", 400)
         self.retries = params.get("mind_retries", 2)
         self.memory_on, self.talk_on = self.condition != "no_memory", self.condition != "no_talk"
-        self.names = sound_names(self.condition)
-        self.system = system_prompt(self.condition, params.get("width", 80), params.get("height", 48))
-        self.schema = decision_schema(self.condition)
+        self.vocab = vocabs.get(params.get("vocab"))
+        self.names = sound_names(self.condition, self.vocab)
+        self.system = system_prompt(self.condition, params.get("width", 80), params.get("height", 48), self.vocab)
+        self.schema = decision_schema(self.condition, self.vocab)
         self.pool = ThreadPoolExecutor(max_workers=params.get("mind_workers", 16))
         self.mem: dict[int, BeeMemory] = {}
         self.last: dict[int, int] = {}
@@ -51,10 +53,10 @@ class AIPolicy(Policy):
         since = tick - self.last.get(p.bee_id, tick)
         notes, recalled = [], []
         if self.memory_on:
-            mem = self.mem.setdefault(p.bee_id, BeeMemory())
+            mem = self.mem.setdefault(p.bee_id, BeeMemory(self.vocab))
             mem.observe(p, tick, self.names)
             notes, recalled = mem.notes(tick), mem.recall(p, tick)
-        return render(p, self.names, memory=self.memory_on, talk=self.talk_on, notes=notes, recalled=recalled, since=since)
+        return render(p, self.names, self.vocab, memory=self.memory_on, talk=self.talk_on, notes=notes, recalled=recalled, since=since)
 
     def call(self, bee_id: int, tick: int, text: str) -> llm.Completion:
         for attempt in range(self.retries + 1):
@@ -87,7 +89,7 @@ class AIPolicy(Policy):
         try:
             if c.stop_reason == "refusal":
                 raise ValueError("refusal")
-            d = parse(c.text, self.condition, p.grid_size)
+            d = parse(c.text, self.condition, p.grid_size, self.vocab)
         except (ValueError, TypeError, KeyError) as e:
             self.emit("mind_error", tick, bee=p.bee_id, error=f"{type(e).__name__}: {str(e)[:200]}",
                       stop_reason=c.stop_reason, prompt_key=c.key[:12])

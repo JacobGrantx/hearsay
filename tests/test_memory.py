@@ -1,6 +1,7 @@
 """A bee's memory: beliefs evict the oldest, recall ranks by importance and relevance and skips what is already shown."""
 from digital_life.memory import MAX_BELIEFS, BeeMemory
 from digital_life.perception import Perception
+from digital_life.vocab import NEUTRAL
 
 NAMES = ("sound-1", "sound-2")
 
@@ -11,7 +12,7 @@ def perception(position=(10, 10), new_events=(), recent=(), heard=(), hornets=()
 
 
 def test_beliefs_keep_the_latest_twelve():
-    m = BeeMemory()
+    m = BeeMemory(NEUTRAL)
     for i in range(MAX_BELIEFS + 3):
         m.remember(i, f"note {i}")
     m.remember(99, "   ")
@@ -20,7 +21,7 @@ def test_beliefs_keep_the_latest_twelve():
 
 
 def test_recall_prefers_important_and_relevant_episodes_and_skips_recent_ones():
-    m = BeeMemory()
+    m = BeeMemory(NEUTRAL)
     old = [{"what": "heard", "sounds": [["sound-1", "N", "far"]], "ago": 100 - i} for i in range(20)]
     sting = {"what": "stung", "at": [30, 5], "ago": 95}
     m.observe(perception(new_events=old + [sting]), 100, NAMES)
@@ -33,7 +34,7 @@ def test_recall_prefers_important_and_relevant_episodes_and_skips_recent_ones():
 
 
 def test_talk_heard_at_home_is_stored_once():
-    m = BeeMemory()
+    m = BeeMemory(NEUTRAL)
     heard = [(3, 7, "bright at (30, 5)")]
     m.observe(perception(heard=heard, at_home=True), 50, NAMES)
     m.observe(perception(heard=[(8, 7, "bright at (30, 5)")], at_home=True), 55, NAMES)

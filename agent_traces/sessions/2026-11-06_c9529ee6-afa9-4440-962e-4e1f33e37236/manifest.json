@@ -43,7 +43,7 @@
     "59bd01979d96c05eebcaa0b8dd6e0e7699d7655a Setup calibration runs (3 seeds x 5 points x 3 scripted policies) and table script; calibrated defaults L=500, bloom distance 55, openness 0.15; demo_small and full-size scripted configs; make demo",
     "27af856db42fea29a216c28305c5d7f0ae073a49 Calibration configs for oracle, rule and random bees",
     "128e4597a085f3df403fec0dea71a47f3bc72cd5 Calibration fixes: hornets stop pursuing a bee during the sting cooldown, move on 80% of ticks, ambush at a gene-scaled rate; explore falls back to a 90-degree frontier; rule bees re-pick a heading when the way ahead is explored; oracle flee reflex; trip outcomes counted in the season they end",
-    "0679d0e19383656d18ae539d24f7af3e9dc7eda6 Traces: viewer build session",
+    "f31e17664beac61436261fc08e0c20adc0bd70e7 Traces: viewer build session",
     "6f6989fdddeea11259e2af6a8ccf2cab25c3871e Viewer: chase lines follow the target's interpolated position, so video frames do not judder",
     "a3c5c903994306feec9685c4ce32ad15aab52bc0 Viewer: hornet panel does not hardcode the evolution interval, which is a tunable parameter",
     "5f234253d5d9ece51aab2ca40bc72104cf29aab1 Viewer: hornet panel describes evolution as the spec does, and says when genes are frozen",

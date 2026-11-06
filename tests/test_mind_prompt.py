@@ -1,4 +1,7 @@
-"""Acceptance tests for the bee mind's prompts: no hints about the world, and no leaked coordinates."""
+"""Acceptance tests for the bee mind's prompts: no hints about the world, and no leaked coordinates.
+
+The no-hints test here is round 1's, unchanged, on the neutral vocabulary; the abstract one is in test_vocab.py.
+"""
 import re
 
 import pytest
@@ -10,6 +13,7 @@ from digital_life.bees import BLOOM_VISION, VISION
 from digital_life.mind import AI_CONDITIONS, AIPolicy
 from digital_life.perception import TRIGGERS, Perception
 from digital_life.sim import Sim
+from digital_life.vocab import NEUTRAL as N
 
 SMALL = dict(width=40, height=24, season_length=40, years=1, min_bloom_distance=20, log_state=False)
 BANNED = re.compile(r"\b(bee|hive|flower|bloom|nectar|hornet|wasp|predator|danger|avoid|enemy|season|winter|summer|spring"
@@ -34,18 +38,18 @@ def rich_perception(trigger: str) -> Perception:
 
 
 def test_system_prompts_and_templates_carry_no_hints():
-    assert not hints(render.PROMPT_FILE.read_text())
+    assert not hints(N.prompt_file.read_text())
     for cond in AI_CONDITIONS:
-        text = render.system_prompt(cond, 80, 48)
+        text = render.system_prompt(cond, 80, 48, N)
         assert not hints(text, cond), cond
         assert ("good noise" in text) == (cond == "labels_good_bad")
-    for table in (render.SYSTEM_PARTS, render.TRIGGER_TEXT, render.EVENT_TEXT, render.BAND_TEXT, render.STATUS_TEXT):
+    for table in (N.parts, N.trigger, N.event, N.band, N.status, N.lines):
         assert not [v for v in table.values() if hints(v)]
     for cond in AI_CONDITIONS:
-        assert not hints(str(render.decision_schema(cond)), cond)
+        assert not hints(str(render.decision_schema(cond, N)), cond)
         for trig in TRIGGERS:
             for memory in (True, False):
-                text = render.render(rich_perception(trig), render.sound_names(cond), memory=memory, talk=True,
+                text = render.render(rich_perception(trig), render.sound_names(cond, N), N, memory=memory, talk=True,
                                      notes=["a note (3 ago)"], recalled=[(9, "a thing")])
                 assert not hints(text, cond), (cond, trig, text)
 
@@ -79,9 +83,9 @@ class LeakSpy:
         self.checked += 1
 
 
-def run_with_spy(tmp_path, condition, seed):
-    log = CaptureLog(tmp_path / f"{condition}-{seed}")
-    params = {**SMALL, "condition": condition}
+def run_with_spy(tmp_path, condition, seed, vocab):
+    log = CaptureLog(tmp_path / f"{condition}-{seed}-{vocab}")
+    params = {**SMALL, "condition": condition, "vocab": vocab}
     sim = Sim(params, seed, log, policy=AIPolicy(params, seed, client=FakeMind()))
     spy = LeakSpy(sim, log)
     inner = sim.policy.prompt
@@ -94,11 +98,12 @@ def run_with_spy(tmp_path, condition, seed):
     return spy, log
 
 
+@pytest.mark.parametrize("vocab", ["neutral", "abstract"])
 @pytest.mark.parametrize("condition", ["full", "no_memory"])
-def test_no_prompt_holds_coordinates_the_bee_never_perceived(tmp_path, llm_sandbox, condition):
+def test_no_prompt_holds_coordinates_the_bee_never_perceived(tmp_path, llm_sandbox, condition, vocab):
     hits = 0
     for seed in (0, 1):
-        spy, log = run_with_spy(tmp_path, condition, seed)
+        spy, log = run_with_spy(tmp_path, condition, seed, vocab)
         assert spy.checked > 100
         hits += spy.secret_hits
         if condition == "full":

@@ -47,7 +47,12 @@ def main() -> int:
     original = a.run_dir.resolve()
     record = json.loads((original / "record.json").read_text())
     root = a.out or Path(tempfile.mkdtemp(prefix="replay_"))
-    out = run(original.parent / "config.toml", [record["seed"]], "replay", record.get("overrides", []), results_root=root)
+    overrides = list(record.get("overrides", []))
+    if "vocab" not in record["params"]:
+        # Runs made before phase 6 used the wording now called vocab "neutral", and their saved configs do not
+        # say so. Every AI config since names its vocab (tests/test_vocab.py), so a missing vocab means round 1.
+        overrides.append("vocab=neutral")
+    out = run(original.parent / "config.toml", [record["seed"]], "replay", overrides, results_root=root)
     replay = out / original.name
     rec = json.loads((replay / "record.json").read_text())
     print(f"original: {a.run_dir} (commit {record['provenance']['git_commit'][:7]}, {record['seconds']} s)")
