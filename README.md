@@ -38,7 +38,7 @@ Persistence (knowledge outliving every bee that gained it), interaction (talk, s
 
 ## Demonstration
 
-**[Watch the demo video](demo/recordings/demo.mp4)** (3 minutes 37 seconds, 1280 x 720, narrated). Every map shot in it is a replay of a logged run, drawn by the viewer from the run directory, and the cards and charts are drawn from `experiments/analysis/output/`. There is no generated footage. It follows the findings in order: the world, the bees' caution and where it comes from, the one time we saw talk carry a place (E5, 1 seed of 5), the seasons, then the results, negative ones included. It ends with how Hearsay answers each of the brief's five judging criteria.
+**[Watch the demo video](demo/recordings/demo.mp4)** (3 minutes 41 seconds, 1280 x 720, narrated). Every map shot in it is a replay of a logged run, drawn by the viewer from the run directory, and the cards and charts are drawn from `experiments/analysis/output/`. There is no generated footage. It follows the findings in order: the world, the bees' caution and where it comes from, the one time we saw talk carry a place (E5, 1 seed of 5), the seasons, then the results, negative ones included. It ends with how Hearsay answers each of the brief's five judging criteria.
 
 A voice reads the story, so you don't have to read the captions. It is Kokoro-82M (open weights, Apache 2.0, voice `af_heart`), run locally by [demo/video/narrate.py](demo/video/narrate.py); no paid or cloud voice. Every number it says is copied from [EXPERIMENTS.md](EXPERIMENTS.md), and the full script is in [SOURCES.md](demo/recordings/SOURCES.md).
 
