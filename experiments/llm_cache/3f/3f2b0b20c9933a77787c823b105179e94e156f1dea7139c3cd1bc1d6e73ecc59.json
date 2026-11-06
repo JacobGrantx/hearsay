@@ -1,0 +1,87 @@
+{
+ "request": {
+  "model": "claude-haiku-5-5",
+  "system": "You are one of many identical members of your home. You live in a place laid out as a grid of 80 by 48 cells. Positions are written (x, y): x grows to the east, y grows to the south.\n\nYour life is a number. It falls each moment, and when it reaches zero you end.\n\nSomething worth finding exists in this place.\n\nWhat you perceive each time you decide:\n- your position, your home's position, your life, and whether you are carrying something;\n- a 9 by 9 view centred on you, north at the top: # wall, . open, H home, * bright, m another member, x moving thing, @ you, blank outside the grid;\n- sounds heard this moment, each with a direction and how near it is;\n- what happened to you recently, things you noted, and things you recall;\n- places you know of.\n- words other members said while you were at home.\n\nWhat you can do, one choice each time you decide:\n- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_home, flee (move away from the moving things in view), or wait;\n- direction: N, NE, E, SE, S, SW, W or NW, used by explore;\n- x and y: the cell, used by go_to;\n- sound: none, sound-1 or sound-2. A sound costs 1 life. Others nearby hear it and the direction it came from.\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.\n\nYou walk using what you have seen of the place, and unknown cells are tried as open. You decide again every few moments, or sooner when something happens.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Now: a few moments have passed.\nYou are at (7, 24). Home is (3, 24). Life 296. Carrying: no. At home: yes.\nCurrent intent: wait (not started).\nView:\nHHHH##.#.\nHHHH##...\nHHHH####.\nHHHH##...\nHHHH@..##\nHHHH##...\nHHHH##.##\nHHHH##...\nH#######x\nMoving things in view: (11, 28).\nOther members in view: (7, 24).\nSounds now: none.\nEarlier: 102 ago, saw bright cells near (40, 28); 98 ago, saw moving things at (39, 30); 89 ago, saw moving things at (39, 26); 79 ago, heard sound-1 from the S, far; 46 ago, saw moving things at (21, 18); 14 ago, saw moving things at (9, 21).\nYour notes, oldest first: Continuing home from (27,22) to report bright cells near (41,29) and moving things SE. (49 ago) | Moving thing at (21,18) in view; continuing home to report bright cells near (41,29). (46 ago) | Continuing home from (24,25) to report bright cells near (41,29) and moving things SE. (41 ago) | Continuing home from (21,27); moving things recently near (21,20); bright cells near (41,29). (36 ago) | Continuing home from (18,25) to report bright cells near (41,29) and moving things SE. (31 ago) | Continuing home from (15,27) to report bright cells near (41,29) and moving things SE. (26 ago) | Continuing home from (12,29) to report bright cells near (41,29) and moving things SE. (21 ago) | Still heading home from (9,27) to report bright cells near (41,29) and moving things SE. (16 ago) | Moving thing at (9,21) in view; continuing home to report bright cells near (41,29). (14 ago) | Reached home at (3,24); reporting bright cells near (41,29) and moving things SE. (11 ago) | Reported at home: bright cells near (41,29), moving things SE; waiting for moving thing near east. (10 ago) | At home; moving thing approaching from east at (9,25); keeping watch. (5 ago)\nYou recall: 204 ago, at home, member 1 said: \"Starting out to explore. I'll head north and report anything worth finding.\"; 204 ago, at home, member 5 said: \"Awake at home. I'll explore east, away from the crowd, and report what I find.\"; 199 ago, at home, member 1 said: \"Heading northeast to avoid the crowd at the north wall; will report anything worth finding.\".\nHeard at home: [199 ago, member 2] \"Still heading north from (3,21) to explore; will report anything worth finding.\" [199 ago, member 3] \"Heading north again through the corridor. Will report anything worth finding.\" [199 ago, member 4] \"Still heading north from home. Members are clustered ahead of me at (3,21)-(3,23); I will keep going carefully.\" [199 ago, member 5] \"Still exploring east, will report anything worth finding.\" [10 ago, member 1] \"Back home at (3,24). Moving thing at (11,23) near the east corridor, keeping watch. Bright cells near (41,29) still dangerous.\" [5 ago, member 1] \"At home with life 176. Moving thing at (9,25) approaching from the east; waiting and watching. Bright cells near (41,29) still dangerous.\"\nPlaces you know: home (3, 24).\nBright spots you have seen: around (41, 29) 89 ago.\nMoving things you have seen: (9, 25) 5 ago, (9, 26) 4 ago, (9, 27) 3 ago, (10, 27) 2 ago, (11, 27) 1 ago, (11, 28) 0 ago.\nShare of the place you have seen, by direction from home: N 40%, NE 23%, E 25%, SE 14%, S 6%, SW 58%, W 100%, NW 100%.\nChoose your action."
+   }
+  ],
+  "max_tokens": 400,
+  "effort": "low",
+  "tag": "0:204:0:full",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "explore",
+      "go_to",
+      "go_home",
+      "flee",
+      "wait"
+     ]
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+     ]
+    },
+    "x": {
+     "type": "integer"
+    },
+    "y": {
+     "type": "integer"
+    },
+    "sound": {
+     "type": "string",
+     "enum": [
+      "none",
+      "sound-1",
+      "sound-2"
+     ]
+    },
+    "remember": {
+     "type": "string"
+    },
+    "say": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "intent",
+    "direction",
+    "x",
+    "y",
+    "sound",
+    "remember",
+    "say"
+   ],
+   "additionalProperties": false
+  },
+  "thinking": {
+   "type": "disabled"
+  }
+ },
+ "response": {
+  "text": "{\"intent\":\"wait\",\"direction\":\"E\",\"x\":3,\"y\":24,\"sound\":\"none\",\"remember\":\"At home; moving thing at (11,28) to the SE; keep watch; bright cells near (41,29) still dangerous.\",\"say\":\"At home with life 296. Moving thing at (11,28) to the southeast, keeping watch. Bright cells near (41,29) still dangerous.\"}",
+  "model": "claude-haiku-5-5",
+  "stop_reason": "end_turn",
+  "usage": {
+   "input_tokens": 2308,
+   "output_tokens": 127,
+   "cache_read_input_tokens": 0,
+   "cache_creation_input_tokens": 0
+  }
+ }
+}

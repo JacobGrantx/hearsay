@@ -1,0 +1,87 @@
+{
+ "request": {
+  "model": "claude-haiku-5-5",
+  "system": "You are one of many identical members of your home. You live in a place laid out as a grid of 80 by 48 cells. Positions are written (x, y): x grows to the east, y grows to the south.\n\nYour life is a number. It falls each moment, and when it reaches zero you end.\n\nSomething worth finding exists in this place.\n\nWhat you perceive each time you decide:\n- your position, your home's position, your life, and whether you are carrying something;\n- a 9 by 9 view centred on you, north at the top: # wall, . open, H home, * bright, m another member, x moving thing, @ you, blank outside the grid;\n- sounds heard this moment, each with a direction and how near it is;\n- what happened to you recently, things you noted, and things you recall;\n- places you know of.\n- words other members said while you were at home.\n\nWhat you can do, one choice each time you decide:\n- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_home, flee (move away from the moving things in view), or wait;\n- direction: N, NE, E, SE, S, SW, W or NW, used by explore;\n- x and y: the cell, used by go_to;\n- sound: none, sound-1 or sound-2. A sound costs 1 life. Others nearby hear it and the direction it came from.\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.\n\nYou walk using what you have seen of the place, and unknown cells are tried as open. You decide again every few moments, or sooner when something happens.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Now: a few moments have passed.\nYou are at (57, 44). Home is (3, 24). Life 264. Carrying: no. At home: no.\nCurrent intent: explore SW (under way).\nView:\n##.#.#.#.\n...#.....\n######.##\n.#...#.#.\n.#.#@###.\n...#.....\n#########\n#########\n         \nSounds now: none.\nEarlier: 178 ago, saw moving things at (17, 11); 163 ago, saw moving things at (23, 1); 15 ago, saw moving things at (59, 45).\nYour notes, oldest first: Continuing south from (73,36); east and south still mostly unseen; no moving things in view. (55 ago) | Continuing south from (71,37); south and southeast still unseen; no moving things in view. (50 ago) | Continuing south from (73,40); south and east still mostly unseen; no moving things in view. (45 ago) | Continuing south from (75,43); south and southeast still unseen; no moving things in view. (40 ago) | Continuing south from (71,44); south mostly unseen; no moving things in view. (35 ago) | Route ended at (70,45); south mostly walls; try southwest or west toward unseen areas. (32 ago) | Route ended at (70,45); heading west toward unseen southwest areas. (27 ago) | Heading west from (67,43) toward unseen southwest areas; no moving things in view. (22 ago) | Heading west from (64,45) through unseen southwest; no moving things in view. (17 ago) | Moving thing at (59,45) west of me in corridor; fleeing east, away from it. (15 ago) | At (65,44) after fleeing east; moving thing west in corridor at (59-62,45); exploring southwest. (10 ago) | At (61,45) exploring SW; moving thing trailed west in corridor at (59-62,45); member at (64,41). (5 ago)\nYou recall: 236 ago, at home, member 0 said: \"Awake at home. I will explore north and try to find the worthwhile thing.\"; 236 ago, at home, member 1 said: \"Starting out to explore. I'll head north and report anything worth finding.\".\nHeard at home: [236 ago, member 5] \"Awake at home. I'll explore east, away from the crowd, and report what I find.\" [231 ago, member 0] \"Still heading north along the western column. Will report anything worth finding.\" [231 ago, member 1] \"Heading northeast to avoid the crowd at the north wall; will report anything worth finding.\" [231 ago, member 2] \"Still heading north from (3,21) to explore; will report anything worth finding.\" [231 ago, member 3] \"Heading north again through the corridor. Will report anything worth finding.\" [231 ago, member 5] \"Still exploring east, will report anything worth finding.\"\nPlaces you know: home (3, 24).\nMoving things you have seen: (17, 11) 177 ago, (23, 1) 163 ago, (59, 45) 15 ago, (60, 45) 14 ago, (61, 45) 13 ago, (62, 45) 12 ago.\nShare of the place you have seen, by direction from home: N 88%, NE 77%, E 36%, SE 4%, S 3%, SW 58%, W 100%, NW 100%.\nChoose your action."
+   }
+  ],
+  "max_tokens": 400,
+  "effort": "low",
+  "tag": "0:236:4:full",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "explore",
+      "go_to",
+      "go_home",
+      "flee",
+      "wait"
+     ]
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+     ]
+    },
+    "x": {
+     "type": "integer"
+    },
+    "y": {
+     "type": "integer"
+    },
+    "sound": {
+     "type": "string",
+     "enum": [
+      "none",
+      "sound-1",
+      "sound-2"
+     ]
+    },
+    "remember": {
+     "type": "string"
+    },
+    "say": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "intent",
+    "direction",
+    "x",
+    "y",
+    "sound",
+    "remember",
+    "say"
+   ],
+   "additionalProperties": false
+  },
+  "thinking": {
+   "type": "disabled"
+  }
+ },
+ "response": {
+  "text": "{\"intent\":\"explore\",\"direction\":\"SW\",\"x\":0,\"y\":0,\"sound\":\"none\",\"remember\":\"At (57,44) exploring SW; southeast nearly unseen; moving thing last at (59-62,45) corridor east of me.\",\"say\":\"\"}",
+  "model": "claude-haiku-5-5",
+  "stop_reason": "end_turn",
+  "usage": {
+   "input_tokens": 2066,
+   "output_tokens": 84,
+   "cache_read_input_tokens": 0,
+   "cache_creation_input_tokens": 0
+  }
+ }
+}

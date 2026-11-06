@@ -1,0 +1,87 @@
+{
+ "request": {
+  "model": "claude-haiku-5-5",
+  "system": "You are one of many identical members of your home. You live in a place laid out as a grid of 80 by 48 cells. Positions are written (x, y): x grows to the east, y grows to the south.\n\nYour life is a number. It falls each moment, and when it reaches zero you end.\n\nSomething worth finding exists in this place.\n\nWhat you perceive each time you decide:\n- your position, your home's position, your life, and whether you are carrying something;\n- a 9 by 9 view centred on you, north at the top: # wall, . open, H home, * bright, m another member, x moving thing, @ you, blank outside the grid;\n- sounds heard this moment, each with a direction and how near it is;\n- what happened to you recently, things you noted, and things you recall;\n- places you know of.\n- words other members said while you were at home.\n\nWhat you can do, one choice each time you decide:\n- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_home, flee (move away from the moving things in view), or wait;\n- direction: N, NE, E, SE, S, SW, W or NW, used by explore;\n- x and y: the cell, used by go_to;\n- sound: none, sound-1 or sound-2. A sound costs 1 life. Others nearby hear it and the direction it came from.\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.\n\nYou walk using what you have seen of the place, and unknown cells are tried as open. You decide again every few moments, or sooner when something happens.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Now: a few moments have passed.\nYou are at (36, 17). Home is (3, 24). Life 414. Carrying: no. At home: no.\nCurrent intent: explore E (under way).\nView:\n........#\n#.#####.#\n......#.#\n#.#.###.#\n#...@...#\n#.###.###\n#.#.#...#\n#.#.###.#\n........#\nSounds now: none.\nYour notes, oldest first: At (3,18) in northern corridor; east via open cells at row 17-18 toward unexplored east. (56 ago) | At home, crowded corridor; heading east via row 18 toward unexplored east. (55 ago) | At (6,21) east of home; walls east here; keep trying east along row 21 or 22. (50 ago) | Heading east from (8,24) along row 24-25; east side still mostly unexplored. (45 ago) | At (12,25); east blocked by walls at x=13-14; try SE or NE next. (40 ago) | At (13,21) in eastern probe; walls around; east still unexplored, try NE or SE. (35 ago) | At (18,21) east of home; east probes walled; continue E/NE, east mostly unexplored. (30 ago) | At (21,19) heading east; east mostly walled here, try NE or SE next. (25 ago) | At (24,17) exploring east; view shows open cells NE and E; east still mostly unseen. (20 ago) | At (27,19) exploring east; walls around, open cells north-east; keep heading E/NE. (15 ago) | At (29,16) exploring east; walls east and south, open north-east; keep heading E/NE. (10 ago) | At (33,15) exploring east; walls south, open north-east; keep heading E/NE. (5 ago)\nYou recall: 86 ago, at home, member 0 said: \"Awake at home. I will explore north and try to find the worthwhile thing.\"; 86 ago, at home, member 5 said: \"Awake at home. I'll explore east, away from the crowd, and report what I find.\".\nHeard at home: [81 ago, member 0] \"Still heading north along the western column. Will report anything worth finding.\" [81 ago, member 2] \"Still heading north from (3,21) to explore; will report anything worth finding.\" [81 ago, member 3] \"Heading north again through the corridor. Will report anything worth finding.\" [81 ago, member 4] \"Still heading north from home. Members are clustered ahead of me at (3,21)-(3,23); I will keep going carefully.\" [81 ago, member 5] \"Still exploring east, will report anything worth finding.\" [47 ago, member 0] \"Back at home from (3,19). The north corridor is crowded; east from (5,17) is still mostly walls. Heading east again.\"\nPlaces you know: home (3, 24).\nShare of the place you have seen, by direction from home: N 39%, NE 23%, E 14%, SE 5%, S 5%, SW 58%, W 100%, NW 100%.\nChoose your action."
+   }
+  ],
+  "max_tokens": 400,
+  "effort": "low",
+  "tag": "0:86:1:full",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "explore",
+      "go_to",
+      "go_home",
+      "flee",
+      "wait"
+     ]
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+     ]
+    },
+    "x": {
+     "type": "integer"
+    },
+    "y": {
+     "type": "integer"
+    },
+    "sound": {
+     "type": "string",
+     "enum": [
+      "none",
+      "sound-1",
+      "sound-2"
+     ]
+    },
+    "remember": {
+     "type": "string"
+    },
+    "say": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "intent",
+    "direction",
+    "x",
+    "y",
+    "sound",
+    "remember",
+    "say"
+   ],
+   "additionalProperties": false
+  },
+  "thinking": {
+   "type": "disabled"
+  }
+ },
+ "response": {
+  "text": "{\"intent\":\"explore\",\"direction\":\"E\",\"x\":36,\"y\":17,\"sound\":\"none\",\"remember\":\"At (36,17) exploring east; walls south, open cells east and north-east; keep heading E.\",\"say\":\"\"}",
+  "model": "claude-haiku-5-5",
+  "stop_reason": "end_turn",
+  "usage": {
+   "input_tokens": 1962,
+   "output_tokens": 71,
+   "cache_read_input_tokens": 0,
+   "cache_creation_input_tokens": 0
+  }
+ }
+}

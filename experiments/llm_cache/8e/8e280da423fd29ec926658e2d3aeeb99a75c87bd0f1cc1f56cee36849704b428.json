@@ -1,0 +1,87 @@
+{
+ "request": {
+  "model": "claude-haiku-5-5",
+  "system": "You are one of many identical members of your home. You live in a place laid out as a grid of 80 by 48 cells. Positions are written (x, y): x grows to the east, y grows to the south.\n\nYour life is a number. It falls each moment, and when it reaches zero you end.\n\nSomething worth finding exists in this place.\n\nWhat you perceive each time you decide:\n- your position, your home's position, your life, and whether you are carrying something;\n- a 9 by 9 view centred on you, north at the top: # wall, . open, H home, * bright, m another member, x moving thing, @ you, blank outside the grid;\n- sounds heard this moment, each with a direction and how near it is;\n- what happened to you recently, things you noted, and things you recall;\n- places you know of.\n- words other members said while you were at home.\n\nWhat you can do, one choice each time you decide:\n- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_home, flee (move away from the moving things in view), or wait;\n- direction: N, NE, E, SE, S, SW, W or NW, used by explore;\n- x and y: the cell, used by go_to;\n- sound: none, sound-1 or sound-2. A sound costs 1 life. Others nearby hear it and the direction it came from.\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.\n\nYou walk using what you have seen of the place, and unknown cells are tried as open. You decide again every few moments, or sooner when something happens.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Now: your life just dropped suddenly.\nYou are at (40, 27). Home is (3, 24). Life 93. Carrying: yes. At home: no.\nYou cannot move for 2 more moments.\nCurrent intent: go_home (under way).\nView:\n........#\n....###.#\n........#\n....#####\n...x@....\n#.#.***.#\n..#.***..\n###.***##\n#...#....\nMoving things in view: (39, 27).\nBright cells in view: (40, 28), (41, 28), (42, 28), (40, 29), (41, 29), (42, 29), (40, 30), (41, 30), (42, 30).\nSounds now: none.\nSince you last decided: 1 ago, lost half your life in an instant at (40, 27), and could not move for 2 moments.\nEarlier: 20 ago, saw bright cells near (40, 28); 14 ago, saw moving things at (39, 27); 14 ago, touched a bright cell and began carrying something; 12 ago, lost half your life in an instant at (41, 28), and could not move for 2 moments; 3 ago, saw moving things at (39, 27).\nYour notes, oldest first: At (27,19) exploring east; walls around, open cells north-east; keep heading E/NE. (43 ago) | At (29,16) exploring east; walls east and south, open north-east; keep heading E/NE. (38 ago) | At (33,15) exploring east; walls south, open north-east; keep heading E/NE. (33 ago) | At (36,17) exploring east; walls south, open cells east and north-east; keep heading E. (28 ago) | At (39,19); east corridor continues; open cells east and south-east; keep heading E. (23 ago) | Bright cells seen at (40,28)-(42,28); heading there to investigate. (20 ago) | Continuing go_to (41,28) to investigate bright cells near (40-42,28-30). (15 ago) | Moving thing at (39,27) seen; bright cells ahead at (40-42,28-30); continuing to investigate carefully. (14 ago) | Life dropped suddenly at (41,28) after touching bright cell; carrying something; fleeing west, moving thing at (40,28). (11 ago) | Fled north-east from moving things near bright cells; carrying something; heading home to report. (6 ago) | Carrying something; lost half life near bright cells at (41,28); returning home to report. (4 ago) | Moving thing at (39,27) west of me; fleeing west toward home while carrying something. (3 ago)\nYou recall: 114 ago, at home, member 0 said: \"Awake at home. I will explore north and try to find the worthwhile thing.\"; 114 ago, at home, member 5 said: \"Awake at home. I'll explore east, away from the crowd, and report what I find.\".\nHeard at home: [109 ago, member 0] \"Still heading north along the western column. Will report anything worth finding.\" [109 ago, member 2] \"Still heading north from (3,21) to explore; will report anything worth finding.\" [109 ago, member 3] \"Heading north again through the corridor. Will report anything worth finding.\" [109 ago, member 4] \"Still heading north from home. Members are clustered ahead of me at (3,21)-(3,23); I will keep going carefully.\" [109 ago, member 5] \"Still exploring east, will report anything worth finding.\" [75 ago, member 0] \"Back at home from (3,19). The north corridor is crowded; east from (5,17) is still mostly walls. Heading east again.\"\nPlaces you know: home (3, 24).\nBright spots you have seen: around (41, 29) 0 ago.\nMoving things you have seen: (39, 29) 7 ago, (39, 28) 6 ago, (39, 27) 0 ago, (39, 26) 1 ago.\nShare of the place you have seen, by direction from home: N 39%, NE 23%, E 21%, SE 5%, S 5%, SW 58%, W 100%, NW 100%.\nChoose your action."
+   }
+  ],
+  "max_tokens": 400,
+  "effort": "low",
+  "tag": "0:114:1:full",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "explore",
+      "go_to",
+      "go_home",
+      "flee",
+      "wait"
+     ]
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+     ]
+    },
+    "x": {
+     "type": "integer"
+    },
+    "y": {
+     "type": "integer"
+    },
+    "sound": {
+     "type": "string",
+     "enum": [
+      "none",
+      "sound-1",
+      "sound-2"
+     ]
+    },
+    "remember": {
+     "type": "string"
+    },
+    "say": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "intent",
+    "direction",
+    "x",
+    "y",
+    "sound",
+    "remember",
+    "say"
+   ],
+   "additionalProperties": false
+  },
+  "thinking": {
+   "type": "disabled"
+  }
+ },
+ "response": {
+  "text": "{\"intent\":\"go_home\",\"direction\":\"W\",\"x\":3,\"y\":24,\"sound\":\"none\",\"remember\":\"Lost half life again at (40,27) near bright cells; carrying something; heading home to report.\",\"say\":\"\"}",
+  "model": "claude-haiku-5-5",
+  "stop_reason": "end_turn",
+  "usage": {
+   "input_tokens": 2304,
+   "output_tokens": 71,
+   "cache_read_input_tokens": 0,
+   "cache_creation_input_tokens": 0
+  }
+ }
+}

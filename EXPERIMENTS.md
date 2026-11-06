@@ -123,6 +123,39 @@ From the feasibility note: about $0.0001 per decision. The pilot (below) gives t
 
 None yet.
 
+## Pilot (phase 2): one full-size spring, not a result
+
+A plumbing and sizing check, run after the pre-registration commit and before any main run. n = 1, so nothing here is a finding. Run directory: `experiments/results/pilot_full_spring/20261106T100558Z/seed-0` (config `pilot_full_spring.toml`: condition `full`, seed 0, full-size world, stopped at tick 250, commit c2052a2, `git_dirty: false`). Numbers below come from its record.json and events.jsonl, summarised by `experiments/analysis/mind_report.py`.
+
+| Measure | Value |
+|---|---|
+| Wall time | 166.2 s for 250 ticks |
+| Decisions | 355, so 1.414 per tick; 175 of 251 ticks had at least one; at most 6 in one tick |
+| Triggers | timer 265, hornet 39, arrived 29, hatched 7, home 6, stung 4, bloom 3, sound 1, life50 1 |
+| Intents | explore 216, go_home 62, flee 38, wait 31, go_to 8 |
+| Sounds made | 1 of 355 decisions (sound-1) |
+| Notes (`remember`) | written at 355 of 355 decisions |
+| Hive talk | 47 `say` events, heard by 1.6 bees on average |
+| Bee-ticks spent at home | 0.145 |
+| Model failures | 0 `mind_error`, 0 fallbacks |
+| Tokens | 719,348 input and 27,269 output; 2,026 input tokens per decision |
+| Cost | $0.0856 at list price. The spend ledger rose by the same $0.0856 for the 10-tick plumbing check and the pilot together; the pilot's first 10 ticks replayed from that check's cache |
+| Colony | 11 trips, 1 delivery (tick 183), 4 stings, 0 deaths; mean 6.268 bees, 7 at the end |
+| Replay | Re-run with `LLM_MODE=replay` into a scratch directory: events, metrics and state identical, no new spend |
+
+**Degenerate patterns checked.**
+- *All bees waiting:* no (31 of 355 decisions were `wait`).
+- *Never leaving home:* no (bees spent 0.145 of their ticks at home; 11 trips started).
+- *Endless sounds:* the opposite. Bees almost never make a sound (1 of 355). This is not a plumbing fault: the prompt states the sound's cost (1 life), which is a world rule from the spec. Changing the cost or the wording to get more sounds would be tuning for a result, so nothing was changed. It is a risk for E4: if sounds stay this rare in the main runs, mutual information cannot be estimated, and E4 is reported as a negative result as pre-registered. Flagged to Jacob.
+- *Notes as a diary:* bees write a note at every decision, so the 12-note store holds only about the last 60 ticks. Places found earlier survive in the "places you know" landmarks, which come from the bee's own sightings, not from notes. Not changed.
+- *Collapse:* none. The colony grew from 6 to 7, so no world adjustment is proposed.
+
+**What the bees did (qualitative, one run).** Bee 1 saw bright cells at tick 94 and chose `go_to (41, 28)`. It picked up at tick 100, was stung at the bloom at ticks 102 and 113 by the same hornet, fled, and carried it home at tick 183 with 23 life left (46 after the delivery), which hatched bee 6. At tick 124, fleeing while carrying, it made the run's only sound, with the note "heading home W to report, alerting others". At home, bees passed on coordinates of moving things, and 31 of the 47 `say` texts contain the word "avoid", for example "Moving things seen east near (27,17); avoid that area". The prompt never says moving things cause harm or that anything should be avoided; the no-hints test checks for that word. Whether this warning changes what listeners do is a question for the main runs (naive avoidance, E1).
+
+**Sizing for the main runs (projection, not a measurement).** If later seasons cost about the same as this spring, a 2,000-tick run takes about 8 times the pilot: roughly 22 minutes and $0.70, so the 15 AI runs (5 arms x 3 seeds) cost roughly $10 and need running in parallel. Winter, larger colonies and longer memories will move both. The replay cache took 3.5 MB for the pilot's 504 calls (about 7 KB a call), so the main runs would add roughly 300 MB to the repository unless the cache is compressed first.
+
+**Viewer.** The pilot bundles with `viewer/bundle.py` (85 KB page), and a capture at tick 120 following bee 1 (`demo/screenshots/pilot_full_spring_seed0_t120_bee1.png`) shows its latest decision, note and the talk it heard in the panel.
+
 ## Summary
 
 | # | Question | Result | Holds across seeds? | Controls passed |

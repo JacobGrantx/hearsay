@@ -1,0 +1,87 @@
+{
+ "request": {
+  "model": "claude-haiku-5-5",
+  "system": "You are one of many identical members of your home. You live in a place laid out as a grid of 80 by 48 cells. Positions are written (x, y): x grows to the east, y grows to the south.\n\nYour life is a number. It falls each moment, and when it reaches zero you end.\n\nSomething worth finding exists in this place.\n\nWhat you perceive each time you decide:\n- your position, your home's position, your life, and whether you are carrying something;\n- a 9 by 9 view centred on you, north at the top: # wall, . open, H home, * bright, m another member, x moving thing, @ you, blank outside the grid;\n- sounds heard this moment, each with a direction and how near it is;\n- what happened to you recently, things you noted, and things you recall;\n- places you know of.\n- words other members said while you were at home.\n\nWhat you can do, one choice each time you decide:\n- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_home, flee (move away from the moving things in view), or wait;\n- direction: N, NE, E, SE, S, SW, W or NW, used by explore;\n- x and y: the cell, used by go_to;\n- sound: none, sound-1 or sound-2. A sound costs 1 life. Others nearby hear it and the direction it came from.\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.\n\nYou walk using what you have seen of the place, and unknown cells are tried as open. You decide again every few moments, or sooner when something happens.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Now: a few moments have passed.\nYou are at (3, 23). Home is (3, 24). Life 495. Carrying: no. At home: yes.\nCurrent intent: explore N (under way).\nView:\n ###H####\n #HHHHHH#\n #HHmHHH#\n #HHmHHH#\n #HH@HHH#\n #HHHHHmH\n #HHHHHH#\n #HHHHHH#\n #HHHHHH#\nOther members in view: (3, 23), (3, 23), (3, 21), (3, 22), (6, 24).\nSounds now: none.\nYour notes, oldest first: Just awoke at home; exploring north for the valuable thing. (5 ago)\nHeard at home: [5 ago, member 0] \"Awake at home. I will explore north and try to find the worthwhile thing.\" [5 ago, member 1] \"Starting out to explore. I'll head north and report anything worth finding.\" [5 ago, member 5] \"Awake at home. I'll explore east, away from the crowd, and report what I find.\"\nPlaces you know: home (3, 24).\nShare of the place you have seen, by direction from home: N 7%, NE 2%, E 0%, SE 2%, S 3%, SW 58%, W 100%, NW 83%.\nChoose your action."
+   }
+  ],
+  "max_tokens": 400,
+  "effort": "low",
+  "tag": "0:5:4:full",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "explore",
+      "go_to",
+      "go_home",
+      "flee",
+      "wait"
+     ]
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+     ]
+    },
+    "x": {
+     "type": "integer"
+    },
+    "y": {
+     "type": "integer"
+    },
+    "sound": {
+     "type": "string",
+     "enum": [
+      "none",
+      "sound-1",
+      "sound-2"
+     ]
+    },
+    "remember": {
+     "type": "string"
+    },
+    "say": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "intent",
+    "direction",
+    "x",
+    "y",
+    "sound",
+    "remember",
+    "say"
+   ],
+   "additionalProperties": false
+  },
+  "thinking": {
+   "type": "disabled"
+  }
+ },
+ "response": {
+  "text": "{\"intent\":\"explore\",\"direction\":\"N\",\"x\":3,\"y\":23,\"sound\":\"none\",\"remember\":\"Members crowd the north path; exploring N still, watch for blocking.\",\"say\":\"Still heading north from home. Members are clustered ahead of me at (3,21)-(3,23); I will keep going carefully.\"}",
+  "model": "claude-haiku-5-5",
+  "stop_reason": "end_turn",
+  "usage": {
+   "input_tokens": 1408,
+   "output_tokens": 103,
+   "cache_read_input_tokens": 0,
+   "cache_creation_input_tokens": 0
+  }
+ }
+}

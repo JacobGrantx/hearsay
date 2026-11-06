@@ -1,0 +1,87 @@
+{
+ "request": {
+  "model": "claude-haiku-5-5",
+  "system": "You are one of many identical members of your home. You live in a place laid out as a grid of 80 by 48 cells. Positions are written (x, y): x grows to the east, y grows to the south.\n\nYour life is a number. It falls each moment, and when it reaches zero you end.\n\nSomething worth finding exists in this place.\n\nWhat you perceive each time you decide:\n- your position, your home's position, your life, and whether you are carrying something;\n- a 9 by 9 view centred on you, north at the top: # wall, . open, H home, * bright, m another member, x moving thing, @ you, blank outside the grid;\n- sounds heard this moment, each with a direction and how near it is;\n- what happened to you recently, things you noted, and things you recall;\n- places you know of.\n- words other members said while you were at home.\n\nWhat you can do, one choice each time you decide:\n- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_home, flee (move away from the moving things in view), or wait;\n- direction: N, NE, E, SE, S, SW, W or NW, used by explore;\n- x and y: the cell, used by go_to;\n- sound: none, sound-1 or sound-2. A sound costs 1 life. Others nearby hear it and the direction it came from.\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.\n\nYou walk using what you have seen of the place, and unknown cells are tried as open. You decide again every few moments, or sooner when something happens.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Now: a few moments have passed.\nYou are at (61, 43). Home is (3, 24). Life 253. Carrying: no. At home: no.\nCurrent intent: explore SW (under way).\nView:\n.#.#.....\n.#.#.####\n.....#...\n##.###.##\n.#.#@..#.\n.###.###.\n.........\n#########\n#########\nSounds now: none.\nEarlier: 164 ago, saw moving things at (26, 1); 161 ago, saw moving things at (29, 1); 159 ago, saw moving things at (23, 5); 157 ago, saw moving things at (23, 7), (31, 3); 146 ago, saw moving things at (39, 1); 23 ago, saw moving things at (62, 45); 22 ago, saw moving things at (70, 45); 18 ago, saw moving things at (70, 43).\nYour notes, oldest first: At (77,37) continuing south along east corridor; SE share 1%; no moving things in view. (46 ago) | At (73,36) continuing south; SE share 1%; no moving things in view. (41 ago) | At (71,37) exploring south; SE share 1%; east corridor edge; no moving things in view. (36 ago) | At (73,40) exploring south; SE share 1%; SW 42%; try southwest toward unexplored south cells. (31 ago) | At (69,41) exploring SW toward unexplored south cells; SE share 1%; no moving things in view. (26 ago) | Moving thing at (62,45) close to SW; fleeing northwest away from it. (23 ago) | Fleeing northwest from moving thing at (70,45); heading back toward west unexplored areas. (22 ago) | Fleeing northwest from moving thing near (62,45); heading back toward unexplored west-south areas. (20 ago) | Moving thing at (70,43) nearby SE; fleeing northwest toward west areas. (18 ago) | Fleeing northwest from moving things south-east; heading back toward home and west areas. (15 ago) | Moving things seen SE at (69,43); fleeing northwest toward west areas. (10 ago) | Fleeing ended at (64,41); exploring southwest toward unexplored south cells again; home is west. (5 ago)\nYou recall: 247 ago, at home, member 0 said: \"Awake at home. I will explore north and try to find the worthwhile thing.\"; 247 ago, at home, member 1 said: \"Starting out to explore. I'll head north and report anything worth finding.\"; 182 ago, saw moving things at (17, 6); 179 ago, saw moving things at (18, 5), (25, 2); 171 ago, saw moving things at (23, 3); 167 ago, saw moving things at (24, 1).\nHeard at home: [247 ago, member 5] \"Awake at home. I'll explore east, away from the crowd, and report what I find.\" [242 ago, member 0] \"Still heading north along the western column. Will report anything worth finding.\" [242 ago, member 1] \"Heading northeast to avoid the crowd at the north wall; will report anything worth finding.\" [242 ago, member 3] \"Heading north again through the corridor. Will report anything worth finding.\" [242 ago, member 4] \"Still heading north from home. Members are clustered ahead of me at (3,21)-(3,23); I will keep going carefully.\" [242 ago, member 5] \"Still exploring east, will report anything worth finding.\"\nPlaces you know: home (3, 24).\nMoving things you have seen: (36, 1) 143 ago, (35, 1) 142 ago, (62, 45) 23 ago, (70, 45) 22 ago, (70, 43) 18 ago, (69, 43) 17 ago.\nShare of the place you have seen, by direction from home: N 93%, NE 68%, E 34%, SE 1%, S 1%, SW 42%, W 100%, NW 100%.\nChoose your action."
+   }
+  ],
+  "max_tokens": 400,
+  "effort": "low",
+  "tag": "0:247:2:full",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "explore",
+      "go_to",
+      "go_home",
+      "flee",
+      "wait"
+     ]
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+     ]
+    },
+    "x": {
+     "type": "integer"
+    },
+    "y": {
+     "type": "integer"
+    },
+    "sound": {
+     "type": "string",
+     "enum": [
+      "none",
+      "sound-1",
+      "sound-2"
+     ]
+    },
+    "remember": {
+     "type": "string"
+    },
+    "say": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "intent",
+    "direction",
+    "x",
+    "y",
+    "sound",
+    "remember",
+    "say"
+   ],
+   "additionalProperties": false
+  },
+  "thinking": {
+   "type": "disabled"
+  }
+ },
+ "response": {
+  "text": "{\"intent\":\"explore\",\"direction\":\"SW\",\"x\":0,\"y\":0,\"sound\":\"none\",\"remember\":\"At (61,43) exploring SW; moving things seen SE earlier; keep distance from them.\",\"say\":\"\"}",
+  "model": "claude-haiku-5-5",
+  "stop_reason": "end_turn",
+  "usage": {
+   "input_tokens": 2276,
+   "output_tokens": 72,
+   "cache_read_input_tokens": 0,
+   "cache_creation_input_tokens": 0
+  }
+ }
+}

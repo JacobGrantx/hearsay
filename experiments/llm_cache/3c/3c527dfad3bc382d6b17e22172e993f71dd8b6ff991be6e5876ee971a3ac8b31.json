@@ -1,0 +1,87 @@
+{
+ "request": {
+  "model": "claude-haiku-5-5",
+  "system": "You are one of many identical members of your home. You live in a place laid out as a grid of 80 by 48 cells. Positions are written (x, y): x grows to the east, y grows to the south.\n\nYour life is a number. It falls each moment, and when it reaches zero you end.\n\nSomething worth finding exists in this place.\n\nWhat you perceive each time you decide:\n- your position, your home's position, your life, and whether you are carrying something;\n- a 9 by 9 view centred on you, north at the top: # wall, . open, H home, * bright, m another member, x moving thing, @ you, blank outside the grid;\n- sounds heard this moment, each with a direction and how near it is;\n- what happened to you recently, things you noted, and things you recall;\n- places you know of.\n- words other members said while you were at home.\n\nWhat you can do, one choice each time you decide:\n- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_home, flee (move away from the moving things in view), or wait;\n- direction: N, NE, E, SE, S, SW, W or NW, used by explore;\n- x and y: the cell, used by go_to;\n- sound: none, sound-1 or sound-2. A sound costs 1 life. Others nearby hear it and the direction it came from.\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.\n\nYou walk using what you have seen of the place, and unknown cells are tried as open. You decide again every few moments, or sooner when something happens.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Now: bright cells came into view.\nYou are at (34, 33). Home is (3, 24). Life 300. Carrying: no. At home: no.\nCurrent intent: explore S (under way).\nView:\n#...#...#\n###.#.###\n#...#.#..\n#.#.#.###\n#...@....\n#######.#\n.........\n#####.###\n#.....#..\nBright cells in view: (40, 28), (40, 29), (40, 30).\nSounds now: none.\nSince you last decided: 0 ago, saw bright cells near (40, 28).\nEarlier: 142 ago, saw moving things at (17, 11); 135 ago, saw moving things at (27, 2); 124 ago, saw moving things at (23, 3); 119 ago, saw moving things at (21, 3); 40 ago, saw moving things at (21, 19).\nYour notes, oldest first: At (18,25) exploring east; east and southeast still mostly unseen; home at (3,24). (53 ago) | At (21,23) exploring east; member at (25,24) nearby; east mostly unseen; home at (3,24). (48 ago) | At (24,25) still exploring east; members at (26,21) and (21,25) nearby; home at (3,24). (43 ago) | Moving thing at (21,19) in view; fleeing west away from it, continuing east exploration later. (40 ago) | At (25,25) route ended; moving things at (21,19)-(21,21) north-west; exploring east/southeast. (36 ago) | At (26,21) exploring east; moving things were at (21,19)-(21,21) west; east mostly unseen. (31 ago) | At (27,25) continuing east; east and southeast mostly unseen; home at (3,24). (26 ago) | At (30,27) continuing east; east and southeast still mostly unseen; home at (3,24). (21 ago) | At (33,28) route ended; east and southeast still mostly unseen; home at (3,24). (16 ago) | At (33,28) east blocked by walls; trying southeast/south exploration; home at (3,24). (11 ago) | At (33,28) east blocked; trying south exploration; home at (3,24). (6 ago) | At (33,33) exploring south; east still mostly unseen; home at (3,24). (1 ago)\nYou recall: 200 ago, at home, member 0 said: \"Awake at home. I will explore north and try to find the worthwhile thing.\"; 200 ago, at home, member 1 said: \"Starting out to explore. I'll head north and report anything worth finding.\".\nHeard at home: [200 ago, member 5] \"Awake at home. I'll explore east, away from the crowd, and report what I find.\" [195 ago, member 0] \"Still heading north along the western column. Will report anything worth finding.\" [195 ago, member 1] \"Heading northeast to avoid the crowd at the north wall; will report anything worth finding.\" [195 ago, member 2] \"Still heading north from (3,21) to explore; will report anything worth finding.\" [195 ago, member 4] \"Still heading north from home. Members are clustered ahead of me at (3,21)-(3,23); I will keep going carefully.\" [195 ago, member 5] \"Still exploring east, will report anything worth finding.\"\nPlaces you know: home (3, 24).\nBright spots you have seen: around (40, 29) 0 ago.\nMoving things you have seen: (21, 3) 117 ago, (21, 4) 116 ago, (21, 5) 115 ago, (21, 19) 40 ago, (21, 20) 39 ago, (21, 21) 38 ago.\nShare of the place you have seen, by direction from home: N 88%, NE 59%, E 17%, SE 16%, S 5%, SW 42%, W 100%, NW 100%.\nChoose your action."
+   }
+  ],
+  "max_tokens": 400,
+  "effort": "low",
+  "tag": "0:200:3:full",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "explore",
+      "go_to",
+      "go_home",
+      "flee",
+      "wait"
+     ]
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+     ]
+    },
+    "x": {
+     "type": "integer"
+    },
+    "y": {
+     "type": "integer"
+    },
+    "sound": {
+     "type": "string",
+     "enum": [
+      "none",
+      "sound-1",
+      "sound-2"
+     ]
+    },
+    "remember": {
+     "type": "string"
+    },
+    "say": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "intent",
+    "direction",
+    "x",
+    "y",
+    "sound",
+    "remember",
+    "say"
+   ],
+   "additionalProperties": false
+  },
+  "thinking": {
+   "type": "disabled"
+  }
+ },
+ "response": {
+  "text": "{\"intent\":\"go_to\",\"direction\":\"S\",\"x\":40,\"y\":29,\"sound\":\"none\",\"remember\":\"Bright cells seen at (40,28)-(40,30); heading there to investigate.\",\"say\":\"\"}",
+  "model": "claude-haiku-5-5",
+  "stop_reason": "end_turn",
+  "usage": {
+   "input_tokens": 2235,
+   "output_tokens": 69,
+   "cache_read_input_tokens": 0,
+   "cache_creation_input_tokens": 0
+  }
+ }
+}

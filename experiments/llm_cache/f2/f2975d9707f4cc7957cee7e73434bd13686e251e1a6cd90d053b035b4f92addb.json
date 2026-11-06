@@ -1,0 +1,87 @@
+{
+ "request": {
+  "model": "claude-haiku-5-5",
+  "system": "You are one of many identical members of your home. You live in a place laid out as a grid of 80 by 48 cells. Positions are written (x, y): x grows to the east, y grows to the south.\n\nYour life is a number. It falls each moment, and when it reaches zero you end.\n\nSomething worth finding exists in this place.\n\nWhat you perceive each time you decide:\n- your position, your home's position, your life, and whether you are carrying something;\n- a 9 by 9 view centred on you, north at the top: # wall, . open, H home, * bright, m another member, x moving thing, @ you, blank outside the grid;\n- sounds heard this moment, each with a direction and how near it is;\n- what happened to you recently, things you noted, and things you recall;\n- places you know of.\n- words other members said while you were at home.\n\nWhat you can do, one choice each time you decide:\n- intent: explore (head into unknown cells in a direction), go_to (walk to a cell), go_home, flee (move away from the moving things in view), or wait;\n- direction: N, NE, E, SE, S, SW, W or NW, used by explore;\n- x and y: the cell, used by go_to;\n- sound: none, sound-1 or sound-2. A sound costs 1 life. Others nearby hear it and the direction it came from.\n- remember: a short note to keep (under 15 words), or empty. You keep your 12 latest notes.\n- say: up to 30 words that every other member at home hears, used only while you are at home; or empty.\n\nYou walk using what you have seen of the place, and unknown cells are tried as open. You decide again every few moments, or sooner when something happens.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Now: a few moments have passed.\nYou are at (16, 3). Home is (3, 24). Life 455. Carrying: no. At home: no.\nCurrent intent: explore NE (under way).\nView:\n         \n#########\n.........\n#######.#\n..#.@...#\n#.#.###.#\n#...#...#\n#####.#.#\n#....m#..\nOther members in view: (17, 7).\nSounds now: none.\nYour notes, oldest first: Just awoke at home; the exit lies to the north. (45 ago) | Exit north of home; a member reported bright cells near (41,28) are dangerous. (40 ago) | Exploring north from (3,15); bright cells near (41,28) dangerous; moving things near (9,20). (35 ago) | Exploring north from (2,13); bright cells near (41,28) dangerous. (30 ago) | Exploring north from (5,11); bright cells near (41,28) dangerous. (25 ago) | At (5,6) exploring north; bright cells near (41,28) dangerous. (20 ago) | At (7,5) exploring; northern view mostly open; try NE for unseen cells. (15 ago) | At (11,4) exploring NE; member seen at (15,3); walls block east nearby. (10 ago) | At (13,5) exploring NE; walls east; open cells north-west of view. (5 ago)\nHeard at home: [45 ago, member 1] \"Back at home carrying something from near (41,28). Bright cells there are dangerous; moving thing was seen near (20,21) and (25,19). I will report details next.\" [40 ago, member 1] \"Back at home, carried item delivered. A moving thing is at (9,20) to the northeast; I will wait and watch before exploring again.\"\nPlaces you know: home (3, 24).\nShare of the place you have seen, by direction from home: N 93%, NE 21%, E 0%, SE 1%, S 1%, SW 42%, W 100%, NW 100%.\nChoose your action."
+   }
+  ],
+  "max_tokens": 400,
+  "effort": "low",
+  "tag": "0:229:6:full",
+  "schema": {
+   "type": "object",
+   "properties": {
+    "intent": {
+     "type": "string",
+     "enum": [
+      "explore",
+      "go_to",
+      "go_home",
+      "flee",
+      "wait"
+     ]
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+     ]
+    },
+    "x": {
+     "type": "integer"
+    },
+    "y": {
+     "type": "integer"
+    },
+    "sound": {
+     "type": "string",
+     "enum": [
+      "none",
+      "sound-1",
+      "sound-2"
+     ]
+    },
+    "remember": {
+     "type": "string"
+    },
+    "say": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "intent",
+    "direction",
+    "x",
+    "y",
+    "sound",
+    "remember",
+    "say"
+   ],
+   "additionalProperties": false
+  },
+  "thinking": {
+   "type": "disabled"
+  }
+ },
+ "response": {
+  "text": "{\"intent\":\"explore\",\"direction\":\"NE\",\"x\":16,\"y\":3,\"sound\":\"none\",\"remember\":\"At (16,3) exploring NE; member at (17,7) to the south-east; walls block east.\",\"say\":\"\"}",
+  "model": "claude-haiku-5-5",
+  "stop_reason": "end_turn",
+  "usage": {
+   "input_tokens": 1632,
+   "output_tokens": 72,
+   "cache_read_input_tokens": 0,
+   "cache_creation_input_tokens": 0
+  }
+ }
+}
