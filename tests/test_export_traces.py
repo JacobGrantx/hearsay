@@ -100,6 +100,7 @@ def test_private_scan_catches_leaks_and_spares_the_repo(tmp_path, monkeypatch):
     assert ps.find_private("notes about acme-secret-project", "README.md", terms) == ["private term #1"]
     assert "skill instructions" in ps.find_private("Base directory for this skill: x", "agent_traces/events/a.jsonl", [])
     assert "path outside the repository" in ps.find_private(f"cat {home}/.config/x/.env", "agent_traces/sessions/a/main.jsonl", [])
-    assert ps.find_private(f"ls {home}/{repo_rel}/src", "agent_traces/sessions/a/main.jsonl", []) == []
-    assert ps.find_private(f"cd {home}/{repo_rel[:10]}…", "agent_traces/events/a.jsonl", []) == []
+    assert ps.find_private(f"ls {ps.REPO}/src", "agent_traces/sessions/a/main.jsonl", []) == []
+    if repo_rel:  # only meaningful when the repo sits under the home folder
+        assert ps.find_private(f"cd {home}/{repo_rel[:10]}…", "agent_traces/events/a.jsonl", []) == []
     assert ps.find_private(f"cat {home}/.config/x/.env", "README.md", []) == []   # paths are only checked in traces

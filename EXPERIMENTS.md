@@ -67,9 +67,9 @@ The changes are listed in DECISIONS.md as agent proposals awaiting Jacob.
 
 Recorded 2026-11-06 by the phase 4b session (Claude Code), after the main results and before any E5 AI run. Only scripted bees were run, and no AI result was looked at while choosing. Why a new world: "Why trips failed" (below E4) shows that bees in the main world rarely found the bloom, so talk had almost nothing to carry.
 
-**Target, fixed before any run** (written in the header of `calibrate_e5.toml`, commit d157697): in 1 year, spring delivery rate 0.15 to 0.35 for rule bees, at least 0.8 for oracle bees, near 0 for random bees.
+**Target, fixed before any run** (written in the header of `calibrate_e5.toml`, commit 155f669): in 1 year, spring delivery rate 0.15 to 0.35 for rule bees, at least 0.8 for oracle bees, near 0 for random bees.
 
-**Setup.** Config `experiments/configurations/calibrate_e5.toml` (1 year, otherwise the main world), seeds 0, 1 and 2, points set by `--set`, code at d157697, `git_dirty: false` for every run. Run directories: `experiments/results/calibrate_e5/<stamp>_<bees>_<point>`.
+**Setup.** Config `experiments/configurations/calibrate_e5.toml` (1 year, otherwise the main world), seeds 0, 1 and 2, points set by `--set`, code at 155f669, `git_dirty: false` for every run. Run directories: `experiments/results/calibrate_e5/<stamp>_<bees>_<point>`.
 
 **Knobs tried, in order:**
 1. **`min_bloom_distance` alone does not work on this map.** Bloom patches must lie in the right half of the map, so below 55 the placer widens the band and the bloom stays as far: spring bloom distances for seeds 0 to 4 were 55 to 84 steps at `min_bloom_distance` 30 and 53 to 83 at 45 (a probe of `world.generate`, not a run).
@@ -155,7 +155,7 @@ From the feasibility note: about $0.0001 per decision. The pilot (below) gives t
 ### Amendments
 
 1. **Seeds 3 and 4 for `full` and `no_talk`** (2026-11-06, 10:32 UTC, during the main runs). The pilot's cost held up (about $0.37 per 2-year run), so the extension the shared design allows "budget allowing" was started for the two arms the likely headlines compare: `full` against `rule_bees` (which already has seeds 0 to 4) in E1, and `full` against `no_talk` in E1 and E3. It was decided after seed 0 of each arm had finished and before seeds 1 and 2 had, and it runs whatever the outcome. The pre-registered verdicts stay on seeds 0 to 2; the 5-seed comparisons are reported beside them, with the same rule (same sign on all 5 paired seeds, and mean paired difference larger than its sd).
-2. **Five AI processes at once** (2026-11-06, 10:16 UTC, at launch). Each AI arm ran as its own process, seeds one after another, with its own replay-cache folder and spend ledger, from a clean git worktree at commit 05ce2f3, so that later commits could not change a running experiment. This changes no analysis.
+2. **Five AI processes at once** (2026-11-06, 10:16 UTC, at launch). Each AI arm ran as its own process, seeds one after another, with its own replay-cache folder and spend ledger, from a clean git worktree at commit 663d562, so that later commits could not change a running experiment. This changes no analysis.
 
 ### E5: talk with something to carry (post-hoc follow-up, registered 2026-11-06)
 
@@ -185,7 +185,7 @@ From the feasibility note: about $0.0001 per decision. The pilot (below) gives t
 
 ## Pilot (phase 2): one full-size spring, not a result
 
-A plumbing and sizing check, run after the pre-registration commit and before any main run. n = 1, so nothing here is a finding. Run directory: `experiments/results/pilot_full_spring/20261106T100558Z/seed-0` (config `pilot_full_spring.toml`: condition `full`, seed 0, full-size world, stopped at tick 250, commit 83a9b8c, `git_dirty: false`). Numbers below come from its record.json and events.jsonl, summarised by `experiments/analysis/mind_report.py`.
+A plumbing and sizing check, run after the pre-registration commit and before any main run. n = 1, so nothing here is a finding. Run directory: `experiments/results/pilot_full_spring/20261106T100558Z/seed-0` (config `pilot_full_spring.toml`: condition `full`, seed 0, full-size world, stopped at tick 250, commit db1db0f, `git_dirty: false`). Numbers below come from its record.json and events.jsonl, summarised by `experiments/analysis/mind_report.py`.
 
 | Measure | Value |
 |---|---|
@@ -220,7 +220,7 @@ A plumbing and sizing check, run after the pre-registration commit and before an
 
 Run 2026-11-06 by the phase 4 build session (Claude Code), exactly as pre-registered, plus amendment 1 (seeds 3 and 4 for `full` and `no_talk`).
 
-- **Code:** commit 05ce2f3, `git_dirty: false` in every record.json. The leak and no-hints tests (tests/test_mind_prompt.py) pass at that commit: 4 passed, run in the clean worktree the experiments ran from.
+- **Code:** commit 663d562, `git_dirty: false` in every record.json. The leak and no-hints tests (tests/test_mind_prompt.py) pass at that commit: 4 passed, run in the clean worktree the experiments ran from.
 - **Run directories** (all under `experiments/results/`):
 
 | Arm | Config | Seeds | Run directory |
@@ -479,7 +479,7 @@ So the main runs had almost nothing for talk to carry because bees rarely found 
 
 ## Experiment 5: talk with something to carry (E5, post hoc)
 
-A follow-up designed after the main results and because of them; it does not change the verdicts of E1 to E4. Pre-registered in "Pre-registration", "E5", committed as a22b780 before any E5 AI run. Every number here is copied from experiments/analysis/output/e5_results.md (`experiments/analysis/e5_results.py`, reading the run directories alone).
+A follow-up designed after the main results and because of them; it does not change the verdicts of E1 to E4. Pre-registered in "Pre-registration", "E5", committed as 0056c1a before any E5 AI run. Every number here is copied from experiments/analysis/output/e5_results.md (`experiments/analysis/e5_results.py`, reading the run directories alone).
 
 ### Hypothesis
 
@@ -488,8 +488,8 @@ Pre-registered: in a world where the bloom is reachable, (a) `e5_full` delivers 
 ### Experimental setup
 
 - **World:** the "E5 world" (Setup calibration): the main world at scale 0.7, 56 x 34, bloom from 38 steps, 2, 3 and 4 hornets in spring, summer and autumn, 1 year. Chosen with scripted bees only, to a target fixed before the runs.
-- **Runs:** `e5_full` and `e5_no_talk`, seeds 0 to 4, one process per seed, from a clean worktree at a22b780, all `git_dirty: false`. Run directories `experiments/results/e5_full/20261106T112913Z_s<n>/seed-<n>` and the same under `e5_no_talk`.
-- **Code:** the same prompt, renderer, mind, model and cadence as the main runs. The only change to `src/` since the main-run commit 05ce2f3 is the packed-cache reader in `llm.py`, which does not touch live calls or prompts.
+- **Runs:** `e5_full` and `e5_no_talk`, seeds 0 to 4, one process per seed, from a clean worktree at 0056c1a, all `git_dirty: false`. Run directories `experiments/results/e5_full/20261106T112913Z_s<n>/seed-<n>` and the same under `e5_no_talk`.
+- **Code:** the same prompt, renderer, mind, model and cadence as the main runs. The only change to `src/` since the main-run commit 663d562 is the packed-cache reader in `llm.py`, which does not touch live calls or prompts.
 - **Model health:** 12,686 decisions, 0 `mind_error`, 0 fallbacks; 866 to 1,160 s per run. No run crashed or was dropped.
 
 ### Variables or parameters
@@ -563,11 +563,11 @@ Bees avoid moving things from the first sighting, in every arm and every seed, a
 
 ## Hardcoding audit
 
-Done before the results were written, at the run commit 05ce2f3.
+Done before the results were written, at the run commit 663d562.
 
 - `grep -rn -i "sound-1\|sound-2\|good noise\|bad noise" src/ prompts/ experiments/configurations/` finds the sound names only where they are defined (perception.py, render.py), counted (metrics.py) or drawn uniformly at random by random bees (policies.py), and the comment in labels_good_bad.toml. `grep -n -i "sound\|noise"` over render.py, sim.py, hornets.py and the system prompt finds the cost (1 life), the hornets' hearing gene, and the prompt line "A sound costs 1 life. Others nearby hear it and the direction it came from." No rule ties a sound, a direction or a place to a context.
 - `grep -rn -i -E "danger|avoid|careful|caution|threat|harm|hurt"` over prompts/ and the modules that build prompt text (render.py, memory.py, mind.py, perception.py, bees.py) finds only a docstring in render.py that lists words the model never hears.
-- The leak test and the no-hints test (tests/test_mind_prompt.py) pass at 05ce2f3: no prompt contains a bloom or hornet coordinate the bee had not perceived or heard at home, and none of the 19 banned words appears in the system prompt, the templates, the schema or any rendered prompt.
+- The leak test and the no-hints test (tests/test_mind_prompt.py) pass at 663d562: no prompt contains a bloom or hornet coordinate the bee had not perceived or heard at home, and none of the 19 banned words appears in the system prompt, the templates, the schema or any rendered prompt.
 
 What the audit cannot rule out is the model's prior knowledge. Naive avoidance shows that prior at work: bees treat moving things as a threat before any of them has been stung.
 
@@ -582,10 +582,10 @@ for d in experiments/results/{full,no_talk,no_memory,frozen_hornets,labels_good_
   .venv/bin/python experiments/replay_check.py $d; done
 ```
 
-Done on 2026-11-06 for all 19 AI runs, at commit c05d862 with one uncommitted edit to experiments/analysis/main_results.py, which the replay does not use (the runs were made at 05ce2f3; what changed in between is the packed-cache reader and the analysis). Result: **19 of 19 replays identical** in events.jsonl, metrics.jsonl, the decompressed state.jsonl.gz, layout.json and final_metrics, each in 4.9 to 8.7 s. The full output is in experiments/analysis/output/replay_all.log. For `full` seed 0 the replay printed:
+Done on 2026-11-06 for all 19 AI runs, at commit cdeb49f with one uncommitted edit to experiments/analysis/main_results.py, which the replay does not use (the runs were made at 663d562; what changed in between is the packed-cache reader and the analysis). Result: **19 of 19 replays identical** in events.jsonl, metrics.jsonl, the decompressed state.jsonl.gz, layout.json and final_metrics, each in 4.9 to 8.7 s. The full output is in experiments/analysis/output/replay_all.log. For `full` seed 0 the replay printed:
 
 ```
-original: experiments/results/full/20261106T101558Z/seed-0 (commit 05ce2f3, 686.016 s)
+original: experiments/results/full/20261106T101558Z/seed-0 (commit 663d562, 686.016 s)
   events.jsonl     identical
   metrics.jsonl    identical
   state.jsonl.gz   identical

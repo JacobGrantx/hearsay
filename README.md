@@ -130,7 +130,7 @@ A 2-year AI run took 11 to 18 minutes and cost about $0.28 in our runs (19 runs,
 
 ## Experiments and findings
 
-We pre-registered four hypotheses, the measures and the decision rule before the first real bee-mind call (commit 83a9b8c), then ran 29 two-year runs at one commit: five AI arms and two scripted baselines, 3 or 5 seeds each, paired by seed. 26,093 AI decisions, no model failures. Every number below is copied from [experiments/analysis/output/main_results.md](experiments/analysis/output/main_results.md); the full write-up, with controls, is [EXPERIMENTS.md](EXPERIMENTS.md).
+We pre-registered four hypotheses, the measures and the decision rule before the first real bee-mind call (commit db1db0f), then ran 29 two-year runs at one commit: five AI arms and two scripted baselines, 3 or 5 seeds each, paired by seed. 26,093 AI decisions, no model failures. Every number below is copied from [experiments/analysis/output/main_results.md](experiments/analysis/output/main_results.md); the full write-up, with controls, is [EXPERIMENTS.md](EXPERIMENTS.md).
 
 **All four hypotheses failed their controls.** The controls are what tell us what the colony is really doing.
 
