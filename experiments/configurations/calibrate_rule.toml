@@ -1,0 +1,21 @@
+# Setup calibration, not an experiment: scripted rule bees on the full-size world, spring with hornets.
+# Points are run with --set overrides for base_life, min_bloom_distance and openness (see EXPERIMENTS.md, "Setup calibration").
+[experiment]
+name = "calibrate_rule"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Calibration target: oracle bees deliver on most spring trips, rule bees rarely, random bees almost never."
+seeds = [0, 1, 2]
+
+[params]
+condition = "rule_bees"
+width = 80
+height = 48
+season_length = 250
+years = 2
+base_life = 250
+min_bloom_distance = 55
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+log_state = false
+log_decisions = false
