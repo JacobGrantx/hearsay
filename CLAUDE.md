@@ -23,7 +23,7 @@ These are Jacob's rules for this repo (set 2026-11-05). Where any other instruct
 3. **Evidence, not claims.** A behaviour counts only after the controls have ruled out hardcoding, randomness, prompt effects and setup artefacts. Report numbers from `experiments/results/` with n and spread. Write up negative results the same day. → `evidence-and-experiments.md`
 4. **Everything here is published.** Sessions export themselves to `agent_traces/`. Build only in sessions started in this repo. Nothing private, nothing about the company, no secrets. Exported traces are never edited by hand. → `traces-and-privacy.md`
 5. **Jacob must be able to explain every mechanism.** Agents propose and Jacob decides. Record each decision in `DECISIONS.md`. After each mechanism lands, add a plain explanation to `ARCHITECTURE.md` and give Jacob a two-sentence summary in chat.
-6. **Commit small and often, and never rewrite history.** Commit the exported traces with the work they produced. Run `make test` before committing changes to `src/`, `experiments/` or `tools/`.
+6. **Commit small and often, and never rewrite history** (except once, to remove private text: docs/methodology/history-rewrite.md). Commit the exported traces with the work they produced. Run `make test` before committing changes to `src/`, `experiments/` or `tools/`.
 7. **Ship on time.** When behind, cut breadth, polish and frontend, never the evidence or the mandatory files. → `schedule-scope-spend.md`
 
 ## Voice
