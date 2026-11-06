@@ -6,31 +6,31 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 295
+    "claude-opus-5-5": 299
   },
   "first_timestamp": "2026-11-06T10:14:13.068Z",
-  "last_timestamp": "2026-11-06T11:18:21.675Z",
+  "last_timestamp": "2026-11-06T11:18:49.873Z",
   "source": {
     "file": "6c051b77-c0c4-4aad-97e6-620022d1dacc.jsonl",
-    "sha256": "68fc6703d8d164cbaa10a13f822d30f117bd03a84272d44d68bd86ecd06eea02",
-    "lines": 877,
+    "sha256": "8b13afaf7f96f3111bb986d77931993e1aa252823fca9d8001964fa27d1912e0",
+    "lines": 891,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 314,
-    "output_tokens": 147790,
-    "cache_creation_input_tokens": 281131,
-    "cache_read_input_tokens": 27061867,
-    "api_responses": 157,
+    "input_tokens": 318,
+    "output_tokens": 149651,
+    "cache_creation_input_tokens": 281874,
+    "cache_read_input_tokens": 27648516,
+    "api_responses": 159,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 167
+    "accept/config": 169
   },
   "tool_calls": {
-    "Bash": 136,
+    "Bash": 137,
     "Read": 13,
     "Write": 13,
     "Edit": 5,
@@ -39,6 +39,7 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "7fdfa106814e0684e9b84cee8966fa1e56a3398d Build notes: phase 4 (run setup, packed cache, replay check, analysis entry points, moments for the video). Traces: phase 4 session",
     "d259227493acd5e973d5d87ceb4f2ad4e75643ab Architecture: AI run limits (time, cost, size, reproducibility through the cache, notes churn). AI disclosure: phase 4 session id, runtime tokens and spend from the logs, test count",
     "5821f69e5b837acc7bd9867643363322da937feb README: demonstration still and commands with expected output, experiments and findings (all four hypotheses failed their controls; what the controls showed instead), cost and time per run",
     "44fe346f93207dde6c218d554b6aad178d0f9da4 make demo replays a cited 2-year AI run (full, seed 0) instead of the pilot: about 9 s in all, no key",
@@ -56,19 +57,20 @@
     "b8039ea8d5d7d34512955853110d86fcffdf308a Analysis: every pre-registered measure computed from the run directories (main_results.py, measures.py), small PNG figures (figures.py); pin matplotlib and numpy",
     "9c2f893e94a234b86e86161260ae089a08002872 Replay cache: pack each run's entries into one jsonl.gz (tools/pack_llm_cache.py); llm.py reads packs in auto and replay mode, with a test"
   ],
-  "kept_entries": 464,
+  "kept_entries": 471,
   "omitted_entries": {
-    "ai-title": 60,
+    "ai-title": 61,
     "queue-operation": 4,
-    "attachment": 213,
+    "attachment": 215,
     "file-history-snapshot": 1,
-    "atis-latch": 60,
-    "last-prompt": 59,
-    "file-history-delta": 16
+    "atis-latch": 61,
+    "last-prompt": 61,
+    "file-history-delta": 16,
+    "cost-state": 1
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 127
+    "thinking_omitted": 129
   },
   "missing": {
     "tool_results_stored_outside_log": 0,
