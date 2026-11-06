@@ -207,12 +207,13 @@ function drawSounds(ctx, run, tau, px) {
     const k = (tau - s.t) / FX_TICKS.sound;
     const color = s.sound === "sound-2" ? P.sound2 : P.sound1;
     const x = s.x + 0.5, y = s.y + 0.5;
-    ctx.globalAlpha = 0.05 * (1 - k);
-    ctx.fillStyle = color;
+    // A thin fixed ring marks how far the sound carries; two rings ripple out to it.
+    ctx.strokeStyle = color;
+    ctx.globalAlpha = 0.4 * (1 - k);
+    ctx.lineWidth = px(1);
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, TAU);
-    ctx.fill();
-    ctx.strokeStyle = color;
+    ctx.stroke();
     for (const lag of [0, 0.18]) {
       const kk = Math.max(0, Math.min(1, (k - lag) / 0.7));
       if (kk <= 0 || kk >= 1) continue;
