@@ -237,3 +237,17 @@ Written by the phase 4b build session (Claude Code, 2026-11-06). E5 asks whether
 - **Runs:** `e5_full.toml` and `e5_no_talk.toml`, seeds 0 to 4, one process per seed (tags `s0` to `s4`, batch stamp `20261106T112913Z`), from a clean worktree at commit 2b99282 on /dev/shm, each with its own `LLM_CACHE_DIR`, `LLM_SPEND_FILE` and `LLM_BUDGET_USD` 0.90.
 - **Analysis:** `experiments/analysis/e5_results.py` (also run by `make analysis`); `DL_E5_STAMP` picks another batch.
 - **Packs:** E5 caches are packed with `tools/pack_llm_cache.py --order run` (entries by bee and tick), about half the size of key order. The main runs' packs are unchanged.
+- **Result:** both E5 hypotheses unsupported (EXPERIMENTS.md, E5). Replay: `make replay RUN=experiments/results/e5_full/20261106T112913Z_s0/seed-0` (about 11 s); all 10 checked identical (experiments/analysis/output/replay_e5.log).
+
+### E5 moments for the video
+
+All in `e5_full` seed 0 (`experiments/results/e5_full/20261106T112913Z_s0/seed-0`), spring of year 1. Bundle with `viewer/bundle.py` (203 KB page); the 56 x 34 map renders as is. Still: `demo/screenshots/e5_full_seed0_t172_bee6.png` (tick 172, following bee 6).
+
+| Ticks | Moment | Follow |
+|---|---|---|
+| 55 to 170 | **A first finder delivers.** Bee 4 picks up bloom at tick 60, carries it home and delivers at tick 166; bee 6 hatches from it the same tick. Bees 3, 0, 1 and 2 pick up at ticks 69, 70, 76 and 140 and deliver at 169, 170, 180 and 198 | bee 4 |
+| 166 to 172 | **Hive talk passes the place.** Tick 167, bee 4 to bee 6: "Back home carrying a bright thing from around (36,3), found in the east. Members should know it is there. Waiting here to report." Tick 170, bee 3 to bee 7: "Bright spot seen near (37,3)". At tick 172 bee 6 notes "Heard the valuable thing was found near (37,3) in the east; explore east next" and repeats it at home | bee 6 |
+| 172 to 330 | **A talk-informed bee delivers.** Bee 6 explores NE with (37,3) as its stated target, comes within sight of the bloom at tick 216, picks up at 224 and delivers at 330. Bee 7 does the same: sighting 218, pickup 226, delivery 332 | bee 6 (or 7) |
+| any | **The control.** `e5_no_talk` seed 0 has the same maze, bloom and first hornets and made 3 deliveries in the year against `e5_full`'s 15; but over 5 seeds no_talk delivered more (8.2 against 5.2), so show it as "talk helped here, not in general" | |
+
+The honest caption for the video: talk carried a place in one seed of five, and colonies with talk spent more time at home and gathered no more.

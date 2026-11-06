@@ -6,38 +6,39 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 202
+    "claude-opus-5-5": 213
   },
   "first_timestamp": "2026-11-06T11:20:27.400Z",
-  "last_timestamp": "2026-11-06T11:56:30.627Z",
+  "last_timestamp": "2026-11-06T11:57:11.634Z",
   "source": {
     "file": "3859069f-c33d-4954-912e-e20d89d0f426.jsonl",
-    "sha256": "364cffadc32fdd128e2648e89356cc29a1e8e45b1c7e0fda6bffc5d896599d0f",
-    "lines": 572,
+    "sha256": "4d013f3bc4df8c800c72a0558dc4aae54aaeea1bc9f90c7c18a336ef1b8863b0",
+    "lines": 601,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 190,
-    "output_tokens": 79701,
-    "cache_creation_input_tokens": 179480,
-    "cache_read_input_tokens": 11749771,
-    "api_responses": 95,
+    "input_tokens": 202,
+    "output_tokens": 82894,
+    "cache_creation_input_tokens": 184787,
+    "cache_read_input_tokens": 12909421,
+    "api_responses": 101,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 99
+    "accept/config": 105
   },
   "tool_calls": {
-    "Bash": 84,
-    "Read": 3,
+    "Bash": 88,
+    "Read": 4,
     "Write": 4,
-    "Edit": 9
+    "Edit": 10
   },
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "bef63eedc04885a43d738e97f6591fdde821d2c2 README: E5 paragraph after the main negative results. AI disclosure: phase 4b session, E5 runtime tokens and spend, test count, the too-narrow acted-on-talk rule",
     "98e8affe99a0b6bdda949a1337f7008459ee9227 EXPERIMENTS: E5 written up (both hypotheses unsupported; talk carried a place in one seed, bees with talk stayed home more), summary row, negative result 7, limits, spend; E5 replay log",
     "40b0b1cd441bb532191fe6a725fa8122386b6785 E5 runs (e5_full, e5_no_talk, seeds 0 to 4, commit 2b99282), packed replay caches (run order) and analysis output. Traces: phase 4b session",
     "7971a65c6f453ab25b4d9e9995e2adbe0bc31f2d Build notes: phase 4b (E5 world, runs, analysis, packs); make analysis runs the E5 scripts. Traces: phase 4b session",
@@ -48,19 +49,19 @@
     "cdbd28046cae677f64e9c15ff5a2763a74551c6d Config for the E5 world calibration (scripted bees, 1 year, target fixed in the header)",
     "4ebf5209d3d97de2e274305369fce108843b5d64 Diagnosis for E5: why trips failed in the main runs (finding the bloom, not carrying it home). Traces: phase 4b session"
   ],
-  "kept_entries": 302,
+  "kept_entries": 319,
   "omitted_entries": {
-    "ai-title": 40,
+    "ai-title": 42,
     "queue-operation": 6,
-    "attachment": 136,
+    "attachment": 142,
     "file-history-snapshot": 1,
-    "atis-latch": 40,
-    "last-prompt": 39,
+    "atis-latch": 42,
+    "last-prompt": 41,
     "file-history-delta": 8
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 90,
+    "thinking_omitted": 93,
     "truncated": 1
   },
   "missing": {
