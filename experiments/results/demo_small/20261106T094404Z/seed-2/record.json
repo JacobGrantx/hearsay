@@ -1,0 +1,71 @@
+{
+  "experiment": "demo_small",
+  "hypothesis": "Demonstration run, not an experiment: the world, seasons, evolving hornets and scripted bees end to end.",
+  "entrypoint": "digital_life.sim:run",
+  "params": {
+    "condition": "rule_bees",
+    "width": 40,
+    "height": 24,
+    "season_length": 75,
+    "years": 1,
+    "base_life": 200,
+    "min_bloom_distance": 20,
+    "openness": 0.15,
+    "hornet_counts": [
+      2,
+      3,
+      4,
+      0
+    ]
+  },
+  "overrides": [],
+  "seed": 2,
+  "started": "2026-11-06T09:44:08Z",
+  "seconds": 1.684,
+  "final_metrics": {
+    "trips": 54,
+    "deliveries": 7,
+    "stings": 43,
+    "delivery_rate": 0.1346,
+    "stings_per_trip": 0.8269,
+    "spring_trips": 4,
+    "spring_deliveries": 3,
+    "spring_rate": 0.75,
+    "spring_stings_per_trip": 0.0,
+    "summer_trips": 18,
+    "summer_deliveries": 3,
+    "summer_rate": 0.1667,
+    "summer_stings_per_trip": 1.2778,
+    "autumn_trips": 28,
+    "autumn_deliveries": 1,
+    "autumn_rate": 0.0357,
+    "autumn_stings_per_trip": 0.7143,
+    "first_delivery_y1_spring": 51,
+    "median_to_bloom": 28,
+    "hatches": 7,
+    "queen_hatches": 1,
+    "deaths": 12,
+    "bees_mean": 6.397,
+    "bees_final": 2,
+    "smell_first": 2.0,
+    "smell_last": 1.75,
+    "hearing_first": 1.0,
+    "hearing_last": 0.75,
+    "ambush_first": 7.0,
+    "ambush_last": 7.5,
+    "bloom_distance_spring": 24,
+    "bloom_distance_summer": 29,
+    "bloom_distance_autumn": 23
+  },
+  "error": null,
+  "provenance": {
+    "git_commit": "59bd01979d96c05eebcaa0b8dd6e0e7699d7655a",
+    "git_dirty": false,
+    "python": "3.12.8",
+    "platform": "Linux-7.0.0-1014-gcp-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.5.4",
+      "anthropic": "2.6.0"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+# The reproducible small demo (`make demo`): rule bees on a 40 x 24 map for one short year. No model, no key.
+[experiment]
+name = "demo_small"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Demonstration run, not an experiment: the world, seasons, evolving hornets and scripted bees end to end."
+seeds = [0, 1, 2]
+
+[params]
+condition = "rule_bees"
+width = 40
+height = 24
+season_length = 75
+years = 1
+base_life = 200
+min_bloom_distance = 20
+openness = 0.15
+hornet_counts = [2, 3, 4, 0]

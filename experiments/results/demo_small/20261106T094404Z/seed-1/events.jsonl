@@ -1,0 +1,485 @@
+{"kind": "season", "t": 0, "season": "spring", "year": 0}
+{"kind": "hornet_spawn", "t": 0, "hornet": 0, "x": 29, "y": 17, "genes": [3, 3, 4], "parent": null}
+{"kind": "hornet_spawn", "t": 0, "hornet": 1, "x": 35, "y": 6, "genes": [3, 2, 5], "parent": 0}
+{"kind": "hatch", "t": 0, "bee": 0, "x": 2, "y": 12, "life": 200.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 1, "x": 3, "y": 16, "life": 200.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 2, "x": 6, "y": 8, "life": 200.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 3, "x": 3, "y": 10, "life": 200.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 4, "x": 5, "y": 12, "life": 200.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 5, "x": 4, "y": 14, "life": 200.0, "cause": "start"}
+{"kind": "decision", "t": 0, "bee": 0, "trigger": "hatched", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 0, "bee": 1, "trigger": "hatched", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 0, "bee": 2, "trigger": "hatched", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 0, "bee": 3, "trigger": "hatched", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 0, "bee": 4, "trigger": "hatched", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 0, "bee": 5, "trigger": "hatched", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 5, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 5, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 5, "bee": 2, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 5, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 5, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 5, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 10, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 10, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 10, "bee": 2, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 10, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 10, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 10, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 13, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 15, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 15, "bee": 2, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 15, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 15, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 15, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 15, "bee": 0, "start": 9, "ticks": 6, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "decision", "t": 16, "bee": 0, "trigger": "home", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 18, "bee": 2, "trigger": "bloom", "intent": "go_to", "direction": null, "target": [20, 4], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 18, "bee": 5, "trigger": "bloom", "intent": "go_to", "direction": null, "target": [20, 4], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 20, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 20, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 20, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 21, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 23, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [20, 4], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 23, "bee": 4, "trigger": "arrived", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 23, "bee": 5, "trigger": "timer", "intent": "go_to", "direction": null, "target": [20, 4], "sound": "none", "remember": "", "say": ""}
+{"kind": "hornet_replaced", "t": 24, "removed": 0, "removed_fitness": 0.0, "parent": 1, "child": 2, "genes": [3, 3, 4], "x": 29, "y": 1}
+{"kind": "decision", "t": 25, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 25, "bee": 2, "trigger": "hornet", "intent": "go_to", "direction": null, "target": [20, 4], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 25, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 25, "bee": 5, "trigger": "hornet", "intent": "go_to", "direction": null, "target": [20, 4], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 26, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 27, "bee": 3, "trigger": "arrived", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 27, "hornet": 1, "bee": 5, "x": 20, "y": 5, "amount": 86, "life_after": 87.0}
+{"kind": "decision", "t": 28, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 28, "bee": 5, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 28, "bee": 2, "x": 20, "y": 4}
+{"kind": "decision", "t": 30, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 30, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 30, "bee": 2, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 30, "hornet": 1, "bee": 2, "x": 20, "y": 5, "amount": 85, "life_after": 85.0}
+{"kind": "decision", "t": 31, "bee": 2, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 31, "bee": 4, "trigger": "arrived", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 32, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 33, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 35, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 35, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 36, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 36, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 37, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 38, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 40, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 40, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 40, "hornet": 1, "bee": 2, "x": 16, "y": 9, "amount": 37, "life_after": 38.0}
+{"kind": "decision", "t": 41, "bee": 2, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 41, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 42, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 42, "bee": 3, "start": 13, "ticks": 29, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "decision", "t": 43, "bee": 3, "trigger": "home", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 43, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 44, "bee": 0, "trigger": "hornet", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 45, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 46, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 46, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 48, "bee": 0, "trigger": "bloom", "intent": "go_to", "direction": null, "target": [20, 4], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 48, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 48, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 49, "bee": 1, "trigger": "hornet", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "heal", "t": 49, "bee": 5, "amount": 43.0, "life_after": 108.0}
+{"kind": "trip", "t": 49, "bee": 5, "start": 8, "ticks": 41, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "hornet_replaced", "t": 49, "removed": 2, "removed_fitness": 0.0, "parent": 1, "child": 3, "genes": [4, 2, 4], "x": 27, "y": 17}
+{"kind": "decision", "t": 50, "bee": 5, "trigger": "home", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 50, "hornet": 1, "bee": 2, "x": 10, "y": 11, "amount": 14, "life_after": 14.0}
+{"kind": "decision", "t": 51, "bee": 2, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 51, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 51, "bee": 5, "trigger": "hornet", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 52, "hornet": 1, "bee": 5, "x": 9, "y": 11, "amount": 52, "life_after": 53.0}
+{"kind": "decision", "t": 53, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [20, 4], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 53, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 53, "bee": 4, "trigger": "hornet", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 53, "bee": 5, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 54, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 55, "bee": 5, "trigger": "life25", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 56, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "delivery", "t": 56, "bee": 2, "life_before": 8.0, "life_after": 16.0}
+{"kind": "hatch", "t": 56, "bee": 6, "x": 1, "y": 13, "life": 200.0, "cause": "delivery"}
+{"kind": "heal", "t": 56, "bee": 2, "amount": 68.0, "life_after": 84.0}
+{"kind": "trip", "t": 56, "bee": 2, "start": 8, "ticks": 48, "delivered": true, "reached_bloom": 20, "stings": 3, "outcome": "home"}
+{"kind": "sting", "t": 56, "hornet": 1, "bee": 4, "x": 9, "y": 13, "amount": 72, "life_after": 72.0}
+{"kind": "decision", "t": 57, "bee": 2, "trigger": "home", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 57, "bee": 4, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 57, "bee": 6, "trigger": "hatched", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 57, "bee": 0, "x": 20, "y": 3}
+{"kind": "trip", "t": 57, "bee": 5, "start": 50, "ticks": 7, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 58, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 58, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 58, "bee": 5, "trigger": "home", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 59, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 59, "bee": 3, "trigger": "arrived", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "heal", "t": 61, "bee": 4, "amount": 36.0, "life_after": 103.0}
+{"kind": "trip", "t": 61, "bee": 4, "start": 9, "ticks": 52, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 62, "bee": 1, "trigger": "arrived", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 62, "bee": 2, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 62, "bee": 4, "trigger": "home", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 62, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 63, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 63, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 64, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 64, "bee": 4, "trigger": "life50", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 65, "bee": 4, "trigger": "arrived", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 67, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 67, "bee": 2, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 67, "bee": 4, "trigger": "hornet", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 67, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 68, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 68, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 69, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 71, "bee": 2, "trigger": "hornet", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 72, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 72, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 72, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 73, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 73, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 74, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "hornet_replaced", "t": 74, "removed": 3, "removed_fitness": 0.0, "parent": 1, "child": 4, "genes": [3, 2, 5], "x": 22, "y": 10}
+{"kind": "season", "t": 75, "season": "summer", "year": 0}
+{"kind": "hornet_spawn", "t": 75, "hornet": 5, "x": 22, "y": 10, "genes": [3, 2, 5], "parent": 1}
+{"kind": "decision", "t": 75, "bee": 2, "trigger": "bloom", "intent": "go_to", "direction": null, "target": [22, 20], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 77, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 77, "bee": 3, "trigger": "arrived", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 77, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 77, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 78, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 78, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "delivery", "t": 79, "bee": 0, "life_before": 121.0, "life_after": 242.0}
+{"kind": "hatch", "t": 79, "bee": 7, "x": 5, "y": 10, "life": 200.0, "cause": "delivery"}
+{"kind": "trip", "t": 79, "bee": 0, "start": 16, "ticks": 63, "delivered": true, "reached_bloom": 41, "stings": 0, "outcome": "home"}
+{"kind": "trip", "t": 79, "bee": 1, "start": 47, "ticks": 32, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "decision", "t": 80, "bee": 0, "trigger": "home", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 80, "bee": 1, "trigger": "home", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 80, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 20], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 80, "bee": 7, "trigger": "hatched", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 81, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 81, "bee": 2, "x": 22, "y": 20}
+{"kind": "decision", "t": 82, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 82, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 82, "bee": 6, "trigger": "arrived", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 83, "bee": 2, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 83, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 84, "hornet": 1, "bee": 2, "x": 21, "y": 21, "amount": 28, "life_after": 28.0}
+{"kind": "decision", "t": 85, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 85, "bee": 2, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 85, "bee": 6, "trigger": "arrived", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 85, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 86, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 87, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 87, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 88, "bee": 5, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 90, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 90, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 90, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 90, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 91, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 92, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 92, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 93, "bee": 5, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 95, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 95, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 95, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 95, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 96, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 97, "bee": 3, "trigger": "hornet", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 97, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 98, "bee": 4, "trigger": "arrived", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 98, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 99, "bee": 1, "trigger": "hornet", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "hornet_replaced", "t": 99, "removed": 4, "removed_fitness": 0.0, "parent": 1, "child": 6, "genes": [3, 2, 5], "x": 29, "y": 3}
+{"kind": "decision", "t": 100, "bee": 1, "trigger": "life50", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 100, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 100, "bee": 3, "trigger": "life50", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 100, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 100, "bee": 7, "trigger": "arrived", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 101, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 101, "bee": 1, "trigger": "hornet", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 101, "bee": 4, "trigger": "arrived", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 102, "bee": 6, "start": 68, "ticks": 34, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "decision", "t": 103, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 103, "bee": 6, "trigger": "home", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 103, "bee": 5, "start": 79, "ticks": 24, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "decision", "t": 104, "bee": 5, "trigger": "home", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 104, "hornet": 5, "bee": 1, "x": 19, "y": 7, "amount": 48, "life_after": 48.0}
+{"kind": "trip", "t": 104, "bee": 5, "start": 104, "ticks": 0, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "died"}
+{"kind": "death", "t": 104, "bee": 5, "x": 3, "y": 6, "age": 104, "cause": "life"}
+{"kind": "decision", "t": 105, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 105, "bee": 1, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 105, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 105, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 105, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 106, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 108, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "delivery", "t": 109, "bee": 2, "life_before": 3.0, "life_after": 6.0}
+{"kind": "hatch", "t": 109, "bee": 8, "x": 1, "y": 12, "life": 200.0, "cause": "delivery"}
+{"kind": "trip", "t": 109, "bee": 2, "start": 57, "ticks": 52, "delivered": true, "reached_bloom": 24, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 110, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 110, "bee": 1, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 110, "bee": 2, "trigger": "home", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 110, "bee": 3, "trigger": "hornet", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 110, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 110, "bee": 8, "trigger": "hatched", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 111, "bee": 4, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 113, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 114, "bee": 4, "trigger": "life25", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 114, "bee": 8, "trigger": "arrived", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 114, "hornet": 5, "bee": 1, "x": 15, "y": 11, "amount": 19, "life_after": 19.0}
+{"kind": "trip", "t": 114, "bee": 2, "start": 110, "ticks": 4, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "died"}
+{"kind": "death", "t": 114, "bee": 2, "x": 9, "y": 9, "age": 114, "cause": "life"}
+{"kind": "decision", "t": 115, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 115, "bee": 1, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 115, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 115, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 118, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 118, "bee": 7, "trigger": "arrived", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 119, "bee": 4, "trigger": "hornet", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 119, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 120, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 120, "bee": 1, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 120, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 120, "bee": 4, "trigger": "arrived", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 122, "bee": 0, "trigger": "hornet", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 123, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 123, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 124, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "hornet_replaced", "t": 124, "removed": 6, "removed_fitness": 0.0, "parent": 1, "child": 7, "genes": [3, 2, 5], "x": 33, "y": 15}
+{"kind": "decision", "t": 125, "bee": 0, "trigger": "bloom", "intent": "go_to", "direction": null, "target": [22, 18], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 125, "bee": 1, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 125, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 125, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 125, "bee": 8, "trigger": "arrived", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "heal", "t": 125, "bee": 1, "amount": 33.5, "life_after": 41.5}
+{"kind": "trip", "t": 125, "bee": 1, "start": 88, "ticks": 37, "delivered": false, "reached_bloom": null, "stings": 2, "outcome": "home"}
+{"kind": "decision", "t": 126, "bee": 1, "trigger": "home", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 127, "bee": 4, "trigger": "hornet", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 127, "bee": 8, "start": 121, "ticks": 6, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "sting", "t": 127, "hornet": 5, "bee": 1, "x": 9, "y": 12, "amount": 19, "life_after": 20.5}
+{"kind": "decision", "t": 128, "bee": 1, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 128, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 128, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 128, "bee": 8, "trigger": "home", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 130, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 18], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 130, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 130, "hornet": 5, "bee": 4, "x": 9, "y": 11, "amount": 17, "life_after": 17.0}
+{"kind": "decision", "t": 131, "bee": 4, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 131, "bee": 1, "start": 126, "ticks": 5, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 132, "bee": 1, "trigger": "home", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 132, "bee": 3, "trigger": "hornet", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 133, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 133, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 133, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 134, "bee": 6, "trigger": "arrived", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 135, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 18], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 135, "bee": 3, "trigger": "hornet", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 135, "bee": 7, "trigger": "hornet", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 135, "bee": 4, "start": 84, "ticks": 51, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 136, "bee": 4, "trigger": "home", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 137, "bee": 1, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 137, "bee": 4, "trigger": "arrived", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 137, "bee": 0, "x": 22, "y": 18}
+{"kind": "sting", "t": 137, "hornet": 5, "bee": 7, "x": 9, "y": 9, "amount": 71, "life_after": 72.0}
+{"kind": "decision", "t": 138, "bee": 7, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 138, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 139, "bee": 0, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 139, "bee": 1, "trigger": "hornet", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 139, "bee": 3, "trigger": "hornet", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 139, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 140, "hornet": 5, "bee": 3, "x": 9, "y": 12, "amount": 30, "life_after": 30.0}
+{"kind": "decision", "t": 141, "bee": 3, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 142, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 142, "bee": 8, "trigger": "arrived", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 143, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 143, "hornet": 5, "bee": 4, "x": 9, "y": 13, "amount": 2, "life_after": 2.0}
+{"kind": "decision", "t": 144, "bee": 0, "trigger": "hornet", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 144, "bee": 1, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 144, "bee": 4, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 144, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "heal", "t": 144, "bee": 3, "amount": 15.0, "life_after": 41.0}
+{"kind": "trip", "t": 144, "bee": 3, "start": 63, "ticks": 81, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "heal", "t": 144, "bee": 7, "amount": 35.5, "life_after": 100.5}
+{"kind": "trip", "t": 144, "bee": 7, "start": 96, "ticks": 48, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "trip", "t": 144, "bee": 4, "start": 137, "ticks": 7, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "died"}
+{"kind": "death", "t": 144, "bee": 4, "x": 9, "y": 13, "age": 144, "cause": "life"}
+{"kind": "decision", "t": 145, "bee": 3, "trigger": "home", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 145, "bee": 7, "trigger": "home", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 147, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 147, "hornet": 5, "bee": 7, "x": 9, "y": 11, "amount": 48, "life_after": 49.5}
+{"kind": "trip", "t": 147, "bee": 1, "start": 132, "ticks": 15, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "died"}
+{"kind": "death", "t": 147, "bee": 1, "x": 11, "y": 16, "age": 147, "cause": "life"}
+{"kind": "decision", "t": 148, "bee": 7, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 149, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 149, "bee": 6, "trigger": "bloom", "intent": "go_to", "direction": null, "target": [22, 18], "sound": "none", "remember": "", "say": ""}
+{"kind": "hornet_replaced", "t": 149, "removed": 7, "removed_fitness": 0.0, "parent": 5, "child": 8, "genes": [3, 2, 5], "x": 22, "y": 16}
+{"kind": "season", "t": 150, "season": "autumn", "year": 0}
+{"kind": "hornet_spawn", "t": 150, "hornet": 9, "x": 27, "y": 15, "genes": [3, 2, 5], "parent": 1}
+{"kind": "decision", "t": 150, "bee": 0, "trigger": "bloom", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 150, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 150, "bee": 6, "trigger": "hornet", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 151, "bee": 8, "trigger": "hornet", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 152, "bee": 7, "start": 145, "ticks": 7, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 153, "bee": 7, "trigger": "home", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 154, "hornet": 5, "bee": 8, "x": 11, "y": 9, "amount": 78, "life_after": 78.0}
+{"kind": "decision", "t": 155, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 155, "bee": 3, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 155, "bee": 6, "trigger": "hornet", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 155, "bee": 8, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 156, "bee": 0, "trigger": "hornet", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 156, "hornet": 8, "bee": 6, "x": 20, "y": 21, "amount": 50, "life_after": 51.0}
+{"kind": "decision", "t": 157, "bee": 6, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 158, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 159, "bee": 3, "trigger": "hornet", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 159, "bee": 6, "trigger": "hornet", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 160, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 160, "hornet": 5, "bee": 0, "x": 11, "y": 11, "amount": 80, "life_after": 81.0}
+{"kind": "decision", "t": 161, "bee": 0, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 162, "bee": 3, "trigger": "hornet", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 162, "hornet": 8, "bee": 3, "x": 17, "y": 20, "amount": 11, "life_after": 12.0}
+{"kind": "decision", "t": 163, "bee": 3, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 163, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "heal", "t": 163, "bee": 8, "amount": 39.0, "life_after": 108.0}
+{"kind": "trip", "t": 163, "bee": 8, "start": 128, "ticks": 35, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 164, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 164, "bee": 7, "trigger": "arrived", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 164, "bee": 8, "trigger": "home", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 166, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "delivery", "t": 167, "bee": 0, "life_before": 74.0, "life_after": 148.0}
+{"kind": "hatch", "t": 167, "bee": 9, "x": 2, "y": 14, "life": 200.0, "cause": "delivery"}
+{"kind": "heal", "t": 167, "bee": 0, "amount": 40.0, "life_after": 188.0}
+{"kind": "trip", "t": 167, "bee": 0, "start": 81, "ticks": 86, "delivered": true, "reached_bloom": 56, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 168, "bee": 0, "trigger": "home", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 168, "bee": 3, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 168, "bee": 9, "trigger": "hatched", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 169, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 169, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 169, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 169, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 170, "bee": 8, "trigger": "arrived", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 171, "bee": 8, "trigger": "life50", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 172, "bee": 8, "trigger": "arrived", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 173, "bee": 3, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 173, "bee": 9, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 173, "bee": 3, "start": 145, "ticks": 28, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "died"}
+{"kind": "death", "t": 173, "bee": 3, "x": 11, "y": 17, "age": 173, "cause": "life"}
+{"kind": "decision", "t": 174, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 174, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 174, "bee": 7, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "hornet_replaced", "t": 174, "removed": 9, "removed_fitness": 0.0, "parent": 5, "child": 10, "genes": [3, 3, 4], "x": 20, "y": 2}
+{"kind": "decision", "t": 176, "bee": 7, "trigger": "arrived", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 177, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 178, "bee": 9, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 179, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 179, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 179, "bee": 9, "trigger": "arrived", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "heal", "t": 180, "bee": 6, "amount": 25.0, "life_after": 52.0}
+{"kind": "trip", "t": 180, "bee": 6, "start": 113, "ticks": 67, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 181, "bee": 6, "trigger": "home", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 181, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 182, "bee": 6, "trigger": "life25", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 182, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 184, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 184, "bee": 9, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 186, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 187, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 187, "bee": 8, "trigger": "hornet", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 189, "bee": 0, "trigger": "hornet", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 189, "bee": 9, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 191, "bee": 0, "trigger": "bloom", "intent": "go_to", "direction": null, "target": [22, 9], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 191, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 191, "bee": 7, "start": 161, "ticks": 30, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "sting", "t": 191, "hornet": 8, "bee": 8, "x": 17, "y": 18, "amount": 40, "life_after": 40.0}
+{"kind": "decision", "t": 192, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 192, "bee": 7, "trigger": "home", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 192, "bee": 8, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 193, "bee": 7, "trigger": "arrived", "intent": "explore", "direction": "N", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 194, "bee": 0, "trigger": "hornet", "intent": "go_to", "direction": null, "target": [22, 9], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 194, "bee": 9, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "death", "t": 196, "bee": 7, "x": 6, "y": 15, "age": 117, "cause": "life"}
+{"kind": "decision", "t": 197, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 197, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 199, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 8], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 199, "bee": 9, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 199, "bee": 0, "x": 22, "y": 8}
+{"kind": "hornet_replaced", "t": 199, "removed": 10, "removed_fitness": 0.0, "parent": 5, "child": 11, "genes": [3, 1, 6], "x": 32, "y": 18}
+{"kind": "decision", "t": 201, "bee": 0, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 202, "bee": 6, "trigger": "timer", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 202, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 204, "bee": 9, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 206, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 206, "bee": 6, "trigger": "hornet", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 207, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 208, "bee": 9, "trigger": "hornet", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 209, "bee": 8, "start": 176, "ticks": 33, "delivered": false, "reached_bloom": null, "stings": 1, "outcome": "home"}
+{"kind": "decision", "t": 210, "bee": 8, "trigger": "home", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 210, "hornet": 1, "bee": 6, "x": 18, "y": 21, "amount": 11, "life_after": 11.0}
+{"kind": "decision", "t": 211, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 211, "bee": 6, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 211, "hornet": 1, "bee": 9, "x": 17, "y": 21, "amount": 78, "life_after": 79.0}
+{"kind": "decision", "t": 212, "bee": 9, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 215, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 216, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 216, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 217, "bee": 9, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 220, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 220, "hornet": 1, "bee": 6, "x": 14, "y": 17, "amount": 0, "life_after": 1.0}
+{"kind": "trip", "t": 220, "bee": 6, "start": 181, "ticks": 39, "delivered": false, "reached_bloom": null, "stings": 2, "outcome": "died"}
+{"kind": "death", "t": 220, "bee": 6, "x": 14, "y": 17, "age": 164, "cause": "life"}
+{"kind": "decision", "t": 221, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "delivery", "t": 221, "bee": 0, "life_before": 134.0, "life_after": 268.0}
+{"kind": "hatch", "t": 221, "bee": 10, "x": 2, "y": 13, "life": 200.0, "cause": "delivery"}
+{"kind": "trip", "t": 221, "bee": 0, "start": 179, "ticks": 42, "delivered": true, "reached_bloom": 20, "stings": 0, "outcome": "home"}
+{"kind": "sting", "t": 221, "hornet": 1, "bee": 9, "x": 13, "y": 17, "amount": 34, "life_after": 35.0}
+{"kind": "decision", "t": 222, "bee": 0, "trigger": "home", "intent": "explore", "direction": "NW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 222, "bee": 9, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 222, "bee": 10, "trigger": "hatched", "intent": "explore", "direction": "S", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 222, "hornet": 8, "bee": 9, "x": 13, "y": 17, "amount": 17, "life_after": 17.0}
+{"kind": "decision", "t": 223, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 223, "bee": 9, "trigger": "stung", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "hornet_replaced", "t": 224, "removed": 11, "removed_fitness": 0.0, "parent": 5, "child": 12, "genes": [4, 1, 5], "x": 25, "y": 19}
+{"kind": "season", "t": 225, "season": "winter", "year": 0}
+{"kind": "hornet_dormant", "t": 225, "hornets": [[1, 3, 2, 5, 2.2089], [5, 3, 2, 5, 2.7467], [8, 3, 2, 5, 1.5733], [12, 4, 1, 5, 0.0]]}
+{"kind": "decision", "t": 225, "bee": 8, "trigger": "timer", "intent": "explore", "direction": "NE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 227, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "SW", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 227, "bee": 8, "start": 220, "ticks": 7, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "died"}
+{"kind": "death", "t": 227, "bee": 8, "x": 14, "y": 11, "age": 118, "cause": "life"}
+{"kind": "decision", "t": 228, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 228, "bee": 9, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 231, "bee": 9, "start": 176, "ticks": 55, "delivered": false, "reached_bloom": null, "stings": 3, "outcome": "died"}
+{"kind": "death", "t": 231, "bee": 9, "x": 9, "y": 14, "age": 64, "cause": "life"}
+{"kind": "decision", "t": 232, "bee": 10, "trigger": "arrived", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 233, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "trip", "t": 233, "bee": 10, "start": 229, "ticks": 4, "delivered": false, "reached_bloom": null, "stings": 0, "outcome": "home"}
+{"kind": "decision", "t": 234, "bee": 10, "trigger": "home", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 238, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 239, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 243, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 244, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 248, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 249, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 253, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 254, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 258, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 259, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 263, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "SE", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 264, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 264, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 269, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 269, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 274, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 274, "bee": 10, "trigger": "timer", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 278, "bee": 10, "trigger": "life50", "intent": "explore", "direction": "E", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 279, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 283, "bee": 10, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 284, "bee": 0, "trigger": "timer", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 288, "bee": 10, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 289, "bee": 0, "trigger": "arrived", "intent": "explore", "direction": "W", "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 293, "bee": 10, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 294, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 298, "bee": 10, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 299, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "end", "t": 300, "bees_alive": 2}
