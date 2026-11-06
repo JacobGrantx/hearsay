@@ -118,7 +118,14 @@ Jacob Schoenberg, solo entry. Jacob designed the core mechanics (maze, life as s
 
 ## Future directions
 
-RESULTS PENDING
+With another month:
+
+- **Ten seeds per arm, not three.** The world is noisy by design, and with n = 3 only large, consistent differences can be told from chance. Every number in EXPERIMENTS.md says how many seeds it rests on.
+- **A free-sound arm.** Sounds cost 1 life and attract hornets, and bees almost never make them. A pre-registered arm with free sounds would tell "no meaning emerges" apart from "sounds are too expensive to try".
+- **Follow knowledge through the colony.** Trace each coordinate from the bee that saw it, through every retelling at home, to the bee that acts on it, and measure how far and how long true and false claims travel.
+- **The prompt-robustness arm** the spec lists as a stretch: a paraphrased and reordered system prompt with the same facts, to show that what the colony does comes from the world, not from the wording.
+- **Bigger colonies.** Colonies spend much of their time near the 2-bee floor, so few bees are at home to hear anything. A world with more bloom would give culture more carriers.
+- **Walls that block sight**, and hornets that remember places within a life as well as evolving across lives, so both sides of the arms race can learn at two speeds.
 
 ## Licence
 

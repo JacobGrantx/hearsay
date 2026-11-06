@@ -92,7 +92,7 @@ def carryover(run: Run) -> dict:
     heard = [e for e in run.of("say") if bee in e.get("heard_by", []) and e["t"] < left]
     near = any(max(abs(int(x) - bx), abs(int(y) - by)) <= 3
                for e in heard for x, y in COORD.findall(e["text"]) for bx, by in bloom)
-    out.update(forager=bee, forager_left=left, forager_alive_y1_spring=bee in alive_y1_spring,
+    out.update(forager=bee, forager_left=left, forager_left_before_spring=left < y2, forager_alive_y1_spring=bee in alive_y1_spring,
                forager_heard_bloom_coord=near)
     return out
 
