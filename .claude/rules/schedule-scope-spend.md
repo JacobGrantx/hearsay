@@ -17,7 +17,7 @@ Get the exact submission deadline from Jacob. Plan backwards from it with two ho
 ## Spend (approved by Jacob 2026-11-05)
 
 - Runtime model calls are allowed. They all go through `digital_life.llm.complete()`, which enforces `LLM_BUDGET_USD` (default $100 total, tracked in `.llm_spend.json`). Raising the cap is Jacob's call.
-- Default model `claude-opus-5-5`. Set effort explicitly per use. Changing model or effort is Jacob's call and is recorded as a variable.
+- Default model `claude-opus-5-5`. Bee minds run on `claude-haiku-5-5` (effort low, thinking off, structured output), as Jacob approved with the spec on 2026-11-05. Set effort explicitly per use. Any other change of model or effort is Jacob's call, and is recorded as a variable.
 - Development credentials are the Microsoft Foundry ones already in the session environment. Never copy them into files.
 - Cached replays cost nothing. Prefer replay when re-running cited results.
 
