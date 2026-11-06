@@ -1,0 +1,245 @@
+{
+ "full": {
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "all": {
+   "trips": 173,
+   "delivered": 9,
+   "died_stung": 27,
+   "died_no_sting": 27,
+   "back_stung": 16,
+   "back_no_sting": 94,
+   "reached_bloom": 13,
+   "got_within_bloom_d": 36,
+   "median_frac": 0.551,
+   "median_life_start": 0.78,
+   "median_life_at_turn_back": 0.675,
+   "median_frac_turned_back": 0.457
+  },
+  "by_season": {
+   "spring": {
+    "trips": 68,
+    "delivered": 8,
+    "died_stung": 12,
+    "died_no_sting": 4,
+    "back_stung": 10,
+    "back_no_sting": 34,
+    "reached_bloom": 10,
+    "got_within_bloom_d": 21,
+    "median_frac": 0.658,
+    "median_life_start": 0.982,
+    "median_life_at_turn_back": 0.807,
+    "median_frac_turned_back": 0.52
+   },
+   "summer": {
+    "trips": 57,
+    "delivered": 0,
+    "died_stung": 9,
+    "died_no_sting": 6,
+    "back_stung": 3,
+    "back_no_sting": 39,
+    "reached_bloom": 1,
+    "got_within_bloom_d": 7,
+    "median_frac": 0.453,
+    "median_life_start": 0.622,
+    "median_life_at_turn_back": 0.512,
+    "median_frac_turned_back": 0.36
+   },
+   "autumn": {
+    "trips": 35,
+    "delivered": 0,
+    "died_stung": 2,
+    "died_no_sting": 10,
+    "back_stung": 3,
+    "back_no_sting": 20,
+    "reached_bloom": 0,
+    "got_within_bloom_d": 8,
+    "median_frac": 0.548,
+    "median_life_start": 0.602,
+    "median_life_at_turn_back": 0.596,
+    "median_frac_turned_back": 0.37
+   },
+   "winter": {
+    "trips": 13,
+    "delivered": 1,
+    "died_stung": 4,
+    "died_no_sting": 7,
+    "back_stung": 0,
+    "back_no_sting": 1,
+    "reached_bloom": 2,
+    "got_within_bloom_d": 0,
+    "median_frac": null,
+    "median_life_start": 0.987,
+    "median_life_at_turn_back": 0.486,
+    "median_frac_turned_back": null
+   }
+  }
+ },
+ "no_talk": {
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "all": {
+   "trips": 170,
+   "delivered": 13,
+   "died_stung": 23,
+   "died_no_sting": 34,
+   "back_stung": 13,
+   "back_no_sting": 87,
+   "reached_bloom": 23,
+   "got_within_bloom_d": 42,
+   "median_frac": 0.709,
+   "median_life_start": 0.763,
+   "median_life_at_turn_back": 0.654,
+   "median_frac_turned_back": 0.471
+  },
+  "by_season": {
+   "spring": {
+    "trips": 55,
+    "delivered": 6,
+    "died_stung": 11,
+    "died_no_sting": 4,
+    "back_stung": 5,
+    "back_no_sting": 29,
+    "reached_bloom": 11,
+    "got_within_bloom_d": 22,
+    "median_frac": 0.914,
+    "median_life_start": 0.984,
+    "median_life_at_turn_back": 0.707,
+    "median_frac_turned_back": 0.719
+   },
+   "summer": {
+    "trips": 52,
+    "delivered": 6,
+    "died_stung": 7,
+    "died_no_sting": 8,
+    "back_stung": 5,
+    "back_no_sting": 26,
+    "reached_bloom": 9,
+    "got_within_bloom_d": 13,
+    "median_frac": 0.74,
+    "median_life_start": 0.605,
+    "median_life_at_turn_back": 0.744,
+    "median_frac_turned_back": 0.453
+   },
+   "autumn": {
+    "trips": 43,
+    "delivered": 0,
+    "died_stung": 4,
+    "died_no_sting": 6,
+    "back_stung": 3,
+    "back_no_sting": 30,
+    "reached_bloom": 1,
+    "got_within_bloom_d": 7,
+    "median_frac": 0.37,
+    "median_life_start": 0.638,
+    "median_life_at_turn_back": 0.578,
+    "median_frac_turned_back": 0.333
+   },
+   "winter": {
+    "trips": 20,
+    "delivered": 1,
+    "died_stung": 1,
+    "died_no_sting": 16,
+    "back_stung": 0,
+    "back_no_sting": 2,
+    "reached_bloom": 2,
+    "got_within_bloom_d": 0,
+    "median_frac": null,
+    "median_life_start": 0.617,
+    "median_life_at_turn_back": 0.675,
+    "median_frac_turned_back": null
+   }
+  }
+ },
+ "rule_bees": {
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "all": {
+   "trips": 298,
+   "delivered": 9,
+   "died_stung": 22,
+   "died_no_sting": 47,
+   "back_stung": 105,
+   "back_no_sting": 115,
+   "reached_bloom": 11,
+   "got_within_bloom_d": 25,
+   "median_frac": 0.396,
+   "median_life_start": 0.531,
+   "median_life_at_turn_back": 0.415,
+   "median_frac_turned_back": 0.408
+  },
+  "by_season": {
+   "spring": {
+    "trips": 90,
+    "delivered": 5,
+    "died_stung": 7,
+    "died_no_sting": 6,
+    "back_stung": 33,
+    "back_no_sting": 39,
+    "reached_bloom": 7,
+    "got_within_bloom_d": 12,
+    "median_frac": 0.504,
+    "median_life_start": 0.863,
+    "median_life_at_turn_back": 0.647,
+    "median_frac_turned_back": 0.492
+   },
+   "summer": {
+    "trips": 87,
+    "delivered": 3,
+    "died_stung": 7,
+    "died_no_sting": 13,
+    "back_stung": 38,
+    "back_no_sting": 26,
+    "reached_bloom": 3,
+    "got_within_bloom_d": 7,
+    "median_frac": 0.375,
+    "median_life_start": 0.317,
+    "median_life_at_turn_back": 0.237,
+    "median_frac_turned_back": 0.402
+   },
+   "autumn": {
+    "trips": 82,
+    "delivered": 1,
+    "died_stung": 6,
+    "died_no_sting": 16,
+    "back_stung": 32,
+    "back_no_sting": 27,
+    "reached_bloom": 1,
+    "got_within_bloom_d": 6,
+    "median_frac": 0.268,
+    "median_life_start": 0.416,
+    "median_life_at_turn_back": 0.36,
+    "median_frac_turned_back": 0.299
+   },
+   "winter": {
+    "trips": 39,
+    "delivered": 0,
+    "died_stung": 2,
+    "died_no_sting": 12,
+    "back_stung": 2,
+    "back_no_sting": 23,
+    "reached_bloom": 0,
+    "got_within_bloom_d": 0,
+    "median_frac": null,
+    "median_life_start": 0.553,
+    "median_life_at_turn_back": 0.509,
+    "median_frac_turned_back": null
+   }
+  }
+ }
+}
