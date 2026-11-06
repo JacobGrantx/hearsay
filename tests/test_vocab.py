@@ -26,7 +26,8 @@ from digital_life.vocab import NEUTRAL, get
 
 STEMS = ("bee hive flower bloom nectar pollen honey hornet wasp predator prey danger dangerous avoid enemy threat harm hurt "
          "pain safe safety season winter summer spring autumn cold warm food eat hungry good bad home life alive live die "
-         "dead death kill flee escape attack sting carry member family sister nest colony queen worker").split()
+         "dead death kill flee escape attack sting carry member family sister nest colony queen worker "
+         "careful caution").split()  # the last two complete round 1's harm-words measure (experiments/analysis/measures.py)
 IRREGULAR = "carried carries stung fled dying living ate eaten hunger colonies families enemies lives".split()
 BANNED = re.compile(r"\b(?:(?:%s)(?:s|es|d|ed|r|er|ers|ing|y|ly|ful|less)?|%s|fall)\b" % ("|".join(STEMS), "|".join(IRREGULAR)),
                     re.IGNORECASE)

@@ -6,51 +6,55 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 54
+    "claude-opus-5-5": 138
   },
   "first_timestamp": "2026-11-06T15:38:04.967Z",
-  "last_timestamp": "2026-11-06T15:49:13.121Z",
+  "last_timestamp": "2026-11-06T15:57:21.130Z",
   "source": {
     "file": "c34f9a85-69f7-4c08-96b4-5027b445cdc7.jsonl",
-    "sha256": "45ecc7a12db108be1b351f187adf9d8a0d876dc1769a0d608650044855d206aa",
-    "lines": 190,
+    "sha256": "9446299f4b9c2b4a87f1a1cc08cc6858a4a6bd1265d85b26cc3f61b36a102868",
+    "lines": 422,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 54,
-    "output_tokens": 40042,
-    "cache_creation_input_tokens": 100619,
-    "cache_read_input_tokens": 2254781,
-    "api_responses": 27,
+    "input_tokens": 142,
+    "output_tokens": 65041,
+    "cache_creation_input_tokens": 156905,
+    "cache_read_input_tokens": 8555131,
+    "api_responses": 71,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 31
+    "accept/config": 77
   },
   "tool_calls": {
-    "Bash": 28,
-    "Write": 4
+    "Bash": 72,
+    "Write": 6
   },
   "subagents": [],
   "commits_made_in_session": [],
-  "commits_in_time_window": [],
-  "kept_entries": 86,
+  "commits_in_time_window": [
+    "cb7a04a5f09e8f26f9a37fb74363c394a218b4ed Viewer and README: a line under the key shows what the agents read (abstract: units, zone O, K entities, G cells, signals A and B; neutral for round 1 runs)",
+    "0724294131cbe6694c4acdb435aad57740f2b8c1 Pilot config for the abstract vocabulary: E5 world, first spring, seed 0, condition full",
+    "b0b8693e3f109a6d9aaeb3241c6925061382187b Vocabulary switch: vocab = \"abstract\" (units, zone O, counter C, G cells, K entities, flag F, signals A and B, no flee) is the new default; \"neutral\" is round 1's exact wording"
+  ],
+  "kept_entries": 216,
   "omitted_entries": {
-    "ai-title": 15,
-    "queue-operation": 2,
-    "attachment": 53,
+    "ai-title": 29,
+    "queue-operation": 6,
+    "attachment": 107,
     "file-history-snapshot": 1,
-    "atis-latch": 15,
-    "last-prompt": 14,
-    "file-history-delta": 4
+    "atis-latch": 29,
+    "last-prompt": 28,
+    "file-history-delta": 6
   },
   "redactions": {
-    "path-outside-repo": 1
+    "path-outside-repo": 2
   },
   "transformations": {
-    "thinking_omitted": 21
+    "thinking_omitted": 52
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

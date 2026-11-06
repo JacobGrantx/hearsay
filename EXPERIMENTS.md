@@ -623,3 +623,26 @@ Each of these was pre-registered as a possible outcome and is reported in full i
 - **The pre-registered sound contexts** (moving thing or bright cell in view) did not include home or carrying, where most sounds were made.
 - **E3's measure is censored:** most seeds have no spring delivery in either year.
 - **E5 is post hoc** and was run in one world (scale 0.7), for 1 year, on 5 seeds, with the same prompt. Its world was chosen after the main results, with scripted bees only. Deliveries ranged from 1 to 18 per run, so an effect of a few deliveries would be missed.
+
+## Pilot (phase 6): the abstract vocabulary, one E5 spring, not a result
+
+Jacob asked on 2026-11-06 for words that carry no real-world meaning, because round 1's prompt said "home", "life", "carrying" and "flee (move away from the moving things in view)". The abstract vocabulary (`vocab = "abstract"`, ARCHITECTURE.md) says units, zone O, counter C, flag F, G cells, K entities, signals A and B, and offers no `flee`. This pilot checks plumbing, cost and gross behaviour before round 2. n = 1, so nothing here is a finding.
+
+Run directory: `experiments/results/pilot_abstract_e5_spring/20261106T154957Z/seed-0` (config `pilot_abstract_e5_spring.toml`: the E5 world, condition `full`, seed 0, stopped after the first spring, commit 0724294, `git_dirty` false). Replays identical offline from `experiments/llm_cache/pilot_abstract_e5_spring_20261106T154957Z_seed-0.jsonl.gz` (4.3 s). Numbers from `experiments/analysis/mind_report.py` and `experiments/analysis/first_sighting.py`.
+
+| Measure | Value |
+|---|---|
+| Wall time | 194.3 s for 251 ticks, so 0.774 s per tick |
+| Cost | $0.0832 at list price (702,300 input and 25,942 output tokens; 2,109 input tokens per decision), so $0.00033 per tick |
+| Decisions | 333; intents explore 267, wait (`hold`) 46, go_to 20, go_home (`go_to_O`) 0 |
+| Model failures | 0 `mind_error`, 0 fallbacks |
+| Left zone O and explored | yes, all 6 founding units |
+| Reached G (flag F set) | all 6, at ticks 68, 70, 74, 125, 180 and 229 |
+| Came back to zone O with flag F | none; 0 deliveries. Two trips ended in zone O, both before their unit had reached G |
+| Broadcasts | 17, heard by 3.35 units on average; all at ticks 0 to 115 and none about G (units announce what they will explore and "will report anything found") |
+| Signals | 2 of 333 decisions (signal A) |
+| Halvings | 1 (unit 5 at tick 178) |
+
+**First sighting of a K entity before any halving** (4 units): 2 held (`hold`), 2 explored in a direction pointing toward it; none moved away, none went to zone O. Timer decisions with a K entity in view, before any halving: 7, of which 5 held and 2 pointed toward it. For comparison only, round 1's `e5_full` seed 0 (same world and seed, neutral words, first 251 ticks, `first_sighting.py --until 251`): 4 first sightings, 3 `flee` and 1 `wait`. The notes still read as caution: unit 3 at tick 100, "K entity seen at (51,5); holding at (47,6) to assess before moving", then "exploring SE carefully" for 70 ticks; unit 4 at tick 170, "K entities around (49,5)-(49,8) still a threat", having never been halved. Round 1's `measures.harm_words` (a note using danger, avoid, careful, caution, threat, harm or hurt) gives 0.0691 of the pilot's 333 notes, and no abstract prompt contains any of those words (tests/test_vocab.py).
+
+**Surprise (2026-11-06): with abstract words the units find G but do not bring it back.** Round 1's `e5_full` seed 0 made its first delivery at tick 166 (docs/BUILD_NOTES.md, "E5 moments"). Here every unit set flag F, then kept exploring past the G cells, several "for the hidden object" (unit 3 at tick 249: "Holding at G cluster (38,4); still no hidden object found"). Nothing in the abstract prompt links flag F or zone O to counter C, and round 1's "carrying something" and "home" may have supplied that link. If round 2 shows the same, delivery itself becomes something a colony has to discover: a unit with flag F set has to enter zone O by chance, see its counter rise, and broadcast it. Whether that is the experiment or a fault in the vocabulary is Jacob's call (DECISIONS.md).
