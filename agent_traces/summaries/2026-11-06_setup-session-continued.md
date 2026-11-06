@@ -21,7 +21,7 @@
 - **Independent check (after Jacob's question):**
   - It cloned the repository fresh from GitLab, ran setup, tests and `make demo`, and recounted deliveries per run straight from the raw run logs, without the build sessions' analysis code. The counts matched the write-up.
   - It confirmed both pre-registrations were committed before their first AI run (by 42 s and 17 s), and confirmed the E5 transmission sequence line by line from the logs.
-  - It found two of its own errors: a privacy-scan test that assumed the repository sits under the home folder, and commit ids in the docs that pointed at first-pass ids after the history rewrite. It corrected both (commit 0a616b1) and re-verified on a second fresh clone: 88 passed, replay identical, every cited id resolves.
+  - It found two of its own errors: a privacy-scan test that assumed the repository sits under the home folder, and commit ids in the docs that pointed at first-pass ids after the history rewrite. It corrected both (commit c81c763) and re-verified on a second fresh clone: 88 passed, replay identical, every cited id resolves.
 - **Independent audit:** a read-only Claude Code subagent with no project context audited the repository against every section of the brief. It reported 11 of 13 checklist items passing (public access and the name failing, before Jacob's decisions), five risks, and ranked fixes. Phase 7f applied the fixes; the subagent changed nothing.
 - **Rename of the GitLab project:** project 66 renamed to private-group/hearsay, private, on Jacob's decisions.
 - **Round 2 amendment 1:** the agent proposed stopping 4 runs for throughput. Jacob agreed. The agent stopped those processes by id and committed the amendment before any round 2 result was read.
@@ -29,5 +29,5 @@
   - A clean-room run from a fresh GitLab clone used a bare environment: no model keys, no browser, an empty home folder. It found two defects, both fixed in the repository and verified in the clean room.
   - First defect: the run log's gzip header carried its write time, so identical runs differed byte for byte and a test was flaky. Fixed with a fixed header time.
   - Second defect: replay cache keys do not name the run, so E5 and round 2's N_full (identical settings) shared first-decision keys. Loading every pack at once broke E5's replay. Fixed by having each replay read only its own run's pack (`LLM_PACKS`). Live results were unaffected, because each experiment ran with its own cache.
-  - A read-only subagent audited the traces against brief section 5. Its findings were fixed in commit 4807d89.
+  - A read-only subagent audited the traces against brief section 5. Its findings were fixed in commit aa1b282.
 
