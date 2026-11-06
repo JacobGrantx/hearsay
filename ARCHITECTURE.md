@@ -12,6 +12,9 @@ A bee colony lives in a maze and has to find seasonal bloom while evolving horne
 | Perception and Decision | `src/digital_life/perception.py` | What a bee's mind receives and what it returns. |
 | Motor layer | `src/digital_life/motor.py` | Turns an intent (explore, go to, go home, flee, wait) into one step, using only the bee's own map. |
 | Policies | `src/digital_life/policies.py` | The minds. Phase 1 has three scripted ones: random, rule and oracle. |
+| AI bee mind | `src/digital_life/mind.py` | The AI policy: one model call per deciding bee, in parallel within a tick, applied in a fixed order. |
+| Prompt and parser | `prompts/bee_system.txt`, `src/digital_life/render.py` | The neutral system prompt, the Perception as text, the decision schema and the reply parser. |
+| Memory | `src/digital_life/memory.py` | Each AI bee's episodes, notes and recall. |
 | Simulation | `src/digital_life/sim.py` | The tick loop that runs everything in a fixed order, and the parameter defaults. |
 | Logging and measures | `src/digital_life/simlog.py`, `metrics.py` | The run directory (layout, per-tick state, events, per-season measures) and the run summary. |
 
@@ -42,11 +45,19 @@ The World is read in only three places: the senses, the hornets (which are part 
 - **Hornets and evolution.** Each hornet has 10 points spread over three genes: smell (how far it detects bees), hearing (how far it hears bee sounds and how often it follows them) and ambush (how often it waits at old sting spots or the bloom). Its fitness is the life it has removed per tick alive. Every 25 ticks the least fit hornet is replaced by a mutated copy of one chosen in proportion to fitness. After winter, spring's hornets are bred from the fittest of the autumn. Under `frozen_hornets` the genes never change.
 - **Scripted policies.** Random bees pick random intents and sounds. Rule bees explore in a random direction, take bloom they see, carry it home, and turn home at half the life they left with. Oracle bees (calibration only) are told where the bloom is.
 
+- **AI bee mind.** When a bee is due to decide, the mind turns its Perception into a short text and asks `claude-haiku-5-5` (effort low, thinking off) for a decision in a fixed JSON shape: an intent (explore with a direction, go to x, y, go home, flee, wait), a sound (none, sound-1, sound-2), a note to remember, and words to say at home. The calls for all bees deciding in one tick run in parallel, but prompts are built and replies applied in bee-id order, so a replay from the cache is identical. A failed or malformed reply makes the bee wait and is logged.
+- **A neutral world in words.** The model is told only that its life is a number that falls and ends at zero, that something worth finding exists, that it is one of many identical members of a home, and what it perceives and can do. It hears of a grid, a home, bright cells, moving things, other members and two sounds. It is never told what bloom, hornets, seasons or stings are, nor what the sounds mean: a sting reaches it as "lost half your life in an instant", with no cause named. A test checks the system prompt, every template and every rendered prompt for 19 banned words (bee, hive, bloom, hornet, danger, season, food, good, bad, and so on).
+- **Memory.** Each AI bee keeps three things the sim does not: episodes (everything that happened to it, each scored by importance: sting 5, delivery 5, bloom 4, hornet 3, talk heard at home 2, a sound 1), up to 12 notes it chose to write, and recall. At each decision the six episodes with the best score (recency + importance + text relevance to the present, by BM25) are shown, along with its notes, its last 8 events and the places it knows (home, bright spots and moving things it has seen, how much it has explored in each direction). Memory dies with the bee.
+- **Hive talk.** A bee at home can say up to 30 words; every other bee at home hears them that tick and keeps them as "heard at home". This is the only way knowledge passes between bees, and so the only way it can outlive the bee that found it.
+- **Conditions as switches.** `no_talk` removes `say` from the prompt and the decision shape. `no_memory` removes episodes, notes, recall and remembered places, keeping only what happened since the bee last decided. `labels_good_bad` renames the two sounds in the prompt only; the world and the logs keep the neutral names. Tests check each switch removes what it claims.
+
 ## Design choices and alternatives rejected
 
 - **A navigation layer under the mind**, rather than the mind choosing every step. The mind decides every 5 ticks or on an event, and the motor layer walks. This keeps AI calls affordable and makes the mind's choices strategic (where to go, when to flee). Proposed by the agent and accepted by Jacob with the spec.
 - **The policy gets a Perception, never the World.** This makes the leak test possible and means the AI mind in phase 2 plugs in without changes to the tick loop.
 - **Hornets path on the true map**, because they are the environment, not learners. Their adaptation is genetic only.
+- **Structured output for every decision** rather than free-text JSON: in the feasibility probe, Haiku returned valid free-text JSON in only 1 of 2 single calls, and 80 of 80 with a schema.
+- **No separate reflection call.** Arriving home triggers a decision, and the bee can say something then. One call per decision keeps the cost per run near the feasibility estimate.
 - **Calibration changed several hornet rules** (no chase during the sting cooldown, 80% speed, a slower ambush rate) and raised L from 250 to 500. Each is recorded in DECISIONS.md as an agent proposal awaiting Jacob, with the reason.
 
 ## Limits

@@ -72,7 +72,8 @@ One object per line. Every event has `kind` and `t`.
 | `season` | season (name), year |
 | `hatch` | bee, x, y, life, cause (`start` for the founding bees, `delivery` otherwise) |
 | `queen_hatch` | bee, x, y, life |
-| `decision` | bee, trigger, intent, direction, target, sound, remember, say |
+| `decision` | bee, trigger, intent, direction, target, sound, remember, say. AI bees add `usage` ({input_tokens, output_tokens}), `prompt_key` (first 12 hex digits of the replay-cache key, so the exact prompt can be found in `experiments/llm_cache/`), `ctx` ({movers, bright, carrying, home}: moving things and bright cells in view, 0/1 flags) and, on a fallback, `fallback` (`error` or `parse`) |
+| `mind_error` | bee, error, and for a bad reply stop_reason and prompt_key. The bee's decision that tick is `wait` |
 | `say` | bee, text, heard_by (list of bee ids) |
 | `bloom` | bee, x, y (the bee picked up from bloom and is now carrying) |
 | `delivery` | bee, life_before, life_after |
@@ -159,6 +160,24 @@ class Policy:
 | `life_when_left_home` | life when the bee last stepped out of the hive |
 
 Field names are code, not prompt text. Phase 2 renders them with neutral words (the no-hints test applies to the prompt and its templates). Under `no_memory`, phase 2 should decide which of `recent_events`, `bloom_remembered`, `hornets_remembered` and `heard_at_home` count as memory and drop them in its rendering.
+
+## Phase 2: the AI bee mind
+
+Written by the phase 2 build session (Claude Code, 2026-11-06).
+
+| Module or file | Owns |
+|---|---|
+| `prompts/bee_system.txt` | The system prompt template. Placeholders: grid size, the two sound names, and the parts that `no_memory` and `no_talk` remove. |
+| `render.py` | Every fixed piece of prompt text (`SYSTEM_PARTS`, `TRIGGER_TEXT`, `EVENT_TEXT`, ...), `system_prompt(condition, w, h)`, `render(perception, ...)` (the user message), `decision_schema(condition)` and `parse(reply)`. |
+| `memory.py` | `BeeMemory` per bee: episodes with importance (sting 5, delivery 5, bloom seen or touched 4, hornet seen 3, talk heard at home 2, sound heard 1), up to 12 beliefs, recall of the top 6 by recency + importance + BM25. |
+| `mind.py` | `AIPolicy`: renders prompts in bee-id order, runs the calls of one tick in a thread pool (16), applies replies in bee-id order, falls back to `wait` on failure. Registered as policy `ai`; conditions `full`, `no_talk`, `no_memory`, `labels_good_bad` and `frozen_hornets` use it by default. |
+
+- **Model settings** come from params: `mind_model` (claude-haiku-5-5), `mind_effort` (low), `mind_max_tokens` (400), `mind_retries` (2), `mind_workers` (16). Thinking is always disabled. The cache tag is `f"{seed}:{tick}:{bee_id}:{condition}"`.
+- **The sim binds the mind** after the log exists: `policy.bind(clock, emit)` gives it the tick (for the tag) and the event log (for `mind_error`). It never gets the World.
+- **Replay:** with `LLM_MODE=replay` a run whose calls are all cached is identical, file for file (tests/test_mind_conditions.py). Decision events log token counts but not cost or the cached flag, which differ between a live run and its replay.
+- **`stop_after`** ends a run early at that tick (pilot runs). The world rules are unchanged.
+- **Configs:** `full`, `no_talk`, `no_memory`, `labels_good_bad`, `frozen_hornets` (full size, seeds 0 to 2), and `pilot_full_spring` (first spring of seed 0).
+- **Tests (no network, fake client in tests/conftest.py):** `test_mind_prompt.py` (no banned words in the system prompt, templates, schema or any rendered prompt; no prompt holds a bloom or hornet coordinate the bee never had in range or heard at home, with a check that the test catches an injected leak), `test_mind_conditions.py` (replay identity, what each condition removes, fallbacks), `test_memory.py`.
 
 ## Conditions in phase 1
 

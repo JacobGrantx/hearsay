@@ -6,55 +6,56 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 101
+    "claude-opus-5-5": 128
   },
   "first_timestamp": "2026-11-06T09:49:38.771Z",
-  "last_timestamp": "2026-11-06T10:04:15.830Z",
+  "last_timestamp": "2026-11-06T10:07:05.883Z",
   "source": {
     "file": "9ea8a272-2897-4df6-b2ab-bd0a58186b45.jsonl",
-    "sha256": "b53e65d8e4c0daebe8a7c4d9701fc66969f7914dfaa4bba8e08212af4d5a105d",
-    "lines": 289,
+    "sha256": "a2a240510c4a11bea0fb6a16e51fc59034917b6927eabcb323d55bacdf20c474",
+    "lines": 354,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 86,
-    "output_tokens": 65632,
-    "cache_creation_input_tokens": 127234,
-    "cache_read_input_tokens": 4060937,
-    "api_responses": 43,
+    "input_tokens": 108,
+    "output_tokens": 73929,
+    "cache_creation_input_tokens": 143054,
+    "cache_read_input_tokens": 5666286,
+    "api_responses": 54,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 44
+    "accept/config": 55
   },
   "tool_calls": {
-    "Bash": 36,
+    "Bash": 47,
     "Write": 9
   },
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "c2052a29bc9144b9401a28b9e2b04638f26e4ea6 Pre-registration: hypotheses, primary measures, controls, seeds and analysis plan for E1 to E4, written before any real bee-mind call; decision events gain ctx (moving things and bright cells in view, carrying, at home) for E4",
     "28afa0863eb22ad18720f962e2f61cc3df981189 AI condition configs (full, no_talk, no_memory, labels_good_bad, frozen_hornets; full size, 3 seeds), pilot config (first spring, seed 0), stop_after run length, memory unit tests",
     "031fb4a17b651ea5ecbdd1cd5783330f3e1a590b AI bee mind: neutral system prompt, perception renderer and decision schema, per-bee memory (episodes, beliefs, BM25 recall), AIPolicy with parallel calls and wait fallback; leak, no-hints, replay and condition tests",
     "1abaff874267272802f69c72a3bfdd2677119e09 Secret scan: an assigned value ends at a backslash, so JSON-escaped newlines in exported traces no longer join code into a false 'token' hit; regression test both ways"
   ],
-  "kept_entries": 147,
+  "kept_entries": 185,
   "omitted_entries": {
-    "ai-title": 20,
+    "ai-title": 25,
     "queue-operation": 2,
-    "attachment": 71,
+    "attachment": 83,
     "file-history-snapshot": 1,
-    "atis-latch": 20,
-    "last-prompt": 19,
+    "atis-latch": 25,
+    "last-prompt": 24,
     "file-history-delta": 9
   },
   "redactions": {
     "secret": 2
   },
   "transformations": {
-    "thinking_omitted": 34
+    "thinking_omitted": 44
   },
   "missing": {
     "tool_results_stored_outside_log": 0,
