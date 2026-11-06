@@ -30,9 +30,9 @@ Persistence (knowledge outliving every bee that gained it), interaction (talk, s
 
 ## Demonstration
 
-Video to come. A still from the viewer, from a recorded run of the `full` condition:
+Video to come. A still from the viewer, replaying a recorded run of the `full` condition (seed 0, tick 1053). Bee 9 set out in winter, found the spring bloom the moment it opened, and is carrying it home past hornets with 55 life left; the panel shows its own notes and what it heard at home ([EXPERIMENTS.md](EXPERIMENTS.md), E3):
 
-RESULTS PENDING: still
+![Viewer still: bee 9 carrying spring bloom home in year 2, full condition, seed 0](demo/screenshots/full_seed0_t1053_bee9.png)
 
 Run a small version yourself, no key needed:
 
@@ -40,7 +40,7 @@ Run a small version yourself, no key needed:
 make demo
 ```
 
-It runs scripted bees in a small world for one short year (3 seeds, a few seconds), then replays a recorded AI run offline from its saved model responses and checks every output file is identical to the original. The viewer (`viewer/`) turns any run directory into one HTML page you can open from disk: `.venv/bin/python viewer/bundle.py <seed dir> -o run.html`.
+It runs scripted bees in a small world for one short year (3 seeds), then replays a full 2-year AI run from the main experiments (`full`, seed 0: 1,440 model decisions) offline from its saved model responses, and checks every output file is identical to the original. About 10 seconds in all; the last line should read `REPLAY IDENTICAL`. The viewer (`viewer/`) turns any run directory into one HTML page you can open from disk: `.venv/bin/python viewer/bundle.py <seed dir> -o run.html`.
 
 ## Technical architecture
 
@@ -90,7 +90,7 @@ make replay RUN=experiments/results/full/20261106T101558Z/seed-0   # re-runs a 2
 make analysis     # every pre-registered measure and figure, into experiments/analysis/output/
 ```
 
-RESULTS PENDING: replay timing and expected output
+Each replay takes 5 to 9 seconds and ends with `REPLAY IDENTICAL`; all 19 AI runs were checked this way ([EXPERIMENTS.md](EXPERIMENTS.md), "Replay and reproducibility"). `make analysis` rewrites `experiments/analysis/output/main_results.md`, the source of every number below, and five PNG figures.
 
 Run a new experiment live (needs `ANTHROPIC_API_KEY` in `.env`, see `.env.example`):
 
@@ -98,11 +98,33 @@ Run a new experiment live (needs `ANTHROPIC_API_KEY` in `.env`, see `.env.exampl
 .venv/bin/python experiments/run.py experiments/configurations/full.toml --seeds 5
 ```
 
-RESULTS PENDING: cost and time per run
+A 2-year AI run took 11 to 18 minutes and cost about $0.28 in our runs (19 runs, $5.37 in all, at list price for Claude Haiku 5.5). Scripted runs take a few seconds. Known limitations are listed at the end of [EXPERIMENTS.md](EXPERIMENTS.md).
 
 ## Experiments and findings
 
-RESULTS PENDING
+We pre-registered four hypotheses, the measures and the decision rule before the first real bee-mind call (commit c2052a2), then ran 29 two-year runs at one commit: five AI arms and two scripted baselines, 3 or 5 seeds each, paired by seed. 26,093 AI decisions, no model failures. Every number below is copied from [experiments/analysis/output/main_results.md](experiments/analysis/output/main_results.md); the full write-up, with controls, is [EXPERIMENTS.md](EXPERIMENTS.md).
+
+**All four hypotheses failed their controls.** We report that plainly, because the controls are what tell us what the colony is really doing.
+
+| | Hypothesis | What happened |
+|---|---|---|
+| E1 | Memory and talk make the colony a better gatherer | No. 1.8 deliveries per 2 years for `full` (sd 1.643, n 5), the same as rule bees (1.8, sd 1.483, n 5); removing talk or memory did not lower it |
+| E2 | Hornets evolve to exploit the colony | No. Stings per trip rose in year 2 (by 0.315, sd 0.516, n 5), but also with frozen hornets (0.158) and scripted bees (0.192), with no consistent difference: the genes drift |
+| E3 | The colony finds spring bloom sooner in year 2, because talk keeps the knowledge alive | No. No bee in `full` or `no_talk` lived through both springs, and the one early year-2 delivery came from a bee that never heard the place |
+| E4 | Two meaningless sounds come to mean something | Could not happen: bees made 3 sounds in 6,610 decisions |
+
+What the controls showed instead:
+
+- **The AI bees are careful, not clever.** They made 36.4 trips per run against the rule bees' 61.2 and were stung less per trip on all three pre-registered paired seeds (0.516 against 0.586 over 5 seeds), yet gathered no more.
+- **Their caution is the model's prior, not learning.** At the first sight of a moving thing, before ever being stung, bees fled or went home 0.857 of the time in `full` (n 5), and 1.000 of the time with no memory at all (n 3), against 0.110 to 0.282 at routine decisions. Nobody told them moving things hurt; nobody had to.
+- **Words make meaning; the world did not.** With the sounds named "good noise" and "bad noise", bees used them at once and in the words' sense: 8 "good noise" calls at home, 7 of them right after a delivery, and one "bad noise" the moment a bee was stung. The neutral sounds stayed silent. Any meaning a sound has here comes from its label, which is the prompt effect this control was built to catch.
+- **They invent the idea of harm.** No prompt contains danger, avoid, careful or harm, yet 0.219 of what `full` bees said at home used one of those words (sd 0.130, n 5): "Bright cells near (41,29) still dangerous", from a bee stung twice at that bloom. Bees without talk used them in their notes as often, so each bee reaches the idea alone.
+- **Hive talk is grounded.** Of 1,621 coordinates said at home in `full`, 33 point at neither home, a bloom, nor a place where the speaker had seen a moving thing.
+- **A surprise: winter foragers.** All four first deliveries of a second spring in the AI runs came from bees that left home in the middle of winter, which the bees are never told exists, and were out in the maze when the bloom opened.
+
+**Reproducible to the byte.** All 19 AI runs replay offline from the committed responses, with identical output files ([EXPERIMENTS.md](EXPERIMENTS.md), "Replay and reproducibility").
+
+Figures: [deliveries per season](experiments/analysis/output/fig_deliveries_by_season.png), [stings per trip](experiments/analysis/output/fig_stings_per_trip.png), [first spring delivery, year 1 against year 2](experiments/analysis/output/fig_first_spring_delivery.png), [hornet genes over time](experiments/analysis/output/fig_hornet_genes.png), [sounds and context](experiments/analysis/output/fig_sound_context.png).
 
 ## AI usage
 

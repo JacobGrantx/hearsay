@@ -10,4 +10,4 @@ Draft, written by the phase 4 build session (Claude Code) for Jacob Schoenberg t
 6. **Additional infrastructure or execution requirements.**
    - Python 3.11 or later, `make setup` (pinned dependencies in requirements.txt). No GPU.
    - No API key is needed to reproduce the results: every cited AI run replays offline from the recorded responses in `experiments/llm_cache/` with `LLM_MODE=replay` (`make replay RUN=<seed dir>`).
-   - New live AI runs need `ANTHROPIC_API_KEY` in `.env` (see `.env.example`) and cost about $0.37 per 2-year run with Claude Haiku 5.5, taking 15 to 25 minutes each.
+   - New live AI runs need `ANTHROPIC_API_KEY` in `.env` (see `.env.example`) and cost about $0.28 per 2-year run with Claude Haiku 5.5 ($5.37 for the 19 main runs), taking 11 to 18 minutes each.
