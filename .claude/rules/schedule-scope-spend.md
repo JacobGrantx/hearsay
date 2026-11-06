@@ -8,7 +8,7 @@
 | 2026-11-05 night | The core system runs end to end through `experiments/run.py`, logs per-step state, and has tests. `make demo` defined. |
 | 2026-11-06 morning | Main experiment plus controls (ablation, baseline, seeds) run and written up, negative results included. |
 | 2026-11-06 midday | README, ARCHITECTURE and AI_DISCLOSURE filled in. Demo video made. `make check` at zero FAIL. |
-| 2026-11-06, before the deadline | Jacob's go: the repo goes public, the access check passes, and the submission package from docs/submission.md is sent. |
+| 2026-11-06, before the deadline | Jacob's go: the repo moves to a public GitLab namespace, the anonymous access check passes, and the submission package from docs/submission.md is sent. |
 
 Get the exact submission deadline from Jacob. Plan backwards from it with two hours of slack.
 
@@ -23,8 +23,10 @@ Get the exact submission deadline from Jacob. Plan backwards from it with two ho
 
 ## Repo home
 
-- GitHub org: **durable-intelligence**. The repo is private while building and goes public only on Jacob's go at submission, after `make check` passes.
-- The final repo name comes from the chosen idea (meaningful, per the brief). Rename the local folder and the remote together.
+- **GitLab, never GitHub.** No GitHub repos, mirrors or pushes, whatever the brief says. The brief's GitHub wording is an open question for Jacob.
+- Remote: `private-group/digital-life` on the company's self-managed GitLab. Private while building. Push often with `.local/push.sh` (local, gitignored), which takes the same arguments as `git push`.
+- Going public: the company group is private, and GitLab does not allow a public project inside a private group. At submission the project has to move to a public namespace, and Jacob chooses which. It happens only on Jacob's go, after `make check` passes.
+- The final name comes from the chosen idea. Rename the local folder and the GitLab project path together.
 
 ## Demo video (Jacob: Claude makes it when we are done)
 

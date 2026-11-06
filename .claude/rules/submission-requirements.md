@@ -4,7 +4,8 @@ Source: docs/challenge-brief.txt, sections 4 to 10, 12 and 13. Each one is enfor
 
 ## Repository (section 8)
 
-- New public GitHub repo with a meaningful project name, in the durable-intelligence org. Judges must be able to open it without any org access. Verify this with an unauthenticated request.
+- The brief says "public GitHub repository". Jacob's rule is GitLab, never GitHub. The repo lives on GitLab, and whether the organisers accept that is Jacob's question to settle before submission. Never create, mirror or push to GitHub.
+- Meaningful project name. Judges must be able to open it without any login or group access. `make check` verifies this with an anonymous request; a redirect to sign-in means it is still private.
 - Real source code committed. Licence included (MIT, copyright Jacob Schoenberg).
 - History shows real development: meaningful commits throughout. No squashing, no rewriting history, no amending published commits.
 - No credentials or sensitive information anywhere in the tree or the history.

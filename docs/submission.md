@@ -2,7 +2,7 @@
 
 Draft here, then submit through the organisers' form.
 
-1. Public GitHub repository URL: TODO
+1. Public repository URL (the brief says GitHub; ours is GitLab, see DECISIONS.md): TODO
 2. Project name: TODO
 3. Short project description: TODO
 4. Team members: Jacob Schoenberg

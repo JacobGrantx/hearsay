@@ -176,16 +176,24 @@ def check_git(run_tests: bool) -> None:
     src = [f for f in git("ls-files", "src").split() if f.endswith(".py") and not f.endswith(("__init__.py", "smoke.py", "runlog.py", "llm.py"))]
     report("PASS" if src else "FAIL", "Source code committed", f"{len(src)} project source files beyond the scaffold")
     url = git("remote", "get-url", "origin").strip()
-    m = re.search(r"github\.com[:/]([^/]+)/([^/.]+?)(\.git)?$", url)
+    m = re.search(r"https?://([^/]+)/(.+?)(\.git)?$", url) or re.search(r"git@([^:]+):(.+?)(\.git)?$", url)
     if not m:
-        report("FAIL", "Public GitHub repository created", "no GitHub origin remote")
+        report("FAIL", "Public repository created", "no origin remote")
     else:
-        page = f"https://github.com/{m.group(1)}/{m.group(2)}"
+        host, path = m.group(1), m.group(2)
+        if host != "github.com":
+            report("WARN", "Brief asks for a GitHub URL", f"origin is {host}; confirm the organisers accept it (Jacob's rule: no GitHub)")
+        page = f"https://{host}/{path}"
+
+        class NoRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self, *args, **kwargs):
+                return None
+
         try:
-            code = urllib.request.urlopen(urllib.request.Request(page, method="HEAD"), timeout=10).status
+            code = urllib.request.build_opener(NoRedirect).open(urllib.request.Request(page, method="GET"), timeout=15).status
         except Exception as ex:
             code = getattr(ex, "code", str(ex))
-        report("PASS" if code == 200 else "FAIL", "Repository accessible without permissions", f"{page} -> {code} (unauthenticated)")
+        report("PASS" if code == 200 else "FAIL", "Repository accessible without permissions", f"{page} -> {code} (anonymous; a redirect to sign-in means private)")
         ahead = git("rev-list", "--count", "@{u}..HEAD").strip()
         if ahead and ahead != "0":
             report("WARN", "Pushed", f"{ahead} local commits not pushed")

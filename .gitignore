@@ -30,3 +30,6 @@ experiments/results/**/scratch/
 
 # model spend ledger (local budget guard)
 .llm_spend.json
+
+# local helpers (push credentials path)
+.local/
