@@ -57,7 +57,7 @@ SUMMARY_CHARS = 280
 KEEP_TYPES = {"user", "assistant", "system"}
 ENTRY_KEYS = [
     "type", "subtype", "level", "uuid", "parentUuid", "sessionId", "agentId",
-    "timestamp", "isSidechain", "gitBranch", "version", "origin", "promptSource",
+    "timestamp", "isSidechain", "isMeta", "entrypoint", "gitBranch", "version", "origin", "promptSource",
     "permissionMode", "permissionDecision", "content",
 ]
 MESSAGE_KEYS = ["role", "model", "id", "content", "stop_reason", "usage"]
@@ -188,7 +188,7 @@ def _short(s: str) -> str:
 def to_events(entries: list[dict], session_id: str, agent_id: str) -> tuple[list[dict], dict]:
     """Normalise cleaned entries into the brief's suggested event schema."""
     events, tool_names, tool_inputs = [], {}, {}
-    facts = {"human_prompts": 0, "tool_calls": Counter(), "commits": [], "models": Counter(), "permission_decisions": Counter()}
+    facts = {"human_prompts": 0, "unmarked_prompts": 0, "tool_calls": Counter(), "commits": [], "models": Counter(), "permission_decisions": Counter()}
     model = None
     for e in entries:
         base = {"timestamp": e.get("timestamp"), "session_id": session_id, "agent_id": agent_id, "source_uuid": e.get("uuid")}
@@ -237,8 +237,13 @@ def to_events(entries: list[dict], session_id: str, agent_id: str) -> tuple[list
                     events.append({**base, "event_type": "human_prompt", "input_summary": _short(txt), "human_intervention": True})
                 elif origin == "peer":
                     events.append({**base, "event_type": "agent_to_agent", "input_summary": _short(txt), "human_intervention": False})
+                elif origin is None and not e.get("isMeta") and txt.strip():
+                    # A prompt the log does not attribute: headless runs (claude -p) and some older entries.
+                    # Who wrote it is not recorded, so it is not claimed as human.
+                    facts["unmarked_prompts"] += 1
+                    events.append({**base, "event_type": "prompt", "prompt_origin": "unmarked", "input_summary": _short(txt), "human_intervention": None})
                 elif txt.strip():
-                    events.append({**base, "event_type": "harness_message", "input_summary": _short(txt), "human_intervention": False})
+                    events.append({**base, "event_type": "harness_message", "origin": origin or "meta", "input_summary": _short(txt), "human_intervention": False})
         elif t == "system":
             sub = e.get("subtype") or "system"
             events.append({**base, "event_type": "error" if "error" in sub else f"system:{sub}", "output_summary": _short(str(e.get("content", ""))), "human_intervention": False})
@@ -363,6 +368,7 @@ def export_session(transcript: Path) -> dict | None:
         "source": {"file": transcript.name, "sha256": _sha256(transcript), "lines": len(rows), "unparseable_lines": bad},
         "usage_main_agent": _usage(rows),
         "human_prompts": facts["human_prompts"],
+        "unmarked_prompts": facts["unmarked_prompts"],
         "permission_decisions": dict(facts["permission_decisions"]),
         "tool_calls": dict(facts["tool_calls"]),
         "subagents": subagents,

@@ -17,7 +17,7 @@ Claude Code writes a JSONL log of every session. `tools/export_traces.py` runs f
 | `events/<date>_<session-id>.events.jsonl` | The same session normalised to the brief's suggested schema, one event per line: `timestamp, session_id, agent_id, model, event_type, task, tool, input_summary, output_summary, human_intervention`, plus `source_uuid` pointing back to the original entry and `commit` where a tool call made one. |
 | `summaries/` | Hand-written summaries, labelled as such. |
 
-Event types: `human_prompt`, `assistant_message`, `tool_call`, `agent_spawn`, `tool_result`, `tool_error`, `permission_decision`, `agent_to_agent`, `harness_message`, `error`, `system:<subtype>`.
+Event types: `human_prompt` (the log marks it as typed by a person), `prompt` (the log does not say who wrote it, e.g. headless `claude -p` runs; `human_intervention` is null), `assistant_message`, `tool_call`, `agent_spawn`, `tool_result`, `tool_error`, `permission_decision`, `agent_to_agent`, `harness_message`, `error`, `system:<subtype>`.
 
 ## What was changed from the originals, and why
 
