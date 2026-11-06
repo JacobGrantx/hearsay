@@ -238,7 +238,7 @@ Run 2026-11-06 by the phase 4 build session (Claude Code), exactly as pre-regist
 - **World:** 80 x 48, 4 seasons of 250 ticks, 2 years (2,000 ticks), L = 500, `min_bloom_distance` 55, `openness` 0.15. Bee minds: `claude-haiku-5-5`, effort low, thinking disabled, structured output, max 400 tokens.
 - **Model health** (experiments/analysis/output/main_results.md, "Model health"): 19 AI runs, 26,093 decisions, 0 `mind_error`, 0 fallbacks, so no run is flagged and no seed needed a re-run. 45,674,885 input and 1,769,083 output tokens. Wall time 686 to 1,096 s per 2-year run (the shortest is `full` seed 0, whose first 250 ticks replayed from the pilot's cache).
 - **No crashes.** Every seed of every arm finished; nothing was dropped or re-run.
-- **Analysis:** `make analysis` (experiments/analysis/main_results.py, then figures.py) computes every measure below from the run directories alone and writes experiments/analysis/output/. Every number in this section is copied from main_results.md there. The paired-consistency rule is the pre-registered one (runs.paired, tested in tests/test_analysis.py).
+- **Analysis:** `make analysis` (experiments/analysis/main_results.py, then figures.py) computes every measure below from the run directories alone and writes experiments/analysis/output/. Every number in this section is copied from main_results.md there. Its "Provenance" line gives the run commit as 9cb4e7a, the id from before the one history rewrite; that commit is 663d562 now (docs/methodology/history-rewrite.md, whose table translates every old id). The paired-consistency rule is the pre-registered one (runs.paired, tested in tests/test_analysis.py).
 
 ## Summary
 
@@ -573,7 +573,7 @@ What the audit cannot rule out is the model's prior knowledge, or the effect of 
 
 ## Replay and reproducibility
 
-Every AI run above replays offline from its packed cache, with no key and no network:
+Every AI run above replays offline from its packed cache, with no key and no network (a note on commit ids: run records' `provenance.git_commit`, and so the commit `replay_check.py` prints, predate the one history rewrite; this document gives the translated ids, and docs/methodology/history-rewrite.md has the table):
 
 ```bash
 make replay RUN=experiments/results/full/20261106T101558Z/seed-0
