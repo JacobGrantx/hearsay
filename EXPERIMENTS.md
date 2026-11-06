@@ -792,6 +792,7 @@ Vocabulary (abstract or neutral), talk (on or off), reward rule told (yes or no)
 - **Prompt:** A_full (told the rule) and N_full (neutral words) both delivered more than any B_full seed, on one seed each.
 - **Hardcoding audit:** the B prompt never says what flag F or zone O does (tests/test_vocab.py).
 - **Setup:** one world size; amendment 1 cut A_full and N_full to one seed each.
+- **Replay:** every round 2 AI run's responses are packed in `experiments/llm_cache/r2_*.jsonl.gz` (16 packs, 11 MB). `make replay RUN=experiments/results/r2_b_full/20261106T165609Z_s3/seed-3` replayed the whole run offline in 36.349 s (3,750 ticks, the stopped run replayed with `stop_after`) and printed REPLAY IDENTICAL for events, metrics, state, layout and final metrics. The other runs were not replay-checked.
 
 ### What we learned
 
