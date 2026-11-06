@@ -1,0 +1,228 @@
+{"kind": "hatch", "t": 0, "bee": 0, "x": 7, "y": 8, "life": 120.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 1, "x": 3, "y": 11, "life": 120.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 2, "x": 3, "y": 15, "life": 120.0, "cause": "start"}
+{"kind": "hatch", "t": 0, "bee": 3, "x": 7, "y": 11, "life": 120.0, "cause": "start"}
+{"kind": "season", "t": 0, "season": "spring", "year": 0}
+{"kind": "hornet_spawn", "t": 0, "hornet": 0, "x": 38, "y": 2, "genes": [6, 0, 4], "parent": null}
+{"kind": "hornet_spawn", "t": 0, "hornet": 1, "x": 27, "y": 11, "genes": [4, 2, 4], "parent": null}
+{"kind": "hornet_spawn", "t": 0, "hornet": 2, "x": 22, "y": 1, "genes": [4, 6, 0], "parent": null}
+{"kind": "decision", "t": 3, "bee": 0, "trigger": "home", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "the moving things wait near bright cells", "say": "nothing found north"}
+{"kind": "say", "t": 3, "bee": 0, "text": "nothing found north", "heard_by": [1, 2, 3]}
+{"kind": "decision", "t": 3, "bee": 1, "trigger": "home", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": "nothing found north"}
+{"kind": "say", "t": 3, "bee": 1, "text": "nothing found north", "heard_by": [0, 2, 3]}
+{"kind": "decision", "t": 3, "bee": 2, "trigger": "home", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": "bright cells east past the second room"}
+{"kind": "say", "t": 3, "bee": 2, "text": "bright cells east past the second room", "heard_by": [0, 1, 3]}
+{"kind": "decision", "t": 3, "bee": 3, "trigger": "home", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 5, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "bright cells lie far to the east", "say": "bright cells east past the second room"}
+{"kind": "say", "t": 5, "bee": 0, "text": "bright cells east past the second room", "heard_by": [1, 2, 3]}
+{"kind": "decision", "t": 5, "bee": 1, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 5, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "home is west, follow the long corridor back", "say": "nothing found north"}
+{"kind": "say", "t": 5, "bee": 2, "text": "nothing found north", "heard_by": [1, 3]}
+{"kind": "decision", "t": 5, "bee": 3, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": "avoid the lower corridor, I was hit there"}
+{"kind": "say", "t": 5, "bee": 3, "text": "avoid the lower corridor, I was hit there", "heard_by": [1, 2]}
+{"kind": "decision", "t": 10, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 10, "bee": 1, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "the upper corridor is quieter", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 10, "bee": 1, "text": "the second sound meant danger to me", "heard_by": []}
+{"kind": "decision", "t": 10, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 10, "bee": 3, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 15, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "the upper corridor is quieter", "say": ""}
+{"kind": "decision", "t": 15, "bee": 1, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "the upper corridor is quieter", "say": ""}
+{"kind": "decision", "t": 15, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 15, "bee": 3, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "decision", "t": 20, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "the upper corridor is quieter", "say": ""}
+{"kind": "decision", "t": 20, "bee": 1, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "the upper corridor is quieter", "say": ""}
+{"kind": "decision", "t": 20, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 20, "bee": 3, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "bright spot moved since last time", "say": ""}
+{"kind": "sting", "t": 21, "hornet": 2, "bee": 3, "x": 18, "y": 3, "amount": 48, "life_after": 49.0}
+{"kind": "bloom", "t": 23, "bee": 0, "x": 21, "y": 3}
+{"kind": "sting", "t": 23, "hornet": 2, "bee": 1, "x": 17, "y": 4, "amount": 47, "life_after": 47.0}
+{"kind": "decision", "t": 24, "bee": 0, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the upper corridor is quieter", "say": ""}
+{"kind": "decision", "t": 25, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "decision", "t": 25, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 25, "bee": 3, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 26, "bee": 3, "x": 21, "y": 3}
+{"kind": "sting", "t": 26, "hornet": 2, "bee": 0, "x": 18, "y": 3, "amount": 46, "life_after": 46.0}
+{"kind": "decision", "t": 27, "bee": 3, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 30, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 30, "bee": 1, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 30, "bee": 1, "x": 21, "y": 3}
+{"kind": "decision", "t": 30, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [22, 3], "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 30, "bee": 3, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 31, "bee": 1, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright spot moved since last time", "say": ""}
+{"kind": "sting", "t": 31, "hornet": 2, "bee": 3, "x": 16, "y": 3, "amount": 19, "life_after": 20.0}
+{"kind": "bloom", "t": 32, "bee": 2, "x": 21, "y": 3}
+{"kind": "decision", "t": 33, "bee": 2, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "sting", "t": 33, "hornet": 2, "bee": 1, "x": 18, "y": 3, "amount": 18, "life_after": 18.0}
+{"kind": "decision", "t": 35, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 35, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 35, "bee": 3, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright spot moved since last time", "say": ""}
+{"kind": "season", "t": 40, "season": "summer", "year": 0}
+{"kind": "hornet_spawn", "t": 40, "hornet": 3, "x": 25, "y": 20, "genes": [6, 2, 2], "parent": null}
+{"kind": "decision", "t": 40, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 40, "bee": 1, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 40, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 40, "bee": 3, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "delivery", "t": 44, "bee": 0, "life_before": 27.0, "life_after": 54.0}
+{"kind": "hatch", "t": 44, "bee": 4, "x": 5, "y": 8, "life": 120.0, "cause": "delivery"}
+{"kind": "decision", "t": 45, "bee": 1, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 45, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 45, "bee": 3, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 47, "bee": 0, "trigger": "home", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "sound two came before the sting", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 47, "bee": 0, "text": "the second sound meant danger to me", "heard_by": [4]}
+{"kind": "death", "t": 47, "bee": 1, "x": 9, "y": 6, "age": 47, "cause": "life"}
+{"kind": "delivery", "t": 47, "bee": 3, "life_before": 4.0, "life_after": 8.0}
+{"kind": "hatch", "t": 47, "bee": 5, "x": 2, "y": 11, "life": 120.0, "cause": "delivery"}
+{"kind": "decision", "t": 48, "bee": 4, "trigger": "home", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 50, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 50, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 50, "bee": 3, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 50, "bee": 4, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "delivery", "t": 51, "bee": 2, "life_before": 66.0, "life_after": 132.0}
+{"kind": "hatch", "t": 51, "bee": 6, "x": 2, "y": 10, "life": 120.0, "cause": "delivery"}
+{"kind": "decision", "t": 51, "bee": 5, "trigger": "home", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "the moving things wait near bright cells", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 51, "bee": 5, "text": "the second sound meant danger to me", "heard_by": [2, 3, 4, 6]}
+{"kind": "decision", "t": 54, "bee": 2, "trigger": "home", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "decision", "t": 55, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 55, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 55, "bee": 3, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "avoid the lower corridor, I was hit there"}
+{"kind": "say", "t": 55, "bee": 3, "text": "avoid the lower corridor, I was hit there", "heard_by": [5, 6]}
+{"kind": "death", "t": 55, "bee": 3, "x": 4, "y": 11, "age": 55, "cause": "life"}
+{"kind": "decision", "t": 55, "bee": 4, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 55, "bee": 5, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 55, "bee": 6, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 60, "bee": 0, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 60, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 60, "bee": 4, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 60, "bee": 5, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "bright spot moved since last time", "say": ""}
+{"kind": "decision", "t": 60, "bee": 6, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "the upper corridor is quieter", "say": ""}
+{"kind": "decision", "t": 63, "bee": 0, "trigger": "home", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 65, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright cells lie far to the east", "say": ""}
+{"kind": "decision", "t": 65, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 65, "bee": 4, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 65, "bee": 5, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 65, "bee": 6, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "the upper corridor is quieter", "say": ""}
+{"kind": "decision", "t": 70, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "decision", "t": 70, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 70, "bee": 4, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "decision", "t": 70, "bee": 5, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 70, "bee": 6, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "sting", "t": 70, "hornet": 2, "bee": 5, "x": 16, "y": 15, "amount": 48, "life_after": 49.0}
+{"kind": "decision", "t": 75, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 75, "bee": 0, "text": "the second sound meant danger to me", "heard_by": []}
+{"kind": "decision", "t": 75, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 75, "bee": 4, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 75, "bee": 5, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 75, "bee": 6, "trigger": "timer", "intent": "go_to", "direction": null, "target": [32, 11], "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "sting", "t": 75, "hornet": 2, "bee": 6, "x": 16, "y": 15, "amount": 47, "life_after": 48.0}
+{"kind": "season", "t": 80, "season": "autumn", "year": 0}
+{"kind": "hornet_spawn", "t": 80, "hornet": 4, "x": 32, "y": 11, "genes": [2, 5, 3], "parent": null}
+{"kind": "decision", "t": 80, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "nothing found north"}
+{"kind": "say", "t": 80, "bee": 0, "text": "nothing found north", "heard_by": []}
+{"kind": "decision", "t": 80, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 80, "bee": 4, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 80, "bee": 5, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 80, "bee": 6, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 82, "bee": 2, "x": 28, "y": 18}
+{"kind": "decision", "t": 83, "bee": 2, "trigger": "arrived", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 83, "bee": 5, "trigger": "home", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "bloom", "t": 84, "bee": 4, "x": 28, "y": 18}
+{"kind": "decision", "t": 85, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "bright cells east past the second room"}
+{"kind": "say", "t": 85, "bee": 0, "text": "bright cells east past the second room", "heard_by": []}
+{"kind": "decision", "t": 85, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 85, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 85, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 85, "bee": 6, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 85, "hornet": 2, "bee": 5, "x": 21, "y": 17, "amount": 16, "life_after": 17.0}
+{"kind": "decision", "t": 88, "bee": 6, "trigger": "home", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 90, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 90, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 90, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 90, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright cells lie far to the east", "say": ""}
+{"kind": "decision", "t": 90, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "sting", "t": 90, "hornet": 2, "bee": 2, "x": 21, "y": 17, "amount": 45, "life_after": 45.0}
+{"kind": "decision", "t": 95, "bee": 0, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "avoid the lower corridor, I was hit there"}
+{"kind": "say", "t": 95, "bee": 0, "text": "avoid the lower corridor, I was hit there", "heard_by": []}
+{"kind": "decision", "t": 95, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 95, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "decision", "t": 95, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the upper corridor is quieter", "say": ""}
+{"kind": "decision", "t": 95, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "death", "t": 98, "bee": 0, "x": 4, "y": 12, "age": 98, "cause": "life"}
+{"kind": "decision", "t": 100, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "decision", "t": 100, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright spot moved since last time", "say": ""}
+{"kind": "decision", "t": 100, "bee": 5, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "death", "t": 100, "bee": 5, "x": 11, "y": 16, "age": 53, "cause": "life"}
+{"kind": "decision", "t": 100, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 105, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 105, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 105, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "delivery", "t": 109, "bee": 2, "life_before": 21.0, "life_after": 42.0}
+{"kind": "hatch", "t": 109, "bee": 7, "x": 2, "y": 13, "life": 120.0, "cause": "delivery"}
+{"kind": "delivery", "t": 109, "bee": 4, "life_before": 45.0, "life_after": 90.0}
+{"kind": "hatch", "t": 109, "bee": 8, "x": 6, "y": 10, "life": 120.0, "cause": "delivery"}
+{"kind": "decision", "t": 110, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the upper corridor is quieter", "say": "avoid the lower corridor, I was hit there"}
+{"kind": "say", "t": 110, "bee": 6, "text": "avoid the lower corridor, I was hit there", "heard_by": [2, 4, 7, 8]}
+{"kind": "decision", "t": 112, "bee": 2, "trigger": "home", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "bright spot moved since last time", "say": ""}
+{"kind": "decision", "t": 112, "bee": 4, "trigger": "home", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": "avoid the lower corridor, I was hit there"}
+{"kind": "say", "t": 112, "bee": 4, "text": "avoid the lower corridor, I was hit there", "heard_by": [6, 7, 8]}
+{"kind": "decision", "t": 113, "bee": 7, "trigger": "home", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "the moving things wait near bright cells", "say": ""}
+{"kind": "decision", "t": 113, "bee": 8, "trigger": "home", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": "nothing found north"}
+{"kind": "say", "t": 113, "bee": 8, "text": "nothing found north", "heard_by": [6, 7]}
+{"kind": "decision", "t": 115, "bee": 2, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 115, "bee": 4, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 115, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "avoid the lower corridor, I was hit there"}
+{"kind": "say", "t": 115, "bee": 6, "text": "avoid the lower corridor, I was hit there", "heard_by": [7, 8]}
+{"kind": "decision", "t": 115, "bee": 7, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 115, "bee": 8, "trigger": "timer", "intent": "go_to", "direction": null, "target": [29, 19], "sound": "none", "remember": "", "say": "bright cells east past the second room"}
+{"kind": "say", "t": 115, "bee": 8, "text": "bright cells east past the second room", "heard_by": [6, 7]}
+{"kind": "decision", "t": 116, "bee": 2, "trigger": "home", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "sting", "t": 116, "hornet": 2, "bee": 2, "x": 10, "y": 16, "amount": 17, "life_after": 18.0}
+{"kind": "season", "t": 120, "season": "winter", "year": 0}
+{"kind": "hornet_dormant", "t": 120, "hornets": [[0, 6, 0, 4, 0.0], [1, 4, 2, 4, 0.0], [2, 4, 6, 0, 0.0], [3, 6, 2, 2, 0.0], [4, 2, 5, 3, 0.0]]}
+{"kind": "decision", "t": 120, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 120, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 120, "bee": 6, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 120, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "nothing found north"}
+{"kind": "say", "t": 120, "bee": 7, "text": "nothing found north", "heard_by": [6]}
+{"kind": "decision", "t": 120, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright spot moved since last time", "say": ""}
+{"kind": "death", "t": 121, "bee": 6, "x": 4, "y": 12, "age": 70, "cause": "life"}
+{"kind": "decision", "t": 125, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 125, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "home is west, follow the long corridor back", "say": ""}
+{"kind": "decision", "t": 125, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright cells lie far to the east", "say": "nothing found north"}
+{"kind": "say", "t": 125, "bee": 7, "text": "nothing found north", "heard_by": [2, 8]}
+{"kind": "decision", "t": 125, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright cells lie far to the east", "say": "nothing found north"}
+{"kind": "say", "t": 125, "bee": 8, "text": "nothing found north", "heard_by": [2, 7]}
+{"kind": "decision", "t": 130, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 130, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 130, "bee": 4, "text": "the second sound meant danger to me", "heard_by": [2, 7, 8]}
+{"kind": "decision", "t": 130, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 130, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "nothing found north"}
+{"kind": "say", "t": 130, "bee": 8, "text": "nothing found north", "heard_by": [2, 4, 7]}
+{"kind": "decision", "t": 135, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "bright cells east past the second room"}
+{"kind": "say", "t": 135, "bee": 2, "text": "bright cells east past the second room", "heard_by": [4, 7, 8]}
+{"kind": "decision", "t": 135, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 135, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 135, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "the moving things wait near bright cells", "say": "nothing found north"}
+{"kind": "say", "t": 135, "bee": 8, "text": "nothing found north", "heard_by": [2, 4, 7]}
+{"kind": "decision", "t": 140, "bee": 2, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "avoid the lower corridor, I was hit there"}
+{"kind": "say", "t": 140, "bee": 2, "text": "avoid the lower corridor, I was hit there", "heard_by": [4, 7, 8]}
+{"kind": "decision", "t": 140, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "avoid the lower corridor, I was hit there"}
+{"kind": "say", "t": 140, "bee": 4, "text": "avoid the lower corridor, I was hit there", "heard_by": [2, 7, 8]}
+{"kind": "decision", "t": 140, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": ""}
+{"kind": "decision", "t": 140, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "death", "t": 143, "bee": 2, "x": 4, "y": 12, "age": 143, "cause": "life"}
+{"kind": "decision", "t": 145, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": ""}
+{"kind": "decision", "t": 145, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 145, "bee": 7, "text": "the second sound meant danger to me", "heard_by": [4, 8]}
+{"kind": "decision", "t": 145, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "sound two came before the sting", "say": "bright cells east past the second room"}
+{"kind": "say", "t": 145, "bee": 8, "text": "bright cells east past the second room", "heard_by": [4, 7]}
+{"kind": "decision", "t": 150, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 150, "bee": 4, "text": "the second sound meant danger to me", "heard_by": [7, 8]}
+{"kind": "decision", "t": 150, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 150, "bee": 7, "text": "the second sound meant danger to me", "heard_by": [4, 8]}
+{"kind": "decision", "t": 150, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "the second sound meant danger to me"}
+{"kind": "say", "t": 150, "bee": 8, "text": "the second sound meant danger to me", "heard_by": [4, 7]}
+{"kind": "decision", "t": 155, "bee": 4, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "", "say": "bright cells east past the second room"}
+{"kind": "say", "t": 155, "bee": 4, "text": "bright cells east past the second room", "heard_by": [7, 8]}
+{"kind": "decision", "t": 155, "bee": 7, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright cells lie far to the east", "say": ""}
+{"kind": "decision", "t": 155, "bee": 8, "trigger": "timer", "intent": "go_home", "direction": null, "target": null, "sound": "none", "remember": "bright cells lie far to the east", "say": ""}
+{"kind": "end", "t": 159, "bees_alive": 3}
