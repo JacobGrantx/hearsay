@@ -26,7 +26,7 @@ SEGMENTS = [
     dict(id="02_world", kind="map", run=MAIN, t0=0, t1=80, seconds=8.0, bee=None, view=None,
          beat="The world", captions=[
              (0.0, 4.0, "An 80 by 48 maze. Home on the left, bloom far right."),
-             (4.0, 8.0, "Each bee: a Claude Haiku 5.5 mind, never told what anything is.")],
+             (4.0, 8.0, "Each bee: a Claude Haiku 5.5 mind, given only plain words.")],
          narration="Each bee is a Claude Haiku 5.5 mind. It sees only nearby cells, keeps its own memories, "
                    "and can talk only at home. Hornets evolve by selection and mutation. Seasons move the "
                    "bloom. The bees are never told what the hornets or the bloom are; they get only plain "
