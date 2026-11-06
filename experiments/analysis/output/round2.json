@@ -1,0 +1,2405 @@
+{
+ "runs": {
+  "B_full": {
+   "0": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_full/20261106T165608Z_s0/seed-0",
+    "status": "stopped",
+    "done_ticks": 3250,
+    "years": 3
+   },
+   "1": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_full/20261106T165608Z_s1/seed-1",
+    "status": "stopped",
+    "done_ticks": 3500,
+    "years": 3
+   },
+   "2": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_full/20261106T165608Z_s2/seed-2",
+    "status": "stopped",
+    "done_ticks": 3750,
+    "years": 3
+   },
+   "3": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_full/20261106T165609Z_s3/seed-3",
+    "status": "stopped",
+    "done_ticks": 3750,
+    "years": 3
+   },
+   "4": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_full/20261106T165609Z_s4/seed-4",
+    "status": "stopped",
+    "done_ticks": 3750,
+    "years": 3
+   }
+  },
+  "B_no_talk": {
+   "0": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_no_talk/20261106T165608Z_s0/seed-0",
+    "status": "stopped",
+    "done_ticks": 3750,
+    "years": 3
+   },
+   "1": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_no_talk/20261106T165608Z_s1/seed-1",
+    "status": "stopped",
+    "done_ticks": 4250,
+    "years": 4
+   },
+   "2": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_no_talk/20261106T165608Z_s2/seed-2",
+    "status": "stopped",
+    "done_ticks": 3750,
+    "years": 3
+   },
+   "3": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_no_talk/20261106T165609Z_s3/seed-3",
+    "status": "stopped",
+    "done_ticks": 4250,
+    "years": 4
+   },
+   "4": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_b_no_talk/20261106T165609Z_s4/seed-4",
+    "status": "stopped",
+    "done_ticks": 3750,
+    "years": 3
+   }
+  },
+  "A_full": {
+   "0": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_a_full/20261106T165609Z_s0/seed-0",
+    "status": "stopped",
+    "done_ticks": 2750,
+    "years": 2
+   }
+  },
+  "N_full": {
+   "0": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_n_full/20261106T165609Z_s0/seed-0",
+    "status": "stopped",
+    "done_ticks": 2500,
+    "years": 2
+   }
+  },
+  "R2_rule": {
+   "0": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_rule/20261106T165720Z/seed-0",
+    "status": "finished",
+    "done_ticks": 8000,
+    "years": 8
+   },
+   "1": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_rule/20261106T165720Z/seed-1",
+    "status": "finished",
+    "done_ticks": 8000,
+    "years": 8
+   },
+   "2": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_rule/20261106T165720Z/seed-2",
+    "status": "finished",
+    "done_ticks": 8000,
+    "years": 8
+   }
+  },
+  "R2_random": {
+   "0": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_random/20261106T165720Z/seed-0",
+    "status": "finished",
+    "done_ticks": 8000,
+    "years": 8
+   },
+   "1": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_random/20261106T165720Z/seed-1",
+    "status": "finished",
+    "done_ticks": 8000,
+    "years": 8
+   },
+   "2": {
+    "dir": "/Users/jacobschoenberg/work/hackathons/digital-life/experiments/results/r2_random/20261106T165720Z/seed-2",
+    "status": "finished",
+    "done_ticks": 8000,
+    "years": 8
+   }
+  }
+ },
+ "per_run": {
+  "B_full": {
+   "0": {
+    "cut_years": 3,
+    "deliveries": 6,
+    "deliveries_per_year": 2.0,
+    "deliberate_deliveries": 4,
+    "first_dd": 4,
+    "talk_informed_first_dd": 1,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 333,
+    "broadcasts_about_G_or_O": 308
+   },
+   "1": {
+    "cut_years": 3,
+    "deliveries": 1,
+    "deliveries_per_year": 0.3333,
+    "deliberate_deliveries": 1,
+    "first_dd": 1,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 78,
+    "broadcasts_about_G_or_O": 70
+   },
+   "2": {
+    "cut_years": 3,
+    "deliveries": 0,
+    "deliveries_per_year": 0.0,
+    "deliberate_deliveries": 0,
+    "first_dd": 0,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 86,
+    "broadcasts_about_G_or_O": 74
+   },
+   "3": {
+    "cut_years": 3,
+    "deliveries": 2,
+    "deliveries_per_year": 0.6667,
+    "deliberate_deliveries": 2,
+    "first_dd": 2,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 142,
+    "broadcasts_about_G_or_O": 130
+   },
+   "4": {
+    "cut_years": 3,
+    "deliveries": 0,
+    "deliveries_per_year": 0.0,
+    "deliberate_deliveries": 0,
+    "first_dd": 0,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 154,
+    "broadcasts_about_G_or_O": 139
+   }
+  },
+  "B_no_talk": {
+   "0": {
+    "cut_years": 3,
+    "deliveries": 3,
+    "deliveries_per_year": 1.0,
+    "deliberate_deliveries": 2,
+    "first_dd": 2,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   },
+   "1": {
+    "cut_years": 4,
+    "deliveries": 1,
+    "deliveries_per_year": 0.25,
+    "deliberate_deliveries": 1,
+    "first_dd": 1,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 1,
+    "units_with_repeat_choice": 1,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   },
+   "2": {
+    "cut_years": 3,
+    "deliveries": 11,
+    "deliveries_per_year": 3.6667,
+    "deliberate_deliveries": 9,
+    "first_dd": 9,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 3,
+    "units_with_repeat_choice": 1,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   },
+   "3": {
+    "cut_years": 4,
+    "deliveries": 7,
+    "deliveries_per_year": 1.75,
+    "deliberate_deliveries": 5,
+    "first_dd": 5,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 8,
+    "units_with_repeat_choice": 1,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   },
+   "4": {
+    "cut_years": 3,
+    "deliveries": 5,
+    "deliveries_per_year": 1.6667,
+    "deliberate_deliveries": 3,
+    "first_dd": 3,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 13,
+    "units_with_repeat_choice": 1,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   }
+  },
+  "A_full": {
+   "0": {
+    "cut_years": 2,
+    "deliveries": 15,
+    "deliveries_per_year": 7.5,
+    "deliberate_deliveries": 15,
+    "first_dd": 10,
+    "talk_informed_first_dd": 9,
+    "repeat_choices": 59,
+    "units_with_repeat_choice": 3,
+    "repeat_choices_ended_in_delivery": 5,
+    "broadcasts": 1000,
+    "broadcasts_about_G_or_O": 980
+   }
+  },
+  "N_full": {
+   "0": {
+    "cut_years": 2,
+    "deliveries": 23,
+    "deliveries_per_year": 11.5,
+    "deliberate_deliveries": 20,
+    "first_dd": 8,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 187,
+    "units_with_repeat_choice": 8,
+    "repeat_choices_ended_in_delivery": 12,
+    "broadcasts": 876,
+    "broadcasts_about_G_or_O": 0
+   }
+  },
+  "R2_rule": {
+   "0": {
+    "cut_years": 8,
+    "deliveries": 58,
+    "deliveries_per_year": 7.25,
+    "deliberate_deliveries": 58,
+    "first_dd": 38,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 296,
+    "units_with_repeat_choice": 12,
+    "repeat_choices_ended_in_delivery": 20,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   },
+   "1": {
+    "cut_years": 8,
+    "deliveries": 27,
+    "deliveries_per_year": 3.375,
+    "deliberate_deliveries": 27,
+    "first_dd": 19,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 101,
+    "units_with_repeat_choice": 4,
+    "repeat_choices_ended_in_delivery": 8,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   },
+   "2": {
+    "cut_years": 8,
+    "deliveries": 100,
+    "deliveries_per_year": 12.5,
+    "deliberate_deliveries": 100,
+    "first_dd": 70,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 359,
+    "units_with_repeat_choice": 21,
+    "repeat_choices_ended_in_delivery": 30,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   }
+  },
+  "R2_random": {
+   "0": {
+    "cut_years": 8,
+    "deliveries": 0,
+    "deliveries_per_year": 0.0,
+    "deliberate_deliveries": 0,
+    "first_dd": 0,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   },
+   "1": {
+    "cut_years": 8,
+    "deliveries": 0,
+    "deliveries_per_year": 0.0,
+    "deliberate_deliveries": 0,
+    "first_dd": 0,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   },
+   "2": {
+    "cut_years": 8,
+    "deliveries": 0,
+    "deliveries_per_year": 0.0,
+    "deliberate_deliveries": 0,
+    "first_dd": 0,
+    "talk_informed_first_dd": 0,
+    "repeat_choices": 0,
+    "units_with_repeat_choice": 0,
+    "repeat_choices_ended_in_delivery": 0,
+    "broadcasts": 0,
+    "broadcasts_about_G_or_O": 0
+   }
+  }
+ },
+ "H10": {
+  "seeds_with_discovery": 0,
+  "of": 5,
+  "by_seed": {
+   "0": false,
+   "1": false,
+   "2": false,
+   "3": false,
+   "4": false
+  },
+  "supported": false
+ },
+ "H7": {
+  "pairs": [
+   {
+    "seed": 0,
+    "years": 3,
+    "talk_informed_first_dd_full": 1,
+    "first_dd_full": 4,
+    "first_dd_no_talk": 2
+   },
+   {
+    "seed": 1,
+    "years": 3,
+    "talk_informed_first_dd_full": 0,
+    "first_dd_full": 1,
+    "first_dd_no_talk": 1
+   },
+   {
+    "seed": 2,
+    "years": 3,
+    "talk_informed_first_dd_full": 0,
+    "first_dd_full": 0,
+    "first_dd_no_talk": 9
+   },
+   {
+    "seed": 3,
+    "years": 3,
+    "talk_informed_first_dd_full": 0,
+    "first_dd_full": 2,
+    "first_dd_no_talk": 3
+   },
+   {
+    "seed": 4,
+    "years": 3,
+    "talk_informed_first_dd_full": 0,
+    "first_dd_full": 0,
+    "first_dd_no_talk": 3
+   }
+  ],
+  "seeds_full_more": 0,
+  "supported": false
+ },
+ "H8": {
+  "pairs": [
+   {
+    "seed": 0,
+    "years": 3,
+    "full": {
+     "by_year": {
+      "2": 108,
+      "3": 4
+     },
+     "mean": 56,
+     "censored": 0
+    },
+    "no_talk": {
+     "by_year": {
+      "2": 134,
+      "3": 170
+     },
+     "mean": 152,
+     "censored": 0
+    }
+   },
+   {
+    "seed": 1,
+    "years": 3,
+    "full": {
+     "by_year": {
+      "2": 10,
+      "3": 92
+     },
+     "mean": 51,
+     "censored": 0
+    },
+    "no_talk": {
+     "by_year": {
+      "2": 250,
+      "3": 36
+     },
+     "mean": 143,
+     "censored": 1
+    }
+   },
+   {
+    "seed": 2,
+    "years": 3,
+    "full": {
+     "by_year": {
+      "2": 106,
+      "3": 0
+     },
+     "mean": 53,
+     "censored": 0
+    },
+    "no_talk": {
+     "by_year": {
+      "2": 11,
+      "3": 75
+     },
+     "mean": 43,
+     "censored": 0
+    }
+   },
+   {
+    "seed": 3,
+    "years": 3,
+    "full": {
+     "by_year": {
+      "2": 45,
+      "3": 143
+     },
+     "mean": 94,
+     "censored": 0
+    },
+    "no_talk": {
+     "by_year": {
+      "2": 43,
+      "3": 49
+     },
+     "mean": 46,
+     "censored": 0
+    }
+   },
+   {
+    "seed": 4,
+    "years": 3,
+    "full": {
+     "by_year": {
+      "2": 250,
+      "3": 84
+     },
+     "mean": 167,
+     "censored": 1
+    },
+    "no_talk": {
+     "by_year": {
+      "2": 209,
+      "3": 250
+     },
+     "mean": 229.5,
+     "censored": 1
+    }
+   }
+  ],
+  "testable_pairs": 5,
+  "seeds_full_earlier": 3,
+  "supported": false
+ },
+ "H6": {
+  "common_years": 2,
+  "common_ticks": 2000,
+  "by_run": {
+   "B_full": {
+    "0": {
+     "n": 36,
+     "kinds": {
+      "away": 2,
+      "hold": 14,
+      "sideways": 1,
+      "toward": 19
+     },
+     "away_share": 0.0556,
+     "away_or_zone_O_share": 0.0556
+    },
+    "1": {
+     "n": 31,
+     "kinds": {
+      "away": 4,
+      "hold": 12,
+      "sideways": 2,
+      "toward": 13
+     },
+     "away_share": 0.129,
+     "away_or_zone_O_share": 0.129
+    },
+    "2": {
+     "n": 29,
+     "kinds": {
+      "away": 3,
+      "hold": 4,
+      "sideways": 3,
+      "toward": 19
+     },
+     "away_share": 0.1034,
+     "away_or_zone_O_share": 0.1034
+    },
+    "3": {
+     "n": 30,
+     "kinds": {
+      "away": 5,
+      "hold": 16,
+      "sideways": 2,
+      "toward": 7
+     },
+     "away_share": 0.1667,
+     "away_or_zone_O_share": 0.1667
+    },
+    "4": {
+     "n": 32,
+     "kinds": {
+      "away": 9,
+      "hold": 12,
+      "toward": 11
+     },
+     "away_share": 0.2812,
+     "away_or_zone_O_share": 0.2812
+    }
+   },
+   "N_full": {
+    "0": {
+     "n": 28,
+     "kinds": {
+      "away": 25,
+      "hold": 3
+     },
+     "away_share": 0.8929,
+     "away_or_zone_O_share": 0.8929
+    }
+   }
+  },
+  "share": {
+   "B_full": {
+    "n": 5,
+    "mean": 0.1472,
+    "sd": 0.0851,
+    "min": 0.0556,
+    "max": 0.2812
+   },
+   "N_full": {
+    "n": 1,
+    "mean": 0.8929,
+    "sd": null,
+    "min": 0.8929,
+    "max": 0.8929
+   }
+  },
+  "verdict": "single-seed observation (amendment 1): supported"
+ },
+ "H11": {
+  "pairs": [
+   {
+    "seed": 0,
+    "years": 2,
+    "a_full": 7.5,
+    "b_full": 2.5
+   }
+  ],
+  "verdict": "single-seed observation (amendment 1)",
+  "arms": {
+   "B_full": {
+    "n": 5,
+    "mean": 0.6,
+    "sd": 0.83,
+    "min": 0.0,
+    "max": 2.0
+   },
+   "B_no_talk": {
+    "n": 5,
+    "mean": 1.6667,
+    "sd": 1.2707,
+    "min": 0.25,
+    "max": 3.6667
+   },
+   "A_full": {
+    "n": 1,
+    "mean": 7.5,
+    "sd": null,
+    "min": 7.5,
+    "max": 7.5
+   },
+   "N_full": {
+    "n": 1,
+    "mean": 11.5,
+    "sd": null,
+    "min": 11.5,
+    "max": 11.5
+   },
+   "R2_rule": {
+    "n": 3,
+    "mean": 7.7083,
+    "sd": 4.5797,
+    "min": 3.375,
+    "max": 12.5
+   },
+   "R2_random": {
+    "n": 3,
+    "mean": 0.0,
+    "sd": 0.0,
+    "min": 0.0,
+    "max": 0.0
+   }
+  }
+ },
+ "H9": {
+  "B_full": {
+   "0": [
+    {
+     "season_start": 0,
+     "decisions": 460,
+     "signals": 19,
+     "per_decision": 0.0413,
+     "with_K_or_F": 14
+    },
+    {
+     "season_start": 250,
+     "decisions": 552,
+     "signals": 1,
+     "per_decision": 0.0018,
+     "with_K_or_F": 1
+    },
+    {
+     "season_start": 500,
+     "decisions": 253,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 111,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 198,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 309,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 311,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 326,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 184,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 353,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 302,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 139,
+     "signals": 1,
+     "per_decision": 0.0072,
+     "with_K_or_F": 0
+    }
+   ],
+   "1": [
+    {
+     "season_start": 0,
+     "decisions": 413,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 257,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 352,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 121,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 246,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 356,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 284,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 123,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 196,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 295,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 243,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 130,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "2": [
+    {
+     "season_start": 0,
+     "decisions": 429,
+     "signals": 1,
+     "per_decision": 0.0023,
+     "with_K_or_F": 1
+    },
+    {
+     "season_start": 250,
+     "decisions": 278,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 251,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 112,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 221,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 211,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 206,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 118,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 188,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 250,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 237,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 114,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "3": [
+    {
+     "season_start": 0,
+     "decisions": 408,
+     "signals": 2,
+     "per_decision": 0.0049,
+     "with_K_or_F": 2
+    },
+    {
+     "season_start": 250,
+     "decisions": 329,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 235,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 140,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 203,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 187,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 209,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 127,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 202,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 232,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 175,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 107,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "4": [
+    {
+     "season_start": 0,
+     "decisions": 414,
+     "signals": 1,
+     "per_decision": 0.0024,
+     "with_K_or_F": 1
+    },
+    {
+     "season_start": 250,
+     "decisions": 346,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 214,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 120,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 225,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 203,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 228,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 121,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 174,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 219,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 246,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 150,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ]
+  },
+  "B_no_talk": {
+   "0": [
+    {
+     "season_start": 0,
+     "decisions": 419,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 594,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 301,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 159,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 242,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 299,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 276,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 185,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 231,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 309,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 390,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 206,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "1": [
+    {
+     "season_start": 0,
+     "decisions": 378,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 293,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 269,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 146,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 195,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 285,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 187,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 207,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 185,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 239,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 177,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 114,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3000,
+     "decisions": 190,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3250,
+     "decisions": 224,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3500,
+     "decisions": 191,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3750,
+     "decisions": 138,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "2": [
+    {
+     "season_start": 0,
+     "decisions": 413,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 425,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 405,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 137,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 282,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 374,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 354,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 144,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 237,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 403,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 301,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 110,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "3": [
+    {
+     "season_start": 0,
+     "decisions": 399,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 348,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 191,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 111,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 195,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 319,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 172,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 122,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 192,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 198,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 218,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 112,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3000,
+     "decisions": 232,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3250,
+     "decisions": 361,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3500,
+     "decisions": 264,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3750,
+     "decisions": 111,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "4": [
+    {
+     "season_start": 0,
+     "decisions": 399,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 489,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 392,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 178,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 184,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 284,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 282,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 257,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 212,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 389,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 396,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 139,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ]
+  },
+  "A_full": {
+   "0": [
+    {
+     "season_start": 0,
+     "decisions": 457,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 586,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 564,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 440,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 206,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 446,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 484,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 464,
+     "signals": 37,
+     "per_decision": 0.0797,
+     "with_K_or_F": 0
+    }
+   ]
+  },
+  "N_full": {
+   "0": [
+    {
+     "season_start": 0,
+     "decisions": 484,
+     "signals": 1,
+     "per_decision": 0.0021,
+     "with_K_or_F": 1
+    },
+    {
+     "season_start": 250,
+     "decisions": 741,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 569,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 576,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 348,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 444,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 441,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 289,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ]
+  },
+  "R2_rule": {
+   "0": [
+    {
+     "season_start": 0,
+     "decisions": 481,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 664,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 631,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 572,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 350,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 498,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 529,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 373,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 231,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 492,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 758,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 151,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3000,
+     "decisions": 344,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3250,
+     "decisions": 511,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3500,
+     "decisions": 286,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3750,
+     "decisions": 204,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4000,
+     "decisions": 270,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4250,
+     "decisions": 485,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4500,
+     "decisions": 260,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4750,
+     "decisions": 169,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5000,
+     "decisions": 187,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5250,
+     "decisions": 457,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5500,
+     "decisions": 488,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5750,
+     "decisions": 113,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6000,
+     "decisions": 200,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6250,
+     "decisions": 363,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6500,
+     "decisions": 326,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6750,
+     "decisions": 135,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7000,
+     "decisions": 252,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7250,
+     "decisions": 452,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7500,
+     "decisions": 446,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7750,
+     "decisions": 237,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "1": [
+    {
+     "season_start": 0,
+     "decisions": 441,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 725,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 221,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 169,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 233,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 306,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 351,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 219,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 155,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 382,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 377,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 209,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3000,
+     "decisions": 273,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3250,
+     "decisions": 514,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3500,
+     "decisions": 268,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3750,
+     "decisions": 151,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4000,
+     "decisions": 210,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4250,
+     "decisions": 338,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4500,
+     "decisions": 323,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4750,
+     "decisions": 173,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5000,
+     "decisions": 281,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5250,
+     "decisions": 271,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5500,
+     "decisions": 206,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5750,
+     "decisions": 124,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6000,
+     "decisions": 257,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6250,
+     "decisions": 281,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6500,
+     "decisions": 257,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6750,
+     "decisions": 224,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7000,
+     "decisions": 228,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7250,
+     "decisions": 413,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7500,
+     "decisions": 249,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7750,
+     "decisions": 332,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ],
+   "2": [
+    {
+     "season_start": 0,
+     "decisions": 517,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 250,
+     "decisions": 622,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 500,
+     "decisions": 613,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 750,
+     "decisions": 283,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1000,
+     "decisions": 271,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1250,
+     "decisions": 658,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1500,
+     "decisions": 595,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 1750,
+     "decisions": 216,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2000,
+     "decisions": 286,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2250,
+     "decisions": 663,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2500,
+     "decisions": 710,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 2750,
+     "decisions": 473,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3000,
+     "decisions": 301,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3250,
+     "decisions": 614,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3500,
+     "decisions": 574,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 3750,
+     "decisions": 410,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4000,
+     "decisions": 239,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4250,
+     "decisions": 468,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4500,
+     "decisions": 657,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 4750,
+     "decisions": 371,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5000,
+     "decisions": 192,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5250,
+     "decisions": 393,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5500,
+     "decisions": 666,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 5750,
+     "decisions": 445,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6000,
+     "decisions": 276,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6250,
+     "decisions": 503,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6500,
+     "decisions": 705,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 6750,
+     "decisions": 288,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7000,
+     "decisions": 214,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7250,
+     "decisions": 363,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7500,
+     "decisions": 394,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    },
+    {
+     "season_start": 7750,
+     "decisions": 264,
+     "signals": 0,
+     "per_decision": 0.0,
+     "with_K_or_F": 0
+    }
+   ]
+  }
+ },
+ "excluded": [
+  "A_full:1",
+  "A_full:2",
+  "N_full:1",
+  "N_full:2"
+ ]
+}

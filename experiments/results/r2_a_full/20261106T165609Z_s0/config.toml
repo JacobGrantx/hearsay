@@ -1,0 +1,32 @@
+# Round 2, arm A_full (pre-registered in EXPERIMENTS.md, "Round 2"): abstract words, talk on, reward rule told (one sentence, render.REWARD_TOLD).
+# Round 2 world: the E5 world (s = 0.7) plus steady hatching and the shared decision clock. Set for 8 years; every
+# run ends at the first season boundary after stop_wallclock_utc (10:05 PT), recorded as stopped_at_tick.
+# Bee minds as before: claude-haiku-5-5, effort low, thinking disabled, structured output; at most 6 calls in flight.
+[experiment]
+name = "r2_a_full"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Round 2 H11: does knowing the reward rule change deliveries per completed year (against r2_b_full)."
+seeds = [0, 1, 2]
+
+[params]
+condition = "full"
+vocab = "abstract"
+tell_reward = true
+shared_clock = true
+steady_hatch = 60
+stop_wallclock_utc = "2026-11-06T18:05:00Z"
+mind_workers = 6
+width = 56
+height = 34
+season_length = 250
+years = 8
+base_life = 500
+min_bloom_distance = 38
+hornet_spawn_distance = 18
+hornet_counts = [2, 3, 4, 0]
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+mind_model = "claude-haiku-5-5"
+mind_effort = "low"
+mind_max_tokens = 400

@@ -5,7 +5,7 @@ it finished, else (still running, or crashed) the seasons written to metrics.jso
 it compares to the years all of them completed, and reports that number. Names are the sim's: go_home is go_to_O,
 carrying is flag F, a bloom event is a G pickup.
 
-Usage: .venv/bin/python experiments/analysis/round2.py [--results DIR] [--arm B_full=r2_b_full ...] [--out FILE]
+Usage: .venv/bin/python experiments/analysis/round2.py [--results DIR] [--arm B_full=r2_b_full ...] [--exclude ARM:SEED] [--out FILE]
 --arm maps an arm to another experiment name, to test this on earlier runs (e5_full, pilot_abstract_e5_spring).
 """
 from __future__ import annotations
@@ -160,7 +160,7 @@ def stats(xs: list) -> dict:
             "min": min(xs) if xs else None, "max": max(xs) if xs else None}
 
 
-def find_runs(results: Path, arms: dict) -> dict[str, dict[int, Run]]:
+def find_runs(results: Path, arms: dict, exclude: set = frozenset()) -> dict[str, dict[int, Run]]:
     out = {}
     for arm, name in arms.items():
         runs = {}
@@ -168,6 +168,8 @@ def find_runs(results: Path, arms: dict) -> dict[str, dict[int, Run]]:
             if "calib" in d.parent.name or not (d / "layout.json").exists() or not (d / "events.jsonl").exists():
                 continue  # the 2-year scripted calibration is reported apart (EXPERIMENTS.md, "Setup calibration")
             r = Run(d)
+            if (arm, r.seed) in exclude:
+                continue  # stopped by hand under docs/methodology/round2-amendment-1.md: reported, never tested
             runs.setdefault(r.seed, r)  # one run per seed: the earliest stamp
         out[arm] = runs
     return out
@@ -213,6 +215,8 @@ def analyse(runs: dict) -> dict:
         lower = share["B_full"]["mean"] < share["N_full"]["mean"]
         apart = share["B_full"]["max"] < share["N_full"]["min"]
         verdict = "supported" if lower and apart else "direction only" if lower else "not supported"
+    if share["N_full"]["n"] == 1:
+        verdict = f"single-seed observation (amendment 1): {verdict}"
     out["H6"] = {"common_years": common // YEAR, "common_ticks": common, "by_run": h6, "share": share, "verdict": verdict}
     # H11: deliveries per completed year, A_full against B_full paired on seeds 0 to 2, and arm summaries
     rows = [{"seed": r["seed"], "years": r["years"], "a_full": r["a"], "b_full": r["b"]}
@@ -222,6 +226,8 @@ def analyse(runs: dict) -> dict:
     if len(ok) == 3:
         v = ("knowing raises deliveries" if all(r["a_full"] > r["b_full"] for r in ok) else
              "knowing lowers deliveries" if all(r["a_full"] < r["b_full"] for r in ok) else "no difference shown")
+    if len(ok) == 1:
+        v = "single-seed observation (amendment 1)"
     out["H11"] = {"pairs": rows, "verdict": v, "arms": {arm: stats([m["deliveries_per_year"] for m in out["per_run"].get(arm, {}).values()])
                                                        for arm in runs}}
     out["H9"] = {arm: {s: signals(r, r.years * YEAR) for s, r in rs.items()} for arm, rs in runs.items() if arm != "R2_random"}
@@ -232,13 +238,17 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=(__doc__ or "").split("\n")[0])
     ap.add_argument("--results", type=Path, default=REPO / "experiments" / "results")
     ap.add_argument("--arm", action="append", default=[], metavar="ARM=EXPERIMENT")
+    ap.add_argument("--exclude", action="append", default=[], metavar="ARM:SEED",
+                    help="leave a run out of every test (amendment 1: A_full:1 A_full:2 N_full:1 N_full:2)")
     ap.add_argument("--out", type=Path, default=REPO / "experiments" / "analysis" / "output" / "round2.json")
     a = ap.parse_args()
     arms = dict(ARMS)
     for kv in a.arm:
         k, _, v = kv.partition("=")
         arms[k] = v
-    res = analyse(find_runs(a.results, arms))
+    exclude = {(k, int(v)) for k, _, v in (x.partition(":") for x in a.exclude)}
+    res = analyse(find_runs(a.results, arms, exclude))
+    res["excluded"] = sorted(f"{k}:{v}" for k, v in exclude)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(res, indent=1) + "\n")
     for arm, rs in res["runs"].items():

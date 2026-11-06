@@ -6,31 +6,31 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 111
+    "claude-opus-5-5": 118
   },
   "first_timestamp": "2026-11-06T17:42:46.235Z",
-  "last_timestamp": "2026-11-06T18:08:49.767Z",
+  "last_timestamp": "2026-11-06T18:09:46.930Z",
   "source": {
     "file": "195b10ac-684d-4270-9487-37f2b00d8ac3.jsonl",
-    "sha256": "bf17631db7c3240dc792fc1689d07be4ae21eb0c79e6631befba1b150c8bc3e9",
-    "lines": 308,
+    "sha256": "bbb654707ca133e52975229819ff37a3ef3c5d788db3897fce94dcc24f0537ae",
+    "lines": 329,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 98,
-    "output_tokens": 47941,
-    "cache_creation_input_tokens": 122538,
-    "cache_read_input_tokens": 4429709,
-    "api_responses": 49,
+    "input_tokens": 106,
+    "output_tokens": 51238,
+    "cache_creation_input_tokens": 124441,
+    "cache_read_input_tokens": 4923411,
+    "api_responses": 53,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 54
+    "accept/config": 58
   },
   "tool_calls": {
-    "Bash": 44,
+    "Bash": 47,
     "Write": 2,
     "Edit": 3,
     "Read": 4,
@@ -40,24 +40,26 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "7f97c2753f9d23418558e81dac213f1b13a2c533 Demo video narrated and extended to the brief: spoken by Kokoro-82M (af_heart, local, Apache 2.0), with an opening question card and a closing card on the five judging criteria (217.1 s, 7.3 MB, rendered at ef26c9e). README Demonstration and SOURCES.md updated",
     "ef26c9ee9c357b3a8a567245745833c0ec266b50 Video generator: spoken narration and a card on how Hearsay meets the brief"
   ],
-  "kept_entries": 167,
+  "kept_entries": 179,
   "omitted_entries": {
-    "ai-title": 19,
+    "ai-title": 20,
     "queue-operation": 4,
-    "attachment": 76,
+    "attachment": 80,
     "file-history-snapshot": 1,
-    "atis-latch": 19,
-    "last-prompt": 18,
-    "file-history-delta": 4
+    "atis-latch": 20,
+    "last-prompt": 20,
+    "file-history-delta": 4,
+    "cost-state": 1
   },
   "redactions": {
     "path-outside-repo": 1,
     "other-scratch": 19
   },
   "transformations": {
-    "thinking_omitted": 34,
+    "thinking_omitted": 36,
     "block_omitted:tool_reference": 1
   },
   "missing": {
