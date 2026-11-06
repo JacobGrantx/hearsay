@@ -63,6 +63,66 @@ The changes are listed in DECISIONS.md as agent proposals awaiting Jacob.
 
 **Limits.** Only one point per knob was tried around the chosen values, with 3 seeds each. The rule-bee rate (0.024) rests on one delivery in one seed. Over a whole 2-year run, rule bees made 1, 0 and 2 deliveries in seeds 0, 1 and 2 (`deliveries` in per_seed).
 
+## Pre-registration
+
+Written 2026-11-06, before any real model call by a bee mind, and committed under a subject starting "Pre-registration:". The analysis below is fixed now. Anything changed later is listed under "Amendments" with its date and reason, and marked as made before or after the main runs.
+
+### Shared design
+
+- **Conditions and configs** (all in `experiments/configurations/`): `full`, `no_talk`, `no_memory`, `labels_good_bad`, `frozen_hornets` (AI bees, full-size world, 2 years), and the scripted baselines `rule_bees` and `random_bees`. Every AI arm uses `claude-haiku-5-5`, effort low, thinking disabled, structured output, the same system prompt template (`prompts/bee_system.txt`) and the same perception renderer (`src/digital_life/render.py`). The conditions differ only in what the spec says they change.
+- **Seeds:** 0, 1 and 2 for every AI arm; 0 to 4 for the scripted baselines. A seed fixes the maze, the bloom sites and the initial hornet genomes, so arms are compared seed by seed (paired). Any result that goes in the README headline is extended to seeds 3 and 4 for the arms it compares, budget allowing; otherwise it is reported as n = 3.
+- **Same commit:** all main runs, baselines included, run at one committed code state (`git_dirty: false`), and replay offline from `experiments/llm_cache/` with `LLM_MODE=replay`.
+- **Reporting:** for every measure, the per-seed values, mean, sd and n. No best runs. No run is dropped: a crashed run, or one where more than 5% of decisions fell back to `wait` (`mind_error`), is reported and flagged.
+- **What counts as a difference:** with n = 3 we make no significance claims. A difference between two arms is called consistent when it has the same sign on every paired seed (3 of 3; 1 in 8 by chance if the arms are the same) and the mean paired difference is larger than the sd of the paired differences. Anything weaker is reported as "no consistent difference".
+- **Censoring:** a season with no delivery gets `first_delivery` = 250 (the season length). Measures with no data (no trips ended, no sounds made) are reported as missing, not as zero.
+
+### E1: learning and culture
+
+- **Hypothesis:** AI bees with memory and hive talk (`full`) gather more than bees without talk (`no_talk`), without memory (`no_memory`), and the scripted rule and random bees.
+- **Primary measure:** total `deliveries` per run (both years, `final_metrics` in record.json).
+- **Secondary:** `delivery_rate`, `median_to_bloom`, `stings_per_trip`, `bees_mean`, per season and in total.
+- **Comparisons:** `full` against each of `no_talk`, `no_memory`, `rule_bees`, `random_bees`, paired by seed 0 to 2.
+- **Supported if** `full` > each comparison arm, consistently. If `full` does not beat `rule_bees`, that is a negative result about the AI mind and is written up as one.
+
+### E2: arms race
+
+- **Hypothesis:** evolving hornets adapt to the AI colony: their stings per trip rise from year 1 to year 2, more than with `frozen_hornets`.
+- **Primary measure:** change in stings per trip, year 2 minus year 1, from metrics.jsonl (stings / trips_ended over the three seasons with hornets in each year).
+- **Secondary:** hornet gene means (smell, hearing, ambush) at the end of each season with hornets; hornet damage per bee-tick outside the hive.
+- **Comparison:** `full` against `frozen_hornets`, paired by seed 0 to 2.
+- **Supported if** the change is larger under `full`, consistently. Gene drift alone, without a change in stings, is reported as drift, not adaptation.
+
+### E3: seasonal memory
+
+- **Hypothesis:** the colony finds the spring bloom sooner in year 2 than in year 1, because knowledge outlives the bees that found it; with hive talk switched off it does not.
+- **Primary measure:** `first_delivery_y1_spring` minus `first_delivery_y2_spring` (ticks; positive means earlier in year 2), censored at 250.
+- **Comparison:** `full` against `no_talk`, paired by seed 0 to 2.
+- **Also reported,** to separate culture from individual memory: whether any bee alive at the start of year 2 spring was alive during year 1 spring, and whether the first year-2 spring forager had heard a coordinate within 3 cells of the spring bloom at home before leaving.
+- **Supported if** the difference is positive under `full` and larger than under `no_talk`, consistently.
+
+### E4: signals
+
+- **Hypothesis:** with neutral sounds, the sounds come to be tied to context (made near moving things, or near bright cells); with the names "good noise" and "bad noise" the tie is there from the start, because it comes from the words.
+- **Primary measure:** mutual information, in bits, between which sound a bee makes (sound-1 or sound-2, over decisions that make a sound) and its context at that decision (moving thing in view, bright cell in view, both, neither), from the `ctx` field of decision events.
+- **Control for chance:** a permutation test within each run: shuffle the sound labels across that run's sound-making decisions 1,000 times; report where the observed value falls.
+- **Time course:** MI in year 1 against year 2 in `full`; MI in the first 250 ticks in `labels_good_bad` against `full`.
+- **Listener response (secondary):** the share of `flee` and `go_home` decisions triggered by hearing each sound, against the share at timer decisions.
+- **Supported if** MI in `full` is above the 95th percentile of its permutation distribution in at least 2 of 3 seeds. If it is not, neutral sounds stayed meaningless, which is reported as a negative result.
+
+### Further measures (all arms, descriptive)
+
+- **False location claims in hive talk:** every coordinate pair in a `say` text, classed as within 3 cells of a bloom cell of the current or previous season, within 3 cells of a moving thing the speaker saw, or neither (unsupported). Reported as shares per arm.
+- **Naive avoidance:** for each bee's first decision triggered by seeing a moving thing, before it was ever stung (from `sting` events), the share that chose `flee` or `go_home`. Compared across `full`, `no_talk` and `no_memory`.
+- **Hardcoding audit:** before results are written, grep code, prompts and configs for any rule that ties a sound, a direction or a place to a context. The no-hints and leak tests (tests/test_mind_prompt.py) must pass at the run commit.
+
+### Budget and timing
+
+From the feasibility note: about $0.0001 per decision. The pilot (below) gives the real cost and time per run; the main-run plan is set from it and recorded as an amendment if it changes the arms or seeds. The spend cap for the main runs is Jacob's call.
+
+### Amendments
+
+None yet.
+
 ## Summary
 
 | # | Question | Result | Holds across seeds? | Controls passed |

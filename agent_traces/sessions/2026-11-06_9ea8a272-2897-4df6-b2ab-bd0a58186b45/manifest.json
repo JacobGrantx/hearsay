@@ -6,54 +6,55 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 93
+    "claude-opus-5-5": 101
   },
   "first_timestamp": "2026-11-06T09:49:38.771Z",
-  "last_timestamp": "2026-11-06T10:02:56.172Z",
+  "last_timestamp": "2026-11-06T10:04:15.830Z",
   "source": {
     "file": "9ea8a272-2897-4df6-b2ab-bd0a58186b45.jsonl",
-    "sha256": "27c7aec30b251a7b332364a081afd872bdc51a790b3f88e112354885e547aba4",
-    "lines": 266,
+    "sha256": "b53e65d8e4c0daebe8a7c4d9701fc66969f7914dfaa4bba8e08212af4d5a105d",
+    "lines": 289,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 80,
-    "output_tokens": 58695,
-    "cache_creation_input_tokens": 119614,
-    "cache_read_input_tokens": 3659269,
-    "api_responses": 40,
+    "input_tokens": 86,
+    "output_tokens": 65632,
+    "cache_creation_input_tokens": 127234,
+    "cache_read_input_tokens": 4060937,
+    "api_responses": 43,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 41
+    "accept/config": 44
   },
   "tool_calls": {
-    "Bash": 34,
-    "Write": 8
+    "Bash": 36,
+    "Write": 9
   },
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "28afa0863eb22ad18720f962e2f61cc3df981189 AI condition configs (full, no_talk, no_memory, labels_good_bad, frozen_hornets; full size, 3 seeds), pilot config (first spring, seed 0), stop_after run length, memory unit tests",
     "031fb4a17b651ea5ecbdd1cd5783330f3e1a590b AI bee mind: neutral system prompt, perception renderer and decision schema, per-bee memory (episodes, beliefs, BM25 recall), AIPolicy with parallel calls and wait fallback; leak, no-hints, replay and condition tests",
     "1abaff874267272802f69c72a3bfdd2677119e09 Secret scan: an assigned value ends at a backslash, so JSON-escaped newlines in exported traces no longer join code into a false 'token' hit; regression test both ways"
   ],
-  "kept_entries": 136,
+  "kept_entries": 147,
   "omitted_entries": {
-    "ai-title": 18,
+    "ai-title": 20,
     "queue-operation": 2,
-    "attachment": 66,
+    "attachment": 71,
     "file-history-snapshot": 1,
-    "atis-latch": 18,
-    "last-prompt": 17,
-    "file-history-delta": 8
+    "atis-latch": 20,
+    "last-prompt": 19,
+    "file-history-delta": 9
   },
   "redactions": {
     "secret": 2
   },
   "transformations": {
-    "thinking_omitted": 30
+    "thinking_omitted": 34
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

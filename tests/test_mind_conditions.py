@@ -42,7 +42,8 @@ def test_replay_gives_an_identical_run(tmp_path, llm_sandbox, monkeypatch):
     live, replay = read_dir(tmp_path / "live"), read_dir(tmp_path / "replay")
     decisions = [json.loads(line) for line in live[1].splitlines() if '"decision"' in line]
     assert fake.calls == len(decisions) > 100
-    assert all(d["usage"]["output_tokens"] == 40 and d["prompt_key"] for d in decisions)
+    assert all(d["usage"]["output_tokens"] == 40 and d["prompt_key"] and set(d["ctx"]) == {"movers", "bright", "carrying", "home"}
+               for d in decisions)
     assert live == replay
 
 

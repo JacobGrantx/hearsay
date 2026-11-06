@@ -92,7 +92,8 @@ class AIPolicy(Policy):
             self.emit("mind_error", tick, bee=p.bee_id, error=f"{type(e).__name__}: {str(e)[:200]}",
                       stop_reason=c.stop_reason, prompt_key=c.key[:12])
             d = Decision("wait", info={"fallback": "parse"})
-        d.info.update(usage={k: c.usage.get(k, 0) for k in ("input_tokens", "output_tokens")}, prompt_key=c.key[:12])
+        d.info.update(usage={k: c.usage.get(k, 0) for k in ("input_tokens", "output_tokens")}, prompt_key=c.key[:12],
+                      ctx={"movers": len(p.hornets_seen), "bright": len(p.bloom_seen), "carrying": int(p.carrying), "home": int(p.at_home)})
         if self.memory_on and d.remember:
             self.mem[p.bee_id].remember(tick, d.remember)
         self.last[p.bee_id] = tick
