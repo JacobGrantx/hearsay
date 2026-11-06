@@ -1,0 +1,67 @@
+{
+  "session_id": "195b10ac-684d-4270-9487-37f2b00d8ac3",
+  "exporter_version": 1,
+  "agent_tool": "Claude Code",
+  "claude_code_versions": [
+    "2.1.296"
+  ],
+  "models": {
+    "claude-opus-5-5": 111
+  },
+  "first_timestamp": "2026-11-06T17:42:46.235Z",
+  "last_timestamp": "2026-11-06T18:08:49.767Z",
+  "source": {
+    "file": "195b10ac-684d-4270-9487-37f2b00d8ac3.jsonl",
+    "sha256": "bf17631db7c3240dc792fc1689d07be4ae21eb0c79e6631befba1b150c8bc3e9",
+    "lines": 308,
+    "unparseable_lines": 0
+  },
+  "usage_main_agent": {
+    "input_tokens": 98,
+    "output_tokens": 47941,
+    "cache_creation_input_tokens": 122538,
+    "cache_read_input_tokens": 4429709,
+    "api_responses": 49,
+    "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+  },
+  "human_prompts": 0,
+  "unmarked_prompts": 1,
+  "permission_decisions": {
+    "accept/config": 54
+  },
+  "tool_calls": {
+    "Bash": 44,
+    "Write": 2,
+    "Edit": 3,
+    "Read": 4,
+    "TaskStop": 2,
+    "ToolSearch": 1
+  },
+  "subagents": [],
+  "commits_made_in_session": [],
+  "commits_in_time_window": [
+    "ef26c9ee9c357b3a8a567245745833c0ec266b50 Video generator: spoken narration and a card on how Hearsay meets the brief"
+  ],
+  "kept_entries": 167,
+  "omitted_entries": {
+    "ai-title": 19,
+    "queue-operation": 4,
+    "attachment": 76,
+    "file-history-snapshot": 1,
+    "atis-latch": 19,
+    "last-prompt": 18,
+    "file-history-delta": 4
+  },
+  "redactions": {
+    "path-outside-repo": 1,
+    "other-scratch": 19
+  },
+  "transformations": {
+    "thinking_omitted": 34,
+    "block_omitted:tool_reference": 1
+  },
+  "missing": {
+    "tool_results_stored_outside_log": 0,
+    "note": "Large tool outputs that Claude Code stored outside the session log are not exported; the log keeps its reference to them."
+  }
+}

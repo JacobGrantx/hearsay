@@ -38,7 +38,9 @@ Persistence (knowledge outliving every bee that gained it), interaction (talk, s
 
 ## Demonstration
 
-**[Watch the demo video](demo/recordings/demo.mp4)** (88.5 seconds, 1280 x 720, no sound). Every map shot in it is a replay of a logged run, drawn by the viewer from the run directory, and the cards and charts are drawn from `experiments/analysis/output/`. There is no generated footage. It follows the findings in order: the world, the bees' caution and where it comes from, the one time we saw talk carry a place (E5, 1 seed of 5), the seasons, then the results, negative ones included.
+**[Watch the demo video](demo/recordings/demo.mp4)** (3 minutes 37 seconds, 1280 x 720, narrated). Every map shot in it is a replay of a logged run, drawn by the viewer from the run directory, and the cards and charts are drawn from `experiments/analysis/output/`. There is no generated footage. It follows the findings in order: the world, the bees' caution and where it comes from, the one time we saw talk carry a place (E5, 1 seed of 5), the seasons, then the results, negative ones included. It ends with how Hearsay answers each of the brief's five judging criteria.
+
+A voice reads the story, so you don't have to read the captions. It is Kokoro-82M (open weights, Apache 2.0, voice `af_heart`), run locally by [demo/video/narrate.py](demo/video/narrate.py); no paid or cloud voice. Every number it says is copied from [EXPERIMENTS.md](EXPERIMENTS.md), and the full script is in [SOURCES.md](demo/recordings/SOURCES.md).
 
 | Segment | Run directory | Ticks | Follows |
 |---|---|---|---|
@@ -51,7 +53,7 @@ Persistence (knowledge outliving every bee that gained it), interaction (talk, s
 | Summer: back to the old spring place | same | 298 to 440 | bee 1 |
 | Winter: the colony falls from 7 to 4 | same | 740 to 1000 | the colony |
 
-Captions, frame steps and chart sources are in [demo/recordings/SOURCES.md](demo/recordings/SOURCES.md). The moments were found in the logs by `experiments/analysis/find_moments.py`, and every tick, life value and quote in a caption is copied from the run's events. `make video` re-renders the whole video from the run directories in about 3 to 10 minutes depending on load (`TITLE=` and `REPO=` change the title and the repository line; it needs ffmpeg and the viewer's headless shell, see [viewer/README.md](viewer/README.md)).
+Captions, narration, frame steps and chart sources are in [demo/recordings/SOURCES.md](demo/recordings/SOURCES.md). The moments were found in the logs by `experiments/analysis/find_moments.py`, and every tick, life value and quote in a caption or a spoken line is copied from the run's events. `make video` re-renders the whole video from the run directories in about 5 to 15 minutes depending on load (`TITLE=` and `REPO=` change the title and the repository line; it needs ffmpeg and the viewer's headless shell, see [viewer/README.md](viewer/README.md)). For the voice it also needs [requirements-video.txt](requirements-video.txt) installed in the Python named by `KOKORO_PYTHON`, with the Kokoro model files in `KOKORO_MODELS`.
 
 Stills from the viewer:
 
