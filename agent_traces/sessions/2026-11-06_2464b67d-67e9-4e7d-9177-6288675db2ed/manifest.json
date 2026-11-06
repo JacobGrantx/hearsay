@@ -6,28 +6,28 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 48
+    "claude-opus-5-5": 50
   },
   "first_timestamp": "2026-11-06T17:23:44.961Z",
-  "last_timestamp": "2026-11-06T17:36:02.950Z",
+  "last_timestamp": "2026-11-06T17:36:26.565Z",
   "source": {
     "file": "2464b67d-67e9-4e7d-9177-6288675db2ed.jsonl",
-    "sha256": "1434a7734bd40da8f17fd90e80ef9f575d3f7e39bdb14d09a73b39b423789baf",
-    "lines": 145,
+    "sha256": "989508901d296b25d5d6fa4684c7ffc572e2b605c38fdb1699337b8254e4d6f0",
+    "lines": 155,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 46,
-    "output_tokens": 9314,
-    "cache_creation_input_tokens": 42694,
-    "cache_read_input_tokens": 1066359,
-    "api_responses": 23,
+    "input_tokens": 48,
+    "output_tokens": 10353,
+    "cache_creation_input_tokens": 43365,
+    "cache_read_input_tokens": 1126581,
+    "api_responses": 24,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 23
+    "accept/config": 24
   },
   "tool_calls": {
     "Bash": 21,
@@ -36,20 +36,22 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "741ffdfefbdb1bf023df90cb686014c8f229c685 Demo video re-rendered as Hearsay: title and end card name Hearsay, the end card shows the hearsay GitLab path, and the phase 7f caution caption is in (88.5 s, 3.1 MB, rendered at 8567c00). SOURCES.md and the four stills regenerated",
     "8567c00935d379f910ca2cbd92dd9644fd32905a Video generator: record the render commit before writing outputs, ignoring agent_traces, so its own demo.mp4 no longer marks the render as uncommitted"
   ],
-  "kept_entries": 72,
+  "kept_entries": 76,
   "omitted_entries": {
     "queue-operation": 6,
-    "attachment": 41,
+    "attachment": 42,
     "file-history-snapshot": 1,
-    "atis-latch": 10,
-    "last-prompt": 9,
-    "ai-title": 6
+    "atis-latch": 11,
+    "last-prompt": 11,
+    "ai-title": 7,
+    "cost-state": 1
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 17
+    "thinking_omitted": 18
   },
   "missing": {
     "tool_results_stored_outside_log": 0,
