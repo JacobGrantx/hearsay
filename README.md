@@ -1,6 +1,8 @@
-# Bee colony (working title)
+# Hearsay
 
-A colony of language-model bees that has to work out, from nothing, where the flowers are, what keeps hurting it, and how to tell its young, while the hornets evolve to hunt it.
+Agents in a grid world find things, can share them only at home, and die. Does knowledge outlive the one who found it?
+
+Here the agents are a colony of language-model bees that has to work out where the flowers are, what keeps hurting it, and how to tell its young, while the hornets evolve to hunt it.
 
 <!-- Judges read this first. Every claim below points at an experiment in EXPERIMENTS.md or a run in experiments/results/. -->
 
@@ -101,11 +103,11 @@ Full detail, with the design choices and the alternatives rejected, in [ARCHITEC
 
 ## Getting started
 
-Requires Python 3.11 or later and `make`. No GPU, no API key for anything below.
+Requires Python 3.11 or later and `make`. No GPU, no API key for anything below. The repository is private on GitLab, by Jacob Schoenberg's decision (DECISIONS.md); judges get access from him.
 
 ```bash
-git clone <public repository URL, at submission>
-cd digital-life
+git clone https://private-gitlab.example/private-group/hearsay.git
+cd hearsay
 make setup        # .venv, pinned dependencies, secret-scan pre-commit hook
 make test         # 69 tests, about a minute
 make demo         # small scripted world, then an offline replay of a recorded AI run
