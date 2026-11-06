@@ -19,11 +19,15 @@ Modes (LLM_MODE):
   live    always call live and overwrite the cache entry
   replay  cache only; a miss raises CacheMiss (proves a run is fully reproducible offline)
 
+The cache is one JSON file per call (CACHE_DIR/<k[:2]>/<key>.json), or packed per run into
+CACHE_DIR/<run>.jsonl.gz by tools/pack_llm_cache.py. Both are read in auto and replay mode.
+
 Pass `tag` (for example f"{seed}:{step}:{agent_id}") whenever two identical prompts
 should get independent samples; the tag is part of the cache key.
 """
 from __future__ import annotations
 
+import gzip
 import hashlib
 import json
 import os
@@ -121,6 +125,22 @@ def _cache_path(key: str) -> Path:
 
 _client = None
 _lock = threading.Lock()  # agents call in parallel; the ledger, cache and client are shared
+_packed: dict = {"source": None, "index": {}}
+
+
+def _packed_response(key: str) -> dict | None:
+    """Look a key up in the packed caches: CACHE_DIR/*.jsonl.gz, one per run, written by tools/pack_llm_cache.py."""
+    with _lock:
+        packs = tuple(sorted(CACHE_DIR.glob("*.jsonl.gz")))
+        if _packed["source"] != (CACHE_DIR, packs):
+            index = {}
+            for pack in packs:
+                with gzip.open(pack, "rt", encoding="utf-8") as f:
+                    for line in f:
+                        rec = json.loads(line)
+                        index[rec["key"]] = rec["response"]
+            _packed.update(source=(CACHE_DIR, packs), index=index)
+        return _packed["index"].get(key)
 
 
 def complete(
@@ -153,9 +173,11 @@ def complete(
     path = _cache_path(key)
     mode = os.environ.get("LLM_MODE", "auto")
 
-    if mode in ("auto", "replay") and path.exists():
-        rec = json.loads(path.read_text())
-        out = Completion(**rec["response"], cached=True, key=key)
+    cached = None
+    if mode in ("auto", "replay"):
+        cached = json.loads(path.read_text())["response"] if path.exists() else _packed_response(key)
+    if cached is not None:
+        out = Completion(**cached, cached=True, key=key)
         out.cost_usd = 0.0
     elif mode == "replay":
         raise CacheMiss(f"no cached response for request {key[:12]} (LLM_MODE=replay)")
