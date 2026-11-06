@@ -6,28 +6,28 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 165
+    "claude-opus-5-5": 167
   },
   "first_timestamp": "2026-11-06T15:38:04.967Z",
-  "last_timestamp": "2026-11-06T16:06:55.183Z",
+  "last_timestamp": "2026-11-06T16:07:18.452Z",
   "source": {
     "file": "c34f9a85-69f7-4c08-96b4-5027b445cdc7.jsonl",
-    "sha256": "f6772f08a48504379dcf05928b266eb23e4da0949b1ff7ca892f5e4a3b3b2178",
-    "lines": 491,
+    "sha256": "821d4b51f16527f2591a23b69bebe4caa31f7558c7d44ed020e5b7ede2a65f0a",
+    "lines": 501,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 168,
-    "output_tokens": 73174,
-    "cache_creation_input_tokens": 167773,
-    "cache_read_input_tokens": 10895624,
-    "api_responses": 84,
+    "input_tokens": 170,
+    "output_tokens": 74526,
+    "cache_creation_input_tokens": 168171,
+    "cache_read_input_tokens": 11080925,
+    "api_responses": 85,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 90
+    "accept/config": 91
   },
   "tool_calls": {
     "Bash": 85,
@@ -36,27 +36,29 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "9b18d2f9f206bc53b6de0a316eec955fd4750857 Traces: phase 6 session export",
     "6d06d9469898d81c1a168d0b92704d79296066be Docs for phase 6: the vocabulary decisions (Jacob's request, wording proposals awaiting Jacob, the open question from the pilot), ARCHITECTURE's abstract-words mechanism, BUILD_NOTES phase 6",
     "0a86256d0243764b6a8d0cddcec70a3aa1bb58a9 Phase 6 pilot, abstract vocabulary, E5 world, first spring, seed 0: 0 model errors, 0.774 s and $0.00033 per tick; all 6 units reached G and none brought it to zone O; first sightings of K held or went on, none moved away",
     "cb7a04a5f09e8f26f9a37fb74363c394a218b4ed Viewer and README: a line under the key shows what the agents read (abstract: units, zone O, K entities, G cells, signals A and B; neutral for round 1 runs)",
     "0724294131cbe6694c4acdb435aad57740f2b8c1 Pilot config for the abstract vocabulary: E5 world, first spring, seed 0, condition full",
     "b0b8693e3f109a6d9aaeb3241c6925061382187b Vocabulary switch: vocab = \"abstract\" (units, zone O, counter C, G cells, K entities, flag F, signals A and B, no flee) is the new default; \"neutral\" is round 1's exact wording"
   ],
-  "kept_entries": 256,
+  "kept_entries": 260,
   "omitted_entries": {
-    "ai-title": 33,
+    "ai-title": 34,
     "queue-operation": 8,
-    "attachment": 122,
+    "attachment": 123,
     "file-history-snapshot": 1,
-    "atis-latch": 33,
-    "last-prompt": 32,
-    "file-history-delta": 6
+    "atis-latch": 34,
+    "last-prompt": 34,
+    "file-history-delta": 6,
+    "cost-state": 1
   },
   "redactions": {
     "path-outside-repo": 2
   },
   "transformations": {
-    "thinking_omitted": 61
+    "thinking_omitted": 62
   },
   "missing": {
     "tool_results_stored_outside_log": 0,
