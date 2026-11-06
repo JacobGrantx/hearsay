@@ -1,5 +1,5 @@
 PY := .venv/bin/python
-DEMO_AI_RUN ?= experiments/results/pilot_full_spring/20261106T100558Z/seed-0
+DEMO_AI_RUN ?= experiments/results/full/20261106T101558Z/seed-0
 
 .PHONY: setup test smoke demo replay traces check analysis
 
