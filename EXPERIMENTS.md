@@ -250,6 +250,12 @@ Run 2026-11-06 by the phase 4 build session (Claude Code), exactly as pre-regist
 | E4 | Do neutral sounds come to mean something? | **Not testable: bees almost never sound.** 3 sounds in 6,610 `full` decisions; mutual information could not be estimated in any seed. With the words "good noise" and "bad noise", 9 sounds in 4,342 decisions, used as the words suggest | n/a | Permutation test planned; too few sounds to run it |
 | E5 (post hoc) | Once the bloom is reachable, does talk at home raise gathering, and do bees deliver from what they heard? | **No.** `e5_full` 5.2 deliveries per year (sd 5.630, n 5), `e5_no_talk` 8.2 (sd 5.933, n 5); paired differences 12, 0, -14, -6, -7. Talk-informed deliveries: 2, both in seed 0 (1 of 5 seeds; 2 required) | No | `e5_no_talk` ablation and scripted calibration run; talk did carry a place in one seed, but colonies with talk stayed home more and gathered no more |
 | (further) | Do newborns avoid moving things before they are ever stung? | **Yes, in every arm, including `no_memory`**: 0.857 of first sightings in `full`, 1.000 in `no_memory`, against 0.110 to 0.282 at timer decisions (per-seed range) | Yes, every seed | Ablations show it is not learned from experience: it comes from the model's prior, the wording, or both (round 1 offered `flee`; round 2's H6 tests the wording without it) |
+| H10 (round 2) | Do units never told what delivery does discover it (a repeat go_to_O with flag F after a delivery)? | **No.** 0 of 5 `r2_b_full` seeds (3 needed), 3 completed years each. Deliveries 6, 1, 0, 2, 0; no unit went back for more | No | Random bees 0 deliveries in 8 years; rule bees repeat in every seed; B_no_talk repeated in 4 of 5 seeds, never ending in a delivery |
+| H7 (round 2) | Does talk spread delivery (talk-informed first deliberate deliveries in B_full above first ones in B_no_talk)? | **No.** B_full higher in 0 of 5 seeds (4 needed): 1, 0, 0, 0, 0 against 2, 1, 9, 3, 3 | No | Talk ablation run; it delivered more (1.6667 against 0.6 per year, sd 1.2707 and 0.83, n 5) |
+| H8 (round 2) | Does talk make the first G reach each spring after year 1 earlier? | **No.** Earlier in 3 of 5 pairs (4 needed); means 56 vs 152, 51 vs 143, 53 vs 43, 94 vs 46, 167 vs 229.5 ticks | No | Talk ablation run; 3 censored springs |
+| H6 (round 2) | At first sight of K, do abstract words lower avoidance against neutral words? | **Single-seed observation (amendment 1), not a test.** Away or to O: B_full 0.1472 (sd 0.0851, n 5), N_full seed 0 0.8929 (n 1) | n/a (1 N_full seed) | N_full seeds 1 and 2 stopped by amendment 1 |
+| H11 (round 2) | Does being told the rule change deliveries per year? | **Single-seed observation (amendment 1), not a test.** Seed 0, 2 years: A_full 7.5, B_full 2.5 | n/a (1 A_full seed) | A_full seeds 1 and 2 stopped by amendment 1 |
+| H9 (round 2) | Signal use over time | Descriptive: 21, 0, 1, 2, 1 signals in B_full seeds, 0 in B_no_talk, mostly in the first season | n/a | none planned |
 
 ## Experiment 1: learning and culture (E1)
 
@@ -615,6 +621,9 @@ Each of these was pre-registered as a possible outcome and is reported in full i
 5. **Neutral sounds stayed meaningless (E4).** Expected: sounds tied to context. Happened: 3 sounds in 6,610 decisions, so mutual information could not be estimated; with labels, sounds were used in the sense of the words. It taught us that in this system a sound's meaning comes from its name.
 6. **Avoidance is not learned (further measures).** We had hoped to see bees learn that moving things hurt. Newborns flee them from the first sighting in every arm, without memory too, so it is not learned from experience. It comes from the model's prior, the wording, or both: round 1 offered a `flee` action, and round 2's H6 tests the wording without it. The phase 6 pilot with abstract words (one seed) saw none of 4 units move away at first sight.
 7. **Talk did not pay, even with something to carry (E5, post hoc).** Expected: in a world where the bloom is reachable, `e5_full` delivers more than `e5_no_talk`, and bees in at least 2 of 5 seeds deliver from a place they heard at home. Happened: 5.2 against 8.2 deliveries per year (paired differences 12, 0, -14, -6, -7), and talk-informed deliveries in 1 of 5 seeds (2 deliveries). How we know: 5 paired seeds, the pre-registered rules. What it taught us: talk can carry a place (seed 0), but bees with talk spent more time at home (0.430 of bee-ticks against 0.239, exploratory) and took fewer trips, so in this system the cost of talking cancels what it carries.
+8. **No discovery without being told (round 2, H10).** Expected: in at least 3 of 5 `r2_b_full` seeds, a unit that delivered once chooses go_to_O with flag F again. Happened: 0 of 5 seeds, over 3 completed years each; 9 deliveries in all (7 deliberate), and none of those units chose it again. How we know: the pre-registered repeat-choice measure on every decision, with random bees (0 deliveries in 8 years) and rule bees (repeat choices in every seed) as bounds. What it taught us: the one event "your counter C rose" was not enough for the model to link delivery to its reward; the told arm (A_full, one seed) made 59 repeat choices (3 units).
+9. **Talk did not spread delivery (round 2, H7).** Expected: talk-informed first deliberate deliveries in B_full above first deliberate deliveries in B_no_talk in 4 of 5 seeds. Happened: 0 of 5 (1, 0, 0, 0, 0 against 2, 1, 9, 3, 3), with hundreds of broadcasts about G or O. What it taught us: as in E5, units with talk delivered less on average, not more (0.6 against 1.6667 per year; not a pre-registered test).
+10. **No seasonal memory through talk (round 2, H8).** Expected: an earlier first G reach each spring after year 1 in B_full in 4 of 5 pairs. Happened: 3 of 5. What it taught us: as in E3, where units are when spring opens dominates this measure.
 
 ## Limits
 
@@ -715,3 +724,79 @@ Run after the pre-registration commit and before looking at any AI run, with no 
 | Mean colony size | 7.29 (sd 1.83; 8.771, 5.237, 7.849) | 4.81 (sd 0.09) |
 
 Steady hatching works as specified: rule seed 0 logged 21 hatches with cause "steady" in 2 years. So the round 2 world can be delivered to by a hardcoded policy and never by chance in 2 years. The AI arms run to the 10:05 PT stop; the scripted arms were also run to the stop (stamp 20261106T165720Z) for the pre-registered baselines.
+
+## Round 2 results (H10, H7, H8, H6, H11, H9)
+
+Written by the phase 7b session (Claude Code, 2026-11-06), after every round 2 run had ended. Numbers come from `experiments/analysis/output/round2.json`, written by `.venv/bin/python experiments/analysis/round2.py --exclude A_full:1 --exclude A_full:2 --exclude N_full:1 --exclude N_full:2` (the `--exclude` option was added for amendment 1; it only drops runs, no measure changed). Figures: `experiments/analysis/round2_figures.py` writes `experiments/analysis/output/round2_{deliveries,first_g_reach,first_sighting,signals}.png`.
+
+**Amendment 1** (`docs/methodology/round2-amendment-1.md`): at 17:08:39 UTC, A_full seeds 1 and 2 and N_full seeds 1 and 2 were stopped by hand on Jacob's decision, to give the B arms throughput. They are reported below as stopped by the amendment and excluded from every hypothesis test. H6 and H11 are therefore single-seed observations (seed 0 of A_full and N_full), not tests.
+
+**Runs and completed years** (completed years = floor(stopped_at_tick / 1000); run directories under `experiments/results/`; commit 58aa4bb in the clone):
+
+| Arm | Run directory | Seeds | stopped_at_tick | Completed years |
+|---|---|---|---|---|
+| B_full | `r2_b_full/20261106T16560{8,9}Z_s<n>` | 0, 1, 2, 3, 4 | 3250, 3500, 3750, 3750, 3750 | 3, 3, 3, 3, 3 |
+| B_no_talk | `r2_b_no_talk/20261106T16560{8,9}Z_s<n>` | 0, 1, 2, 3, 4 | 3750, 4250, 3750, 4250, 3750 | 3, 4, 3, 4, 3 |
+| A_full | `r2_a_full/20261106T165609Z_s0` | 0 | 2750 | 2 |
+| N_full | `r2_n_full/20261106T165609Z_s0` | 0 | 2500 | 2 |
+| A_full, N_full | `..._s1`, `..._s2` | 1, 2 each | none: stopped by amendment 1 at ticks 275, 278 (A_full) and 290, 295 (N_full), no record.json | 0 (excluded) |
+| R2_rule, R2_random | `r2_rule/20261106T165720Z`, `r2_random/20261106T165720Z` | 0, 1, 2 | finished (no model, 12 s) | 8 |
+
+Every AI run stopped by the wall-clock rule (`stopped_reason` "wallclock 2026-11-06T18:05:00Z"). None crashed. Each comparison cuts its runs to the years all of them completed: 3 for every B_full and B_no_talk pair, 2 for H6 and H11.
+
+### Hypothesis
+
+H10 (headline): B units, never told what delivery does, discover it: some unit makes a repeat choice in at least 3 of 5 `r2_b_full` seeds. H7: talk-informed first deliberate deliveries in B_full outnumber first deliberate deliveries in B_no_talk in at least 4 of 5 seeds. H8: the first G reach each spring after year 1 comes earlier in B_full than in B_no_talk in at least 4 of 5 seeds. H6: at first sighting of K, B_full units move away or go to O less often than N_full units. H11: A_full (told the rule) against B_full on deliveries per completed year. H9: signal use over time, exploratory. Full definitions: "Round 2 (pre-registered ...)" above.
+
+### Experimental setup
+
+As pre-registered: the E5 world with `steady_hatch = 60` and `shared_clock = true`, `years = 8`, stopped at the first season boundary after 18:05 UTC. One process per run from the clone at 58aa4bb, launched 16:56 UTC. Scripted arms ran in the same world for 8 years.
+
+### Variables or parameters
+
+Vocabulary (abstract or neutral), talk (on or off), reward rule told (yes or no), seed. Model claude-haiku-5-5, effort low, thinking off, structured output, max 400 tokens, 6 calls in flight per run.
+
+### Observations
+
+- **First deliberate delivery in each B_full seed** (exact lines from `events.jsonl`; `life` is counter C, so "what it received in zone O" is counter C doubling):
+  - seed 0: `{"kind": "decision", "t": 190, "bee": 3, "intent": "go_home", "trigger": "timer", "ctx": {"movers": 0, "bright": 0, "carrying": 1, "home": 0}}` then `{"kind": "delivery", "t": 194, "bee": 3, "life_before": 298.0, "life_after": 596.0}`.
+  - seed 1: `{"kind": "decision", "t": 1235, "bee": 18, "intent": "go_home", "trigger": "timer", "ctx": {"movers": 0, "bright": 0, "carrying": 1, "home": 0}}` then `{"kind": "delivery", "t": 1237, "bee": 18, "life_before": 33.0, "life_after": 66.0}`.
+  - seed 3: `{"kind": "decision", "t": 285, "bee": 7, "intent": "go_home", "trigger": "timer", "ctx": {"movers": 1, "bright": 0, "carrying": 1, "home": 0}}` then `{"kind": "delivery", "t": 285, "bee": 7, "life_before": 25.0, "life_after": 50.0}`.
+  - seeds 2 and 4: **no delivery at all** in 3 completed years, deliberate or not.
+  None of these units made another go_to_O choice with flag F set afterwards, within the completed years.
+- B_no_talk units did make repeat choices: 0, 1, 3, 8, 13 in seeds 0 to 4, each time by a single unit, and none of them ended in a delivery.
+- B_full units broadcast about G or O often (308, 70, 74, 130, 139 broadcasts in seeds 0 to 4) but only 1 first deliberate delivery in 5 seeds followed one.
+- Signals (H9) were almost absent: 21, 0, 1, 2, 1 signals in B_full seeds 0 to 4 (3,498, 3,016, 2,615, 2,554, 2,660 decisions), 0 in every B_no_talk seed, mostly in the first season. A_full seed 0 made 37 signals, all in the season starting at tick 1750, none with K in view or flag F set.
+
+### Results
+
+| Measure (completed years) | B_full s0 to s4 | B_no_talk s0 to s4 | A_full s0 | N_full s0 | R2_rule s0 to s2 (8 y) | R2_random s0 to s2 (8 y) |
+|---|---|---|---|---|---|---|
+| Deliveries | 6, 1, 0, 2, 0 | 3, 1, 11, 7, 5 | 15 | 23 | 58, 27, 100 | 0, 0, 0 |
+| Deliveries per completed year | mean 0.6 (sd 0.83, n 5) | mean 1.6667 (sd 1.2707, n 5) | 7.5 (n 1) | 11.5 (n 1) | mean 7.7083 (sd 4.5797, n 3) | 0.0 (n 3) |
+| Deliberate deliveries | 4, 1, 0, 2, 0 | 2, 1, 9, 5, 3 | 15 | 20 | 58, 27, 100 | 0, 0, 0 |
+| Repeat choices (units) | 0, 0, 0, 0, 0 | 0, 1 (1), 3 (1), 8 (1), 13 (1) | 59 (3 units) | 187 (8 units) | 296, 101, 359 | 0, 0, 0 |
+| Repeat choices that ended in a delivery | 0 in every seed | 0 in every seed | 5 | 12 | 20, 8, 30 | 0 |
+
+- **H10: not supported.** Repeat choices in 0 of 5 B_full seeds (3 needed).
+- **H7: not supported.** Per seed (3 years each), talk-informed first DDs in B_full 1, 0, 0, 0, 0 against first DDs in B_no_talk 2, 1, 9, 3, 3: B_full higher in 0 of 5 seeds (4 needed). All first DDs in B_full: 4, 1, 0, 2, 0; so 6 of B_full's 7 first DDs were not talk-informed.
+- **H8: not supported.** 5 testable pairs (years 2 and 3). Mean ticks from spring start to first G pickup, B_full against B_no_talk: 56 vs 152, 51 vs 143, 53 vs 43, 94 vs 46, 167 vs 229.5. B_full earlier in 3 of 5 seeds (4 needed). Censored springs (no pickup, counted as 250): B_full 1 (seed 4, year 2), B_no_talk 2 (seed 1 year 2, seed 4 year 3).
+- **H6: single-seed observation (amendment 1), not a test.** Over the 2 years every compared run completed, the share of first K sightings (before any halving) answered by moving away or going to O: B_full per seed 0.0556, 0.129, 0.1034, 0.1667, 0.2812 (mean 0.1472, sd 0.0851, n 5; 36, 31, 29, 30, 32 sightings); N_full seed 0 0.8929 (28 sightings). The rule's comparison would read "supported", but with one N_full seed it cannot be a test.
+- **H11: single-seed observation (amendment 1), not a test.** Seed 0, 2 years: A_full 7.5 deliveries per year, B_full 2.5.
+- **H9: descriptive.** See Observations; too few signals for any trend.
+
+### Controls
+
+- **Talk ablation (B_no_talk):** delivered more than B_full on average (1.6667 against 0.6 per year, not a pre-registered test), and was the only B arm with repeat choices, so talk is not what produced them.
+- **Baselines:** scripted rule bees make DDs and repeat choices in every seed (hardcoded); random bees make no delivery in 8 years in any seed, so a delivery in this world does not happen by chance.
+- **Prompt:** A_full (told the rule) and N_full (neutral words) both delivered more than any B_full seed, on one seed each.
+- **Hardcoding audit:** the B prompt never says what flag F or zone O does (tests/test_vocab.py).
+- **Setup:** one world size; amendment 1 cut A_full and N_full to one seed each.
+
+### What we learned
+
+Units that are never told what delivery does reach zone O with flag F, see counter C double, and do not go back for more. In 5 seeds and 3 years each, no B_full unit repeated the choice, and talk did not spread it. The one-sentence rule (A_full) or familiar words (N_full) gave many repeat choices on one seed each. With abstract words the model treats K as harmless at first sight (0.1472 away or to O) where with neutral words it avoids it (0.8929, one seed only), in line with round 1's reading that first-sight avoidance comes from the words or the model's prior rather than from experience.
+
+### What we would investigate next
+
+Run A_full and N_full on 5 seeds to turn H6 and H11 into tests; give B units the reward event with more salience (or a memory note of it) and test whether one link is enough for discovery; check why B_no_talk units repeated the choice and B_full units did not.
