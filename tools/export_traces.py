@@ -59,6 +59,7 @@ ENTRY_KEYS = [
     "type", "subtype", "level", "uuid", "parentUuid", "sessionId", "agentId",
     "timestamp", "isSidechain", "isMeta", "entrypoint", "gitBranch", "version", "origin", "promptSource",
     "permissionMode", "permissionDecision", "content",
+    "error", "retryAttempt", "maxRetries", "retryInMs",  # API errors and retries, so recovery is visible
 ]
 MESSAGE_KEYS = ["role", "model", "id", "content", "stop_reason", "usage"]
 SUBAGENT_META_KEYS = ["agentType", "description", "toolUseId", "spawnDepth", "pickedEffortModel"]
@@ -147,6 +148,7 @@ def clean_blocks(content, red: Redactor, stats: Counter):
             else:
                 stats["harness_only_blocks"] += 1
         elif t == "image":
+            stats["image_omitted"] += 1
             out.append({"type": "image", "omitted": "[OMITTED:image]"})
         elif t == "tool_use":
             out.append({"type": "tool_use", "id": b.get("id"), "name": b.get("name"), "input": red.deep(b.get("input"))})

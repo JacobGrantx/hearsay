@@ -1,0 +1,105 @@
+{
+  "session_id": "89db8572-d995-4f7f-9fab-de112a3422a6",
+  "exporter_version": 1,
+  "agent_tool": "Claude Code",
+  "claude_code_versions": [
+    "2.1.296"
+  ],
+  "models": {
+    "claude-opus-5-5": 131
+  },
+  "first_timestamp": "2026-11-06T18:09:33.112Z",
+  "last_timestamp": "2026-11-06T18:27:50.303Z",
+  "source": {
+    "file": "89db8572-d995-4f7f-9fab-de112a3422a6.jsonl",
+    "sha256": "6b067ce8e64255308feadd6e77f162dece036c998d23db36048ba50751d33680",
+    "lines": 324,
+    "unparseable_lines": 0
+  },
+  "usage_main_agent": {
+    "input_tokens": 116,
+    "output_tokens": 35705,
+    "cache_creation_input_tokens": 89357,
+    "cache_read_input_tokens": 4375958,
+    "api_responses": 58,
+    "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+  },
+  "human_prompts": 0,
+  "unmarked_prompts": 1,
+  "permission_decisions": {
+    "accept/config": 74
+  },
+  "tool_calls": {
+    "Bash": 66,
+    "Agent": 1,
+    "Write": 1,
+    "Read": 5,
+    "SubagentHandback": 1
+  },
+  "subagents": [
+    {
+      "agent_id": "agent-a0e986577d2952335",
+      "agentType": "general-purpose",
+      "description": "Round 2 figures script",
+      "toolUseId": "toolu_014BAjHnZ4JpKw1CjNdsWn2n",
+      "spawnDepth": 1,
+      "source_sha256": "bc2b54361f4e7dc346fb4541d3f6fd63521799a517ebe1c653cd9f4d014fbb6e",
+      "source_lines": 58,
+      "unparseable_lines": 0,
+      "first_timestamp": "2026-11-06T18:11:43.624Z",
+      "last_timestamp": "2026-11-06T18:12:57.289Z",
+      "usage": {
+        "input_tokens": 20,
+        "output_tokens": 563,
+        "cache_creation_input_tokens": 31190,
+        "cache_read_input_tokens": 217137,
+        "api_responses": 10,
+        "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+      },
+      "tool_calls": {
+        "Bash": 7,
+        "Write": 1,
+        "Read": 5,
+        "SubagentHandback": 1
+      },
+      "omitted_entries": {
+        "attachment": 22
+      },
+      "commits": []
+    }
+  ],
+  "commits_made_in_session": [],
+  "commits_in_time_window": [
+    "50a8538d321651aa218060120b592f265b22c31d BUILD_NOTES: how round 2 was collected",
+    "2313b347401d88d24c45fd9a90f12a86c5590b38 EXPERIMENTS: round 2 replay check (r2_b_full seed 3 identical)",
+    "4dd5eec4d3718bcf3dbcb81644264863075f2ca5 BUILD_NOTES: round 2 video moments; EXPERIMENTS: the one talk-informed first delivery followed a broadcast that named only zone O",
+    "0e6482dbd7689253d1405df4f2e4e7dd29198627 AI_DISCLOSURE: say the 38 calls without a decision event were not investigated",
+    "25cbbaffba1a814ab18cca620189af0777e868c3 AI_DISCLOSURE: round 2 runtime spend and tokens from the logs, sessions 7f, 7v, 7n and 7b, Kokoro-82M narration in item 1",
+    "1580210c8511fba254518e8f80002def26d95c7a README: round 2 paragraph in Experiments and findings, after round 1 (H10 not supported first)",
+    "ec30f7aee277b09e5a0294380bc26d996ff221ea EXPERIMENTS: Round 2 results (H10, H7, H8 not supported; H6 and H11 single-seed observations under amendment 1; H9 descriptive), summary rows and negative results 8 to 10",
+    "ee42fefbf92afa4723012b12275e9e70bb65cd3d Round 2 collected: 16 AI runs (4 stopped by amendment 1) and the scripted 8-year baselines, replay packs (11 MB), round2.py --exclude for amendment 1, round2.json and four figures",
+    "a6b07eb5e56b3dd7abe7ff757bf6655f3a2d3aea Video narration, segment 2: replace the overclaim 'nothing tells the bees what anything is' with what the runs did (plain words such as moving thing and bright cell, never told what hornets or bloom are)"
+  ],
+  "kept_entries": 173,
+  "omitted_entries": {
+    "ai-title": 20,
+    "queue-operation": 8,
+    "attachment": 81,
+    "file-history-snapshot": 1,
+    "atis-latch": 20,
+    "last-prompt": 20,
+    "cost-state": 1
+  },
+  "redactions": {
+    "harness-meta": 1
+  },
+  "transformations": {
+    "thinking_omitted": 54,
+    "harness_meta_redacted": 1,
+    "image_omitted": 5
+  },
+  "missing": {
+    "tool_results_stored_outside_log": 0,
+    "note": "Large tool outputs that Claude Code stored outside the session log are not exported; the log keeps its reference to them."
+  }
+}

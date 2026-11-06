@@ -60,6 +60,7 @@
   },
   "transformations": {
     "thinking_omitted": 36,
+    "image_omitted": 3,
     "block_omitted:tool_reference": 1
   },
   "missing": {

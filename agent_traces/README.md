@@ -32,10 +32,12 @@ Event types: `human_prompt` (the log marks it as typed by a person), `prompt` (t
 | File paths outside this repository removed | `[REDACTED:path-outside-repo]` | They name the developer's private setup and other projects. |
 | Names of other projects' scratch folders removed | `/dev/shm/[REDACTED:other-scratch]` | A directory listing named other projects' scratch folders. |
 | Inline images removed | `[OMITTED:image]` | Size. Screenshots that matter are in `demo/`. |
+| Unrecognised content blocks replaced, for example `tool_reference` blocks from tool search | `[OMITTED:unrecognised-block]` | Harness-internal block types that are not development activity. Counted in `manifest.json` → `transformations`. |
+| Only a fixed list of entry fields is kept (`ENTRY_KEYS` in tools/export_traces.py: type, ids, timestamps, origin, permission decisions, message, and since 2026-11-06 the API error and retry fields) | (fields absent) | The other fields are harness bookkeeping. Field names and values that are kept are unchanged from the original log. |
 | Tool results over 40,000 characters truncated | `[TRUNCATED: n more characters]` | Size. |
 | Harness bookkeeping entries dropped (request blobs, file snapshots, titles, queue records, attachments) | counted per type in `manifest.json` → `omitted_entries` | Not development activity. Several duplicate the full request, including the private context above. |
 
-Every count is in each `manifest.json` under `redactions`, `transformations` and `omitted_entries`. The manifest's `source.sha256` is the hash of the unmodified original log. The exporter keeps a private copy of every original outside the repository, so the export can be checked against it on request.
+Every count (including omitted images, since 2026-11-06) is in each `manifest.json` under `redactions`, `transformations` and `omitted_entries`. The manifest's `source.sha256` is the hash of the unmodified original log. The exporter keeps a private copy of every original outside the repository, so the export can be checked against it on request.
 
 ## Linking agent work to code
 

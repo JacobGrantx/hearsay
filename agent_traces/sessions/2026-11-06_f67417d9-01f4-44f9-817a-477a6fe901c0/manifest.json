@@ -69,7 +69,8 @@
     "other-scratch": 117
   },
   "transformations": {
-    "thinking_omitted": 60
+    "thinking_omitted": 60,
+    "image_omitted": 10
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

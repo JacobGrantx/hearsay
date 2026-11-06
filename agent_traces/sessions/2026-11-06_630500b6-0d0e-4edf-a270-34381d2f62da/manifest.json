@@ -1,0 +1,74 @@
+{
+  "session_id": "630500b6-0d0e-4edf-a270-34381d2f62da",
+  "exporter_version": 1,
+  "agent_tool": "Claude Code",
+  "claude_code_versions": [
+    "2.1.296"
+  ],
+  "models": {
+    "claude-opus-5-5": 50
+  },
+  "first_timestamp": "2026-11-06T18:10:55.135Z",
+  "last_timestamp": "2026-11-06T18:30:08.811Z",
+  "source": {
+    "file": "630500b6-0d0e-4edf-a270-34381d2f62da.jsonl",
+    "sha256": "5701b73ebf71ad63d1af0bdf88b7076e3d663614071675dcd4510a6942850782",
+    "lines": 163,
+    "unparseable_lines": 0
+  },
+  "usage_main_agent": {
+    "input_tokens": 54,
+    "output_tokens": 8762,
+    "cache_creation_input_tokens": 35182,
+    "cache_read_input_tokens": 1129666,
+    "api_responses": 27,
+    "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+  },
+  "human_prompts": 0,
+  "unmarked_prompts": 1,
+  "permission_decisions": {
+    "accept/config": 28
+  },
+  "tool_calls": {
+    "Bash": 26,
+    "Edit": 1,
+    "Read": 1
+  },
+  "subagents": [],
+  "commits_made_in_session": [],
+  "commits_in_time_window": [
+    "4d9525e5c5f1cb421dfe9ca481b8041eeb39f058 Demo video re-voiced with the corrected segment 2 line (221.233 s, 7.4 MB, -16.0 LUFS, true peak -1.3 dBFS, rendered at a6b07eb). SOURCES.md regenerated; README Demonstration length updated to 3 minutes 41 seconds",
+    "50a8538d321651aa218060120b592f265b22c31d BUILD_NOTES: how round 2 was collected",
+    "2313b347401d88d24c45fd9a90f12a86c5590b38 EXPERIMENTS: round 2 replay check (r2_b_full seed 3 identical)",
+    "4dd5eec4d3718bcf3dbcb81644264863075f2ca5 BUILD_NOTES: round 2 video moments; EXPERIMENTS: the one talk-informed first delivery followed a broadcast that named only zone O",
+    "0e6482dbd7689253d1405df4f2e4e7dd29198627 AI_DISCLOSURE: say the 38 calls without a decision event were not investigated",
+    "25cbbaffba1a814ab18cca620189af0777e868c3 AI_DISCLOSURE: round 2 runtime spend and tokens from the logs, sessions 7f, 7v, 7n and 7b, Kokoro-82M narration in item 1",
+    "1580210c8511fba254518e8f80002def26d95c7a README: round 2 paragraph in Experiments and findings, after round 1 (H10 not supported first)",
+    "ec30f7aee277b09e5a0294380bc26d996ff221ea EXPERIMENTS: Round 2 results (H10, H7, H8 not supported; H6 and H11 single-seed observations under amendment 1; H9 descriptive), summary rows and negative results 8 to 10",
+    "ee42fefbf92afa4723012b12275e9e70bb65cd3d Round 2 collected: 16 AI runs (4 stopped by amendment 1) and the scripted 8-year baselines, replay packs (11 MB), round2.py --exclude for amendment 1, round2.json and four figures",
+    "a6b07eb5e56b3dd7abe7ff757bf6655f3a2d3aea Video narration, segment 2: replace the overclaim 'nothing tells the bees what anything is' with what the runs did (plain words such as moving thing and bright cell, never told what hornets or bloom are)"
+  ],
+  "kept_entries": 80,
+  "omitted_entries": {
+    "ai-title": 9,
+    "queue-operation": 6,
+    "attachment": 47,
+    "file-history-snapshot": 1,
+    "atis-latch": 9,
+    "last-prompt": 9,
+    "file-history-delta": 1,
+    "cost-state": 1
+  },
+  "redactions": {
+    "path-outside-repo": 4,
+    "other-scratch": 45
+  },
+  "transformations": {
+    "thinking_omitted": 18,
+    "image_omitted": 1
+  },
+  "missing": {
+    "tool_results_stored_outside_log": 0,
+    "note": "Large tool outputs that Claude Code stored outside the session log are not exported; the log keeps its reference to them."
+  }
+}

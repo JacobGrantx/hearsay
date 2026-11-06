@@ -74,7 +74,8 @@
   },
   "transformations": {
     "thinking_omitted": 129,
-    "harness_meta_redacted": 1
+    "harness_meta_redacted": 1,
+    "image_omitted": 4
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

@@ -67,7 +67,8 @@
   },
   "transformations": {
     "thinking_omitted": 98,
-    "truncated": 1
+    "truncated": 1,
+    "image_omitted": 1
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

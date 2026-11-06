@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import gzip
+import io
 import json
 
 FORMAT = 1
@@ -15,7 +16,11 @@ class SimLog:
 
     def __init__(self, log, *, state: bool = True, decisions: bool = True):
         self.log, self.decisions = log, decisions
-        self._state = gzip.open(log.path("state.jsonl.gz"), "wt", compresslevel=6) if (log and state) else None
+        # mtime=0: gzip otherwise stamps the write time into byte 4 of the header, so two identical runs
+        # would differ byte for byte whenever they finish in different seconds.
+        self._state = (io.TextIOWrapper(gzip.GzipFile(str(log.path("state.jsonl.gz")), mode="wb", mtime=0, compresslevel=6),
+                                        encoding="utf-8")
+                       if (log and state) else None)
 
     def layout(self, world, cal, p: dict, seed: int, vision: tuple[int, int, int]) -> None:
         if not self.log:

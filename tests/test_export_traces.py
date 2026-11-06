@@ -104,3 +104,10 @@ def test_private_scan_catches_leaks_and_spares_the_repo(tmp_path, monkeypatch):
     if repo_rel:  # only meaningful when the repo sits under the home folder
         assert ps.find_private(f"cd {home}/{repo_rel[:10]}…", "agent_traces/events/a.jsonl", []) == []
     assert ps.find_private(f"cat {home}/.config/x/.env", "README.md", []) == []   # paths are only checked in traces
+
+
+def test_private_scan_scratch_folders():
+    import private_scan as ps
+    assert ps.find_private("ls /dev/shm/other-project", "agent_traces/events/a.jsonl", []) == ["another project's scratch folder"]
+    assert ps.find_private("cd /dev/shm/dl-r2/x", "agent_traces/events/a.jsonl", []) == []
+    assert ps.find_private("round2.py > /dev/shm/d…", "agent_traces/events/a.jsonl", []) == []   # cut-short dl- path

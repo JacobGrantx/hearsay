@@ -55,8 +55,9 @@ def find_private(text: str, path: str, terms: list[re.Pattern]) -> list[str]:
             hits.append("skill instructions")
         if any(_outside_path(m.group(1)) for m in OUTSIDE_PATH.finditer(text)):
             hits.append("path outside the repository")
-        if OTHER_SCRATCH.search(text):
-            hits.append("another project's scratch folder")
+        if any(not (m.group(0)[len("/dev/shm/"):] and text[m.end():m.end() + 1] == "…" and "dl".startswith(m.group(0)[len("/dev/shm/"):]))
+               for m in OTHER_SCRATCH.finditer(text)):
+            hits.append("another project's scratch folder")  # a summary cut to "/dev/shm/d…" is this project's dl- folder
     return hits
 
 

@@ -51,7 +51,8 @@
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 18
+    "thinking_omitted": 18,
+    "image_omitted": 3
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

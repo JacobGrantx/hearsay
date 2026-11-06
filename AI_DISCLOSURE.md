@@ -20,7 +20,7 @@ No other AI system appears in the record. Every exported session lists only Clau
 
 - **Claude Code 2.1.296** (CLI), the only coding agent. The version is recorded per session in agent_traces/sessions/*/manifest.json.
 - How it was run: a setup session, started by Jacob Schoenberg in a private workspace, wrote the scaffold, the rules and the spec with him. On his go it launched each build phase as a headless Claude Code session started inside this repository, so each phase is captured in agent_traces/sessions/. The prompts of those sessions were written by the setup agent, which is why they show as unmarked prompts rather than human ones.
-- No exported session launched subagents (the Subagents column in agent_traces/INDEX.md is 0 for every session).
+- One exported session launched a subagent: `16bcb907` (phase 7f) started one general-purpose subagent, and its full log is in that session's `subagents/` folder. No other exported session launched subagents (see the Subagents column in agent_traces/INDEX.md).
 - **Setup-session work that is not in the exported traces.** The setup session also ran the feasibility probes (item 1), an independent check of the repository from a fresh clone (it found the wrong commit-id map in item 8), and an independent read-only audit of the repository against the brief by a Claude Code subagent (its fixes are the phase 7f session in item 3). None of these is in agent_traces/. The setup session was started from a private workspace outside this repository, and only sessions started in this repository are exported. Its log is not published because it also covered unrelated private work (agent_traces/README.md, "Missing data").
 
 ## 3. What each tool was used for
@@ -42,7 +42,8 @@ No other AI system appears in the record. Every exported session lists only Clau
 | `16bcb907` | 2026-11-06 from 17:07 | Phase 7f: fixes from an independent audit against the brief (wording of claims, history notes, disclosure, project name) |
 | `2464b67d` | 2026-11-06 from 17:23 | Phase 7v: the demo video re-rendered with the final name (Hearsay) and corrected captions |
 | `195b10ac` | 2026-11-06 from 17:42 | Phase 7n: spoken narration for the demo video (Kokoro-82M, local) and a card on how the entry meets the brief |
-| Phase 7b session | 2026-11-06 from 18:09 | Phase 7b: collecting round 2, amendment 1 exclusions in round2.py, the round 2 figures, replay packs and replay check, the Round 2 results in EXPERIMENTS.md, the README round 2 paragraph, this file's round 2 figures |
+| `89db8572` | 2026-11-06 from 18:09 | Phase 7b: collecting round 2, amendment 1 exclusions in round2.py, the round 2 figures, replay packs and replay check, the Round 2 results in EXPERIMENTS.md, the README round 2 paragraph, this file's round 2 figures |
+| `630500b6` | 2026-11-06 from 18:14 | Phase 7n2: a one-line narration fix (an overclaim found in the setup agent's review: "nothing tells the bees what anything is"), re-voiced and re-rendered |
 | Claude Haiku 5.5 at runtime | main runs, E5, phase 6 pilot and round 2 | Every decision of every AI bee: intent, sound, a note to remember, words to say at home |
 
 ## 4. Components primarily AI-generated
