@@ -6,55 +6,56 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 81
+    "claude-opus-5-5": 100
   },
   "first_timestamp": "2026-11-06T11:20:27.400Z",
-  "last_timestamp": "2026-11-06T11:28:54.607Z",
+  "last_timestamp": "2026-11-06T11:32:24.132Z",
   "source": {
     "file": "3859069f-c33d-4954-912e-e20d89d0f426.jsonl",
-    "sha256": "01830de421f172eaf81e0558ab1e2cc2a24841f72def57bf9b47f231329bb1d7",
-    "lines": 247,
+    "sha256": "e46debac63b0a07920edeef2312d7c4ffd145a9d0ebd21f6b084793d5ef49eeb",
+    "lines": 295,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 80,
-    "output_tokens": 34201,
-    "cache_creation_input_tokens": 104845,
-    "cache_read_input_tokens": 3260921,
-    "api_responses": 40,
+    "input_tokens": 96,
+    "output_tokens": 44240,
+    "cache_creation_input_tokens": 121163,
+    "cache_read_input_tokens": 4252797,
+    "api_responses": 48,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 41
+    "accept/config": 49
   },
   "tool_calls": {
-    "Bash": 34,
+    "Bash": 41,
     "Read": 2,
-    "Write": 3,
+    "Write": 4,
     "Edit": 3
   },
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "2b99282058348d59172099213f7855f0fbd1cbb3 Pre-registration E5: talk with something to carry (post hoc, after E1 and E3), configs e5_full and e5_no_talk. Traces: phase 4b session",
     "b1e7bb3d7f080083a4da9fb6e2be7f4fabb3c64c Setup calibration: E5 world (world scale s = 0.7, scripted bees only, inside the target fixed before the runs). Traces: phase 4b session",
     "cdbd28046cae677f64e9c15ff5a2763a74551c6d Config for the E5 world calibration (scripted bees, 1 year, target fixed in the header)",
     "4ebf5209d3d97de2e274305369fce108843b5d64 Diagnosis for E5: why trips failed in the main runs (finding the bloom, not carrying it home). Traces: phase 4b session"
   ],
-  "kept_entries": 123,
+  "kept_entries": 150,
   "omitted_entries": {
-    "ai-title": 19,
+    "ai-title": 22,
     "queue-operation": 2,
-    "attachment": 61,
+    "attachment": 72,
     "file-history-snapshot": 1,
-    "atis-latch": 19,
-    "last-prompt": 18,
-    "file-history-delta": 4
+    "atis-latch": 22,
+    "last-prompt": 21,
+    "file-history-delta": 5
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 37,
+    "thinking_omitted": 47,
     "truncated": 1
   },
   "missing": {
