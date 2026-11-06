@@ -1,3 +1,5 @@
 # Pin every dependency (name==version). Add project deps here as they come in.
 pytest==8.4.2
 anthropic==2.6.0
+pillow==13.0.0
+rank-bm25==0.2.2

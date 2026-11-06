@@ -27,6 +27,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import threading
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -119,6 +120,7 @@ def _cache_path(key: str) -> Path:
 
 
 _client = None
+_lock = threading.Lock()  # agents call in parallel; the ledger, cache and client are shared
 
 
 def complete(
@@ -129,14 +131,24 @@ def complete(
     max_tokens: int = 16000,
     effort: str = "medium",
     tag: str = "",
+    schema: dict | None = None,
+    thinking: dict | None = None,
     log=None,
     client=None,
 ) -> Completion:
-    """One Messages API call with replay cache, budget check and usage logging."""
+    """One Messages API call with replay cache, budget check and usage logging.
+
+    schema: a JSON Schema; the reply is then guaranteed to be JSON matching it (structured outputs).
+    thinking: e.g. {"type": "disabled"} on Haiku 5.5 at effort <= high for fast, cheap agent turns.
+    """
     global _client
     if isinstance(messages, str):
         messages = [{"role": "user", "content": messages}]
     request = {"model": model, "system": system, "messages": messages, "max_tokens": max_tokens, "effort": effort, "tag": tag}
+    if schema is not None:
+        request["schema"] = schema
+    if thinking is not None:
+        request["thinking"] = thinking
     key = _key(request)
     path = _cache_path(key)
     mode = os.environ.get("LLM_MODE", "auto")
@@ -149,23 +161,30 @@ def complete(
         raise CacheMiss(f"no cached response for request {key[:12]} (LLM_MODE=replay)")
     else:
         budget = float(os.environ.get("LLM_BUDGET_USD", "100"))
-        if spent_usd() >= budget:
-            raise BudgetExceeded(f"model spend ${spent_usd():.2f} has reached LLM_BUDGET_USD=${budget:.2f}")
-        cl = client or _client or make_client()
-        if client is None:
-            _client = cl
-        kwargs = {"model": model, "max_tokens": max_tokens, "messages": messages, "output_config": {"effort": effort}}
+        with _lock:
+            if spent_usd() >= budget:
+                raise BudgetExceeded(f"model spend ${spent_usd():.2f} has reached LLM_BUDGET_USD=${budget:.2f}")
+            cl = client or _client or make_client()
+            if client is None:
+                _client = cl
+        output_config = {"effort": effort}
+        if schema is not None:
+            output_config["format"] = {"type": "json_schema", "schema": schema}
+        kwargs = {"model": model, "max_tokens": max_tokens, "messages": messages, "output_config": output_config}
         if system:
             kwargs["system"] = system
+        if thinking is not None:
+            kwargs["thinking"] = thinking
         resp = cl.messages.create(**kwargs)
         text = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")
         u = resp.usage
         usage = {k: int(getattr(u, k, 0) or 0) for k in ("input_tokens", "output_tokens", "cache_read_input_tokens", "cache_creation_input_tokens")}
         out = Completion(text=text, model=resp.model, stop_reason=resp.stop_reason, usage=usage, cost_usd=cost_usd(model, usage), key=key)
-        _add_spend(out.cost_usd)
-        path.parent.mkdir(parents=True, exist_ok=True)
         record = {"request": request, "response": {k: v for k, v in asdict(out).items() if k not in ("cached", "key", "cost_usd")}}
-        path.write_text(json.dumps(record, indent=1, ensure_ascii=False) + "\n")
+        with _lock:
+            _add_spend(out.cost_usd)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(record, indent=1, ensure_ascii=False) + "\n")
 
     if log is not None:
         log.event("llm_call", key=key[:12], model=out.model, tag=tag, cached=out.cached, stop_reason=out.stop_reason, usage=out.usage, cost_usd=round(out.cost_usd, 6))

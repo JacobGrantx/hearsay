@@ -66,3 +66,19 @@ def test_logs_usage_to_run(tmp_path):
     llm.complete("x", client=FakeClient(), log=log, tag="t")
     assert events[0]["kind"] == "llm_call" and events[0]["usage"]["output_tokens"] == 500
     json.dumps(events)
+
+
+def test_schema_and_thinking_reach_the_api_and_the_cache_key():
+    seen = {}
+
+    class Capture(FakeClient):
+        def create(self, **kwargs):
+            seen.update(kwargs)
+            return super().create(**kwargs)
+
+    schema = {"type": "object", "properties": {"action": {"type": "string"}}, "required": ["action"], "additionalProperties": False}
+    a = llm.complete("act", client=Capture(), schema=schema, thinking={"type": "disabled"}, effort="low")
+    assert seen["output_config"] == {"effort": "low", "format": {"type": "json_schema", "schema": schema}}
+    assert seen["thinking"] == {"type": "disabled"}
+    b = llm.complete("act", client=Capture(), effort="low")  # same prompt, no schema: a different request
+    assert a.key != b.key
