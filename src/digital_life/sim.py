@@ -20,9 +20,9 @@ from .world import Calendar, generate
 DEFAULTS = dict(
     condition="rule_bees", policy=None, width=80, height=48, season_length=250, years=2,
     openness=0.15, rooms=4, min_bloom_distance=55, bloom_spread=1.5,
-    base_life=250, life_cap_factor=3, max_bees=12, start_bees=6, queen_floor=2, decide_every=5,
+    base_life=500, life_cap_factor=3, max_bees=12, start_bees=6, queen_floor=2, decide_every=5,
     sound_cost=1, newborn_hold=3, hornet_counts=[4, 6, 8, 0], evolve_every=25, mutation=0.5,
-    sting_cooldown=10, hornet_spawn_distance=25, ambush_rate=0.05, ambush_wait=4, hornet_speed=0.8, smell_base=2.0, smell_step=1.0, log_state=True, log_decisions=True)
+    sting_cooldown=10, hornet_spawn_distance=25, ambush_rate=0.02, ambush_wait=4, hornet_speed=0.8, smell_base=2.0, smell_step=1.0, log_state=True, log_decisions=True)
 CONDITION_POLICY = {"rule_bees": "rule", "random_bees": "random", "oracle_bees": "oracle"}
 PRIORITY = ("stung", "hornet", "bloom", "sound", "home", "arrived", "life25", "life50", "hatched", "timer")
 assert set(PRIORITY) == set(TRIGGERS)

@@ -1,0 +1,367 @@
+{
+  "experiment": "calibrate_oracle",
+  "config": "experiments/configurations/calibrate_oracle.toml",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "per_seed": {
+    "0": {
+      "trips": 72,
+      "deliveries": 32,
+      "stings": 134,
+      "delivery_rate": 0.4444,
+      "stings_per_trip": 1.8611,
+      "spring_trips": 8,
+      "spring_deliveries": 7,
+      "spring_rate": 0.875,
+      "spring_stings_per_trip": 1.625,
+      "summer_trips": 35,
+      "summer_deliveries": 17,
+      "summer_rate": 0.4857,
+      "summer_stings_per_trip": 2.1429,
+      "autumn_trips": 24,
+      "autumn_deliveries": 7,
+      "autumn_rate": 0.2917,
+      "autumn_stings_per_trip": 1.9167,
+      "first_delivery_y1_spring": 136,
+      "first_delivery_y2_spring": 157,
+      "median_to_bloom": 83,
+      "hatches": 27,
+      "queen_hatches": 3,
+      "deaths": 33,
+      "bees_mean": 4.992,
+      "bees_final": 3,
+      "smell_first": 0.75,
+      "smell_last": 0.375,
+      "hearing_first": 4.75,
+      "hearing_last": 4.625,
+      "ambush_first": 4.5,
+      "ambush_last": 5.0,
+      "bloom_distance_spring": 61,
+      "bloom_distance_summer": 71,
+      "bloom_distance_autumn": 57
+    },
+    "1": {
+      "trips": 38,
+      "deliveries": 11,
+      "stings": 60,
+      "delivery_rate": 0.2895,
+      "stings_per_trip": 1.5789,
+      "spring_trips": 8,
+      "spring_deliveries": 6,
+      "spring_rate": 0.75,
+      "spring_stings_per_trip": 1.25,
+      "summer_trips": 17,
+      "summer_deliveries": 5,
+      "summer_rate": 0.2941,
+      "summer_stings_per_trip": 1.9412,
+      "autumn_trips": 9,
+      "autumn_deliveries": 0,
+      "autumn_rate": 0.0,
+      "autumn_stings_per_trip": 1.8889,
+      "first_delivery_y1_spring": 165,
+      "median_to_bloom": 88.75,
+      "hatches": 11,
+      "queen_hatches": 7,
+      "deaths": 22,
+      "bees_mean": 3.704,
+      "bees_final": 2,
+      "smell_first": 1.75,
+      "smell_last": 4.125,
+      "hearing_first": 3.75,
+      "hearing_last": 2.875,
+      "ambush_first": 4.5,
+      "ambush_last": 3.0,
+      "bloom_distance_spring": 75,
+      "bloom_distance_summer": 73,
+      "bloom_distance_autumn": 76
+    },
+    "2": {
+      "trips": 43,
+      "deliveries": 13,
+      "stings": 58,
+      "delivery_rate": 0.3023,
+      "stings_per_trip": 1.3488,
+      "spring_trips": 4,
+      "spring_deliveries": 2,
+      "spring_rate": 0.5,
+      "spring_stings_per_trip": 0.75,
+      "summer_trips": 16,
+      "summer_deliveries": 6,
+      "summer_rate": 0.375,
+      "summer_stings_per_trip": 1.5,
+      "autumn_trips": 14,
+      "autumn_deliveries": 5,
+      "autumn_rate": 0.3571,
+      "autumn_stings_per_trip": 2.2143,
+      "first_delivery_y1_spring": 219,
+      "median_to_bloom": 114.0,
+      "hatches": 13,
+      "queen_hatches": 4,
+      "deaths": 21,
+      "bees_mean": 4.282,
+      "bees_final": 2,
+      "smell_first": 3.75,
+      "smell_last": 4.625,
+      "hearing_first": 0.0,
+      "hearing_last": 1.25,
+      "ambush_first": 6.25,
+      "ambush_last": 4.125,
+      "bloom_distance_spring": 74,
+      "bloom_distance_summer": 75,
+      "bloom_distance_autumn": 77
+    }
+  },
+  "across_seeds": {
+    "ambush_first": {
+      "n": 3,
+      "mean": 5.083333333333333,
+      "sd": 1.0103629710818451,
+      "min": 4.5,
+      "max": 6.25
+    },
+    "ambush_last": {
+      "n": 3,
+      "mean": 4.041666666666667,
+      "sd": 1.0026007846263303,
+      "min": 3.0,
+      "max": 5.0
+    },
+    "autumn_deliveries": {
+      "n": 3,
+      "mean": 4.0,
+      "sd": 3.605551275463989,
+      "min": 0,
+      "max": 7
+    },
+    "autumn_rate": {
+      "n": 3,
+      "mean": 0.2162666666666667,
+      "sd": 0.19012559883754038,
+      "min": 0.0,
+      "max": 0.3571
+    },
+    "autumn_stings_per_trip": {
+      "n": 3,
+      "mean": 2.0066333333333333,
+      "sd": 0.18038096721476288,
+      "min": 1.8889,
+      "max": 2.2143
+    },
+    "autumn_trips": {
+      "n": 3,
+      "mean": 15.666666666666666,
+      "sd": 7.637626158259733,
+      "min": 9,
+      "max": 24
+    },
+    "bees_final": {
+      "n": 3,
+      "mean": 2.3333333333333335,
+      "sd": 0.5773502691896257,
+      "min": 2,
+      "max": 3
+    },
+    "bees_mean": {
+      "n": 3,
+      "mean": 4.326,
+      "sd": 0.6451263442148366,
+      "min": 3.704,
+      "max": 4.992
+    },
+    "bloom_distance_autumn": {
+      "n": 3,
+      "mean": 70.0,
+      "sd": 11.269427669584644,
+      "min": 57,
+      "max": 77
+    },
+    "bloom_distance_spring": {
+      "n": 3,
+      "mean": 70.0,
+      "sd": 7.810249675906654,
+      "min": 61,
+      "max": 75
+    },
+    "bloom_distance_summer": {
+      "n": 3,
+      "mean": 73.0,
+      "sd": 2.0,
+      "min": 71,
+      "max": 75
+    },
+    "deaths": {
+      "n": 3,
+      "mean": 25.333333333333332,
+      "sd": 6.6583281184793925,
+      "min": 21,
+      "max": 33
+    },
+    "deliveries": {
+      "n": 3,
+      "mean": 18.666666666666668,
+      "sd": 11.590225767142472,
+      "min": 11,
+      "max": 32
+    },
+    "delivery_rate": {
+      "n": 3,
+      "mean": 0.3454,
+      "sd": 0.085975054521646,
+      "min": 0.2895,
+      "max": 0.4444
+    },
+    "first_delivery_y1_spring": {
+      "n": 3,
+      "mean": 173.33333333333334,
+      "sd": 42.12283624512164,
+      "min": 136,
+      "max": 219
+    },
+    "first_delivery_y2_spring": {
+      "n": 1,
+      "mean": 157.0,
+      "sd": 0.0,
+      "min": 157,
+      "max": 157
+    },
+    "hatches": {
+      "n": 3,
+      "mean": 17.0,
+      "sd": 8.717797887081348,
+      "min": 11,
+      "max": 27
+    },
+    "hearing_first": {
+      "n": 3,
+      "mean": 2.8333333333333335,
+      "sd": 2.504163200219453,
+      "min": 0.0,
+      "max": 4.75
+    },
+    "hearing_last": {
+      "n": 3,
+      "mean": 2.9166666666666665,
+      "sd": 1.6878857583774245,
+      "min": 1.25,
+      "max": 4.625
+    },
+    "median_to_bloom": {
+      "n": 3,
+      "mean": 95.25,
+      "sd": 16.490527584040482,
+      "min": 83,
+      "max": 114.0
+    },
+    "queen_hatches": {
+      "n": 3,
+      "mean": 4.666666666666667,
+      "sd": 2.0816659994661326,
+      "min": 3,
+      "max": 7
+    },
+    "smell_first": {
+      "n": 3,
+      "mean": 2.0833333333333335,
+      "sd": 1.5275252316519468,
+      "min": 0.75,
+      "max": 3.75
+    },
+    "smell_last": {
+      "n": 3,
+      "mean": 3.0416666666666665,
+      "sd": 2.3228933107943925,
+      "min": 0.375,
+      "max": 4.625
+    },
+    "spring_deliveries": {
+      "n": 3,
+      "mean": 5.0,
+      "sd": 2.6457513110645907,
+      "min": 2,
+      "max": 7
+    },
+    "spring_rate": {
+      "n": 3,
+      "mean": 0.7083333333333334,
+      "sd": 0.19094065395649334,
+      "min": 0.5,
+      "max": 0.875
+    },
+    "spring_stings_per_trip": {
+      "n": 3,
+      "mean": 1.2083333333333333,
+      "sd": 0.43898557303553076,
+      "min": 0.75,
+      "max": 1.625
+    },
+    "spring_trips": {
+      "n": 3,
+      "mean": 6.666666666666667,
+      "sd": 2.309401076758503,
+      "min": 4,
+      "max": 8
+    },
+    "stings": {
+      "n": 3,
+      "mean": 84.0,
+      "sd": 43.31281565541543,
+      "min": 58,
+      "max": 134
+    },
+    "stings_per_trip": {
+      "n": 3,
+      "mean": 1.5962666666666667,
+      "sd": 0.25659115988929415,
+      "min": 1.3488,
+      "max": 1.8611
+    },
+    "summer_deliveries": {
+      "n": 3,
+      "mean": 9.333333333333334,
+      "sd": 6.6583281184793925,
+      "min": 5,
+      "max": 17
+    },
+    "summer_rate": {
+      "n": 3,
+      "mean": 0.38493333333333335,
+      "sd": 0.09618546321213689,
+      "min": 0.2941,
+      "max": 0.4857
+    },
+    "summer_stings_per_trip": {
+      "n": 3,
+      "mean": 1.8613666666666668,
+      "sd": 0.32880103913055586,
+      "min": 1.5,
+      "max": 2.1429
+    },
+    "summer_trips": {
+      "n": 3,
+      "mean": 22.666666666666668,
+      "sd": 10.692676621563626,
+      "min": 16,
+      "max": 35
+    },
+    "trips": {
+      "n": 3,
+      "mean": 51.0,
+      "sd": 18.35755975068582,
+      "min": 38,
+      "max": 72
+    }
+  },
+  "provenance": {
+    "git_commit": "27af856db42fea29a216c28305c5d7f0ae073a49",
+    "git_dirty": false,
+    "python": "3.12.8",
+    "platform": "Linux-7.0.0-1014-gcp-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.5.4",
+      "anthropic": "2.6.0"
+    }
+  }
+}

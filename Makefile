@@ -14,7 +14,7 @@ smoke:            ## prove the experiment pipeline works end to end
 	$(PY) experiments/run.py experiments/configurations/smoke.toml
 
 demo:             ## the reproducible small-scale demonstration judges can run
-	@echo "TODO: point this at the real demo config once the system exists"; exit 1
+	$(PY) experiments/run.py experiments/configurations/demo_small.toml
 
 traces:           ## re-export every Claude Code session for this repo into agent_traces/
 	python3 tools/export_traces.py --all

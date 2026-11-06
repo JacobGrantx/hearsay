@@ -90,7 +90,7 @@ def step_toward(world: World, start: tuple[int, int], goal: tuple[int, int], max
 class Swarm:
     def __init__(self, world: World, rng, *, frozen: bool = False, mutation: float = 0.5,
                  counts=(4, 6, 8, 0), evolve_every: int = 25, spawn_distance: int = 25, cooldown: int = 10,
-                 ambush_rate: float = 0.05, ambush_wait: int = 4, speed: float = 0.8,
+                 ambush_rate: float = 0.02, ambush_wait: int = 4, speed: float = 0.8,
                  smell_base: float = 2.0, smell_step: float = 1.0):
         self.smell_base, self.smell_step = smell_base, smell_step
         self.ambush_rate, self.ambush_wait, self.speed = ambush_rate, ambush_wait, speed

@@ -1,0 +1,73 @@
+{
+  "experiment": "calibrate_rule",
+  "hypothesis": "Calibration target: oracle bees deliver on most spring trips, rule bees rarely, random bees almost never.",
+  "entrypoint": "digital_life.sim:run",
+  "params": {
+    "condition": "rule_bees",
+    "width": 80,
+    "height": 48,
+    "season_length": 250,
+    "years": 2,
+    "base_life": 500,
+    "min_bloom_distance": 55,
+    "openness": 0.15,
+    "ambush_rate": 0.02,
+    "hornet_speed": 0.8,
+    "log_state": false,
+    "log_decisions": false
+  },
+  "overrides": [
+    "base_life=500",
+    "min_bloom_distance=55",
+    "openness=0.15"
+  ],
+  "seed": 2,
+  "started": "2026-11-06T09:41:21Z",
+  "seconds": 6.085,
+  "final_metrics": {
+    "trips": 77,
+    "deliveries": 2,
+    "stings": 54,
+    "delivery_rate": 0.0267,
+    "stings_per_trip": 0.72,
+    "spring_trips": 14,
+    "spring_deliveries": 1,
+    "spring_rate": 0.0714,
+    "spring_stings_per_trip": 0.6429,
+    "summer_trips": 25,
+    "summer_deliveries": 1,
+    "summer_rate": 0.04,
+    "summer_stings_per_trip": 1.0,
+    "autumn_trips": 23,
+    "autumn_deliveries": 0,
+    "autumn_rate": 0.0,
+    "autumn_stings_per_trip": 0.8696,
+    "first_delivery_y1_spring": 229,
+    "median_to_bloom": 142.5,
+    "hatches": 2,
+    "queen_hatches": 12,
+    "deaths": 18,
+    "bees_mean": 2.692,
+    "bees_final": 2,
+    "smell_first": 4.25,
+    "smell_last": 5.375,
+    "hearing_first": 0.0,
+    "hearing_last": 0.625,
+    "ambush_first": 5.75,
+    "ambush_last": 4.0,
+    "bloom_distance_spring": 74,
+    "bloom_distance_summer": 75,
+    "bloom_distance_autumn": 77
+  },
+  "error": null,
+  "provenance": {
+    "git_commit": "27af856db42fea29a216c28305c5d7f0ae073a49",
+    "git_dirty": false,
+    "python": "3.12.8",
+    "platform": "Linux-7.0.0-1014-gcp-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.5.4",
+      "anthropic": "2.6.0"
+    }
+  }
+}
