@@ -8,7 +8,7 @@
 
 **Checks, run on the rewritten history before pushing.** 83 commits before and after. The tree of the newest commit is byte-identical to the one before the rewrite. No commit adds or removes any of the leaked strings, and `tools/private_scan.py` finds nothing in any version of any trace file in history (`make check` runs this on every check).
 
-**Where.** The cleaned history was pushed to a new project, so the earlier objects never reach a public copy. The earlier project is still private. Archiving it needs owner rights the developer does not hold, so a group owner should delete it.
+**Where.** The final cleaned history was pushed to a fresh project, so the earlier objects never reach a public copy. Two earlier private projects remain: the original, and one that received the first pass. Archiving or deleting them needs owner rights the developer does not hold, so a group owner should delete both.
 
 **Commit ids.** Rewriting gives every commit after the first changed one a new id. Docs in this repository now cite the new ids. Run records (`experiments/results/**/record.json`, `git_commit`) and exported traces keep the ids that were true when they were written. Use this table to translate them.
 
