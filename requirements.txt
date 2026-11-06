@@ -1,0 +1,2 @@
+# Pin every dependency (name==version). Add project deps here as they come in.
+pytest==8.4.2

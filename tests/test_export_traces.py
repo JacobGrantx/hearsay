@@ -1,0 +1,59 @@
+"""Exported traces must keep the development record and drop what the brief says not to publish."""
+import json
+
+import export_traces as et
+
+FAKE_KEY = "sk-ant-api03-" + "x1" * 20
+
+
+def write_log(path, entries):
+    path.write_text("\n".join(json.dumps(e) for e in entries) + "\n")
+
+
+def sample_log():
+    ts = "2026-11-06T10:00:0{}Z"
+    return [
+        {"type": "attachment", "attachment": {"type": "instructions", "content": "private user config"}, "timestamp": ts.format(0), "uuid": "a0"},
+        {"type": "user", "uuid": "u1", "timestamp": ts.format(1), "sessionId": "s", "origin": {"kind": "human"},
+         "message": {"role": "user", "content": "<system-reminder>global CLAUDE.md here</system-reminder>Build the organism grid"}},
+        {"type": "assistant", "uuid": "a1", "timestamp": ts.format(2), "sessionId": "s",
+         "message": {"role": "assistant", "model": "claude-opus-5-5", "id": "m1", "usage": {"input_tokens": 10, "output_tokens": 5},
+                     "content": [{"type": "thinking", "thinking": "secret reasoning", "signature": "zzz"},
+                                 {"type": "text", "text": "Writing it now."},
+                                 {"type": "tool_use", "id": "t1", "name": "Bash", "input": {"command": f"git commit -m 'grid' && echo ANTHROPIC_API_KEY={FAKE_KEY}", "description": "Commit grid"}}]}},
+        {"type": "user", "uuid": "u2", "timestamp": ts.format(3), "sessionId": "s", "permissionDecision": {"decision": "allow", "source": "user"},
+         "message": {"role": "user", "content": [{"type": "tool_result", "tool_use_id": "t1",
+                                                  "content": [{"type": "text", "text": "[main abc1234] grid\n 1 file changed"},
+                                                              {"type": "image", "source": {"data": "AAAA"}}]}]}},
+        {"type": "api-request-blob", "uuid": "r1", "timestamp": ts.format(4)},
+    ]
+
+
+def test_export_keeps_record_and_strips_private(tmp_path, monkeypatch):
+    monkeypatch.setattr(et, "OUT", tmp_path / "agent_traces")
+    monkeypatch.setattr(et, "RAW_ARCHIVE", tmp_path / "raw")
+    log = tmp_path / "s.jsonl"
+    write_log(log, sample_log())
+    m = et.export_session(log)
+
+    text = (tmp_path / "agent_traces" / "sessions" / "2026-11-06_s" / "main.jsonl").read_text()
+    assert "Build the organism grid" in text           # human prompt kept
+    assert "global CLAUDE.md" not in text              # injected config removed
+    assert "[REDACTED:harness-context]" in text
+    assert "secret reasoning" not in text              # thinking removed
+    assert "[OMITTED:model-reasoning]" in text
+    assert FAKE_KEY not in text                        # secret removed
+    assert "AAAA" not in text                          # image data removed
+    assert "private user config" not in text           # attachment entries omitted
+    assert m["omitted_entries"]["attachment"] == 1
+    assert m["human_prompts"] == 1
+    assert m["usage_main_agent"]["output_tokens"] == 5
+    assert m["commits_made_in_session"][0]["commit"] == "abc1234"
+    assert (tmp_path / "raw" / "s" / "s.jsonl").read_text() == log.read_text()   # original kept unmodified
+
+    events = [json.loads(l) for l in (tmp_path / "agent_traces" / "events" / "2026-11-06_s.events.jsonl").read_text().splitlines()]
+    kinds = [e["event_type"] for e in events]
+    assert kinds == ["human_prompt", "assistant_message", "tool_call", "permission_decision", "tool_result"]
+    assert events[3]["human_intervention"] is True
+    assert events[4]["commit"] == "abc1234"
+    assert all(FAKE_KEY not in json.dumps(e) for e in events)

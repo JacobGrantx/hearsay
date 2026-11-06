@@ -1,0 +1,10 @@
+# Pipeline self-test. Proves runner, seeding and logging work. Not a project experiment.
+[experiment]
+name = "smoke"
+entrypoint = "digital_life.smoke:run"
+hypothesis = "Same seed gives identical metrics; different seeds differ."
+seeds = [0, 1, 2]
+
+[params]
+population = 20
+steps = 50

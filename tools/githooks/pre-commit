@@ -1,0 +1,3 @@
+#!/bin/sh
+# Blocks a commit when a staged file looks like it holds a secret.
+exec python3 "$(git rev-parse --show-toplevel)/tools/presubmit.py" --staged

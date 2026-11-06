@@ -1,0 +1,29 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+credentials*.json
+
+# local trace-redaction config (lists private terms and env file paths)
+agent_traces/.redact-terms
+agent_traces/.redact-env-files
+agent_traces/.export.log
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# large or scratch experiment output (keep committed results small; link big artefacts)
+experiments/results/**/scratch/
+*.ckpt
+*.pt
+
+# editor / os / local agent settings
+.DS_Store
+.vscode/
+.claude/settings.local.json
