@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>__TITLE__</title>
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="bar">
+    <div id="title"></div>
+    <div id="season"><span id="season-swatch"></span><span id="season-text"></span></div>
+  </header>
+  <main id="main">
+    <div id="stage"><canvas id="map"></canvas><div id="loading">Loading the run</div></div>
+    <aside id="panel"></aside>
+  </main>
+  <footer id="controls">
+    <button id="play" type="button" aria-label="Play">Play</button>
+    <input id="timeline" type="range" min="0" max="0" step="1" value="0" aria-label="Timeline">
+    <label id="speed-label">Speed
+      <select id="speed">
+        <option value="2">Slow</option>
+        <option value="6" selected>Normal</option>
+        <option value="15">Fast</option>
+        <option value="40">Very fast</option>
+      </select>
+    </label>
+  </footer>
+</div>
+<script>
+window.RUN = __DATA__;
+</script>
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>
