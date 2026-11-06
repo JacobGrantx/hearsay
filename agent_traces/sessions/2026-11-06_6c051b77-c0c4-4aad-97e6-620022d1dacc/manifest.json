@@ -6,32 +6,32 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 217
+    "claude-opus-5-5": 295
   },
   "first_timestamp": "2026-11-06T10:14:13.068Z",
-  "last_timestamp": "2026-11-06T11:03:52.464Z",
+  "last_timestamp": "2026-11-06T11:18:21.675Z",
   "source": {
     "file": "6c051b77-c0c4-4aad-97e6-620022d1dacc.jsonl",
-    "sha256": "f575eb9c7de62789007faf0b7dce3f1f86a5506c91cbcdf67698870d1d27d7b5",
-    "lines": 655,
+    "sha256": "68fc6703d8d164cbaa10a13f822d30f117bd03a84272d44d68bd86ecd06eea02",
+    "lines": 877,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 230,
-    "output_tokens": 99636,
-    "cache_creation_input_tokens": 208853,
-    "cache_read_input_tokens": 16028460,
-    "api_responses": 115,
+    "input_tokens": 314,
+    "output_tokens": 147790,
+    "cache_creation_input_tokens": 281131,
+    "cache_read_input_tokens": 27061867,
+    "api_responses": 157,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 123
+    "accept/config": 167
   },
   "tool_calls": {
-    "Bash": 95,
-    "Read": 10,
+    "Bash": 136,
+    "Read": 13,
     "Write": 13,
     "Edit": 5,
     "Skill": 1
@@ -39,6 +39,13 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "d259227493acd5e973d5d87ceb4f2ad4e75643ab Architecture: AI run limits (time, cost, size, reproducibility through the cache, notes churn). AI disclosure: phase 4 session id, runtime tokens and spend from the logs, test count",
+    "5821f69e5b837acc7bd9867643363322da937feb README: demonstration still and commands with expected output, experiments and findings (all four hypotheses failed their controls; what the controls showed instead), cost and time per run",
+    "44fe346f93207dde6c218d554b6aad178d0f9da4 make demo replays a cited 2-year AI run (full, seed 0) instead of the pilot: about 9 s in all, no key",
+    "4f2956cc8ac93a14e93ff4d3e443b4756e8cf5cb EXPERIMENTS.md: main runs written up as pre-registered. E1 to E4 not supported (full gathers no more than rule bees or the ablations; no arms race; no seasonal memory; neutral sounds almost never made), with controls, observations, negative results and limits; naive avoidance present from the first sighting in every arm. All 19 AI runs replay identically offline. Analysis: wall time per run, replay log",
+    "2d4daf7b78e147afe14ed8c8171ad35e4c322e36 Analysis: trips and stings totals, hornet gene means in the first and last season with hornets, sting damage per bee-tick outside by year, and an exploratory split of unsupported talk coordinates that point at home; figures regenerated",
+    "4e0759e3890612006aa5b8fdcf34c1d49c1eba99 Analysis output from the main runs (main_results.md/json, five figures); viewer still of full seed 0 at tick 1053",
+    "f3ae5de895b9858bc4b5ea55455d3ac90dd9916a Main runs at commit 9cb4e7a (git_dirty false): full and no_talk seeds 0 to 4, no_memory, frozen_hornets and labels_good_bad seeds 0 to 2, rule_bees and random_bees seeds 0 to 4. No crashes, no mind_error in 26,155 AI decisions. Packed replay cache for every AI run (19 files, 14 MB with the pilot's loose entries)",
     "e9ba8ca03d0eb430a03c53bd938eb6187ecedff5 Analysis: exploratory measure (labelled not pre-registered): words of harm or caution in notes and hive talk, and the share of hive talk anyone heard",
     "fb8bcfaec3f1b95166a1b332426f603af11f74bd Analysis tests: paired-consistency verdict, missing values, mutual information and its permutation test; E3 carryover records whether the year-2 forager left before spring. README: future directions",
     "1f0ff06b6771540bd6ee991be89a899bf2c2228d README: idea, why digital life, architecture, how it works, getting started (results sections to follow)",
@@ -49,19 +56,19 @@
     "b8039ea8d5d7d34512955853110d86fcffdf308a Analysis: every pre-registered measure computed from the run directories (main_results.py, measures.py), small PNG figures (figures.py); pin matplotlib and numpy",
     "9c2f893e94a234b86e86161260ae089a08002872 Replay cache: pack each run's entries into one jsonl.gz (tools/pack_llm_cache.py); llm.py reads packs in auto and replay mode, with a test"
   ],
-  "kept_entries": 342,
+  "kept_entries": 464,
   "omitted_entries": {
-    "ai-title": 43,
-    "queue-operation": 2,
-    "attachment": 166,
+    "ai-title": 60,
+    "queue-operation": 4,
+    "attachment": 213,
     "file-history-snapshot": 1,
-    "atis-latch": 43,
-    "last-prompt": 42,
+    "atis-latch": 60,
+    "last-prompt": 59,
     "file-history-delta": 16
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 93
+    "thinking_omitted": 127
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

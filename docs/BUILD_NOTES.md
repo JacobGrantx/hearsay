@@ -217,3 +217,13 @@ Final values: base life L = 500, `min_bloom_distance` = 55, `openness` = 0.15, p
 - **Notes churn.** Bees write a note at every decision, so the 12 notes cover about the last 60 ticks.
 - **API errors are not cached.** A live run where a call failed after its retries replays with a cache miss at that call. None occurred in the pilot. If one does in a main run, re-run that seed.
 - **`make demo`** still runs rule bees only. The spec also wants it to replay one recorded AI run; the pilot (`pilot_full_spring.toml`, seed 0) replays offline with `LLM_MODE=replay` (checked: identical files) and could be that run.
+
+## Phase 4: main runs, analysis, docs
+
+Written by the phase 4 build session (Claude Code, 2026-11-06).
+
+- **Main runs** at commit 9cb4e7a, from a clean git worktree on /dev/shm, one process per arm with its own cache folder (`LLM_CACHE_DIR`) and spend ledger (`LLM_SPEND_FILE`), so later commits could not touch a running experiment. Run directories, model health and spend: EXPERIMENTS.md, "Main runs: shared setup".
+- **Replay cache** is packed per run: `tools/pack_llm_cache.py <seed dir> --source <loose cache>` writes `experiments/llm_cache/<arm>_<stamp>_seed-<n>.jsonl.gz`, and `llm.py` reads packs in auto and replay mode (it indexes every pack on first use). The pilot's entries stay loose.
+- **Replay check:** `make replay RUN=<seed dir>` (experiments/replay_check.py). `make demo` replays `full` seed 0.
+- **Analysis:** `make analysis`. `experiments/analysis/runs.py` names the main batch (`MAIN_STAMP`) and the amendment-1 batches (`EXTENSIONS`); `DL_RESULTS` points it at another results folder.
+- **For the video:** the README still is `viewer/capture.py` on `full` seed 0 at tick 1053 following bee 9 (the winter forager, EXPERIMENTS.md E3). Other moments worth showing: the "Bright cells near (41,29) still dangerous" talk in `full` seed 0 (tick 214), and the one "bad noise" in `labels_good_bad` seed 2 (tick 1026).
