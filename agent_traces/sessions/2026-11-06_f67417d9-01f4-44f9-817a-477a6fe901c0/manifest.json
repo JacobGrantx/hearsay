@@ -46,10 +46,12 @@
     "a11c9f88ea1fe86e967b40b47ce4262a07545795 Viewer: README with the bundle and capture commands, controls, capture mode and limits; browser accepts extra flags",
     "10b8eaf420dcd368b23776b5c68170659956d66c Viewer: minimum on-screen sizes for bees and hornets, so the full 80 x 48 map reads at 1280 x 720",
     "dceb04c6fefa06846ba19d1b2e042c3d3a4a8839 Viewer: in capture mode, trim the oldest panel items so every frame shows decisions, memories and hive talk",
+    "2e19f63912b9f1f83e2b936d1b7f17571c01107a Simulation with scripted bees: hornets with evolution, bees, senses, motor layer, policies, tick loop, run logging; tests incl. leak and determinism",
     "836caa2f44d404a0f6a8c5ca309712dc53ebdcd2 Viewer: smoke tests for bundling, file:// load, rendering, click selection and deterministic capture",
     "7cf9077d60ef5c653e4486442cd6c1c48c7d3d04 Viewer: fan out bees sharing a cell; merge map cells into rectangles so rooms and walls have no seams",
     "51f9d750aca430521d32c6c1ad935b9789aa81f5 Viewer: single-file run page (canvas map, bees, hornets, sounds, stings, hatchings, bee panel), bundler and headless capture over the DevTools pipe",
-    "4dd53716f61eadad67e4a477f54f658d5aef50e1 Viewer: synthetic run fixture in the log format, for developing and testing the viewer"
+    "4dd53716f61eadad67e4a477f54f658d5aef50e1 Viewer: synthetic run fixture in the log format, for developing and testing the viewer",
+    "572ab1ceae3e4009ea3125b69a68c0bb332b1186 World: seeded braided maze, hive with three entrances, seasonal bloom patches, calendar; tests"
   ],
   "kept_entries": 244,
   "omitted_entries": {

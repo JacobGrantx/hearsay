@@ -36,6 +36,7 @@ class Decision:
     sound: str = "none"
     remember: str = ""
     say: str = ""
+    info: dict = field(default_factory=dict)  # extra fields for the decision event (AI mind: usage, prompt_key)
 
     def __post_init__(self):
         if self.intent not in INTENTS:

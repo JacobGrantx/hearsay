@@ -85,8 +85,11 @@ class OraclePolicy(Policy):
         return Decision("go_to", target=min(cells, key=lambda c: (abs(c[0] - x) + abs(c[1] - y), c)))
 
 
-def make_policy(name: str, rng, *, bloom_now=None, params: dict | None = None) -> Policy:
+def make_policy(name: str, rng, *, bloom_now=None, params: dict | None = None, seed: int = 0) -> Policy:
     params = params or {}
+    if name == "ai":
+        from .mind import AIPolicy  # imported late: mind imports this module
+        return AIPolicy(params, seed)
     if name == "random":
         return RandomPolicy(rng)
     if name == "rule":

@@ -57,3 +57,12 @@ def test_export_keeps_record_and_strips_private(tmp_path, monkeypatch):
     assert events[3]["human_intervention"] is True
     assert events[4]["commit"] == "abc1234"
     assert all(FAKE_KEY not in json.dumps(e) for e in events)
+
+
+def test_assignment_check_reads_json_escapes_as_line_ends():
+    import secret_patterns as sp
+
+    code_in_trace = r'"usage=SimpleNamespace(input_tokens=1, cache_creation_input_tokens=0))\nreturn x2\n"'
+    assert not sp.find(code_in_trace)
+    leaked = r'"export MY_API' + r'_KEY=abcd1234efgh5678\nnext line"'  # split so the hook does not flag this file
+    assert sp.find(leaked)

@@ -23,7 +23,8 @@ DEFAULTS = dict(
     base_life=500, life_cap_factor=3, max_bees=12, start_bees=6, queen_floor=2, decide_every=5,
     sound_cost=1, newborn_hold=3, hornet_counts=[4, 6, 8, 0], evolve_every=25, mutation=0.5,
     sting_cooldown=10, hornet_spawn_distance=25, ambush_rate=0.02, ambush_wait=4, hornet_speed=0.8, smell_base=2.0, smell_step=1.0, log_state=True, log_decisions=True)
-CONDITION_POLICY = {"rule_bees": "rule", "random_bees": "random", "oracle_bees": "oracle"}
+CONDITION_POLICY = {"rule_bees": "rule", "random_bees": "random", "oracle_bees": "oracle",
+                    "full": "ai", "no_talk": "ai", "no_memory": "ai", "labels_good_bad": "ai", "frozen_hornets": "ai"}
 PRIORITY = ("stung", "hornet", "bloom", "sound", "home", "arrived", "life25", "life50", "hatched", "timer")
 assert set(PRIORITY) == set(TRIGGERS)
 
@@ -41,9 +42,6 @@ class Sim:
                            spawn_distance=p["hornet_spawn_distance"], cooldown=p["sting_cooldown"],
                            ambush_rate=p["ambush_rate"], ambush_wait=p["ambush_wait"], speed=p["hornet_speed"],
                            smell_base=p["smell_base"], smell_step=p["smell_step"])
-        name = p["policy"] or CONDITION_POLICY.get(p["condition"])
-        self.policy = policy or make_policy(name, random.Random(f"policy:{seed}"), params=p,
-                                            bloom_now=lambda: self.world.bloom_now(self.cal.season(self.t)))
         self.L, self.cap = p["base_life"], p["base_life"] * p["life_cap_factor"]
         self.bees: dict[int, B.Bee] = {}
         self.next_bee, self.t, self.sounds = 0, 0, []
@@ -52,6 +50,11 @@ class Sim:
         self.km_proto = KnownMap(self.world.width, self.world.height, self.world.home)
         self.out = SimLog(log, state=p["log_state"], decisions=p["log_decisions"])
         self.out.layout(self.world, self.cal, p, seed, (B.VISION, B.BLOOM_VISION, B.HEARING))
+        name = p["policy"] or CONDITION_POLICY.get(p["condition"])
+        self.policy = policy or make_policy(name, random.Random(f"policy:{seed}"), params=p, seed=seed,
+                                            bloom_now=lambda: self.world.bloom_now(self.cal.season(self.t)))
+        if hasattr(self.policy, "bind"):  # the AI mind needs the tick for its cache tag and the log for errors
+            self.policy.bind(lambda: self.t, self.out.event)
         self.metrics = SeasonMetrics()
 
     # --- colony -----------------------------------------------------------------------------------
@@ -116,7 +119,8 @@ class Sim:
             trig = min(b.triggers, key=PRIORITY.index)
             b.decision, b.labelled, b.last_decided, b.triggers, b.unseen = d, d.label(), t, [], []
             self.out.event("decision", t, bee=b.id, trigger=trig, intent=d.intent, direction=d.direction,
-                           target=list(d.target) if d.target else None, sound=d.sound, remember=d.remember, say=d.say)
+                           target=list(d.target) if d.target else None, sound=d.sound, remember=d.remember, say=d.say,
+                           **d.info)
             if d.sound != "none":
                 b.life -= p["sound_cost"]
                 sounds_now.append((b.id, b.x, b.y, d.sound))

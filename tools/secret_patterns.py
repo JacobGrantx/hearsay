@@ -37,7 +37,7 @@ SECRET_RES = [re.compile(p) for p in _PATTERNS]
 ASSIGNMENT_RE = re.compile(
     r"(?i)\b([A-Za-z0-9_\-]*(?:api[_\-]?key|secret|token|passw(?:or)?d|private[_\-]?key|access[_\-]?key)[A-Za-z0-9_\-]*)"
     r"([\"']?\s*[=:]\s*[\"']?)"
-    r"((?=[^\s\"']*[A-Za-z])(?=[^\s\"']*\d)[^\s\"',;]{8,})"
+    r"((?=[^\s\"'\\]*[A-Za-z])(?=[^\s\"'\\]*\d)[^\s\"',;\\]{8,})"  # a value ends at a backslash: JSON escapes like \n in traces
 )
 
 MARK = "[REDACTED:secret]"
