@@ -46,13 +46,13 @@ V.drawLive = function (ctx, run, tau, px, selected) {
     const [x, y] = lerpPos(h, hornetsB.get(h[hf.id]), f, hf.x, hf.y);
     const target = h[hf.target];
     if (target != null && target >= 0 && beeNow.has(target)) {
-      const b = beeNow.get(target);
+      const [tx, ty] = lerpPos(beeNow.get(target), beesB.get(target), f, bf.x, bf.y);
       ctx.strokeStyle = "rgba(169, 80, 28, 0.35)";
       ctx.lineWidth = px(1.2);
       ctx.setLineDash([px(3), px(3)]);
       ctx.beginPath();
       ctx.moveTo(x, y);
-      ctx.lineTo(b[bf.x] + 0.5, b[bf.y] + 0.5);
+      ctx.lineTo(tx, ty);
       ctx.stroke();
       ctx.setLineDash([]);
     }
@@ -177,7 +177,7 @@ function selectionMarks(ctx, run, b, x, y, r, px) {
   ctx.strokeStyle = "rgba(46, 41, 32, 0.35)";
   ctx.lineWidth = px(1);
   ctx.setLineDash([px(4), px(3)]);
-  ctx.strokeRect(b[run.bf.x] - v, b[run.bf.y] - v, 2 * v + 1, 2 * v + 1);
+  ctx.strokeRect(Math.round(x - 0.5) - v, Math.round(y - 0.5) - v, 2 * v + 1, 2 * v + 1);
   const goTo = /^go_to:(-?\d+),(-?\d+)$/.exec(b[run.bf.intent] || "");
   if (goTo) {
     const gx = +goTo[1] + 0.5, gy = +goTo[2] + 0.5;
