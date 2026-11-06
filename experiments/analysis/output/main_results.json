@@ -362,6 +362,166 @@
      }
     }
    },
+   "trips": {
+    "full": {
+     "n": 5,
+     "mean": 36.4,
+     "sd": 6.1887,
+     "per_seed": {
+      "0": 41,
+      "1": 29,
+      "2": 44,
+      "3": 36,
+      "4": 32
+     }
+    },
+    "no_talk": {
+     "n": 5,
+     "mean": 36.0,
+     "sd": 5.3852,
+     "per_seed": {
+      "0": 45,
+      "1": 33,
+      "2": 37,
+      "3": 32,
+      "4": 33
+     }
+    },
+    "no_memory": {
+     "n": 3,
+     "mean": 58.0,
+     "sd": 31.7962,
+     "per_seed": {
+      "0": 92,
+      "1": 53,
+      "2": 29
+     }
+    },
+    "frozen_hornets": {
+     "n": 3,
+     "mean": 39.3333,
+     "sd": 9.0738,
+     "per_seed": {
+      "0": 46,
+      "1": 43,
+      "2": 29
+     }
+    },
+    "labels_good_bad": {
+     "n": 3,
+     "mean": 33.6667,
+     "sd": 5.5076,
+     "per_seed": {
+      "0": 40,
+      "1": 30,
+      "2": 31
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 61.2,
+     "sd": 8.9554,
+     "per_seed": {
+      "0": 55,
+      "1": 58,
+      "2": 77,
+      "3": 59,
+      "4": 57
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 141.6,
+     "sd": 11.6533,
+     "per_seed": {
+      "0": 133,
+      "1": 139,
+      "2": 160,
+      "3": 145,
+      "4": 131
+     }
+    }
+   },
+   "stings": {
+    "full": {
+     "n": 5,
+     "mean": 17.2,
+     "sd": 6.6858,
+     "per_seed": {
+      "0": 8,
+      "1": 13,
+      "2": 20,
+      "3": 20,
+      "4": 25
+     }
+    },
+    "no_talk": {
+     "n": 5,
+     "mean": 15.0,
+     "sd": 7.5166,
+     "per_seed": {
+      "0": 5,
+      "1": 10,
+      "2": 17,
+      "3": 24,
+      "4": 19
+     }
+    },
+    "no_memory": {
+     "n": 3,
+     "mean": 9.3333,
+     "sd": 4.7258,
+     "per_seed": {
+      "0": 13,
+      "1": 11,
+      "2": 4
+     }
+    },
+    "frozen_hornets": {
+     "n": 3,
+     "mean": 16.3333,
+     "sd": 3.0551,
+     "per_seed": {
+      "0": 19,
+      "1": 13,
+      "2": 17
+     }
+    },
+    "labels_good_bad": {
+     "n": 3,
+     "mean": 13.6667,
+     "sd": 5.5076,
+     "per_seed": {
+      "0": 14,
+      "1": 8,
+      "2": 19
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 35.6,
+     "sd": 13.9929,
+     "per_seed": {
+      "0": 17,
+      "1": 29,
+      "2": 54,
+      "3": 35,
+      "4": 43
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 21.8,
+     "sd": 12.1326,
+     "per_seed": {
+      "0": 20,
+      "1": 40,
+      "2": 6,
+      "3": 20,
+      "4": 23
+     }
+    }
+   },
    "delivery_rate": {
     "full": {
      "n": 5,
@@ -1218,6 +1378,114 @@
      "verdict": "consistently higher"
     }
    },
+   "trips": {
+    "full - no_talk": {
+     "diffs": {
+      "0": -4,
+      "1": -4,
+      "2": 7
+     },
+     "mean": -0.3333,
+     "sd": 6.3509,
+     "n": 3,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": -51,
+      "1": -24,
+      "2": 15
+     },
+     "mean": -20.0,
+     "sd": 33.1813,
+     "n": 3,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": -14,
+      "1": -29,
+      "2": -33
+     },
+     "mean": -25.3333,
+     "sd": 10.0167,
+     "n": 3,
+     "same_sign": true,
+     "consistent": true,
+     "verdict": "consistently lower"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": -92,
+      "1": -110,
+      "2": -116
+     },
+     "mean": -106.0,
+     "sd": 12.49,
+     "n": 3,
+     "same_sign": true,
+     "consistent": true,
+     "verdict": "consistently lower"
+    }
+   },
+   "stings": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 3,
+      "1": 3,
+      "2": 3
+     },
+     "mean": 3.0,
+     "sd": 0.0,
+     "n": 3,
+     "same_sign": true,
+     "consistent": true,
+     "verdict": "consistently higher"
+    },
+    "full - no_memory": {
+     "diffs": {
+      "0": -5,
+      "1": 2,
+      "2": 16
+     },
+     "mean": 4.3333,
+     "sd": 10.6927,
+     "n": 3,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": -9,
+      "1": -16,
+      "2": -34
+     },
+     "mean": -19.6667,
+     "sd": 12.897,
+     "n": 3,
+     "same_sign": true,
+     "consistent": true,
+     "verdict": "consistently lower"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": -12,
+      "1": -27,
+      "2": 14
+     },
+     "mean": -8.3333,
+     "sd": 20.7445,
+     "n": 3,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
    "delivery_rate": {
     "full - no_talk": {
      "diffs": {
@@ -1797,6 +2065,100 @@
      },
      "mean": 1.8,
      "sd": 1.6432,
+     "n": 5,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    }
+   },
+   "trips": {
+    "full - no_talk": {
+     "diffs": {
+      "0": -4,
+      "1": -4,
+      "2": 7,
+      "3": 4,
+      "4": -1
+     },
+     "mean": 0.4,
+     "sd": 4.9295,
+     "n": 5,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": -14,
+      "1": -29,
+      "2": -33,
+      "3": -23,
+      "4": -25
+     },
+     "mean": -24.8,
+     "sd": 7.1554,
+     "n": 5,
+     "same_sign": true,
+     "consistent": true,
+     "verdict": "consistently lower"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": -92,
+      "1": -110,
+      "2": -116,
+      "3": -109,
+      "4": -99
+     },
+     "mean": -105.2,
+     "sd": 9.576,
+     "n": 5,
+     "same_sign": true,
+     "consistent": true,
+     "verdict": "consistently lower"
+    }
+   },
+   "stings": {
+    "full - no_talk": {
+     "diffs": {
+      "0": 3,
+      "1": 3,
+      "2": 3,
+      "3": -4,
+      "4": 6
+     },
+     "mean": 2.2,
+     "sd": 3.7014,
+     "n": 5,
+     "same_sign": false,
+     "consistent": false,
+     "verdict": "no consistent difference"
+    },
+    "full - rule_bees": {
+     "diffs": {
+      "0": -9,
+      "1": -16,
+      "2": -34,
+      "3": -15,
+      "4": -18
+     },
+     "mean": -18.4,
+     "sd": 9.3434,
+     "n": 5,
+     "same_sign": true,
+     "consistent": true,
+     "verdict": "consistently lower"
+    },
+    "full - random_bees": {
+     "diffs": {
+      "0": -12,
+      "1": -27,
+      "2": 14,
+      "3": 0,
+      "4": 2
+     },
+     "mean": -4.6,
+     "sd": 15.5499,
      "n": 5,
      "same_sign": false,
      "consistent": false,
@@ -3320,6 +3682,648 @@
      }
     ]
    }
+  },
+  "genes_first_last": {
+   "smell_first": {
+    "full": {
+     "n": 5,
+     "mean": 3.0,
+     "sd": 2.2638,
+     "per_seed": {
+      "0": 0.5,
+      "1": 1.0,
+      "2": 4.0,
+      "3": 6.0,
+      "4": 3.5
+     }
+    },
+    "no_talk": {
+     "n": 5,
+     "mean": 3.1,
+     "sd": 2.2122,
+     "per_seed": {
+      "0": 0.5,
+      "1": 2.0,
+      "2": 3.25,
+      "3": 6.5,
+      "4": 3.25
+     }
+    },
+    "no_memory": {
+     "n": 3,
+     "mean": 1.6667,
+     "sd": 1.1273,
+     "per_seed": {
+      "0": 0.5,
+      "1": 1.75,
+      "2": 2.75
+     }
+    },
+    "frozen_hornets": {
+     "n": 3,
+     "mean": 3.1667,
+     "sd": 0.3819,
+     "per_seed": {
+      "0": 2.75,
+      "1": 3.25,
+      "2": 3.5
+     }
+    },
+    "labels_good_bad": {
+     "n": 3,
+     "mean": 1.5,
+     "sd": 1.0897,
+     "per_seed": {
+      "0": 1.0,
+      "1": 0.75,
+      "2": 2.75
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 3.25,
+     "sd": 1.7941,
+     "per_seed": {
+      "0": 1.25,
+      "1": 2.0,
+      "2": 4.25,
+      "3": 5.75,
+      "4": 3.0
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 2.95,
+     "sd": 2.1095,
+     "per_seed": {
+      "0": 1.0,
+      "1": 2.0,
+      "2": 3.0,
+      "3": 6.5,
+      "4": 2.25
+     }
+    }
+   },
+   "smell_last": {
+    "full": {
+     "n": 5,
+     "mean": 3.225,
+     "sd": 3.0018,
+     "per_seed": {
+      "0": 0.125,
+      "1": 0.25,
+      "2": 4.25,
+      "3": 7.125,
+      "4": 4.375
+     }
+    },
+    "no_talk": {
+     "n": 5,
+     "mean": 3.925,
+     "sd": 1.4832,
+     "per_seed": {
+      "0": 2.5,
+      "1": 5.25,
+      "2": 3.375,
+      "3": 5.75,
+      "4": 2.75
+     }
+    },
+    "no_memory": {
+     "n": 3,
+     "mean": 3.0417,
+     "sd": 1.0104,
+     "per_seed": {
+      "0": 4.125,
+      "1": 2.875,
+      "2": 2.125
+     }
+    },
+    "frozen_hornets": {
+     "n": 3,
+     "mean": 3.4583,
+     "sd": 0.6415,
+     "per_seed": {
+      "0": 4.0,
+      "1": 2.75,
+      "2": 3.625
+     }
+    },
+    "labels_good_bad": {
+     "n": 3,
+     "mean": 2.75,
+     "sd": 1.9645,
+     "per_seed": {
+      "0": 4.125,
+      "1": 0.5,
+      "2": 3.625
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 3.375,
+     "sd": 1.7025,
+     "per_seed": {
+      "0": 1.125,
+      "1": 2.75,
+      "2": 5.375,
+      "3": 4.75,
+      "4": 2.875
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 2.225,
+     "sd": 1.0876,
+     "per_seed": {
+      "0": 1.125,
+      "1": 2.75,
+      "2": 2.875,
+      "3": 3.375,
+      "4": 1.0
+     }
+    }
+   },
+   "hearing_first": {
+    "full": {
+     "n": 5,
+     "mean": 3.45,
+     "sd": 1.6808,
+     "per_seed": {
+      "0": 5.75,
+      "1": 4.25,
+      "2": 1.25,
+      "3": 2.75,
+      "4": 3.25
+     }
+    },
+    "no_talk": {
+     "n": 5,
+     "mean": 2.65,
+     "sd": 1.808,
+     "per_seed": {
+      "0": 4.75,
+      "1": 4.25,
+      "2": 0.5,
+      "3": 2.25,
+      "4": 1.5
+     }
+    },
+    "no_memory": {
+     "n": 3,
+     "mean": 3.25,
+     "sd": 2.136,
+     "per_seed": {
+      "0": 5.5,
+      "1": 3.0,
+      "2": 1.25
+     }
+    },
+    "frozen_hornets": {
+     "n": 3,
+     "mean": 3.1667,
+     "sd": 1.1815,
+     "per_seed": {
+      "0": 4.5,
+      "1": 2.75,
+      "2": 2.25
+     }
+    },
+    "labels_good_bad": {
+     "n": 3,
+     "mean": 3.4167,
+     "sd": 2.9616,
+     "per_seed": {
+      "0": 5.25,
+      "1": 5.0,
+      "2": 0.0
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 3.15,
+     "sd": 1.9969,
+     "per_seed": {
+      "0": 5.0,
+      "1": 4.5,
+      "2": 0.0,
+      "3": 3.75,
+      "4": 2.5
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 3.25,
+     "sd": 1.7766,
+     "per_seed": {
+      "0": 5.0,
+      "1": 4.75,
+      "2": 0.75,
+      "3": 3.5,
+      "4": 2.25
+     }
+    }
+   },
+   "hearing_last": {
+    "full": {
+     "n": 5,
+     "mean": 3.075,
+     "sd": 1.5974,
+     "per_seed": {
+      "0": 4.875,
+      "1": 4.75,
+      "2": 1.625,
+      "3": 2.125,
+      "4": 2.0
+     }
+    },
+    "no_talk": {
+     "n": 5,
+     "mean": 2.9,
+     "sd": 0.8496,
+     "per_seed": {
+      "0": 4.125,
+      "1": 3.0,
+      "2": 2.375,
+      "3": 3.125,
+      "4": 1.875
+     }
+    },
+    "no_memory": {
+     "n": 3,
+     "mean": 2.2917,
+     "sd": 2.2407,
+     "per_seed": {
+      "0": 4.875,
+      "1": 0.875,
+      "2": 1.125
+     }
+    },
+    "frozen_hornets": {
+     "n": 3,
+     "mean": 3.5,
+     "sd": 0.5728,
+     "per_seed": {
+      "0": 3.375,
+      "1": 4.125,
+      "2": 3.0
+     }
+    },
+    "labels_good_bad": {
+     "n": 3,
+     "mean": 3.0833,
+     "sd": 2.8895,
+     "per_seed": {
+      "0": 2.75,
+      "1": 6.125,
+      "2": 0.375
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 3.2,
+     "sd": 1.6071,
+     "per_seed": {
+      "0": 4.0,
+      "1": 4.75,
+      "2": 0.625,
+      "3": 3.875,
+      "4": 2.75
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 4.65,
+     "sd": 1.4399,
+     "per_seed": {
+      "0": 5.75,
+      "1": 5.125,
+      "2": 3.25,
+      "3": 6.125,
+      "4": 3.0
+     }
+    }
+   },
+   "ambush_first": {
+    "full": {
+     "n": 5,
+     "mean": 3.55,
+     "sd": 1.4405,
+     "per_seed": {
+      "0": 3.75,
+      "1": 4.75,
+      "2": 4.75,
+      "3": 1.25,
+      "4": 3.25
+     }
+    },
+    "no_talk": {
+     "n": 5,
+     "mean": 4.25,
+     "sd": 1.9039,
+     "per_seed": {
+      "0": 4.75,
+      "1": 3.75,
+      "2": 6.25,
+      "3": 1.25,
+      "4": 5.25
+     }
+    },
+    "no_memory": {
+     "n": 3,
+     "mean": 5.0833,
+     "sd": 1.0104,
+     "per_seed": {
+      "0": 4.0,
+      "1": 5.25,
+      "2": 6.0
+     }
+    },
+    "frozen_hornets": {
+     "n": 3,
+     "mean": 3.6667,
+     "sd": 0.8036,
+     "per_seed": {
+      "0": 2.75,
+      "1": 4.0,
+      "2": 4.25
+     }
+    },
+    "labels_good_bad": {
+     "n": 3,
+     "mean": 5.0833,
+     "sd": 1.893,
+     "per_seed": {
+      "0": 3.75,
+      "1": 4.25,
+      "2": 7.25
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 3.6,
+     "sd": 1.9413,
+     "per_seed": {
+      "0": 3.75,
+      "1": 3.5,
+      "2": 5.75,
+      "3": 0.5,
+      "4": 4.5
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 3.8,
+     "sd": 2.4328,
+     "per_seed": {
+      "0": 4.0,
+      "1": 3.25,
+      "2": 6.25,
+      "3": 0.0,
+      "4": 5.5
+     }
+    }
+   },
+   "ambush_last": {
+    "full": {
+     "n": 5,
+     "mean": 3.7,
+     "sd": 1.7513,
+     "per_seed": {
+      "0": 5.0,
+      "1": 5.0,
+      "2": 4.125,
+      "3": 0.75,
+      "4": 3.625
+     }
+    },
+    "no_talk": {
+     "n": 5,
+     "mean": 3.175,
+     "sd": 1.7513,
+     "per_seed": {
+      "0": 3.375,
+      "1": 1.75,
+      "2": 4.25,
+      "3": 1.125,
+      "4": 5.375
+     }
+    },
+    "no_memory": {
+     "n": 3,
+     "mean": 4.6667,
+     "sd": 3.1853,
+     "per_seed": {
+      "0": 1.0,
+      "1": 6.25,
+      "2": 6.75
+     }
+    },
+    "frozen_hornets": {
+     "n": 3,
+     "mean": 3.0417,
+     "sd": 0.3819,
+     "per_seed": {
+      "0": 2.625,
+      "1": 3.125,
+      "2": 3.375
+     }
+    },
+    "labels_good_bad": {
+     "n": 3,
+     "mean": 4.1667,
+     "sd": 1.5926,
+     "per_seed": {
+      "0": 3.125,
+      "1": 3.375,
+      "2": 6.0
+     }
+    },
+    "rule_bees": {
+     "n": 5,
+     "mean": 3.425,
+     "sd": 1.4486,
+     "per_seed": {
+      "0": 4.875,
+      "1": 2.5,
+      "2": 4.0,
+      "3": 1.375,
+      "4": 4.375
+     }
+    },
+    "random_bees": {
+     "n": 5,
+     "mean": 3.125,
+     "sd": 2.0444,
+     "per_seed": {
+      "0": 3.125,
+      "1": 2.125,
+      "2": 3.875,
+      "3": 0.5,
+      "4": 6.0
+     }
+    }
+   }
+  },
+  "damage_y1": {
+   "full": {
+    "n": 5,
+    "mean": 0.3921,
+    "sd": 0.2193,
+    "per_seed": {
+     "0": 0.225,
+     "1": 0.5096,
+     "2": 0.1916,
+     "3": 0.3183,
+     "4": 0.7161
+    }
+   },
+   "no_talk": {
+    "n": 5,
+    "mean": 0.2402,
+    "sd": 0.1168,
+    "per_seed": {
+     "0": 0.0811,
+     "1": 0.1645,
+     "2": 0.2818,
+     "3": 0.3765,
+     "4": 0.2972
+    }
+   },
+   "no_memory": {
+    "n": 3,
+    "mean": 0.1591,
+    "sd": 0.0792,
+    "per_seed": {
+     "0": 0.2,
+     "1": 0.2095,
+     "2": 0.0678
+    }
+   },
+   "frozen_hornets": {
+    "n": 3,
+    "mean": 0.3305,
+    "sd": 0.1148,
+    "per_seed": {
+     "0": 0.3789,
+     "1": 0.1995,
+     "2": 0.4132
+    }
+   },
+   "labels_good_bad": {
+    "n": 3,
+    "mean": 0.2006,
+    "sd": 0.1222,
+    "per_seed": {
+     "0": 0.2975,
+     "1": 0.0634,
+     "2": 0.2408
+    }
+   },
+   "rule_bees": {
+    "n": 5,
+    "mean": 0.7915,
+    "sd": 0.4206,
+    "per_seed": {
+     "0": 0.2524,
+     "1": 0.9838,
+     "2": 1.2334,
+     "3": 0.4438,
+     "4": 1.044
+    }
+   },
+   "random_bees": {
+    "n": 5,
+    "mean": 0.7737,
+    "sd": 0.6911,
+    "per_seed": {
+     "0": 1.5278,
+     "1": 1.4739,
+     "2": 0.0,
+     "3": 0.5366,
+     "4": 0.3303
+    }
+   }
+  },
+  "damage_y2": {
+   "full": {
+    "n": 5,
+    "mean": 0.3916,
+    "sd": 0.2524,
+    "per_seed": {
+     "0": 0.1055,
+     "1": 0.2035,
+     "2": 0.3858,
+     "3": 0.5255,
+     "4": 0.7376
+    }
+   },
+   "no_talk": {
+    "n": 5,
+    "mean": 0.4446,
+    "sd": 0.2841,
+    "per_seed": {
+     "0": 0.2669,
+     "1": 0.0646,
+     "2": 0.4739,
+     "3": 0.7646,
+     "4": 0.6532
+    }
+   },
+   "no_memory": {
+    "n": 3,
+    "mean": 0.2475,
+    "sd": 0.3622,
+    "per_seed": {
+     "0": 0.6652,
+     "1": 0.0571,
+     "2": 0.0203
+    }
+   },
+   "frozen_hornets": {
+    "n": 3,
+    "mean": 0.524,
+    "sd": 0.4205,
+    "per_seed": {
+     "0": 0.9922,
+     "1": 0.4011,
+     "2": 0.1787
+    }
+   },
+   "labels_good_bad": {
+    "n": 3,
+    "mean": 0.418,
+    "sd": 0.136,
+    "per_seed": {
+     "0": 0.2891,
+     "1": 0.4046,
+     "2": 0.5602
+    }
+   },
+   "rule_bees": {
+    "n": 5,
+    "mean": 1.1599,
+    "sd": 0.6669,
+    "per_seed": {
+     "0": 0.6086,
+     "1": 0.4873,
+     "2": 2.1484,
+     "3": 1.3726,
+     "4": 1.1825
+    }
+   },
+   "random_bees": {
+    "n": 5,
+    "mean": 1.1891,
+    "sd": 0.5081,
+    "per_seed": {
+     "0": 0.8773,
+     "1": 0.9535,
+     "2": 0.8738,
+     "3": 1.1686,
+     "4": 2.0723
+    }
+   }
   }
  },
  "E3": {
@@ -4277,25 +5281,30 @@
    "full": {
     "0": {
      "neither": 249,
+     "neither_near_home": 235,
      "mover": 124,
      "bloom": 73
     },
     "1": {
      "neither": 53,
+     "neither_near_home": 48,
      "mover": 57,
      "bloom": 20
     },
     "2": {
      "neither": 114,
+     "neither_near_home": 110,
      "mover": 125,
      "bloom": 1
     },
     "3": {
      "neither": 159,
+     "neither_near_home": 151,
      "mover": 95
     },
     "4": {
      "neither": 350,
+     "neither_near_home": 348,
      "mover": 184,
      "bloom": 17
     }
@@ -4310,7 +5319,8 @@
    "no_memory": {
     "0": {
      "mover": 49,
-     "neither": 1
+     "neither": 1,
+     "neither_near_home": 1
     },
     "1": {
      "mover": 4
@@ -4320,15 +5330,18 @@
    "frozen_hornets": {
     "0": {
      "neither": 117,
+     "neither_near_home": 111,
      "mover": 155,
      "bloom": 8
     },
     "1": {
      "neither": 79,
+     "neither_near_home": 65,
      "mover": 83
     },
     "2": {
      "neither": 18,
+     "neither_near_home": 18,
      "mover": 29,
      "bloom": 28
     }
@@ -4336,15 +5349,18 @@
    "labels_good_bad": {
     "0": {
      "neither": 468,
+     "neither_near_home": 461,
      "mover": 177
     },
     "1": {
      "neither": 60,
+     "neither_near_home": 57,
      "mover": 23,
      "bloom": 11
     },
     "2": {
      "neither": 104,
+     "neither_near_home": 104,
      "mover": 39,
      "bloom": 2
     }
@@ -4353,21 +5369,25 @@
   "talk_claims_pooled": {
    "full": {
     "neither": 925,
+    "neither_near_home": 892,
     "mover": 585,
     "bloom": 111
    },
    "no_talk": {},
    "no_memory": {
     "mover": 53,
-    "neither": 1
+    "neither": 1,
+    "neither_near_home": 1
    },
    "frozen_hornets": {
     "neither": 214,
+    "neither_near_home": 194,
     "mover": 267,
     "bloom": 36
    },
    "labels_good_bad": {
     "neither": 632,
+    "neither_near_home": 622,
     "mover": 239,
     "bloom": 13
    }

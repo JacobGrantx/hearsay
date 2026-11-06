@@ -149,7 +149,8 @@ def listener_response(run: Run) -> dict:
 
 def talk_claims(run: Run) -> Counter:
     """Every coordinate pair in hive talk: near a bloom cell of the current or previous season,
-    near a moving thing the speaker had in view before, or neither (unsupported)."""
+    near a moving thing the speaker had in view before, or neither (unsupported). neither_near_home
+    (exploratory, a subset of neither) counts pairs within 4 cells of the hive centre."""
     L, vision = run.layout["season_length"], run.layout["vision"]
     seen: dict[int, dict[tuple[int, int], int]] = {}
     for st in run.states:
@@ -170,6 +171,8 @@ def talk_claims(run: Run) -> Counter:
                 out["mover"] += 1
             else:
                 out["neither"] += 1
+                hx, hy = run.layout["home"]  # exploratory split: how many unsupported pairs are home itself
+                out["neither_near_home"] += max(abs(x - hx), abs(y - hy)) <= 4
     return out
 
 

@@ -15,7 +15,7 @@ from collections import Counter
 import measures as m
 from runs import AI, CONDITIONS, EXTENDED_SEEDS, OUTPUT, PAIRED_SEEDS, describe, fmt, paired, runs
 
-E1_MEASURES = ["deliveries", "delivery_rate", "median_to_bloom", "stings_per_trip", "bees_mean",
+E1_MEASURES = ["deliveries", "trips", "stings", "delivery_rate", "median_to_bloom", "stings_per_trip", "bees_mean",
                "spring_deliveries", "summer_deliveries", "autumn_deliveries",
                "spring_rate", "summer_rate", "autumn_rate"]
 
@@ -50,6 +50,10 @@ def collect() -> dict:
         "paired": {"full - frozen_hornets": paired(change["full"], change["frozen_hornets"])},
         "damage_per_bee_tick_outside": {c: seeds(c, m.damage_per_bee_tick_outside) for c in CONDITIONS},
         "gene_means": {c: seeds(c, m.gene_means) for c in ("full", "frozen_hornets")},
+        "genes_first_last": {k: {c: describe(seeds(c, lambda r: r.final.get(k))) for c in CONDITIONS}
+                             for k in ("smell_first", "smell_last", "hearing_first", "hearing_last", "ambush_first", "ambush_last")},
+        "damage_y1": {c: describe(seeds(c, lambda r: m.damage_per_bee_tick_outside(r)[0])) for c in CONDITIONS},
+        "damage_y2": {c: describe(seeds(c, lambda r: m.damage_per_bee_tick_outside(r)[1])) for c in CONDITIONS},
     }
 
     # E3: seasonal memory
@@ -127,6 +131,9 @@ def markdown(r: dict) -> str:
     L += ["## E2: arms race", ""] + table("stings per trip, year 1", r["E2"]["stings_per_trip_y1"])
     L += table("stings per trip, year 2", r["E2"]["stings_per_trip_y2"]) + table("change, year 2 minus year 1", r["E2"]["sting_change"])
     L += pair_lines("E2 primary", r["E2"]["paired"])
+    for k, block in r["E2"]["genes_first_last"].items():
+        L += table(f"hornet gene mean, {k.replace('_', ' in the ')} season with hornets", block)
+    L += table("life removed by stings per bee-tick outside the hive, year 1", r["E2"]["damage_y1"]) + table("same, year 2", r["E2"]["damage_y2"])
     L += ["## E3: seasonal memory", ""] + table("first spring delivery, year 1 (censored at 250)", r["E3"]["first_delivery_y1"], digits=1)
     L += table("first spring delivery, year 2", r["E3"]["first_delivery_y2"], digits=1) + table("gain (year 1 minus year 2)", r["E3"]["gain"], digits=1)
     L += pair_lines("E3 primary", r["E3"]["paired"])
