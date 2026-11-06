@@ -248,6 +248,7 @@ Run 2026-11-06 by the phase 4 build session (Claude Code), exactly as pre-regist
 | E2 | Do evolving hornets adapt to the colony, raising stings per trip from year 1 to year 2 more than frozen hornets? | **No.** Stings per trip rose by 0.315 (sd 0.516, n 5) under `full` and by 0.158 (sd 0.497, n 3) with frozen hornets; paired differences -0.7283, -0.4121, +0.9819 | No | Frozen-hornet control run: the rise appears without evolution too (frozen hornets 0.158, rule bees 0.192), so it is not evidence of adaptation |
 | E3 | Does the colony find the spring bloom sooner in year 2, through knowledge kept alive by talk? | **No.** Only 1 of 5 `full` seeds delivered in year 2 spring at all, and that bee had set out in winter and never heard the place at home | No | `no_talk` control run; the carryover check rules out culture in every case |
 | E4 | Do neutral sounds come to mean something? | **Not testable: bees almost never sound.** 3 sounds in 6,610 `full` decisions; mutual information could not be estimated in any seed. With the words "good noise" and "bad noise", 9 sounds in 4,342 decisions, used as the words suggest | n/a | Permutation test planned; too few sounds to run it |
+| E5 (post hoc) | Once the bloom is reachable, does talk at home raise gathering, and do bees deliver from what they heard? | **No.** `e5_full` 5.2 deliveries per year (sd 5.630, n 5), `e5_no_talk` 8.2 (sd 5.933, n 5); paired differences 12, 0, -14, -6, -7. Talk-informed deliveries: 2, both in seed 0 (1 of 5 seeds; 2 required) | No | `e5_no_talk` ablation and scripted calibration run; talk did carry a place in one seed, but colonies with talk stayed home more and gathered no more |
 | (further) | Do newborns avoid moving things before they are ever stung? | **Yes, in every arm, including `no_memory`**: 0.857 of first sightings in `full`, 1.000 in `no_memory`, against 0.110 to 0.282 at timer decisions (per-seed range) | Yes, every seed | Ablations show it is not learned: it is the model's prior, not adaptation |
 
 ## Experiment 1: learning and culture (E1)
@@ -476,6 +477,72 @@ Spring trips, seeds 0 to 4, pooled:
 
 So the main runs had almost nothing for talk to carry because bees rarely found the bloom at 55 or more steps, and that is the knob E5 changes.
 
+## Experiment 5: talk with something to carry (E5, post hoc)
+
+A follow-up designed after the main results and because of them; it does not change the verdicts of E1 to E4. Pre-registered in "Pre-registration", "E5", committed as 2b99282 before any E5 AI run. Every number here is copied from experiments/analysis/output/e5_results.md (`experiments/analysis/e5_results.py`, reading the run directories alone).
+
+### Hypothesis
+
+Pre-registered: in a world where the bloom is reachable, (a) `e5_full` delivers more than `e5_no_talk`, paired by seed (same sign on all 5 seeds and mean paired difference larger than its sd); and (b) some `e5_full` deliveries are talk-informed: the bee heard at home a coordinate within 3 cells of that season's bloom before it first came within sight of the bloom (supported if this happens in at least 2 of 5 seeds).
+
+### Experimental setup
+
+- **World:** the "E5 world" (Setup calibration): the main world at scale 0.7, 56 x 34, bloom from 38 steps, 2, 3 and 4 hornets in spring, summer and autumn, 1 year. Chosen with scripted bees only, to a target fixed before the runs.
+- **Runs:** `e5_full` and `e5_no_talk`, seeds 0 to 4, one process per seed, from a clean worktree at 2b99282, all `git_dirty: false`. Run directories `experiments/results/e5_full/20261106T112913Z_s<n>/seed-<n>` and the same under `e5_no_talk`.
+- **Code:** the same prompt, renderer, mind, model and cadence as the main runs. The only change to `src/` since the main-run commit 9cb4e7a is the packed-cache reader in `llm.py`, which does not touch live calls or prompts.
+- **Model health:** 12,686 decisions, 0 `mind_error`, 0 fallbacks; 866 to 1,160 s per run. No run crashed or was dropped.
+
+### Variables or parameters
+
+- **Changed:** hive talk on (`e5_full`) or off (`e5_no_talk`).
+- **Fixed:** the E5 world, the model and its settings, the seeds.
+- **Measured:** deliveries (primary for a); talk-informed deliveries and the stricter acted-on-talk count (primary for b); spring deliveries, delivery rate, trips, stings per trip, colony size, and ticks to the first bloom sighting each season (secondary).
+
+### Observations
+
+- **There was knowledge to carry.** Every `e5_full` seed saw the spring bloom within 35 to 88 ticks of spring starting, and 4 of 5 delivered in spring (spring deliveries 5, 3, 4, 1, 0).
+- **Talk about the bloom was concentrated in one seed.** Says at home holding a coordinate near the current bloom, per seed: 100, 9, 3, 0, 1 (of 918, 333, 725, 457 and 102 says). In seed 0, five of the six founding bees picked up bloom between ticks 60 and 140.
+- **Talk carried a place in seed 0.** Bee 4 delivered at tick 166, and a new bee (6) hatched from it. At tick 167, bee 4 told bee 6: "Back home carrying a bright thing from around (36,3), found in the east. Members should know it is there. Waiting here to report." Bee 6's next note: "Heard the valuable thing was found near (37,3) in the east; explore east next." It explored NE, and every note after that names the spot near (37,3) as where it is going ("bright spot near (37,3) is the target", tick 177). It came within sight of the bloom at tick 216 and delivered at tick 330. Bee 7, told by bee 3 at tick 170 ("Bright spot seen near (37,3)"), went the same way, though its notes say the spot was "already taken"; it delivered at tick 332.
+- **The pre-registered acted-on-talk check missed bee 6.** It counts only `go_to` toward the bloom. Bee 6 steered with `explore NE` and kept the coordinate in its notes, so the check scores 0. This was found by reading the notes after the results and is not counted.
+- **Bees with talk stayed home more** (exploratory, not pre-registered): the share of bee-ticks inside the hive was 0.430 in `e5_full` (sd 0.185, n 5) against 0.239 in `e5_no_talk` (sd 0.080, n 5), higher in 4 of 5 seeds. Bees say why: "Waiting here to report."
+- **Without talk, colonies found the later blooms sooner.** Ticks from season start to the first sighting, summer: `e5_full` 0, 163, 250, 112, 250 (250 = never); `e5_no_talk` 0, 21, 0, 93, 1. Autumn: `e5_full` 250, 250, 246, 250, 189; `e5_no_talk` 18, 0, 0, 0, 0.
+
+### Results
+
+| Measure | `e5_full`, mean (sd, n) | per seed | `e5_no_talk`, mean (sd, n) | per seed |
+|---|---|---|---|---|
+| Deliveries (primary, a) | 5.200 (sd 5.630, n 5) | 15, 4, 4, 2, 1 | 8.200 (sd 5.933, n 5) | 3, 4, 18, 8, 8 |
+| Spring deliveries | 2.600 (sd 2.074, n 5) | 5, 3, 4, 1, 0 | 2.200 (sd 1.923, n 5) | 1, 3, 2, 5, 0 |
+| Delivery rate | 0.184 (sd 0.154, n 5) | 0.4412, 0.16, 0.1905, 0.0833, 0.0476 | 0.197 (sd 0.080, n 5) | 0.1071, 0.1379, 0.3103, 0.2353, 0.1951 |
+| Trips | 26.600 (sd 4.506, n 5) | 34, 27, 23, 26, 23 | 40.600 (sd 14.153, n 5) | 29, 31, 64, 36, 43 |
+| Stings per trip | 0.403 (sd 0.152, n 5) | 0.3529, 0.6, 0.2857, 0.25, 0.5238 | 0.617 (sd 0.544, n 5) | 0.1071, 1.1379, 0.2069, 1.2647, 0.3659 |
+| Mean colony size | 5.357 (sd 2.053, n 5) | 8.735, 4.732, 5.685, 4.133, 3.499 | 6.226 (sd 1.865, n 5) | 4.889, 4.745, 9.366, 6.18, 5.948 |
+| Talk-informed deliveries (primary, b) | 0.400 (sd 0.894, n 5) | 2, 0, 0, 0, 0 | 0 by construction | 0, 0, 0, 0, 0 |
+| Acted on talk (`go_to` rule) | 0.000 (sd 0.000, n 5) | 0, 0, 0, 0, 0 | | |
+
+Paired, `e5_full` minus `e5_no_talk`, deliveries, seeds 0 to 4: 12, 0, -14, -6, -7; mean -3.0, sd 9.7468: **no consistent difference.**
+
+**Verdict (a): not supported.** Talk did not raise gathering; `e5_no_talk` delivered more on average, not consistently.
+
+**Verdict (b): not supported.** Talk-informed deliveries happened in 1 of 5 seeds (2 deliveries, both in seed 0), against the 2 seeds required. Both bees heard the place from a bee that had been to the bloom. By the pre-registered rule, none of them acted on talk, so we do not call this transmission.
+
+### Controls
+
+- **Ablation:** `e5_no_talk` removes talk and nothing else, on the same seeds; it delivered no less.
+- **Is the world winnable, and not trivial?** Scripted bees in the same world, before any AI run: oracle 0.889 of spring trips, rule 0.210, random 0.000 (Setup calibration, "E5 world").
+- **Chance in the talk-informed measure:** a warning about moving things near the bloom would also hit the 3-cell rule. Both talk-informed deliveries came from plain bloom reports by bees that had seen the bloom ("speaker had seen the bloom: True"), not from such coincidences.
+- **Hardcoding audit:** the prompts and the mind are unchanged since the main runs, where the audit and the leak and no-hints tests passed; 67 tests pass at this commit.
+- **Replay:** all 10 E5 runs replay identically offline from their packed caches (experiments/analysis/output/replay_e5.log), 9.0 to 19.5 s each.
+- **Not run:** prompt robustness, other world scales, more seeds.
+
+### What we learned
+
+Making the bloom reachable gave the colony something to say, and in one seed talk did carry a place: two newborns heard where the bloom was, headed that way, and brought it home. But talk did not pay. Colonies with talk took fewer trips (26.6 against 40.6) and spent more of their time at home (0.430 against 0.239, exploratory), and colonies without talk found the summer and autumn blooms sooner and delivered as much or more. Our reading, not a measured result: in this system talk costs foraging time. Bees wait at home to report, so the time spent talking cancels what the talk carries. The spread across seeds (1 to 18 deliveries per year) is far larger than any effect five seeds could show. We also learned that our acted-on-talk rule was too narrow: a bee can follow what it heard with `explore` in the right direction, not only with `go_to`.
+
+### What we would investigate next
+
+Pre-register a broader acted-on-talk measure (any move toward the heard place before the sighting); separate the time cost of talk from its content, for example with an arm in which bees hear talk without waiting at home for it; run 10 or more seeds; test whether talk pays where knowledge goes stale, with a bloom that moves within a season.
+
 ## Further measures (pre-registered, descriptive)
 
 **Naive avoidance.** At each bee's first decision triggered by seeing a moving thing, before it was ever stung, the share that chose `flee` or `go_home`:
@@ -533,6 +600,8 @@ The cache is committed in full: one `experiments/llm_cache/<arm>_<stamp>_seed-<n
 
 The main runs made 25,738 live model calls and cost $5.3665 at list price (the sum of the per-process ledgers; `full` seed 0's first 250 ticks replayed from the pilot and cost nothing). The project's ledger `.llm_spend.json` stands at $5.5084 over 26,242 calls, against the phase 4 cap of $40 on top of the $0.1419 spent before it. The token totals in "Main runs: shared setup" price to the same figure. Wall time: the 29 main runs started at 10:15:58 and the last finished at 11:02:37 UTC (from the record.json start times and durations), with five to seven processes at once.
 
+**E5 (phase 4b, post hoc):** 12,686 live model calls, $2.9816 at list price (the sum of the 10 per-process ledgers), 24,953,842 input and 972,531 output tokens (experiments/analysis/output/e5_results.md, "Model health"). The project ledger `.llm_spend.json` now stands at $8.49 over 38,928 calls, under the $15 cap set for E5. The 10 runs started at 11:29:13 UTC and the last finished about 19 minutes later (longest run 1,159.756 s).
+
 ## Negative results
 
 Each of these was pre-registered as a possible outcome and is reported in full in its experiment above.
@@ -543,6 +612,7 @@ Each of these was pre-registered as a possible outcome and is reported in full i
 4. **No seasonal memory (E3).** Expected: an earlier spring delivery in year 2, through talk. Happened: 1 of 5 `full` seeds delivered in year-2 spring, by a bee that set out in winter and never heard the place; no bee lived through both springs. It taught us that the measure is dominated by where a bee is when the bloom opens.
 5. **Neutral sounds stayed meaningless (E4).** Expected: sounds tied to context. Happened: 3 sounds in 6,610 decisions, so mutual information could not be estimated; with labels, sounds were used in the sense of the words. It taught us that in this system a sound's meaning comes from its name.
 6. **Avoidance is not learned (further measures).** We had hoped to see bees learn that moving things hurt. Newborns flee them from the first sighting in every arm, without memory too, so it is the model's prior.
+7. **Talk did not pay, even with something to carry (E5, post hoc).** Expected: in a world where the bloom is reachable, `e5_full` delivers more than `e5_no_talk`, and bees in at least 2 of 5 seeds deliver from a place they heard at home. Happened: 5.2 against 8.2 deliveries per year (paired differences 12, 0, -14, -6, -7), and talk-informed deliveries in 1 of 5 seeds (2 deliveries). How we know: 5 paired seeds, the pre-registered rules. What it taught us: talk can carry a place (seed 0), but bees with talk spent more time at home (0.430 of bee-ticks against 0.239, exploratory) and took fewer trips, so in this system the cost of talking cancels what it carries.
 
 ## Limits
 
@@ -552,3 +622,4 @@ Each of these was pre-registered as a possible outcome and is reported in full i
 - **One model at one setting** (`claude-haiku-5-5`, effort low, thinking off). A stronger model might use memory and talk differently.
 - **The pre-registered sound contexts** (moving thing or bright cell in view) did not include home or carrying, where most sounds were made.
 - **E3's measure is censored:** most seeds have no spring delivery in either year.
+- **E5 is post hoc** and was run in one world (scale 0.7), for 1 year, on 5 seeds, with the same prompt. Its world was chosen after the main results, with scripted bees only. Deliveries ranged from 1 to 18 per run, so an effect of a few deliveries would be missed.

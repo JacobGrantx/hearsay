@@ -1,0 +1,100 @@
+seed 0: {'trips': 34, 'deliveries': 15, 'stings': 12, 'delivery_rate': 0.4412, 'stings_per_trip': 0.3529, 'spring_trips': 10, 'spring_deliveries': 5, 'spring_rate': 0.5, 'spring_stings_per_trip': 0.0, 'summer_trips': 19, 'summer_deliveries': 10, 'summer_rate': 0.5263, 'summer_stings_per_trip': 0.4737, 'autumn_trips': 5, 'autumn_deliveries': 0, 'autumn_rate': 0.0, 'autumn_stings_per_trip': 0.6, 'first_delivery_y1_spring': 166, 'median_to_bloom': 63.25, 'hatches': 6, 'queen_hatches': 0, 'deaths': 8, 'bees_mean': 8.735, 'bees_final': 4, 'smell_first': 1.0, 'smell_last': 2.25, 'hearing_first': 6.0, 'hearing_last': 6.25, 'ambush_first': 3.0, 'ambush_last': 1.5, 'bloom_distance_spring': 54, 'bloom_distance_summer': 57, 'bloom_distance_autumn': 56}
+results: /dev/shm/replay_sfde2vzh/e5_full/20261106T115016Z_replay
+original: experiments/results/e5_full/20261106T112913Z_s0/seed-0 (commit 2b99282, 1159.756 s)
+replay:   /dev/shm/replay_sfde2vzh/e5_full/20261106T115016Z_replay/seed-0 (commit 7971a65, 19.478 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 1: {'trips': 27, 'deliveries': 4, 'stings': 15, 'delivery_rate': 0.16, 'stings_per_trip': 0.6, 'spring_trips': 9, 'spring_deliveries': 3, 'spring_rate': 0.3333, 'spring_stings_per_trip': 0.3333, 'summer_trips': 10, 'summer_deliveries': 1, 'summer_rate': 0.1, 'summer_stings_per_trip': 1.2, 'autumn_trips': 4, 'autumn_deliveries': 0, 'autumn_rate': 0.0, 'autumn_stings_per_trip': 0.0, 'first_delivery_y1_spring': 196, 'median_to_bloom': 160.5, 'hatches': 4, 'queen_hatches': 2, 'deaths': 10, 'bees_mean': 4.732, 'bees_final': 2, 'smell_first': 5.0, 'smell_last': 4.75, 'hearing_first': 1.0, 'hearing_last': 0.75, 'ambush_first': 4.0, 'ambush_last': 4.5, 'bloom_distance_spring': 53, 'bloom_distance_summer': 57, 'bloom_distance_autumn': 50}
+results: /dev/shm/replay_2twll3pj/e5_full/20261106T115016Z_replay
+original: experiments/results/e5_full/20261106T112913Z_s1/seed-1 (commit 2b99282, 970.946 s)
+replay:   /dev/shm/replay_2twll3pj/e5_full/20261106T115016Z_replay/seed-1 (commit 7971a65, 10.221 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 2: {'trips': 23, 'deliveries': 4, 'stings': 6, 'delivery_rate': 0.1905, 'stings_per_trip': 0.2857, 'spring_trips': 16, 'spring_deliveries': 4, 'spring_rate': 0.25, 'spring_stings_per_trip': 0.3125, 'summer_trips': 2, 'summer_deliveries': 0, 'summer_rate': 0.0, 'summer_stings_per_trip': 0.5, 'autumn_trips': 1, 'autumn_deliveries': 0, 'autumn_rate': 0.0, 'autumn_stings_per_trip': 0.0, 'first_delivery_y1_spring': 119, 'median_to_bloom': 90.5, 'hatches': 4, 'queen_hatches': 2, 'deaths': 10, 'bees_mean': 5.685, 'bees_final': 2, 'smell_first': 1.0, 'smell_last': 0.75, 'hearing_first': 0.0, 'hearing_last': 0.25, 'ambush_first': 9.0, 'ambush_last': 9.0, 'bloom_distance_spring': 54, 'bloom_distance_summer': 52, 'bloom_distance_autumn': 42}
+results: /dev/shm/replay_isewnp_i/e5_full/20261106T115016Z_replay
+original: experiments/results/e5_full/20261106T112913Z_s2/seed-2 (commit 2b99282, 978.061 s)
+replay:   /dev/shm/replay_isewnp_i/e5_full/20261106T115016Z_replay/seed-2 (commit 7971a65, 15.073 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 3: {'trips': 26, 'deliveries': 2, 'stings': 6, 'delivery_rate': 0.0833, 'stings_per_trip': 0.25, 'spring_trips': 11, 'spring_deliveries': 1, 'spring_rate': 0.0909, 'spring_stings_per_trip': 0.3636, 'summer_trips': 7, 'summer_deliveries': 1, 'summer_rate': 0.1429, 'summer_stings_per_trip': 0.2857, 'autumn_trips': 3, 'autumn_deliveries': 0, 'autumn_rate': 0.0, 'autumn_stings_per_trip': 0.0, 'first_delivery_y1_spring': 88, 'median_to_bloom': 87.5, 'hatches': 2, 'queen_hatches': 3, 'deaths': 9, 'bees_mean': 4.133, 'bees_final': 2, 'smell_first': 5.5, 'smell_last': 6.0, 'hearing_first': 0.5, 'hearing_last': 0.0, 'ambush_first': 4.0, 'ambush_last': 4.0, 'bloom_distance_spring': 42, 'bloom_distance_summer': 43, 'bloom_distance_autumn': 50}
+results: /dev/shm/replay_ri_5_u7j/e5_full/20261106T115027Z_replay
+original: experiments/results/e5_full/20261106T112913Z_s3/seed-3 (commit 2b99282, 899.154 s)
+replay:   /dev/shm/replay_ri_5_u7j/e5_full/20261106T115027Z_replay/seed-3 (commit 7971a65, 12.146 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 4: {'trips': 23, 'deliveries': 1, 'stings': 11, 'delivery_rate': 0.0476, 'stings_per_trip': 0.5238, 'spring_trips': 3, 'spring_deliveries': 0, 'spring_rate': 0.0, 'spring_stings_per_trip': 2.0, 'summer_trips': 9, 'summer_deliveries': 0, 'summer_rate': 0.0, 'summer_stings_per_trip': 0.1111, 'autumn_trips': 5, 'autumn_deliveries': 1, 'autumn_rate': 0.2, 'autumn_stings_per_trip': 0.8, 'median_to_bloom': 81.5, 'hatches': 1, 'queen_hatches': 3, 'deaths': 8, 'bees_mean': 3.499, 'bees_final': 2, 'smell_first': 2.0, 'smell_last': 1.75, 'hearing_first': 4.0, 'hearing_last': 4.25, 'ambush_first': 4.0, 'ambush_last': 4.0, 'bloom_distance_spring': 47, 'bloom_distance_summer': 56, 'bloom_distance_autumn': 50}
+results: /dev/shm/replay_2rbjo6w6/e5_full/20261106T115032Z_replay
+original: experiments/results/e5_full/20261106T112913Z_s4/seed-4 (commit 2b99282, 866.074 s)
+replay:   /dev/shm/replay_2rbjo6w6/e5_full/20261106T115032Z_replay/seed-4 (commit 7971a65, 9.012 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 0: {'trips': 29, 'deliveries': 3, 'stings': 3, 'delivery_rate': 0.1071, 'stings_per_trip': 0.1071, 'spring_trips': 8, 'spring_deliveries': 1, 'spring_rate': 0.125, 'spring_stings_per_trip': 0.0, 'summer_trips': 14, 'summer_deliveries': 1, 'summer_rate': 0.0714, 'summer_stings_per_trip': 0.0714, 'autumn_trips': 3, 'autumn_deliveries': 1, 'autumn_rate': 0.3333, 'autumn_stings_per_trip': 0.6667, 'first_delivery_y1_spring': 169, 'median_to_bloom': 69.5, 'hatches': 3, 'queen_hatches': 1, 'deaths': 8, 'bees_mean': 4.889, 'bees_final': 2, 'smell_first': 1.0, 'smell_last': 0.75, 'hearing_first': 6.0, 'hearing_last': 6.5, 'ambush_first': 3.0, 'ambush_last': 2.75, 'bloom_distance_spring': 54, 'bloom_distance_summer': 57, 'bloom_distance_autumn': 56}
+results: /dev/shm/replay_zomjo5tt/e5_no_talk/20261106T115036Z_replay
+original: experiments/results/e5_no_talk/20261106T112913Z_s0/seed-0 (commit 2b99282, 926.566 s)
+replay:   /dev/shm/replay_zomjo5tt/e5_no_talk/20261106T115036Z_replay/seed-0 (commit 7971a65, 9.964 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 1: {'trips': 31, 'deliveries': 4, 'stings': 33, 'delivery_rate': 0.1379, 'stings_per_trip': 1.1379, 'spring_trips': 7, 'spring_deliveries': 3, 'spring_rate': 0.4286, 'spring_stings_per_trip': 0.2857, 'summer_trips': 16, 'summer_deliveries': 1, 'summer_rate': 0.0625, 'summer_stings_per_trip': 1.5, 'autumn_trips': 4, 'autumn_deliveries': 0, 'autumn_rate': 0.0, 'autumn_stings_per_trip': 1.75, 'first_delivery_y1_spring': 160, 'median_to_bloom': 131.5, 'hatches': 4, 'queen_hatches': 4, 'deaths': 12, 'bees_mean': 4.745, 'bees_final': 2, 'smell_first': 7.0, 'smell_last': 6.5, 'hearing_first': 0.0, 'hearing_last': 0.5, 'ambush_first': 3.0, 'ambush_last': 3.0, 'bloom_distance_spring': 53, 'bloom_distance_summer': 57, 'bloom_distance_autumn': 50}
+results: /dev/shm/replay_ituc8gbi/e5_no_talk/20261106T115040Z_replay
+original: experiments/results/e5_no_talk/20261106T112913Z_s1/seed-1 (commit 2b99282, 912.305 s)
+replay:   /dev/shm/replay_ituc8gbi/e5_no_talk/20261106T115040Z_replay/seed-1 (commit 7971a65, 9.804 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 2: {'trips': 64, 'deliveries': 18, 'stings': 12, 'delivery_rate': 0.3103, 'stings_per_trip': 0.2069, 'spring_trips': 8, 'spring_deliveries': 2, 'spring_rate': 0.25, 'spring_stings_per_trip': 0.125, 'summer_trips': 18, 'summer_deliveries': 7, 'summer_rate': 0.3889, 'summer_stings_per_trip': 0.2778, 'autumn_trips': 20, 'autumn_deliveries': 5, 'autumn_rate': 0.25, 'autumn_stings_per_trip': 0.3, 'first_delivery_y1_spring': 152, 'median_to_bloom': 80.0, 'hatches': 13, 'queen_hatches': 0, 'deaths': 12, 'bees_mean': 9.366, 'bees_final': 7, 'smell_first': 1.0, 'smell_last': 1.0, 'hearing_first': 0.0, 'hearing_last': 0.0, 'ambush_first': 9.0, 'ambush_last': 9.0, 'bloom_distance_spring': 54, 'bloom_distance_summer': 52, 'bloom_distance_autumn': 42}
+results: /dev/shm/replay_2a7vy9dz/e5_no_talk/20261106T115042Z_replay
+original: experiments/results/e5_no_talk/20261106T112913Z_s2/seed-2 (commit 2b99282, 1124.085 s)
+replay:   /dev/shm/replay_2a7vy9dz/e5_no_talk/20261106T115042Z_replay/seed-2 (commit 7971a65, 14.607 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 3: {'trips': 36, 'deliveries': 8, 'stings': 43, 'delivery_rate': 0.2353, 'stings_per_trip': 1.2647, 'spring_trips': 15, 'spring_deliveries': 5, 'spring_rate': 0.3333, 'spring_stings_per_trip': 0.7333, 'summer_trips': 13, 'summer_deliveries': 3, 'summer_rate': 0.2308, 'summer_stings_per_trip': 1.6923, 'autumn_trips': 6, 'autumn_deliveries': 0, 'autumn_rate': 0.0, 'autumn_stings_per_trip': 1.6667, 'first_delivery_y1_spring': 83, 'median_to_bloom': 52.0, 'hatches': 8, 'queen_hatches': 2, 'deaths': 14, 'bees_mean': 6.18, 'bees_final': 2, 'smell_first': 6.0, 'smell_last': 7.0, 'hearing_first': 1.0, 'hearing_last': 0.75, 'ambush_first': 3.0, 'ambush_last': 2.25, 'bloom_distance_spring': 42, 'bloom_distance_summer': 43, 'bloom_distance_autumn': 50}
+results: /dev/shm/replay_ytfrpm8b/e5_no_talk/20261106T115047Z_replay
+original: experiments/results/e5_no_talk/20261106T112913Z_s3/seed-3 (commit 2b99282, 984.545 s)
+replay:   /dev/shm/replay_ytfrpm8b/e5_no_talk/20261106T115047Z_replay/seed-3 (commit 7971a65, 9.837 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL
+seed 4: {'trips': 43, 'deliveries': 8, 'stings': 15, 'delivery_rate': 0.1951, 'stings_per_trip': 0.3659, 'spring_trips': 3, 'spring_deliveries': 0, 'spring_rate': 0.0, 'spring_stings_per_trip': 0.3333, 'summer_trips': 13, 'summer_deliveries': 4, 'summer_rate': 0.3077, 'summer_stings_per_trip': 0.6154, 'autumn_trips': 17, 'autumn_deliveries': 3, 'autumn_rate': 0.1765, 'autumn_stings_per_trip': 0.3529, 'median_to_bloom': 48, 'hatches': 8, 'queen_hatches': 0, 'deaths': 11, 'bees_mean': 5.948, 'bees_final': 3, 'smell_first': 2.0, 'smell_last': 1.75, 'hearing_first': 5.0, 'hearing_last': 5.0, 'ambush_first': 3.0, 'ambush_last': 3.25, 'bloom_distance_spring': 47, 'bloom_distance_summer': 56, 'bloom_distance_autumn': 50}
+results: /dev/shm/replay_nki78tbv/e5_no_talk/20261106T115051Z_replay
+original: experiments/results/e5_no_talk/20261106T112913Z_s4/seed-4 (commit 2b99282, 1006.665 s)
+replay:   /dev/shm/replay_nki78tbv/e5_no_talk/20261106T115051Z_replay/seed-4 (commit 7971a65, 9.325 s, error None)
+  events.jsonl     identical
+  metrics.jsonl    identical
+  state.jsonl.gz   identical
+  layout.json      identical
+  final_metrics    identical
+REPLAY IDENTICAL

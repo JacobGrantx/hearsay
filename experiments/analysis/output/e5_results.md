@@ -4,18 +4,20 @@ Run directories: e5_full/20261106T112913Z_s<n>/seed-<n> (seeds [0, 1, 2, 3, 4]),
 
 ## Model health
 
-| arm | seed | decisions | mind_error | fallbacks | git_dirty | duration s |
-|---|---|---|---|---|---|---|
-| e5_full | 0 | 1858 | 0 | 0 | False | 1159.756 |
-| e5_full | 1 | 1018 | 0 | 0 | False | 970.946 |
-| e5_full | 2 | 1239 | 0 | 0 | False | 978.061 |
-| e5_full | 3 | 899 | 0 | 0 | False | 899.154 |
-| e5_full | 4 | 759 | 0 | 0 | False | 866.074 |
-| e5_no_talk | 0 | 1063 | 0 | 0 | False | 926.566 |
-| e5_no_talk | 1 | 1084 | 0 | 0 | False | 912.305 |
-| e5_no_talk | 2 | 2073 | 0 | 0 | False | 1124.085 |
-| e5_no_talk | 3 | 1393 | 0 | 0 | False | 984.545 |
-| e5_no_talk | 4 | 1300 | 0 | 0 | False | 1006.665 |
+| arm | seed | decisions | mind_error | fallbacks | git_dirty | duration s | input tokens | output tokens |
+|---|---|---|---|---|---|---|---|---|
+| e5_full | 0 | 1858 | 0 | 0 | False | 1159.756 | 4457129 | 178887 |
+| e5_full | 1 | 1018 | 0 | 0 | False | 970.946 | 2208597 | 84449 |
+| e5_full | 2 | 1239 | 0 | 0 | False | 978.061 | 2789329 | 113797 |
+| e5_full | 3 | 899 | 0 | 0 | False | 899.154 | 2017952 | 82389 |
+| e5_full | 4 | 759 | 0 | 0 | False | 866.074 | 1515147 | 57246 |
+| e5_no_talk | 0 | 1063 | 0 | 0 | False | 926.566 | 1764657 | 70112 |
+| e5_no_talk | 1 | 1084 | 0 | 0 | False | 912.305 | 1850302 | 70852 |
+| e5_no_talk | 2 | 2073 | 0 | 0 | False | 1124.085 | 3677291 | 137214 |
+| e5_no_talk | 3 | 1393 | 0 | 0 | False | 984.545 | 2452930 | 91446 |
+| e5_no_talk | 4 | 1300 | 0 | 0 | False | 1006.665 | 2220508 | 86139 |
+
+All E5 runs: 24,953,842 input and 972,531 output tokens.
 
 ## (a) Gathering
 
@@ -53,3 +55,45 @@ e5_full talk-informed deliveries per run: 0.400 (sd 0.894, n 5); acted on talk: 
 
 - seed 0, bee 6, spring: heard at tick 167 from bee 4 (speaker had seen the bloom: True): "Back home carrying a bright thing from around (36,3), found in the east. Members should know it is there. Waiting here to report."; first sighting tick 216, picked up 224, delivered 330; acted on talk: False; 4 qualifying heard message(s) before the sighting.
 - seed 0, bee 7, spring: heard at tick 170 from bee 3 (speaker had seen the bloom: True): "Back home carrying the bright thing, delivered. Bright spot seen near (37,3). East is least explored; I will wait and then explore east."; first sighting tick 218, picked up 226, delivered 332; acted on talk: False; 5 qualifying heard message(s) before the sighting.
+
+## Exploratory (not pre-registered)
+
+Share of bee-ticks spent inside the hive, per seed:
+
+- e5_full: 0.430 (sd 0.185, n 5) [0.5159, 0.3428, 0.6053, 0.5386, 0.148]
+- e5_no_talk: 0.239 (sd 0.080, n 5) [0.1941, 0.2588, 0.1803, 0.3717, 0.1913]
+
+Decisions of each talk-informed bee from first hearing to first sighting (tick, trigger, intent, direction or target, note):
+
+- seed 0, bee 6:
+  - 167 hatched explore N: "Just awoke at home; the grid north of home seems open."
+  - 172 timer explore NE: "Heard the valuable thing was found near (37,3) in the east; explore east next."
+  - 177 timer explore NE: "Member 3 at (3,10) is in my path; bright spot near (37,3) is the target."
+  - 182 timer explore NE: "Exploring NE toward east; bright spot near (37,3) still the target."
+  - 187 timer explore NE: "Exploring NE toward east; bright spot near (37,3) still the target."
+  - 192 timer explore NE: "Continuing NE toward bright spot near (37,3); member 3 nearby at (7,7)."
+  - 197 timer explore NE: "Continuing NE toward bright spot near (37,3); member 9 close at (9,6)."
+  - 202 timer explore NE: "Continuing NE toward bright spot near (37,3); member at (13,5) nearby."
+  - 207 timer explore NE: "Continuing NE toward bright spot near (37,3); member at (18,5) nearby."
+  - 212 timer explore NE: "Continuing NE toward bright spot near (37,3); member at (23,5) nearby."
+  - 217 bloom go_to NE: "Bright cells visible at (36,2)-(36,4); walking east to collect them."
+- seed 0, bee 7:
+  - 170 hatched explore N: "Home at (3,17); the north-west is mostly seen; the east is unexplored."
+  - 175 timer explore NE: "Heading NE toward unexplored east; bright spot near (37,3) already taken."
+  - 180 timer explore NE: "Continuing NE toward east; avoiding member at (1,7) in corridor."
+  - 185 timer explore NE: "Continuing NE toward east; bright spot at (37,3) already taken by others."
+  - 190 timer explore NE: "Still heading NE toward east; corridor north of me has members at (3,7),(7,7)."
+  - 195 timer explore NE: "Continuing NE toward unexplored east; member at (9,6) nearby."
+  - 200 timer explore NE: "Still exploring NE toward east; bright spot near (37,3) previously taken."
+  - 205 timer explore NE: "Still exploring NE toward east; bright spot at (37,3) already taken."
+  - 210 timer explore NE: "Still exploring NE toward east; bright spot near (37,3) previously taken."
+  - 215 timer explore NE: "Still heading NE toward east; member ahead at (28,5); bright spot near (37,3) taken."
+  - 219 bloom go_to NE: "Bright cells at (36,2),(36,3),(36,4) seen; heading there to collect."
+
+Moments for the video, e5_full (first delivery; first talk at home near the current bloom):
+
+- seed 0: first delivery bee 4 at tick 166; first bloom talk bee 4 at tick 167 to [6]: "Back home carrying a bright thing from around (36,3), found in the east. Members should know it is there. Waiting here to report."
+- seed 1: first delivery bee 2 at tick 196; first bloom talk bee 1 at tick 149 to []: "Back home. Bright cells near (30,14) are guarded by moving things at (29-31,15-17); one hit took half my life. Avoid that area. North is almost unexplored, 1% seen; I will"
+- seed 2: first delivery bee 2 at tick 119; first bloom talk bee 4 at tick 138 to [7]: "I'm home and I brought back the bright thing from (42,16). A moving thing trailed me from the east, so stay alert. Heading out again later to explore south."
+- seed 3: first delivery bee 5 at tick 88; first bloom talk none
+- seed 4: first delivery bee 7 at tick 745; first bloom talk bee 7 at tick 746 to [9]: "Back home with the bright item from (28,3). Route via north passage is known. Will explore east next when quiet."
