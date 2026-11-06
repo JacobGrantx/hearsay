@@ -7,6 +7,7 @@ queen floor, hornet evolution, then the state line. Sounds made this tick are he
 from __future__ import annotations
 
 import random
+from datetime import datetime, timezone
 
 from . import bees as B
 from .hornets import Swarm
@@ -24,7 +25,11 @@ DEFAULTS = dict(
     sound_cost=1, newborn_hold=3, hornet_counts=[4, 6, 8, 0], evolve_every=25, mutation=0.5,
     sting_cooldown=10, hornet_spawn_distance=25, ambush_rate=0.02, ambush_wait=4, hornet_speed=0.8, smell_base=2.0, smell_step=1.0, log_state=True, log_decisions=True,
     stop_after=None,  # stop_after: end the run early at this tick (pilot runs); the world rules are unchanged
-    vocab="abstract")  # the words the AI mind reads (vocab.py); round 1 configs say "neutral"
+    vocab="abstract",  # the words the AI mind reads (vocab.py); round 1 configs say "neutral"
+    # Round 2 switches, all off by default so round 1 configs replay unchanged:
+    shared_clock=False,      # timer decisions only on ticks where t % decide_every == 0, for every bee at once
+    steady_hatch=0,          # outside winter, below max_bees, the queen hatches one blank bee every this many ticks
+    stop_wallclock_utc=None)  # ISO time; at the first season boundary after it, the run ends cleanly
 CONDITION_POLICY = {"rule_bees": "rule", "random_bees": "random", "oracle_bees": "oracle",
                     "full": "ai", "no_talk": "ai", "no_memory": "ai", "labels_good_bad": "ai", "frozen_hornets": "ai"}
 PRIORITY = ("stung", "hornet", "bloom", "sound", "home", "arrived", "life25", "life50", "hatched", "timer")
@@ -32,8 +37,9 @@ assert set(PRIORITY) == set(TRIGGERS)
 
 
 class Sim:
-    def __init__(self, params: dict, seed: int, log=None, policy=None):
+    def __init__(self, params: dict, seed: int, log=None, policy=None, now=None):
         p = self.p = {**DEFAULTS, **params}
+        self.log, self.now, self.stopped = log, now or (lambda: datetime.now(timezone.utc)), None
         self.seed = seed
         self.world = generate(p["width"], p["height"], seed, openness=p["openness"], rooms=p["rooms"],
                               min_bloom_distance=p["min_bloom_distance"], bloom_spread=p["bloom_spread"])
@@ -112,7 +118,7 @@ class Sim:
         hornets = [(h.id, h.x, h.y) for h in self.swarm.active]
         for b in order:
             B.sense(b, world, t, others, hornets, bloom, self.sounds)
-            if t - b.last_decided >= p["decide_every"]:
+            if (t % p["decide_every"] == 0) if p["shared_clock"] else (t - b.last_decided >= p["decide_every"]):
                 b.triggers.append("timer")
         due = [b for b in order if b.triggers]
         decisions = self.policy.decide_many([B.perceive(b, t, min(b.triggers, key=PRIORITY.index)) for b in due]) if due else []
@@ -203,6 +209,9 @@ class Sim:
                 b.triggers.append("life25" if self.band(b.life) == 0 else "life50")
         while len(self.bees) < p["queen_floor"]:
             self.hatch("queen")
+        sh = p["steady_hatch"]
+        if sh and season != 3 and t > 0 and t % sh == 0 and len(self.bees) < p["max_bees"]:
+            self.hatch("steady")
         if season != 3 and (t + 1) % p["evolve_every"] == 0:
             ev = self.swarm.evolve()
             if ev:
@@ -215,9 +224,22 @@ class Sim:
         self.sounds = sounds_now
         self.t += 1
 
+    def wallclock_passed(self) -> bool:
+        """Checked only at season boundaries, so a stopped run ends with whole seasons."""
+        deadline = self.p["stop_wallclock_utc"]
+        if not deadline or self.t == 0 or self.t % self.cal.season_length:
+            return False
+        return self.now() >= datetime.fromisoformat(deadline.replace("Z", "+00:00"))
+
     def run(self) -> dict:
         end = min(self.cal.ticks, self.p["stop_after"] or self.cal.ticks)
         while self.t < end:
+            if self.wallclock_passed():
+                # The runner copies this into record.json; a replay sets stop_after to stopped_at_tick instead.
+                self.stopped = {"stopped_at_tick": self.t, "stopped_reason": f"wallclock {self.p['stop_wallclock_utc']}"}
+                if self.log is not None:
+                    self.log.record_extra = self.stopped
+                break
             self.tick()
         self.out.event("end", self.t, bees_alive=len(self.bees))
         self.out.close()

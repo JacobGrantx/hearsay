@@ -117,6 +117,7 @@ def run(config_path: Path, seeds: list[int] | None = None, tag: str = "", overri
             "final_metrics": finals[seed],
             "error": error,
             "provenance": prov,
+            **getattr(log, "record_extra", {}),  # stopped_at_tick and stopped_reason when a run stopped early
         }
         (sdir / "record.json").write_text(json.dumps(record, indent=2) + "\n")
         print(f"seed {seed}: {'ERROR ' + error if error else finals[seed]}")

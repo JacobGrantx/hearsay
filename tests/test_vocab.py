@@ -6,6 +6,8 @@ irregular forms listed in IRREGULAR. Exceptions, each with its reason:
 - "fall" matches only as the bare word: "your counter C falls each tick" and "fell below half" describe the counter
   going down, never the season.
 - "good noise" and "bad noise" are allowed under labels_good_bad only: loaded sound names are that condition's point.
+- Round 2 arm A (`tell_reward`) adds one allowed sentence, render.REWARD_TOLD: "Entering zone O with flag F set
+  raises counter C." It states the rule in the abstract words and is checked like the rest.
 - Placeholders in templates ({home}, {carrying}) are code names that are filled in before the model reads anything;
   the rendered prompts are checked as well.
 """
@@ -55,6 +57,7 @@ def test_abstract_prompts_templates_and_schema_carry_no_hints():
     assert not hints(" ".join(A.sounds) + " " + " ".join(A.intents) + " " + " ".join(A.keys.values()))
     for cond in AI_CONDITIONS:
         assert not hints(render.system_prompt(cond, 56, 34, A), cond), cond
+        assert not hints(render.system_prompt(cond, 56, 34, A, tell_reward=True), cond), cond  # round 2 arm A
         assert not hints(str(render.decision_schema(cond, A)), cond), cond
         for trig in TRIGGERS:
             for memory in (True, False):

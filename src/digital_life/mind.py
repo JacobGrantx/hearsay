@@ -37,7 +37,8 @@ class AIPolicy(Policy):
         self.memory_on, self.talk_on = self.condition != "no_memory", self.condition != "no_talk"
         self.vocab = vocabs.get(params.get("vocab"))
         self.names = sound_names(self.condition, self.vocab)
-        self.system = system_prompt(self.condition, params.get("width", 80), params.get("height", 48), self.vocab)
+        self.system = system_prompt(self.condition, params.get("width", 80), params.get("height", 48), self.vocab,
+                                    tell_reward=params.get("tell_reward", False))
         self.schema = decision_schema(self.condition, self.vocab)
         self.pool = ThreadPoolExecutor(max_workers=params.get("mind_workers", 16))
         self.mem: dict[int, BeeMemory] = {}

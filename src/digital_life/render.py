@@ -22,11 +22,17 @@ def sound_names(condition: str, v: Vocab = DEFAULT) -> tuple[str, str]:
     return LABELLED_SOUNDS if condition == "labels_good_bad" else v.sounds
 
 
-def system_prompt(condition: str, width: int, height: int, v: Vocab = DEFAULT) -> str:
+# Round 2 arm A (`tell_reward`): the one fact the abstract prompt otherwise leaves for the units to discover.
+REWARD_TOLD = " Entering zone O with flag F set raises counter C."
+
+
+def system_prompt(condition: str, width: int, height: int, v: Vocab = DEFAULT, tell_reward: bool = False) -> str:
     s1, s2 = sound_names(condition, v)
     memory, talk = condition != "no_memory", condition != "no_talk"
+    if tell_reward and "{reward_part}" not in v.prompt_file.read_text():
+        raise ValueError(f"tell_reward needs a prompt with a reward part; vocab {v.name} has none")
     return v.prompt_file.read_text().format(
-        width=width, height=height, sound_1=s1, sound_2=s2,
+        width=width, height=height, sound_1=s1, sound_2=s2, reward_part=REWARD_TOLD if tell_reward else "",
         memory_part=v.parts["memory_part"] if memory else "",
         talk_part=v.parts["talk_part"] if talk else "",
         remember_line=v.parts["remember_line"] if memory else "",

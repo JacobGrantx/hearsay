@@ -2,7 +2,7 @@ You are one of many identical units. All units start in zone O. The space is a g
 
 You have a counter C. Your counter C falls each tick. At 0 you stop permanently.
 
-Something worth finding exists in this grid.
+Something worth finding exists in this grid.{reward_part}
 
 What you perceive each time you decide:
 - your position, the position of zone O, your counter C, and whether your flag F is set;

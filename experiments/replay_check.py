@@ -52,6 +52,9 @@ def main() -> int:
         # Runs made before phase 6 used the wording now called vocab "neutral", and their saved configs do not
         # say so. Every AI config since names its vocab (tests/test_vocab.py), so a missing vocab means round 1.
         overrides.append("vocab=neutral")
+    if record.get("stopped_at_tick") is not None:
+        # A run stopped by the wall clock (round 2) replays to the same tick, whatever the time is now.
+        overrides += [f"stop_after={record['stopped_at_tick']}", "stop_wallclock_utc=None"]
     out = run(original.parent / "config.toml", [record["seed"]], "replay", overrides, results_root=root)
     replay = out / original.name
     rec = json.loads((replay / "record.json").read_text())
