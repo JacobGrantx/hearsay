@@ -26,6 +26,8 @@ V.drawLive = function (ctx, run, tau, px, selected) {
   const beesA = run.ticks[T].b, beesB = V.beeMap(run, T + 1);
   const hornetsA = run.ticks[T].h, hornetsB = V.hornetMap(run, T + 1);
   const drawn = [];
+  // Sizes in cells, with a floor in screen pixels so small maps stay readable on video.
+  const R = { bee: Math.max(0.34, px(5.5)), ring: Math.max(0.12, px(2.2)), hornet: Math.max(0.46, px(7)), dot: Math.max(0.15, px(2.6)) };
 
   drawSounds(ctx, run, tau, px);
 
@@ -34,7 +36,7 @@ V.drawLive = function (ctx, run, tau, px, selected) {
     if (e.kind !== "death") continue;
     const k = (tau - e.t) / FX_TICKS.death;
     ctx.globalAlpha = 0.7 * (1 - k);
-    beeBody(ctx, e.x + 0.5, e.y + 0.5 + 0.15 * k, 0.36 * (1 - 0.3 * k), "#b9ae9c", "#857a68", px, false);
+    beeBody(ctx, e.x + 0.5, e.y + 0.5 + 0.15 * k, R.bee * (1 - 0.3 * k), "#b9ae9c", "#857a68", px, false);
     ctx.globalAlpha = 1;
   }
 
@@ -54,12 +56,12 @@ V.drawLive = function (ctx, run, tau, px, selected) {
       ctx.stroke();
       ctx.setLineDash([]);
     }
-    hornetBody(ctx, x, y, 0.46, px);
-    drawn.push({ type: "hornet", id: h[hf.id], x, y, r: 0.46 });
+    hornetBody(ctx, x, y, R.hornet, px);
+    drawn.push({ type: "hornet", id: h[hf.id], x, y, r: R.hornet });
   }
 
   // Bees: warm yellow, a thin ring for life left out of the cap, a green dot when carrying.
-  const offA = spread(beesA, bf), offB = spread([...beesB.values()], bf);
+  const offA = spread(beesA, bf, R.bee), offB = spread([...beesB.values()], bf, R.bee);
   for (const b of beesA) {
     const id = b[bf.id];
     const oa = offA.get(id), ob = beesB.has(id) ? offB.get(id) : oa;
@@ -67,30 +69,30 @@ V.drawLive = function (ctx, run, tau, px, selected) {
     x += oa[0] + (ob[0] - oa[0]) * f;
     y += oa[1] + (ob[1] - oa[1]) * f;
     const stunned = b[bf.stunned] > 0;
-    const r = 0.34;
-    if (id === selected) selectionMarks(ctx, run, b, x, y, r, px);
+    const r = R.bee;
+    if (id === selected) selectionMarks(ctx, run, b, x, y, r + R.ring, px);
     beeBody(ctx, x, y, r, P.bee, stunned ? P.sting : P.beeEdge, px, true);
     const life = b[bf.life], frac = Math.max(0, Math.min(1, life / run.lifeCap));
     const low = life < 0.25 * (run.layout.base_life || 250);
-    ctx.lineWidth = Math.max(px(1.6), 0.07);
+    ctx.lineWidth = Math.max(px(1.5), 0.06);
     ctx.strokeStyle = P.lifeTrack;
     ctx.beginPath();
-    ctx.arc(x, y, r + 0.12, 0, TAU);
+    ctx.arc(x, y, r + R.ring, 0, TAU);
     ctx.stroke();
     ctx.strokeStyle = low ? P.lifeLow : P.life;
     ctx.beginPath();
-    ctx.arc(x, y, r + 0.12, -Math.PI / 2, -Math.PI / 2 + TAU * frac);
+    ctx.arc(x, y, r + R.ring, -Math.PI / 2, -Math.PI / 2 + TAU * frac);
     ctx.stroke();
     if (b[bf.carrying]) {
       ctx.fillStyle = P.carry;
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = px(1.2);
       ctx.beginPath();
-      ctx.arc(x + 0.3, y - 0.3, 0.15, 0, TAU);
+      ctx.arc(x + r * 0.88, y - r * 0.88, R.dot, 0, TAU);
       ctx.fill();
       ctx.stroke();
     }
-    drawn.push({ type: "bee", id, x, y, r: r + 0.12 });
+    drawn.push({ type: "bee", id, x, y, r: r + R.ring });
   }
 
   // Effects over the bees: sting flashes, hatch sparkles, delivery pulses.
@@ -114,7 +116,7 @@ V.drawLive = function (ctx, run, tau, px, selected) {
 
 // Bees sharing a cell are fanned out around its centre (by id order), so each stays visible
 // and clickable. Offsets are a function of the tick's state only.
-function spread(list, bf) {
+function spread(list, bf, beeR) {
   const groups = new Map(), off = new Map();
   for (const b of list) {
     const k = b[bf.x] * 100003 + b[bf.y];
@@ -123,7 +125,7 @@ function spread(list, bf) {
   }
   for (const ids of groups.values()) {
     ids.sort((a, b) => a - b);
-    const r = ids.length > 1 ? 0.26 : 0;
+    const r = ids.length > 1 ? beeR * 0.78 : 0;
     ids.forEach((id, i) => {
       const a = -Math.PI / 2 + (TAU * i) / ids.length;
       off.set(id, [Math.cos(a) * r, Math.sin(a) * r]);
@@ -195,7 +197,7 @@ function selectionMarks(ctx, run, b, x, y, r, px) {
   ctx.strokeStyle = P.select;
   ctx.lineWidth = px(2.2);
   ctx.beginPath();
-  ctx.arc(x, y, r + 0.12 + px(5), 0, TAU);
+  ctx.arc(x, y, r + px(4), 0, TAU);
   ctx.stroke();
 }
 
