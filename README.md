@@ -109,7 +109,7 @@ Requires Python 3.11 or later and `make`. No GPU, no API key for anything below.
 git clone https://private-gitlab.example/private-group/hearsay.git
 cd hearsay
 make setup        # .venv, pinned dependencies, secret-scan pre-commit hook
-make test         # 69 tests, about a minute
+make test         # 93 tests, 2 to 3 minutes
 make demo         # small scripted world, then an offline replay of a recorded AI run
 ```
 
