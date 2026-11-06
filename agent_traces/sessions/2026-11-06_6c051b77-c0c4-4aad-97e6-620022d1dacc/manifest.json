@@ -6,56 +6,62 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 132
+    "claude-opus-5-5": 217
   },
   "first_timestamp": "2026-11-06T10:14:13.068Z",
-  "last_timestamp": "2026-11-06T10:31:15.075Z",
+  "last_timestamp": "2026-11-06T11:03:52.464Z",
   "source": {
     "file": "6c051b77-c0c4-4aad-97e6-620022d1dacc.jsonl",
-    "sha256": "3ed5e54f6b64f8926b5294839829e02b9aee0a406412bee4048131ae4c433bc2",
-    "lines": 415,
+    "sha256": "f575eb9c7de62789007faf0b7dce3f1f86a5506c91cbcdf67698870d1d27d7b5",
+    "lines": 655,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 146,
-    "output_tokens": 64921,
-    "cache_creation_input_tokens": 153973,
-    "cache_read_input_tokens": 7860970,
-    "api_responses": 73,
+    "input_tokens": 230,
+    "output_tokens": 99636,
+    "cache_creation_input_tokens": 208853,
+    "cache_read_input_tokens": 16028460,
+    "api_responses": 115,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 77
+    "accept/config": 123
   },
   "tool_calls": {
-    "Bash": 56,
-    "Read": 9,
-    "Write": 9,
-    "Edit": 3,
+    "Bash": 95,
+    "Read": 10,
+    "Write": 13,
+    "Edit": 5,
     "Skill": 1
   },
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "e9ba8ca03d0eb430a03c53bd938eb6187ecedff5 Analysis: exploratory measure (labelled not pre-registered): words of harm or caution in notes and hive talk, and the share of hive talk anyone heard",
+    "fb8bcfaec3f1b95166a1b332426f603af11f74bd Analysis tests: paired-consistency verdict, missing values, mutual information and its permutation test; E3 carryover records whether the year-2 forager left before spring. README: future directions",
+    "1f0ff06b6771540bd6ee991be89a899bf2c2228d README: idea, why digital life, architecture, how it works, getting started (results sections to follow)",
+    "3e7c0b21679113e2d1ce1d223a476cdfee5c7e79 Decisions: phase 4 run setup, seed extension, cache packing, replay in make demo. Submission package draft",
+    "340763e924842f5e7031589a7acbd74b92de8683 Pre-registration amendment 1: extend full and no_talk to seeds 3 and 4 (decided after seed 0, before seeds 1 and 2); analysis reads extension batches and reports 5-seed paired comparisons beside the pre-registered 3-seed ones. Architecture: overview diagram, viewer, analysis and replay tooling",
+    "49cf14b15c5fd6cc66318c74c975cf48df65c716 AI disclosure: all eight items filled from the traces, manifests and DECISIONS.md; traces README: missing data (setup session's later turns, the failed first phase 1 session, commit links, runtime cache)",
     "6241115d53d7e7230297b8b2927c57f2acd5674f Replay check: experiments/replay_check.py re-runs a recorded seed offline (LLM_MODE=replay) and compares every file; make demo now also replays the recorded AI pilot run; make replay and make analysis targets",
     "b8039ea8d5d7d34512955853110d86fcffdf308a Analysis: every pre-registered measure computed from the run directories (main_results.py, measures.py), small PNG figures (figures.py); pin matplotlib and numpy",
     "9c2f893e94a234b86e86161260ae089a08002872 Replay cache: pack each run's entries into one jsonl.gz (tools/pack_llm_cache.py); llm.py reads packs in auto and replay mode, with a test"
   ],
-  "kept_entries": 211,
+  "kept_entries": 342,
   "omitted_entries": {
-    "ai-title": 28,
+    "ai-title": 43,
     "queue-operation": 2,
-    "attachment": 107,
+    "attachment": 166,
     "file-history-snapshot": 1,
-    "atis-latch": 28,
-    "last-prompt": 27,
-    "file-history-delta": 11
+    "atis-latch": 43,
+    "last-prompt": 42,
+    "file-history-delta": 16
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 54
+    "thinking_omitted": 93
   },
   "missing": {
     "tool_results_stored_outside_log": 0,

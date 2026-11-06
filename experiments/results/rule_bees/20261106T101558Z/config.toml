@@ -1,0 +1,19 @@
+# Baseline for E1: scripted bees that explore at random, go home at half life and never share. No model.
+# Full-size world with the calibrated values (EXPERIMENTS.md, "Setup calibration").
+[experiment]
+name = "rule_bees"
+entrypoint = "digital_life.sim:run"
+hypothesis = "Scripted rule bees set the comparison level for the AI colony."
+seeds = [0, 1, 2, 3, 4]
+
+[params]
+condition = "rule_bees"
+width = 80
+height = 48
+season_length = 250
+years = 2
+base_life = 500
+min_bloom_distance = 55
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
