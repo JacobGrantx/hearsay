@@ -1,0 +1,345 @@
+Digital Life hackathon brief, verbatim as shared with participants (fetched 2026-11-05). The authority for every rule in .claude/rules/.
+
+﻿DIGITAL LIFE
+Hackathon — Master Brief & Repository Specification
+Theme: Make Something That Lives.
+Format: Open-ended technical hackathon
+Submission: Public GitHub repository
+Core requirement: Build an artificial system that exhibits some meaningful property of life, adaptation, evolution, autonomy or emergent behaviour.
+________________
+
+
+1. The challenge
+We want you to build something that lives.
+Not necessarily biological life. Not necessarily an AI agent. Not necessarily something useful.
+We are interested in artificial systems that exhibit interesting behaviours: things that evolve, adapt, learn, interact, reproduce, compete, cooperate, develop memory, construct environments, or demonstrate emergent complexity.
+You might build:
+* An artificial organism that evolves through generations.
+* A digital ecosystem with competing species and resource constraints.
+* A society of autonomous agents that develops its own culture.
+* A self-modifying program that evolves its own architecture.
+* A simulated world where intelligence emerges from simple rules.
+* A persistent artificial character that develops a personality through experience.
+* A synthetic biological system.
+* A multi-agent environment with unexpected emergent behaviour.
+* An evolutionary algorithm that discovers solutions nobody explicitly programmed.
+* Something entirely different.
+You can use machine learning, reinforcement learning, evolutionary computation, LLMs, neural networks, cellular automata, robotics, distributed systems, physics simulations, or none of these.
+There is no prescribed technology stack.
+There is no requirement to build a commercial product.
+There is no requirement to use AI.
+The objective is to explore the possibilities of digital life.
+2. What we care about
+We are particularly interested in five properties.
+A. Autonomy
+Does the system do things independently, rather than simply responding to a sequence of predefined instructions?
+B. Persistence
+Does it retain meaningful state, memory, identity or environmental information over time?
+C. Adaptation
+Can it change its behaviour in response to experience, feedback or changing conditions?
+D. Interaction
+Can it interact with other entities, its environment or other systems in interesting ways?
+E. Emergence
+Can complex or unexpected behaviour arise from relatively simple underlying mechanisms?
+These are areas of exploration, not mandatory checkboxes. A project does not need to demonstrate all five.
+We would rather see one genuinely interesting property explored deeply than five superficial features.
+3. Technical expectations
+We want to see actual engineering and experimentation.
+A beautiful interface is welcome, but a polished frontend cannot substitute for a technically interesting system.
+Depending on your project, relevant technical work might include:
+* Novel system architectures.
+* Agent orchestration and coordination.
+* Memory architectures and persistence.
+* Evolutionary selection and mutation.
+* Reinforcement learning.
+* Multi-agent communication protocols.
+* Environment modelling and simulation.
+* Self-modifying or self-replicating code (within controlled environments).
+* Novel training or inference approaches.
+* Distributed computation.
+* Behavioural evaluation.
+* Quantitative analysis of emergent properties.
+You are encouraged to experiment, take risks and build things that might fail.
+A negative result with good experimental methodology is more interesting than an unsupported claim of emergent intelligence.
+4. Use of AI during development
+AI tools are permitted and encouraged.
+You may use coding agents, LLMs, autonomous development systems, AI-assisted research, code generation, debugging tools, model APIs and other AI-enabled development workflows.
+We are interested in understanding how people build with AI, not pretending that AI wasn’t involved.
+However, AI-generated code is not evidence of technical contribution by itself.
+Every submission must include a transparent account of AI usage.
+4.1 AI disclosure
+Include an AI_DISCLOSURE.md file in your repository.
+Document:
+1. Which AI systems and models were used.
+2. Which coding agents or autonomous tools were used.
+3. What each tool was used for.
+4. Which components were primarily AI-generated.
+5. Which components were primarily written or designed by the participants.
+6. How generated code was reviewed, tested and modified.
+7. Whether AI systems were used to design the architecture or research the underlying concepts.
+8. Any significant limitations, mistakes or unexpected behaviours introduced by AI assistance.
+Where possible, provide approximate usage information, including model versions and dates.
+Do not fabricate exact token counts or usage statistics if they are unavailable.
+4.2 AI development philosophy
+We do not penalise extensive AI usage.
+We do care about whether participants understand what they have built.
+You should be able to explain:
+* How your system works.
+* Why you chose its architecture.
+* What its key mechanisms are.
+* Where AI contributed.
+* What you personally investigated or implemented.
+* What failed and why.
+The distinction is between using AI as an engineering tool and submitting an artefact that nobody on the team can explain.
+5. Agent traces and development provenance
+This is a mandatory part of the submission.
+If you use AI agents during development, we want to see evidence of their activity.
+We are interested in the development process itself: how agents were instructed, what tasks they performed, what tools they used, what they produced, and how humans interacted with and supervised them.
+Create an agent_traces/ directory.
+Where available, include:
+* Agent session logs.
+* Task descriptions and prompts.
+* Tool invocation records.
+* Tool results.
+* Code-generation activity.
+* Relevant model and version information.
+* Agent-to-agent communication.
+* Human interventions and approvals.
+* Significant errors and recovery attempts.
+* Links between agent tasks and resulting code changes.
+Suggested trace format
+Use JSONL wherever practical, with one event per line.
+Example:
+{
+  "timestamp": "2026-11-06T10:30:00Z",
+  "session_id": "development-001",
+  "agent_id": "architecture-agent",
+  "model": "example-model",
+  "event_type": "tool_call",
+  "task": "Design organism state transition system",
+  "tool": "python",
+  "input_summary": "Test alternative mutation mechanisms",
+  "output_summary": "Identified three viable approaches",
+  "human_intervention": false
+}
+This is an illustrative schema, not a requirement to use a particular agent framework.
+Trace integrity
+* Preserve original machine-generated traces where possible.
+* Do not invent or reconstruct traces and present them as original.
+* Clearly identify manually summarised or redacted material.
+* Include timestamps and session identifiers where available.
+* Link significant agent activity to relevant commits or artefacts where possible.
+* Document missing trace data rather than silently omitting it.
+Important: We want execution and development traces, not private hidden chain-of-thought. Do not submit confidential internal reasoning, API credentials, personal information, private conversations or sensitive data. Summaries of reasoning and documented engineering decisions are sufficient.
+If you did not use AI agents, state this explicitly in your disclosure. Do not manufacture agent traces.
+6. Experiments and evidence
+Create an EXPERIMENTS.md file.
+Document the experiments that informed your project.
+For each significant experiment, include:
+* Hypothesis.
+* Experimental setup.
+* Variables or parameters.
+* Observations.
+* Results.
+* What you learned.
+* What you would investigate next.
+Where applicable, include quantitative measurements.
+Examples:
+* How does population diversity change over time?
+* Does an organism develop different behaviour after repeated environmental exposure?
+* Can agents independently develop a communication protocol?
+* Does a system maintain identity after prolonged operation?
+* Does the ecosystem collapse under resource scarcity?
+* Does mutation improve or degrade performance?
+* Can an emergent behaviour be reproduced across independent runs?
+Include negative results.
+We are not expecting every experiment to succeed.
+We are interested in whether you can distinguish genuine emergent behaviour from hardcoded behaviour, randomness, prompt effects or artefacts of your experimental setup.
+7. Reproducibility
+A judge should be able to understand and, ideally, run your project.
+Include:
+* Installation instructions.
+* Dependencies and versions.
+* Environment requirements.
+* Configuration instructions.
+* Model/API requirements, if applicable.
+* Example commands.
+* A reproducible demonstration.
+* Expected outputs.
+* Known limitations.
+Where practical, include:
+* Fixed random seeds.
+* Example datasets.
+* Configuration files.
+* Model checkpoints or links to accessible checkpoints.
+* Test cases.
+* Evaluation scripts.
+* Docker or equivalent environment configuration.
+Do not commit API keys, credentials, secrets or private datasets.
+Use .env.example to document required environment variables without including their actual values.
+8. Public GitHub repository
+Every team must submit a public GitHub repository.
+The repository must be accessible to judges without requiring private organisational access.
+Recommended repository structure:
+digital-life-project/
+│
+├── README.md
+├── LICENSE
+├── AI_DISCLOSURE.md
+├── EXPERIMENTS.md
+├── ARCHITECTURE.md
+├── CONTRIBUTING.md
+│
+├── src/
+│   └── [source code]
+│
+├── tests/
+│   └── [tests]
+│
+├── experiments/
+│   ├── configurations/
+│   ├── results/
+│   └── analysis/
+│
+├── agent_traces/
+│   ├── README.md
+│   ├── sessions/
+│   └── summaries/
+│
+├── docs/
+│   ├── diagrams/
+│   └── methodology/
+│
+├── demo/
+│   ├── screenshots/
+│   └── recordings/
+│
+├── assets/
+│
+├── .env.example
+├── .gitignore
+└── requirements.txt
+Adapt this structure to your project. You do not need to create empty folders or use a particular programming language.
+GitHub requirements
+1. Create a new public repository.
+2. Give it a meaningful project name.
+3. Include a descriptive README.
+4. Include the mandatory AI disclosure.
+5. Include the experiments documentation.
+6. Include agent traces where applicable.
+7. Commit the actual source code.
+8. Include a licence appropriate to your intended sharing permissions.
+9. Ensure there are no exposed credentials or sensitive information.
+10. Verify that the repository can be accessed by someone outside your team.
+Your repository should reflect the actual development process, not just a final snapshot.
+We recommend meaningful commits throughout development.
+Do not squash or rewrite history merely to make the project appear to have been developed differently.
+9. README specification
+Your root README.md is the first thing judges will see.
+It should contain:
+Project name
+Give your creation an identity.
+One-line description
+What did you build?
+The idea
+Explain the concept and what makes it interesting.
+Why digital life?
+What property of artificial life are you exploring?
+Demonstration
+Include a video, GIF, screenshots or live demo link.
+Technical architecture
+Explain the system’s major components and how they interact.
+How it works
+Describe the underlying mechanisms, algorithms and models.
+Getting started
+Provide installation and execution instructions.
+Experiments and findings
+Summarise the most interesting observations.
+AI usage
+Link to AI_DISCLOSURE.md.
+Agent traces
+Explain how AI agents were used and link to the relevant trace directory, if applicable.
+Team
+List the contributors and their roles.
+Future directions
+What would you investigate if you had another month?
+10. Demonstration
+Every team must provide a demonstration of its creation.
+This can be:
+* A live interactive system.
+* A recorded demonstration.
+* A simulation.
+* A visualisation.
+* An experiment running in real time.
+* A command-line demonstration.
+* A physical or robotic prototype.
+We want to see the system doing something.
+A presentation explaining what it could theoretically do is not a substitute for demonstrating what it actually does.
+If the system is computationally expensive or requires specialised infrastructure, provide a recorded demonstration and a reproducible smaller-scale experiment.
+11. Judging criteria
+We will judge submissions across five dimensions.
+Category
+	Weight
+	Technical depth
+	30%
+	Originality and creativity
+	25%
+	Demonstrated behaviour and experimentation
+	20%
+	Engineering and reproducibility
+	15%
+	Effective use of tools, including AI
+	10%
+	Technical depth — 30%
+Is there genuine technical substance?
+Are the underlying mechanisms interesting, well-designed and appropriately implemented?
+Originality — 25%
+Is this an unusual or interesting idea?
+Does it explore something beyond conventional application development?
+Behaviour and experimentation — 20%
+Does the system actually demonstrate the properties it claims?
+Are there interesting observations, experiments or emergent behaviours?
+Engineering — 15%
+Is the project understandable, reproducible and well documented?
+Tool usage — 10%
+Were available tools used effectively?
+Is AI usage transparent?
+Can the team explain its development process?
+We do not award points simply for using the largest model, the most tokens, the most agents or the most elaborate frontend.
+12. Submission checklist
+Before submitting, verify the following:
+*         ☐        Public GitHub repository created.
+*         ☐        Root README completed.
+*         ☐        Source code committed.
+*         ☐        Installation and execution instructions included.
+*         ☐        AI_DISCLOSURE.md completed.
+*         ☐        Agent traces included where applicable.
+*         ☐        EXPERIMENTS.md completed.
+*         ☐        Architecture documented.
+*         ☐        Demonstration provided.
+*         ☐        Dependencies and configuration documented.
+*         ☐        No secrets or credentials committed.
+*         ☐        Repository accessible without special permissions.
+*         ☐        Team and contributors identified.
+13. Final submission
+Submit:
+1. Public GitHub repository URL.
+2. Project name.
+3. Short project description.
+4. Team members.
+5. Demonstration link.
+6. Any additional infrastructure or execution requirements.
+The repository is the primary submission. Judges should be able to understand the project from its documentation and inspect its underlying implementation.
+________________
+
+
+THE POINT
+We aren’t looking for another wrapper around an API.
+We aren’t looking for another dashboard.
+We aren’t looking for another slightly different productivity tool.
+We want to see people exploring what happens when computation starts behaving in ways that look increasingly like life.
+Something that evolves.
+Something that adapts.
+Something that surprises its creators.
+Something that develops a world of its own.
+Make something that lives.

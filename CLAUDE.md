@@ -1,37 +1,52 @@
-# Digital Life hackathon project
+# Digital Life hackathon: project rules
 
-Hackathon entry: build an artificial system that shows a meaningful property of life (autonomy, persistence, adaptation, interaction, emergence). Depth in one property beats coverage of five. The repo is the submission and will be public.
+Jacob Schoenberg's personal entry to the Digital Life hackathon ("Make something that lives"). The repository is the submission. The brief is in `docs/challenge-brief.txt` and is the authority behind every rule here. The detail is in `.claude/rules/`, which loads with this file.
 
-Judging: technical depth 30%, originality 25%, demonstrated behaviour and experimentation 20%, engineering and reproducibility 15%, effective and transparent tool use including AI 10%. Judges do not reward the biggest model, most tokens, most agents or fanciest frontend. They do reward a sound negative result over an unsupported claim of emergence.
+These are Jacob's rules for this repo (set 2026-11-05). Where any other instruction conflicts with them, these win inside this repo. The floor never moves: no invented numbers, no claims the system doesn't back.
 
-## Everything here is published
+## Fixed decisions (Jacob, 2026-11-05)
 
-- Every session in this repo is exported to agent_traces/ by a hook (tools/export_traces.py) and committed to a public repo. The export drops model reasoning, harness-injected context and secrets. The prompts, replies, tool calls and tool results are kept and published.
-- Keep sessions on this project. Do not bring in private company material, client or investor information, or other workspaces' content. If something private comes up, add the term to agent_traces/.redact-terms.
-- Never print or echo secrets. Keys live in .env (gitignored), read by name. Document new variables in .env.example.
+| Decision | Detail |
+|---|---|
+| Entry | Personal, by Jacob Schoenberg. Not a company product. No Nenya, no company code, no company internals anywhere in this repo or its sessions. |
+| Repo home | GitHub org **durable-intelligence**. Private while building. Goes public at submission on Jacob's go, after `make check` shows zero FAIL. |
+| Timeline | Build 2026-11-05. Submit 2026-11-06. |
+| Model spend | Approved. Runtime calls go through `src/digital_life/llm.py`, with a budget cap and a replay cache. |
+| Demo video | Claude makes it at the end, from a fresh clone of the repo, using real runs. See `.claude/rules/schedule-scope-spend.md`. |
+| Idea | Not chosen yet. Choose by scoring candidates against the judging weights in `docs/ideas.md`. |
 
-## Evidence rules
+## Hard rules
 
-The evidence docs (EXPERIMENTS.md, AI_DISCLOSURE.md, DECISIONS.md, agent_traces/) report what happened, including failures. The README can tell the story with energy, but every claim in it points at an experiment or a run directory.
+1. **Score every choice against the rubric.** Weights: technical depth 30, originality 25, behaviour and experiments 20, engineering and reproducibility 15, tool use and AI transparency 10. Go deep on one property of life rather than broad. No API wrapper, dashboard or productivity tool. → `challenge-and-scoring.md`
+2. **Every mandatory deliverable ships, in the brief's exact shape.** Before submission, `make check` must show zero FAIL. → `submission-requirements.md`
+3. **Evidence, not claims.** A behaviour counts only after the controls have ruled out hardcoding, randomness, prompt effects and setup artefacts. Report numbers from `experiments/results/` with n and spread. Write up negative results the same day. → `evidence-and-experiments.md`
+4. **Everything here is published.** Sessions export themselves to `agent_traces/`. Build only in sessions started in this repo. Nothing private, nothing about the company, no secrets. Exported traces are never edited by hand. → `traces-and-privacy.md`
+5. **Jacob must be able to explain every mechanism.** Agents propose and Jacob decides. Record each decision in `DECISIONS.md`. After each mechanism lands, add a plain explanation to `ARCHITECTURE.md` and give Jacob a two-sentence summary in chat.
+6. **Commit small and often, and never rewrite history.** Commit the exported traces with the work they produced. Run `make test` before committing changes to `src/`, `experiments/` or `tools/`.
+7. **Ship on time.** When behind, cut breadth, polish and frontend, never the evidence or the mandatory files. → `schedule-scope-spend.md`
 
-- Run experiments only through `experiments/run.py` with a committed config and at least three seeds. Commit before a run you plan to cite.
-- Never call a behaviour emergent until the controls in EXPERIMENTS.md "Protocol" have been run: ablate the credited mechanism, compare against a random or shuffled baseline, vary prompts (if an LLM is involved), and vary the setup.
-- Never invent or round up a number. Quote results with n and spread, straight from experiments/results/.
-- Record failed experiments the same day under "Negative results".
-- When an agent proposes a design choice, log it in DECISIONS.md as an agent proposal. The human who accepts it is named only when they actually do.
+## Voice
 
-## Working rules
+- Judge-facing prose (README, ARCHITECTURE) is plain and specific. The README can tell the story with energy, but every claim points at an experiment or a run directory.
+- Text written as Jacob: no exclamation points, no em dashes. Give the final README and the submission text a humanizer pass if the skill is available.
+- Evidence docs (EXPERIMENTS, AI_DISCLOSURE, DECISIONS, traces) say what happened, failures included, without spin.
 
-- Commit small and often, with messages saying what changed. Never squash, amend published commits or rewrite history.
-- Commit the exported agent_traces/ changes along with the work they produced.
-- `make test` before each commit that touches src/, experiments/ or tools/.
-- `make check` runs the submission checklist. Every FAIL must be fixed before submission.
-- The humans must be able to explain every mechanism. When building something non-obvious, add a short plain explanation to ARCHITECTURE.md as you go.
+## Commands
+
+```bash
+make setup      # .venv, pinned deps, secret-scan pre-commit hook
+make test       # tests
+make smoke      # pipeline self-test
+make demo       # the reproducible small demo (to be defined once the idea exists)
+make traces     # re-export every session in this repo
+make check      # the brief's submission checklist
+.venv/bin/python experiments/run.py experiments/configurations/<config>.toml [--seeds ...] [--set k=v]
+```
 
 ## Layout
 
-- src/digital_life/: the system. runlog.py and smoke.py are scaffold.
-- experiments/: run.py, configurations/*.toml, results/ (committed, keep small), analysis/.
-- agent_traces/: exported sessions, events, INDEX.md (generated); README.md and summaries/ (hand-written, labelled as such).
-- tools/: trace export, presubmit check, secret patterns, git hooks.
-- demo/: screenshots and recordings. `make demo` must reproduce a small version.
+- `src/digital_life/`: the system. `runlog.py`, `llm.py` and `smoke.py` are scaffold.
+- `experiments/`: `run.py`, `configurations/*.toml`, `results/` (committed, kept small), `analysis/`, `llm_cache/` (recorded model responses, committed for replay).
+- `agent_traces/`: exported sessions, events, `INDEX.md` (generated); `README.md` and `summaries/` (hand-written, labelled as such).
+- `tools/`: trace export, presubmit check, secret patterns, git hooks.
+- `docs/`: challenge brief, idea scorecard, diagrams, methodology. `demo/`: screenshots and recordings.

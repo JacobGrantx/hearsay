@@ -63,7 +63,7 @@ TODO: One paragraph on how agents were used. Every Claude Code session in this r
 
 ## Team
 
-TODO: Name, role, what each person built or decided.
+Jacob Schoenberg, solo entry. TODO: what Jacob designed, built and decided. Development was assisted by Claude Code; who did what is in [AI_DISCLOSURE.md](AI_DISCLOSURE.md) and [DECISIONS.md](DECISIONS.md).
 
 ## Future directions
 

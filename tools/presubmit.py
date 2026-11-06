@@ -23,7 +23,7 @@ import secret_patterns  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
-JUDGE_DOCS = ["README.md", "AI_DISCLOSURE.md", "EXPERIMENTS.md", "ARCHITECTURE.md", "agent_traces/README.md"]
+JUDGE_DOCS = ["README.md", "AI_DISCLOSURE.md", "EXPERIMENTS.md", "ARCHITECTURE.md", "agent_traces/README.md", "docs/submission.md"]
 REQUIRED_FILES = JUDGE_DOCS + ["LICENSE", ".env.example", ".gitignore", "requirements.txt"]
 README_SECTIONS = [
     "The idea", "Why digital life", "Demonstration", "Technical architecture", "How it works",
@@ -173,7 +173,7 @@ def check_git(run_tests: bool) -> None:
     report("PASS" if n >= 10 else "WARN", "History shows real development", f"{n} commits")
     if git("status", "--porcelain").strip():
         report("WARN", "Working tree clean", "uncommitted changes")
-    src = [f for f in git("ls-files", "src").split() if f.endswith(".py") and not f.endswith(("__init__.py", "smoke.py", "runlog.py"))]
+    src = [f for f in git("ls-files", "src").split() if f.endswith(".py") and not f.endswith(("__init__.py", "smoke.py", "runlog.py", "llm.py"))]
     report("PASS" if src else "FAIL", "Source code committed", f"{len(src)} project source files beyond the scaffold")
     url = git("remote", "get-url", "origin").strip()
     m = re.search(r"github\.com[:/]([^/]+)/([^/.]+?)(\.git)?$", url)

@@ -27,3 +27,6 @@ experiments/results/**/scratch/
 .DS_Store
 .vscode/
 .claude/settings.local.json
+
+# model spend ledger (local budget guard)
+.llm_spend.json

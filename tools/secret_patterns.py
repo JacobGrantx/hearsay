@@ -70,6 +70,10 @@ def load_env_values(min_len: int = 8) -> list[str]:
             v = v.strip().strip("\"'")
             if len(v) >= min_len:
                 values.add(v)
+    secret_name = re.compile(r"(?i)(key|token|secret|passw|credential|auth|foundry)")
+    for k, v in os.environ.items():
+        if secret_name.search(k) and v and len(v) >= min_len:
+            values.add(v)
     return sorted(values, key=len, reverse=True)
 
 

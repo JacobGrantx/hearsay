@@ -25,5 +25,6 @@ TODO: What it cannot do, scale limits, known failure modes.
 ## Supporting tooling
 
 - `experiments/run.py`: runs a config across seeds. Records params, seed, git commit and versions per run. Writes metrics, events and a cross-seed summary to experiments/results/.
+- `src/digital_life/llm.py`: the only path for runtime model calls. Records each request and response in `experiments/llm_cache/` so runs replay offline (`LLM_MODE=replay`), and enforces a spend cap.
 - `tools/export_traces.py`: exports each Claude Code session's original log into agent_traces/, with the redactions listed in agent_traces/README.md. It runs from hooks in .claude/settings.json.
 - `tools/presubmit.py`: checks the repository against the brief's submission checklist. A git pre-commit hook runs its secret scan.
