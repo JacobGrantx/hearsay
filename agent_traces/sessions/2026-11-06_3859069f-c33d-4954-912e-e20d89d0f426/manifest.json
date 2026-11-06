@@ -6,38 +6,39 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 190
+    "claude-opus-5-5": 202
   },
   "first_timestamp": "2026-11-06T11:20:27.400Z",
-  "last_timestamp": "2026-11-06T11:54:41.664Z",
+  "last_timestamp": "2026-11-06T11:56:30.627Z",
   "source": {
     "file": "3859069f-c33d-4954-912e-e20d89d0f426.jsonl",
-    "sha256": "4c58c842d314ec252993adec0fa06478b68b2ffbb78234b9058b3d15d5a6f268",
-    "lines": 540,
+    "sha256": "364cffadc32fdd128e2648e89356cc29a1e8e45b1c7e0fda6bffc5d896599d0f",
+    "lines": 572,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 178,
-    "output_tokens": 75587,
-    "cache_creation_input_tokens": 172777,
-    "cache_read_input_tokens": 10621384,
-    "api_responses": 89,
+    "input_tokens": 190,
+    "output_tokens": 79701,
+    "cache_creation_input_tokens": 179480,
+    "cache_read_input_tokens": 11749771,
+    "api_responses": 95,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 93
+    "accept/config": 99
   },
   "tool_calls": {
-    "Bash": 79,
+    "Bash": 84,
     "Read": 3,
     "Write": 4,
-    "Edit": 8
+    "Edit": 9
   },
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "98e8affe99a0b6bdda949a1337f7008459ee9227 EXPERIMENTS: E5 written up (both hypotheses unsupported; talk carried a place in one seed, bees with talk stayed home more), summary row, negative result 7, limits, spend; E5 replay log",
     "40b0b1cd441bb532191fe6a725fa8122386b6785 E5 runs (e5_full, e5_no_talk, seeds 0 to 4, commit 2b99282), packed replay caches (run order) and analysis output. Traces: phase 4b session",
     "7971a65c6f453ab25b4d9e9995e2adbe0bc31f2d Build notes: phase 4b (E5 world, runs, analysis, packs); make analysis runs the E5 scripts. Traces: phase 4b session",
     "e2a2173b7a49b4508996a3cbd0ef029e277c14e5 Cache packer: optional --order run (entries by bee and tick), about half the gzip size; main-run packs unchanged. Traces: phase 4b session",
@@ -47,19 +48,19 @@
     "cdbd28046cae677f64e9c15ff5a2763a74551c6d Config for the E5 world calibration (scripted bees, 1 year, target fixed in the header)",
     "4ebf5209d3d97de2e274305369fce108843b5d64 Diagnosis for E5: why trips failed in the main runs (finding the bloom, not carrying it home). Traces: phase 4b session"
   ],
-  "kept_entries": 284,
+  "kept_entries": 302,
   "omitted_entries": {
-    "ai-title": 38,
+    "ai-title": 40,
     "queue-operation": 6,
-    "attachment": 129,
+    "attachment": 136,
     "file-history-snapshot": 1,
-    "atis-latch": 38,
-    "last-prompt": 37,
-    "file-history-delta": 7
+    "atis-latch": 40,
+    "last-prompt": 39,
+    "file-history-delta": 8
   },
   "redactions": {},
   "transformations": {
-    "thinking_omitted": 86,
+    "thinking_omitted": 90,
     "truncated": 1
   },
   "missing": {
