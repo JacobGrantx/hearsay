@@ -37,14 +37,14 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
-    "5650e7b8e50f4c3feda886c668a2736fce362bce Build notes: drop an unmeasured replay time",
-    "81d09bafc810af8cb0ab0b8f057b6217e8048624 Build notes: known issues after phase 2 (rare sounds, run time and cost, cache size, notes churn, uncached API errors, AI replay for make demo)",
-    "4ae76863e84530a91ae352a8b482834f82da8ac1 Pilot: one full-size spring of the full condition (seed 0): 355 decisions, 166 s, $0.0856, no model failures, replays identically offline; bees almost never make sounds (1 of 355), flagged as a risk for E4. Run directory, replay cache, viewer still and mind_report.py",
-    "156c7030f3a95570e60d57eae2621a191de60326 Docs: AI bee mind and memory in ARCHITECTURE.md, phase 2 module map and log fields in BUILD_NOTES.md, phase 2 agent proposals in DECISIONS.md",
-    "c2052a29bc9144b9401a28b9e2b04638f26e4ea6 Pre-registration: hypotheses, primary measures, controls, seeds and analysis plan for E1 to E4, written before any real bee-mind call; decision events gain ctx (moving things and bright cells in view, carrying, at home) for E4",
-    "28afa0863eb22ad18720f962e2f61cc3df981189 AI condition configs (full, no_talk, no_memory, labels_good_bad, frozen_hornets; full size, 3 seeds), pilot config (first spring, seed 0), stop_after run length, memory unit tests",
-    "031fb4a17b651ea5ecbdd1cd5783330f3e1a590b AI bee mind: neutral system prompt, perception renderer and decision schema, per-bee memory (episodes, beliefs, BM25 recall), AIPolicy with parallel calls and wait fallback; leak, no-hints, replay and condition tests",
-    "1abaff874267272802f69c72a3bfdd2677119e09 Secret scan: an assigned value ends at a backslash, so JSON-escaped newlines in exported traces no longer join code into a false 'token' hit; regression test both ways"
+    "d9535af6a061196dcce5fbb18764a3c5bac0784c Build notes: drop an unmeasured replay time",
+    "3ee7ce4443de748ba1e2210c2de52dc1dff7e678 Build notes: known issues after phase 2 (rare sounds, run time and cost, cache size, notes churn, uncached API errors, AI replay for make demo)",
+    "511e9676f43ad717a7bd31a42027ac9bfffe1ea5 Pilot: one full-size spring of the full condition (seed 0): 355 decisions, 166 s, $0.0856, no model failures, replays identically offline; bees almost never make sounds (1 of 355), flagged as a risk for E4. Run directory, replay cache, viewer still and mind_report.py",
+    "e386772273f59fa79ed4ec461ff5d125f3f6a699 Docs: AI bee mind and memory in ARCHITECTURE.md, phase 2 module map and log fields in BUILD_NOTES.md, phase 2 agent proposals in DECISIONS.md",
+    "83a9b8c7ebb16d349e0fef4cff5fb884e7eb6941 Pre-registration: hypotheses, primary measures, controls, seeds and analysis plan for E1 to E4, written before any real bee-mind call; decision events gain ctx (moving things and bright cells in view, carrying, at home) for E4",
+    "7c708e62407acff27c803f04c899724f965123f5 AI condition configs (full, no_talk, no_memory, labels_good_bad, frozen_hornets; full size, 3 seeds), pilot config (first spring, seed 0), stop_after run length, memory unit tests",
+    "6490e174743d5f055ca5195ce1bad9f31ca407f5 AI bee mind: neutral system prompt, perception renderer and decision schema, per-bee memory (episodes, beliefs, BM25 recall), AIPolicy with parallel calls and wait fallback; leak, no-hints, replay and condition tests",
+    "5c8b22fcf52537f00012526fcdd411aebf5508e6 Secret scan: an assigned value ends at a backslash, so JSON-escaped newlines in exported traces no longer join code into a false 'token' hit; regression test both ways"
   ],
   "kept_entries": 261,
   "omitted_entries": {

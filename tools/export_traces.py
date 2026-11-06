@@ -68,6 +68,7 @@ IDE_SELECTION_RE = re.compile(r"<ide_selection>[\s\S]*?</ide_selection>")
 COMMIT_RE = re.compile(r"^\[[^\]\n]*?\b([0-9a-f]{7,40})\]", re.M)
 # Paths outside this repository (home folders, user config, other projects) say nothing about
 # this project and can reveal private setup, so they are redacted. /tmp and /dev/shm stay.
+OTHER_SCRATCH_RE = re.compile(r"/dev/shm/(?!dl)[A-Za-z0-9][A-Za-z0-9._-]*")  # this project's scratch starts with dl
 PRIVATE_PATH_RE = re.compile(
     r"(?:" + re.escape(str(Path.home())) + r"|~|\$HOME)/(?!work/hackathons/digital-life\b)[^\s\"'`),;\]]+"
 )
@@ -100,6 +101,8 @@ class Redactor:
         self.counts["secret"] += n
         s, n = PRIVATE_PATH_RE.subn("[REDACTED:path-outside-repo]", s)
         self.counts["path-outside-repo"] += n
+        s, n = OTHER_SCRATCH_RE.subn("/dev/shm/[REDACTED:other-scratch]", s)
+        self.counts["other-scratch"] += n
         for rx in self.terms:
             s, n = rx.subn("[REDACTED:private]", s)
             self.counts["private"] += n

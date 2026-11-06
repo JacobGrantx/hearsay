@@ -8,7 +8,7 @@ These are Jacob's rules for this repo (set 2026-11-05). Where any other instruct
 
 | Decision | Detail |
 |---|---|
-| Entry | Personal, by Jacob Schoenberg. Not a company product. No Nenya, no company code, no company internals anywhere in this repo or its sessions. |
+| Entry | Personal, by Jacob Schoenberg. Not a company product. Nothing from Jacob's company (products, code or internals) anywhere in this repo or its sessions. |
 | Repo home | **GitLab, never GitHub** (Jacob's standing rule). The project is `private-group/digital-life` on the company's self-managed GitLab, private while building. Push with `.local/push.sh` (local and gitignored; it reads the token at run time). It goes public at submission on Jacob's go, after `make check` shows zero FAIL. |
 | Timeline | Build 2026-11-05. Submit 2026-11-06. |
 | Model spend | Approved. Runtime calls go through `src/digital_life/llm.py`, with a budget cap and a replay cache. |

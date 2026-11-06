@@ -65,7 +65,8 @@
     "cost-state": 1
   },
   "redactions": {
-    "path-outside-repo": 4
+    "path-outside-repo": 4,
+    "other-scratch": 117
   },
   "transformations": {
     "thinking_omitted": 60

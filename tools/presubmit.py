@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import secret_patterns  # noqa: E402
+import private_scan  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -204,6 +205,16 @@ def check_git(run_tests: bool) -> None:
         report("PASS" if r.returncode == 0 else "FAIL", "Tests pass", tail)
 
 
+def _staged_text(path: str) -> str | None:
+    r = subprocess.run(["git", "-C", str(REPO), "show", f":{path}"], capture_output=True)
+    if r.returncode != 0 or len(r.stdout) > 5_000_000:
+        return None
+    try:
+        return r.stdout.decode("utf-8")
+    except UnicodeDecodeError:
+        return None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--secrets", action="store_true")
@@ -216,9 +227,17 @@ def main() -> int:
         ok = scan_secrets(files, "staged")
         if not ok:
             print("pre-commit: possible secret in staged files. Nothing was committed.\n  " + results[-1][2])
-        return 0 if ok else 1
+        private = private_scan.scan_files(files, lambda f: _staged_text(f))
+        if private:
+            print("pre-commit: private text in staged files. Nothing was committed. Fix the export or the file, then retry.\n  "
+                  + "\n  ".join(private[:10]))
+        return 0 if ok and not private else 1
 
     scan_secrets(git("ls-files").split(), "tracked files")
+    private = private_scan.scan_files(git("ls-files").split(), lambda f: read(f) if (REPO / f).is_file() else None)
+    report("FAIL" if private else "PASS", "No private text (tracked files)", "; ".join(private[:5]))
+    history = private_scan.scan_history()
+    report("FAIL" if history else "PASS", "No private text (every trace file in history)", "; ".join(history[:5]))
     if not a.secrets:
         check_docs()
         check_traces()

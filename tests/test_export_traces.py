@@ -90,3 +90,16 @@ def test_harness_meta_and_outside_paths_are_redacted(tmp_path, monkeypatch):
     assert "/.config/other" not in text and "[REDACTED:path-outside-repo]" in text
     assert "digital-life/src" in text          # paths inside the repo stay
     assert "run the thing" in text             # the human prompt stays
+
+
+def test_private_scan_catches_leaks_and_spares_the_repo(tmp_path, monkeypatch):
+    import private_scan as ps
+    from pathlib import Path as P
+    home, repo_rel = str(P.home()), ps.REPO_REL
+    terms = [__import__("re").compile("acme-secret-project", __import__("re").I)]
+    assert ps.find_private("notes about acme-secret-project", "README.md", terms) == ["private term #1"]
+    assert "skill instructions" in ps.find_private("Base directory for this skill: x", "agent_traces/events/a.jsonl", [])
+    assert "path outside the repository" in ps.find_private(f"cat {home}/.config/x/.env", "agent_traces/sessions/a/main.jsonl", [])
+    assert ps.find_private(f"ls {home}/{repo_rel}/src", "agent_traces/sessions/a/main.jsonl", []) == []
+    assert ps.find_private(f"cd {home}/{repo_rel[:10]}…", "agent_traces/events/a.jsonl", []) == []
+    assert ps.find_private(f"cat {home}/.config/x/.env", "README.md", []) == []   # paths are only checked in traces

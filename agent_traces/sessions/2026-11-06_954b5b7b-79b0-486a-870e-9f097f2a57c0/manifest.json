@@ -39,17 +39,17 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
-    "8c6dda370eb1f383c31c424642e1fcafa59fd430 Traces: re-export phase 5 with the writing-style skill's private terms redacted; traces README notes it and that commit 0b7885a holds the earlier export",
-    "0b7885a27c3e1de7d31a5d9b12c00617e90ef5bf Traces: phase 5 session",
-    "4081692c43d0d7f3abb020a42cd4d54059ba6137 README: Demonstration links the video, the segment sources and the stills; 69 tests; three prose fixes. Submission draft: demo link and a results line. Build notes: phase 5. AI disclosure: test count",
-    "efe56c402260dc2d69d8a122ec6242c0de68339b Demo video (88.5 s, 3.1 MB) rendered by make video in a fresh clone at d3fa660, with SOURCES.md (segments, run directories, ticks, captions) and four stills",
-    "204163234b2964f13746bd8575a54657c779dfab Test: find_moments.py finds the video's moments (E5 first finder, hatch and hive talk; first-sight caution; bee 1's stings; E5 winter 7 to 4) from the run directories",
-    "d3fa660369a9c33b8cecee13219bd0c8e260a902 Video caption (summer stings beside the old spring patch), the render commit in SOURCES.md, and the DECISIONS wording. These are the changes the message of 9663aea describes: that commit's git add failed on a removed path, so it holds only the .gitkeep deletions",
-    "9663aea731f54de82e9b52e6f76ffa703f6e194c Video: the summer stings were at (35,2), beside the old spring patch, so the caption says beside; SOURCES.md records the render commit. Remove the empty placeholder folders (assets, docs/diagrams) and the demo .gitkeep files",
-    "379d4ee8f9ad2111d8cddc5ab2f0726593159081 Storyboard: segment 8 starts at tick 171.5 so bee 6's tick-172 note reaches the panel under its caption. DECISIONS: the video storyboard and the viewer header. AI disclosure and traces README: phase 5",
-    "bc6073fd33d2f2b1f5468f4b77e05362c7fb8970 Traces: phase 5 session",
-    "77b94228d15312a07960e0852da635d821166b05 Demo video renderer: storyboard (segments, runs, ticks, captions), cards and charts from the analysis JSON, make_video.py, and make video",
-    "a431e0028afdb71541f575751acf85ac4ccb9c13 find_moments.py: scan the cited runs for the video's moments (first delivery, hatches, caution before any sting, sting then talk, hive talk passing a bloom place, old routes, winter, year 2 spring). Viewer: header shows the experiment name from record.json and a --project name"
+    "797dd114b5673ba74bd77ab7e7cd48ad7b9bef0b Traces: re-export phase 5 with the writing-style skill's private terms redacted; traces README notes it and that commit 81089a6 holds the earlier export",
+    "81089a6ec8ab2cad59958ab7571a62bca5ac7962 Traces: phase 5 session",
+    "e969de70935a175ea44b14f8349fe3c9e63b9367 README: Demonstration links the video, the segment sources and the stills; 69 tests; three prose fixes. Submission draft: demo link and a results line. Build notes: phase 5. AI disclosure: test count",
+    "c71ff0cf68425c1fdef149f90a19cc1fb7455a19 Demo video (88.5 s, 3.1 MB) rendered by make video in a fresh clone at 568ddde, with SOURCES.md (segments, run directories, ticks, captions) and four stills",
+    "c556f89b94aaebcced87d649d3ae1f13956f7c43 Test: find_moments.py finds the video's moments (E5 first finder, hatch and hive talk; first-sight caution; bee 1's stings; E5 winter 7 to 4) from the run directories",
+    "568ddde15f6398d445b75e9cf0b51bf0352b153b Video caption (summer stings beside the old spring patch), the render commit in SOURCES.md, and the DECISIONS wording. These are the changes the message of 0fdd622 describes: that commit's git add failed on a removed path, so it holds only the .gitkeep deletions",
+    "0fdd622b6d2e3c1488284c3596e201ba6d3f0509 Video: the summer stings were at (35,2), beside the old spring patch, so the caption says beside; SOURCES.md records the render commit. Remove the empty placeholder folders (assets, docs/diagrams) and the demo .gitkeep files",
+    "923ea91efb168456ec9d802afcd67c8b886e3cc4 Storyboard: segment 8 starts at tick 171.5 so bee 6's tick-172 note reaches the panel under its caption. DECISIONS: the video storyboard and the viewer header. AI disclosure and traces README: phase 5",
+    "83e85d8d49333abbd75483c0ec632d92a775682c Traces: phase 5 session",
+    "c172ecc65317978fbea0cf2013c59e5f18b182fd Demo video renderer: storyboard (segments, runs, ticks, captions), cards and charts from the analysis JSON, make_video.py, and make video",
+    "4d52a37991b887a295f8d62f52415173b81cee6c find_moments.py: scan the cited runs for the video's moments (first delivery, hatches, caution before any sting, sting then talk, hive talk passing a bloom place, old routes, winter, year 2 spring). Viewer: header shows the experiment name from record.json and a --project name"
   ],
   "kept_entries": 348,
   "omitted_entries": {
@@ -64,7 +64,8 @@
   },
   "redactions": {
     "path-outside-repo": 4,
-    "private": 55,
+    "other-scratch": 18,
+    "private": 53,
     "harness-meta": 2
   },
   "transformations": {

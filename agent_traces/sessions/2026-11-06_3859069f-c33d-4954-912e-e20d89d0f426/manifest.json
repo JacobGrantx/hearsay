@@ -38,18 +38,18 @@
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
-    "829fc27fdedda9646c401e1f72137e961748fcd2 Traces: phase 4b session (final export)",
-    "83aba265934f92be59c3eaac611c3dc74714f5fb Build notes: E5 moments for the video (first finder, hive talk passing the place, talk-informed delivery, the control); still at tick 172 following bee 6. Traces: phase 4b session",
-    "bef63eedc04885a43d738e97f6591fdde821d2c2 README: E5 paragraph after the main negative results. AI disclosure: phase 4b session, E5 runtime tokens and spend, test count, the too-narrow acted-on-talk rule",
-    "98e8affe99a0b6bdda949a1337f7008459ee9227 EXPERIMENTS: E5 written up (both hypotheses unsupported; talk carried a place in one seed, bees with talk stayed home more), summary row, negative result 7, limits, spend; E5 replay log",
-    "40b0b1cd441bb532191fe6a725fa8122386b6785 E5 runs (e5_full, e5_no_talk, seeds 0 to 4, commit 2b99282), packed replay caches (run order) and analysis output. Traces: phase 4b session",
-    "7971a65c6f453ab25b4d9e9995e2adbe0bc31f2d Build notes: phase 4b (E5 world, runs, analysis, packs); make analysis runs the E5 scripts. Traces: phase 4b session",
-    "e2a2173b7a49b4508996a3cbd0ef029e277c14e5 Cache packer: optional --order run (entries by bee and tick), about half the gzip size; main-run packs unchanged. Traces: phase 4b session",
-    "1cb3a0f15caef00e1f216ddcac910baa1780d18d E5 analysis script (pre-registered measures), written before reading any E5 result; checked on main-run data only. Traces: phase 4b session",
-    "2b99282058348d59172099213f7855f0fbd1cbb3 Pre-registration E5: talk with something to carry (post hoc, after E1 and E3), configs e5_full and e5_no_talk. Traces: phase 4b session",
-    "b1e7bb3d7f080083a4da9fb6e2be7f4fabb3c64c Setup calibration: E5 world (world scale s = 0.7, scripted bees only, inside the target fixed before the runs). Traces: phase 4b session",
-    "cdbd28046cae677f64e9c15ff5a2763a74551c6d Config for the E5 world calibration (scripted bees, 1 year, target fixed in the header)",
-    "4ebf5209d3d97de2e274305369fce108843b5d64 Diagnosis for E5: why trips failed in the main runs (finding the bloom, not carrying it home). Traces: phase 4b session"
+    "f6edb311110aa88eb38dc6d71754ba13730fffe8 Traces: phase 4b session (final export)",
+    "fa0c2f676ab8cc9cc5557cae161f9ef0cb6808dc Build notes: E5 moments for the video (first finder, hive talk passing the place, talk-informed delivery, the control); still at tick 172 following bee 6. Traces: phase 4b session",
+    "bd8cb66ef91c8f8a6e3a942fb1752332eabce30f README: E5 paragraph after the main negative results. AI disclosure: phase 4b session, E5 runtime tokens and spend, test count, the too-narrow acted-on-talk rule",
+    "0e715a40cfe203d7cdcbdad6505c3f2271a4725a EXPERIMENTS: E5 written up (both hypotheses unsupported; talk carried a place in one seed, bees with talk stayed home more), summary row, negative result 7, limits, spend; E5 replay log",
+    "bc784b2d1b7c6d5458c1584ae03d978f2bf19acb E5 runs (e5_full, e5_no_talk, seeds 0 to 4, commit a22b780), packed replay caches (run order) and analysis output. Traces: phase 4b session",
+    "7467d1586eed81cff6d93db39dd2a6b6145f0793 Build notes: phase 4b (E5 world, runs, analysis, packs); make analysis runs the E5 scripts. Traces: phase 4b session",
+    "477919b069eaf8a839fd0df7e135382d39dcd2c3 Cache packer: optional --order run (entries by bee and tick), about half the gzip size; main-run packs unchanged. Traces: phase 4b session",
+    "61c072e35909a1ceb4837b0eea0bafc14d3154c2 E5 analysis script (pre-registered measures), written before reading any E5 result; checked on main-run data only. Traces: phase 4b session",
+    "a22b780501dca4d85a92ff0f6bd54756e2b4c145 Pre-registration E5: talk with something to carry (post hoc, after E1 and E3), configs e5_full and e5_no_talk. Traces: phase 4b session",
+    "6748f586d70785a4ba126fbad7ba64e06435e4a7 Setup calibration: E5 world (world scale s = 0.7, scripted bees only, inside the target fixed before the runs). Traces: phase 4b session",
+    "d157697629c5d24891d66d81d8f2ec3d4ee371bf Config for the E5 world calibration (scripted bees, 1 year, target fixed in the header)",
+    "f16a1b03531cff422cc505df00637b379a949099 Diagnosis for E5: why trips failed in the main runs (finding the bloom, not carrying it home). Traces: phase 4b session"
   ],
   "kept_entries": 336,
   "omitted_entries": {
@@ -62,7 +62,9 @@
     "file-history-delta": 8,
     "cost-state": 1
   },
-  "redactions": {},
+  "redactions": {
+    "other-scratch": 18
+  },
   "transformations": {
     "thinking_omitted": 98,
     "truncated": 1
