@@ -1,0 +1,68 @@
+{
+  "session_id": "176af22d-6fd8-4584-bf52-a6c84ed92296",
+  "exporter_version": 1,
+  "agent_tool": "Claude Code",
+  "claude_code_versions": [
+    "2.1.296"
+  ],
+  "models": {
+    "claude-opus-5-5": 144
+  },
+  "first_timestamp": "2026-11-06T16:47:32.217Z",
+  "last_timestamp": "2026-11-06T17:06:34.644Z",
+  "source": {
+    "file": "176af22d-6fd8-4584-bf52-a6c84ed92296.jsonl",
+    "sha256": "49af3d8b7f3a6837188893c8f6817fe0486c5ac2558b457aed78a9f2b6ba64d0",
+    "lines": 425,
+    "unparseable_lines": 0
+  },
+  "usage_main_agent": {
+    "input_tokens": 144,
+    "output_tokens": 70873,
+    "cache_creation_input_tokens": 159834,
+    "cache_read_input_tokens": 7564519,
+    "api_responses": 72,
+    "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+  },
+  "human_prompts": 0,
+  "unmarked_prompts": 1,
+  "permission_decisions": {
+    "accept/config": 79
+  },
+  "tool_calls": {
+    "Bash": 72,
+    "Write": 6,
+    "Edit": 1
+  },
+  "subagents": [],
+  "commits_made_in_session": [],
+  "commits_in_time_window": [
+    "75370115551a02a77ebf0186ceb90edc8f018d28 ARCHITECTURE: the round 2 switches in plain words",
+    "4b80e405f07c974aa4ed4d23092305c3a09425f3 BUILD_NOTES: round 2 ten-minute check (spend $1.544 after 9.4 minutes; a shared endpoint rate limit sets the pace; projection)",
+    "b425c4c948ee75d36af26a93ca59c6ad6e8cfae1 Round 2 analysis script (every pre-registered measure, from finished or partial run directories; tested on the pilot and E5 runs), progress tool, BUILD_NOTES Round 2 runs, and the scripted 2-year setup calibration in the round 2 world (rule bees 21.33 deliveries, sd 10.26, n 3; random bees 0)",
+    "58aa4bb3fb7441bb309a1664c114ecf1904dc689 Pre-registration round 2: hypotheses H6 to H11, arms (B_full, B_no_talk, A_full, N_full, scripted rule and random), the round 2 world (E5 plus steady hatching and the shared clock), the 10:05 PT stop rule, measures and decision rules; configs r2_*.toml; decisions recorded",
+    "ddf19e3ce36c721e3d94eb6e9e6d34d2e2afb697 Round 2 switches, all off by default: shared decision clock, steady hatching, the reward rule told to arm A, a graceful wall-clock stop at season boundaries (stopped_at_tick in record.json, replayed to that tick), with tests; tools/clock_timing.py times the shared clock with a fake model"
+  ],
+  "kept_entries": 225,
+  "omitted_entries": {
+    "ai-title": 28,
+    "queue-operation": 2,
+    "attachment": 105,
+    "file-history-snapshot": 1,
+    "atis-latch": 28,
+    "last-prompt": 28,
+    "file-history-delta": 7,
+    "cost-state": 1
+  },
+  "redactions": {
+    "path-outside-repo": 2,
+    "other-scratch": 12
+  },
+  "transformations": {
+    "thinking_omitted": 58
+  },
+  "missing": {
+    "tool_results_stored_outside_log": 0,
+    "note": "Large tool outputs that Claude Code stored outside the session log are not exported; the log keeps its reference to them."
+  }
+}
