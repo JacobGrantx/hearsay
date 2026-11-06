@@ -20,6 +20,15 @@ import tempfile
 from pathlib import Path
 
 os.environ["LLM_MODE"] = "replay"
+
+
+def _own_pack(seed_dir: Path) -> None:
+    """Point the model wrapper at this run's own pack. Two runs with identical settings (for example e5_full and
+    r2_n_full on seed 0) ask identical first questions, so a shared index would mix their recorded answers."""
+    seed_dir = Path(seed_dir).resolve()
+    name = f"{seed_dir.parent.parent.name}_{seed_dir.parent.name}_{seed_dir.name}.jsonl.gz"
+    if (Path(__file__).resolve().parent.parent / "experiments" / "llm_cache" / name).exists():
+        os.environ["LLM_PACKS"] = name
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from run import run  # noqa: E402
 
@@ -45,6 +54,7 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=None)
     a = ap.parse_args()
     original = a.run_dir.resolve()
+    _own_pack(original)
     record = json.loads((original / "record.json").read_text())
     root = a.out or Path(tempfile.mkdtemp(prefix="replay_"))
     overrides = list(record.get("overrides", []))

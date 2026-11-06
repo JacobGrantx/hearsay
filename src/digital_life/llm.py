@@ -132,6 +132,10 @@ def _packed_response(key: str) -> dict | None:
     """Look a key up in the packed caches: CACHE_DIR/*.jsonl.gz, one per run, written by tools/pack_llm_cache.py."""
     with _lock:
         packs = tuple(sorted(CACHE_DIR.glob("*.jsonl.gz")))
+        only = os.environ.get("LLM_PACKS")  # replay one run from its own pack: runs with identical settings share request keys
+        if only:
+            wanted = {Path(x).name for x in only.split(",") if x}
+            packs = tuple(pk for pk in packs if pk.name in wanted)
         if _packed["source"] != (CACHE_DIR, packs):
             index = {}
             for pack in packs:

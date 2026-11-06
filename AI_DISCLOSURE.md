@@ -98,6 +98,8 @@ Yes, in part, and DECISIONS.md records who decided each item.
 - **Runtime reproducibility depends on the cache.** Model outputs cannot be seeded, so a run is reproducible only through its recorded responses. Which runs' responses are committed is listed in agent_traces/README.md, "Missing data".
 - **A measure too narrow for its question (E5).** The agent wrote E5's stricter "acted on talk" rule to count only a `go_to` toward the bloom. In the one seed where talk carried a place, a newborn followed what it heard with `explore NE` and named the heard coordinate as its target in its notes, so the rule scored it 0. This was found by reading the notes after the results; it is reported, not counted (EXPERIMENTS.md, E5). Separately, `min_bloom_distance`, the knob the plan named first for E5, turned out to do nothing below 55 on the full map, which the calibration showed before any AI run.
 
+- **A replay defect found in the final audit.** Replay cache keys do not include the run, so two runs with identical settings (E5 and round 2's N_full, seed 0) shared first-decision keys. Loading every pack at once made E5's replay pick up N_full's recorded answers and diverge. Replays now read only their own run's pack. The live results were not affected, because each experiment ran with its own cache. An independent clean-room run found this the morning of the deadline.
+
 ## Usage information
 
 - **Development:** token counts per session are in agent_traces/INDEX.md, summed from the usage record of each API response in the original logs. The setup session's usage is not available (its log is private).
