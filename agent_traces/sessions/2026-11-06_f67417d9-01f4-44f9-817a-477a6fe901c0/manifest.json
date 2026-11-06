@@ -1,0 +1,73 @@
+{
+  "session_id": "f67417d9-01f4-44f9-817a-477a6fe901c0",
+  "exporter_version": 1,
+  "agent_tool": "Claude Code",
+  "claude_code_versions": [
+    "2.1.296"
+  ],
+  "models": {
+    "claude-opus-5-5": 162
+  },
+  "first_timestamp": "2026-11-06T09:13:44.609Z",
+  "last_timestamp": "2026-11-06T09:35:40.410Z",
+  "source": {
+    "file": "f67417d9-01f4-44f9-817a-477a6fe901c0.jsonl",
+    "sha256": "af1b21eddffc9f9abc43b3131279eaa99d5ff3d025fff9d5dc8727118e0409c5",
+    "lines": 465,
+    "unparseable_lines": 0
+  },
+  "usage_main_agent": {
+    "input_tokens": 158,
+    "output_tokens": 100468,
+    "cache_creation_input_tokens": 150413,
+    "cache_read_input_tokens": 8793907,
+    "api_responses": 79,
+    "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+  },
+  "human_prompts": 0,
+  "unmarked_prompts": 1,
+  "permission_decisions": {
+    "accept/config": 80
+  },
+  "tool_calls": {
+    "Bash": 52,
+    "Write": 14,
+    "Edit": 3,
+    "Read": 11
+  },
+  "subagents": [],
+  "commits_made_in_session": [],
+  "commits_in_time_window": [
+    "6f6989fdddeea11259e2af6a8ccf2cab25c3871e Viewer: chase lines follow the target's interpolated position, so video frames do not judder",
+    "a3c5c903994306feec9685c4ce32ad15aab52bc0 Viewer: hornet panel does not hardcode the evolution interval, which is a tunable parameter",
+    "5f234253d5d9ece51aab2ca40bc72104cf29aab1 Viewer: hornet panel describes evolution as the spec does, and says when genes are frozen",
+    "87e0daf3b0da2dcdb34b8e8bf4c9f125d217bd04 Viewer: sound ripples end on a thin ring at the hearing radius instead of a filled disc, which went muddy where sounds overlap",
+    "005e2f86b0161c524e37569d22bcebbd921c5006 Viewer: test play, scrub, wheel zoom, drag pan and touch pinch",
+    "a11c9f88ea1fe86e967b40b47ce4262a07545795 Viewer: README with the bundle and capture commands, controls, capture mode and limits; browser accepts extra flags",
+    "10b8eaf420dcd368b23776b5c68170659956d66c Viewer: minimum on-screen sizes for bees and hornets, so the full 80 x 48 map reads at 1280 x 720",
+    "dceb04c6fefa06846ba19d1b2e042c3d3a4a8839 Viewer: in capture mode, trim the oldest panel items so every frame shows decisions, memories and hive talk",
+    "836caa2f44d404a0f6a8c5ca309712dc53ebdcd2 Viewer: smoke tests for bundling, file:// load, rendering, click selection and deterministic capture",
+    "7cf9077d60ef5c653e4486442cd6c1c48c7d3d04 Viewer: fan out bees sharing a cell; merge map cells into rectangles so rooms and walls have no seams",
+    "51f9d750aca430521d32c6c1ad935b9789aa81f5 Viewer: single-file run page (canvas map, bees, hornets, sounds, stings, hatchings, bee panel), bundler and headless capture over the DevTools pipe",
+    "4dd53716f61eadad67e4a477f54f658d5aef50e1 Viewer: synthetic run fixture in the log format, for developing and testing the viewer"
+  ],
+  "kept_entries": 244,
+  "omitted_entries": {
+    "ai-title": 31,
+    "queue-operation": 2,
+    "attachment": 110,
+    "file-history-snapshot": 1,
+    "atis-latch": 31,
+    "last-prompt": 31,
+    "file-history-delta": 14,
+    "cost-state": 1
+  },
+  "redactions": {},
+  "transformations": {
+    "thinking_omitted": 60
+  },
+  "missing": {
+    "tool_results_stored_outside_log": 0,
+    "note": "Large tool outputs that Claude Code stored outside the session log are not exported; the log keeps its reference to them."
+  }
+}

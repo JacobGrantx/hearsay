@@ -8,3 +8,4 @@ Tokens are summed from the API usage records in each log (input includes cache r
 | 2026-11-06 01:39 | [c859337b](sessions/2026-11-06_c859337b-23e1-4780-86a0-ebda1c4dc0cc/) | claude-opus-5-5 | 0 | 1 | 0 | 43,201 / 241 | - |
 | 2026-11-06 01:53 | [71fd6e83](sessions/2026-11-06_71fd6e83-76ea-446d-9676-cdd219cd1e0b/) | claude-opus-5-5 | 0 | 0 | 0 | 27,137 / 388 | - |
 | 2026-11-06 07:54 | [49412096](sessions/2026-11-06_49412096-6617-4115-a888-196c2b6ec30c/) | claude-opus-5-5, <synthetic> | 0 | 8 | 0 | 239,280 / 1,645 | - |
+| 2026-11-06 09:13 | [f67417d9](sessions/2026-11-06_f67417d9-01f4-44f9-817a-477a6fe901c0/) | claude-opus-5-5 | 0 | 80 | 0 | 8,944,478 / 100,468 | - |
