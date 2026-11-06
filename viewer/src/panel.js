@@ -133,5 +133,5 @@ function hornetHTML(run, T, id) {
   <div class="stats">${gene("smell")}${gene("hearing")}${gene("ambush")}</div>
   <p class="muted" style="margin-top:12px">${run.layout.condition === "frozen_hornets"
     ? "Hornets have no mind. In this run their genes are frozen at the first draw."
-    : "Hornets have no mind. Their genes evolve: every 25 ticks outside winter the least fit hornet is replaced by a copy of one picked in proportion to fitness, sometimes mutated."}</p>`;
+    : "Hornets have no mind. Their genes evolve: at fixed intervals outside winter the least fit hornet is replaced by a copy of one picked in proportion to fitness, sometimes mutated."}</p>`;
 }
