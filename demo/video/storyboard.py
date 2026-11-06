@@ -38,11 +38,11 @@ SEGMENTS = [
          beat="E5: hive talk passes the place", captions=[
              (0.0, 4.5, "Tick 167. Bee 4 at home: \"Back home carrying a bright thing from around (36,3), "
                         "found in the east. Members should know it is there.\"")]),
-    dict(id="08_e5_hears", kind="map", run=E5, t0=170, t1=174, seconds=4.5, bee=6, view="0,7,26,27",
+    dict(id="08_e5_hears", kind="map", run=E5, t0=171.5, t1=174.5, seconds=4.5, bee=6, view="0,7,26,27",
          beat="E5: the newborn keeps the place", captions=[
              (0.0, 4.5, "Tick 172. Bee 6, six ticks old, writes: \"Heard the valuable thing was found "
                         "near (37,3) in the east; explore east next.\"")]),
-    dict(id="09_e5_delivers", kind="map", run=E5, t0=174, t1=332, seconds=8.0, bee=6, view=None,
+    dict(id="09_e5_delivers", kind="map", run=E5, t0=174.5, t1=332, seconds=8.0, bee=6, view=None,
          beat="E5: a talk-informed delivery", captions=[
              (0.0, 4.0, "Bee 6 heads northeast toward (37,3), and reaches the bloom at tick 224."),
              (4.0, 8.0, "It delivers at tick 330. Talk carried a place, in 1 of 5 seeds. The bar we set in advance was 2.")]),
