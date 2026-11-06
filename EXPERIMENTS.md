@@ -598,9 +598,11 @@ The cache is committed in full: one `experiments/llm_cache/<arm>_<stamp>_seed-<n
 
 ## Spend
 
-The main runs made 25,738 live model calls and cost $5.3665 at list price (the sum of the per-process ledgers; `full` seed 0's first 250 ticks replayed from the pilot and cost nothing). The project's ledger `.llm_spend.json` stands at $5.5084 over 26,242 calls, against the phase 4 cap of $40 on top of the $0.1419 spent before it. The token totals in "Main runs: shared setup" price to the same figure. Wall time: the 29 main runs started at 10:15:58 and the last finished at 11:02:37 UTC (from the record.json start times and durations), with five to seven processes at once.
+The main runs made 25,738 live model calls and cost $5.3665 at list price (the sum of the per-process ledgers; `full` seed 0's first 250 ticks replayed from the pilot and cost nothing). After the main runs the project's ledger `.llm_spend.json` stood at $5.5084 over 26,242 calls, against the phase 4 cap of $40 on top of the $0.1419 spent before it. The token totals in "Main runs: shared setup" price to the same figure. Wall time: the 29 main runs started at 10:15:58 and the last finished at 11:02:37 UTC (from the record.json start times and durations), with five to seven processes at once.
 
-**E5 (phase 4b, post hoc):** 12,686 live model calls, $2.9816 at list price (the sum of the 10 per-process ledgers), 24,953,842 input and 972,531 output tokens (experiments/analysis/output/e5_results.md, "Model health"). The project ledger `.llm_spend.json` now stands at $8.49 over 38,928 calls, under the $15 cap set for E5. The 10 runs started at 11:29:13 UTC and the last finished about 19 minutes later (longest run 1,159.756 s).
+**E5 (phase 4b, post hoc):** 12,686 live model calls, $2.9816 at list price (the sum of the 10 per-process ledgers), 24,953,842 input and 972,531 output tokens (experiments/analysis/output/e5_results.md, "Model health"). After E5 the project ledger `.llm_spend.json` stood at $8.49 over 38,928 calls, under the $15 cap set for E5. The 10 runs started at 11:29:13 UTC and the last finished about 19 minutes later (longest run 1,159.756 s).
+
+**Ledger as of 2026-11-06 09:11 PT:** `.llm_spend.json` in the main checkout reads $8.5732 over 39,261 calls (the phase 6 pilot came after E5). Round 2 runs in a separate clone with its own ledger, so its spend is not in this figure; it is reported with the round 2 results.
 
 ## Negative results
 
