@@ -251,3 +251,12 @@ All in `e5_full` seed 0 (`experiments/results/e5_full/20261106T112913Z_s0/seed-0
 | any | **The control.** `e5_no_talk` seed 0 has the same maze, bloom and first hornets and made 3 deliveries in the year against `e5_full`'s 15; but over 5 seeds no_talk delivered more (8.2 against 5.2), so show it as "talk helped here, not in general" | |
 
 The honest caption for the video: talk carried a place in one seed of five, and colonies with talk spent more time at home and gathered no more.
+
+## Phase 5: the demo video and the final pass
+
+Written by the phase 5 build session (Claude Code, 2026-11-06).
+
+- **Fresh clone first.** `git clone` of origin main (commit 5546296) into /dev/shm, then `make setup` (35 s), `make test` (67 passed, 75 s) and `make demo` (10 s, ends `REPLAY IDENTICAL`). Nothing needed fixing. The video was rendered in that clone after pulling each later commit, and copied into the checkout.
+- **Moments:** `experiments/analysis/find_moments.py` prints, for every cited `full`, `no_talk`, `e5_full` and `e5_no_talk` run, the first year-1 spring delivery, hatches from deliveries, caution at a first sighting before any sting, stings followed by talk at home, hive talk naming a place near a bloom, go_to targets at a patch that is out of season, colony size across each winter, and year-2 spring. In the main world every colony is at the 2-bee floor through both winters, so the winter and old-route moments come from `e5_full` seed 0.
+- **Renderer:** `demo/video/` holds the storyboard (segments, run directories, ticks, captions), `cards.py` and `charts.py` (drawn from experiments/analysis/output/*.json), and `make_video.py`, which bundles each run with the project name, captures map segments with `viewer/capture.py` (two at a time), overlays captions with ffmpeg, concatenates everything at CRF 24 and writes `demo/recordings/SOURCES.md` and four stills. `make video` takes about 3 minutes on the build VM; `TITLE=` and `REPO=` override the title and the end card's repository line.
+- **After a rename or the move to a public namespace:** run `make video TITLE="<name>" REPO="<public path>"` (or update the README H1 first, which is the default title) and commit the new demo.mp4, SOURCES.md and stills.

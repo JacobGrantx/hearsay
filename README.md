@@ -26,13 +26,35 @@ The property we go deep on is **adaptation, at three speeds**, under seasonal ch
 | Across bee generations | hive talk: the only way knowledge can outlive the bee that found it | `no_talk` |
 | Across hornet generations | selection and mutation of hornet genomes | `frozen_hornets` |
 
-Persistence (knowledge outliving every bee that gained it), interaction (talk, sounds, predator and prey) and emergence (whether two meaningless sounds come to mean something; `labels_good_bad` is its control) are studied as parts of that one question, not as separate features. Each speed has its own switch, so each claim can be tested by turning it off.
+Persistence (knowledge outliving every bee that gained it), interaction (talk, sounds, predator and prey) and emergence (whether two meaningless sounds come to mean something; `labels_good_bad` is its control) are studied as parts of that one question. Each speed has its own switch, so each claim can be tested by turning it off.
 
 ## Demonstration
 
-Video to come. A still from the viewer, replaying a recorded run of the `full` condition (seed 0, tick 1053). Bee 9 set out in winter, found the spring bloom the moment it opened, and is carrying it home past hornets with 55 life left; the panel shows its own notes and what it heard at home ([EXPERIMENTS.md](EXPERIMENTS.md), E3):
+**[Watch the demo video](demo/recordings/demo.mp4)** (88.5 seconds, 1280 x 720, no sound). Every map shot in it is a replay of a logged run, drawn by the viewer from the run directory, and the cards and charts are drawn from `experiments/analysis/output/`. There is no generated footage. It follows the findings in order: the world, the bees' caution and where it comes from, the one time we saw talk carry a place (E5, 1 seed of 5), the seasons, then the results, negative ones included.
 
-![Viewer still: bee 9 carrying spring bloom home in year 2, full condition, seed 0](demo/screenshots/full_seed0_t1053_bee9.png)
+| Segment | Run directory | Ticks | Follows |
+|---|---|---|---|
+| The world | `experiments/results/full/20261106T101558Z/seed-0` | 0 to 80 | the colony |
+| Caution at first sight, before any sting | same | 28 to 44 | bee 5 |
+| Stung twice carrying bloom, then a warning at home | same | 98 to 190 | bee 1 |
+| E5: a first finder delivers and bee 6 hatches | `experiments/results/e5_full/20261106T112913Z_s0/seed-0` | 55 to 166 | bee 4 |
+| E5: hive talk passes the place | same | 166 to 174.5 | bee 4, then bee 6 |
+| E5: the newborn finds the place and delivers | same | 174.5 to 332 | bee 6 |
+| Summer: back to the old spring place | same | 298 to 440 | bee 1 |
+| Winter: the colony falls from 7 to 4 | same | 740 to 1000 | the colony |
+
+Captions, frame steps and chart sources are in [demo/recordings/SOURCES.md](demo/recordings/SOURCES.md). The moments were found in the logs by `experiments/analysis/find_moments.py`, and every tick, life value and quote in a caption is copied from the run's events. `make video` re-renders the whole video from the run directories in about 3 minutes (`TITLE=` and `REPO=` change the title and the repository line; it needs ffmpeg and the viewer's headless shell, see [viewer/README.md](viewer/README.md)).
+
+Stills from the viewer:
+
+| | |
+|---|---|
+| ![Bee 5 flees the first moving thing it sees, never stung](demo/screenshots/full_seed0_t34_bee5_first_sight.png) | ![Bee 1 at home after two stings](demo/screenshots/full_seed0_t184_bee1_warns.png) |
+| `full` seed 0, tick 34: bee 5 sees a moving thing for the first time and flees. It has never been stung | `full` seed 0, tick 184: bee 1, stung twice on the way home, tells newborn bee 6 "Bright cells there are dangerous" |
+| ![Bee 4 tells the hive where the bloom is](demo/screenshots/e5_full_seed0_t167_bee4_tells.png) | ![Bee 1 back at the old spring place in summer](demo/screenshots/e5_full_seed0_t355_bee1_old_place.png) |
+| `e5_full` seed 0, tick 167: bee 4 says where it found the bloom, and newborn bee 6 hears it | `e5_full` seed 0, tick 355: in summer bee 1 goes back to where spring's bloom was, and is stung beside it |
+
+One more, from E3: the winter forager, bee 9, carrying spring bloom home in year 2 with 55 life left (`full` seed 0, tick 1053, [still](demo/screenshots/full_seed0_t1053_bee9.png)).
 
 Run a small version yourself, no key needed:
 
@@ -79,7 +101,7 @@ Requires Python 3.11 or later and `make`. No GPU, no API key for anything below.
 git clone <public repository URL, at submission>
 cd digital-life
 make setup        # .venv, pinned dependencies, secret-scan pre-commit hook
-make test         # 66 tests, about a minute
+make test         # 69 tests, about a minute
 make demo         # small scripted world, then an offline replay of a recorded AI run
 ```
 
@@ -104,7 +126,7 @@ A 2-year AI run took 11 to 18 minutes and cost about $0.28 in our runs (19 runs,
 
 We pre-registered four hypotheses, the measures and the decision rule before the first real bee-mind call (commit c2052a2), then ran 29 two-year runs at one commit: five AI arms and two scripted baselines, 3 or 5 seeds each, paired by seed. 26,093 AI decisions, no model failures. Every number below is copied from [experiments/analysis/output/main_results.md](experiments/analysis/output/main_results.md); the full write-up, with controls, is [EXPERIMENTS.md](EXPERIMENTS.md).
 
-**All four hypotheses failed their controls.** We report that plainly, because the controls are what tell us what the colony is really doing.
+**All four hypotheses failed their controls.** The controls are what tell us what the colony is really doing.
 
 | | Hypothesis | What happened |
 |---|---|---|
