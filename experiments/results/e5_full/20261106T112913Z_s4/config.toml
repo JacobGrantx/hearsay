@@ -1,0 +1,26 @@
+# E5 (post-hoc follow-up to E1 and E3): AI bees with memory, hive talk and neutral sounds, in the E5 world.
+# E5 world: world scale s = 0.7 (EXPERIMENTS.md, "Setup calibration", "E5 world"): 56 x 34, bloom distance band
+# from 38, hornet spawn distance 18, hornets [2, 3, 4, 0] per season. 1 year. Pre-registered in EXPERIMENTS.md.
+# Bee minds as in the main runs: claude-haiku-5-5, effort low, thinking disabled, structured output (src/digital_life/mind.py).
+[experiment]
+name = "e5_full"
+entrypoint = "digital_life.sim:run"
+hypothesis = "E5: in a world where the bloom is reachable, full delivers more than no_talk, and some full deliveries are made by bees that first learned of the bloom from talk at home."
+seeds = [0, 1, 2, 3, 4]
+
+[params]
+condition = "full"
+width = 56
+height = 34
+season_length = 250
+years = 1
+base_life = 500
+min_bloom_distance = 38
+hornet_spawn_distance = 18
+hornet_counts = [2, 3, 4, 0]
+openness = 0.15
+ambush_rate = 0.02
+hornet_speed = 0.8
+mind_model = "claude-haiku-5-5"
+mind_effort = "low"
+mind_max_tokens = 400

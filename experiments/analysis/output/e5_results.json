@@ -1,0 +1,821 @@
+{
+ "a": {
+  "deliveries": {
+   "e5_full": {
+    "n": 5,
+    "mean": 5.2,
+    "sd": 5.6303,
+    "per_seed": {
+     "0": 15,
+     "1": 4,
+     "2": 4,
+     "3": 2,
+     "4": 1
+    }
+   },
+   "e5_no_talk": {
+    "n": 5,
+    "mean": 8.2,
+    "sd": 5.933,
+    "per_seed": {
+     "0": 3,
+     "1": 4,
+     "2": 18,
+     "3": 8,
+     "4": 8
+    }
+   }
+  },
+  "spring_deliveries": {
+   "e5_full": {
+    "n": 5,
+    "mean": 2.6,
+    "sd": 2.0736,
+    "per_seed": {
+     "0": 5,
+     "1": 3,
+     "2": 4,
+     "3": 1,
+     "4": 0
+    }
+   },
+   "e5_no_talk": {
+    "n": 5,
+    "mean": 2.2,
+    "sd": 1.9235,
+    "per_seed": {
+     "0": 1,
+     "1": 3,
+     "2": 2,
+     "3": 5,
+     "4": 0
+    }
+   }
+  },
+  "delivery_rate": {
+   "e5_full": {
+    "n": 5,
+    "mean": 0.1845,
+    "sd": 0.1545,
+    "per_seed": {
+     "0": 0.4412,
+     "1": 0.16,
+     "2": 0.1905,
+     "3": 0.0833,
+     "4": 0.0476
+    }
+   },
+   "e5_no_talk": {
+    "n": 5,
+    "mean": 0.1971,
+    "sd": 0.0804,
+    "per_seed": {
+     "0": 0.1071,
+     "1": 0.1379,
+     "2": 0.3103,
+     "3": 0.2353,
+     "4": 0.1951
+    }
+   }
+  },
+  "trips": {
+   "e5_full": {
+    "n": 5,
+    "mean": 26.6,
+    "sd": 4.5056,
+    "per_seed": {
+     "0": 34,
+     "1": 27,
+     "2": 23,
+     "3": 26,
+     "4": 23
+    }
+   },
+   "e5_no_talk": {
+    "n": 5,
+    "mean": 40.6,
+    "sd": 14.1527,
+    "per_seed": {
+     "0": 29,
+     "1": 31,
+     "2": 64,
+     "3": 36,
+     "4": 43
+    }
+   }
+  },
+  "stings_per_trip": {
+   "e5_full": {
+    "n": 5,
+    "mean": 0.4025,
+    "sd": 0.1525,
+    "per_seed": {
+     "0": 0.3529,
+     "1": 0.6,
+     "2": 0.2857,
+     "3": 0.25,
+     "4": 0.5238
+    }
+   },
+   "e5_no_talk": {
+    "n": 5,
+    "mean": 0.6165,
+    "sd": 0.5436,
+    "per_seed": {
+     "0": 0.1071,
+     "1": 1.1379,
+     "2": 0.2069,
+     "3": 1.2647,
+     "4": 0.3659
+    }
+   }
+  },
+  "bees_mean": {
+   "e5_full": {
+    "n": 5,
+    "mean": 5.3568,
+    "sd": 2.053,
+    "per_seed": {
+     "0": 8.735,
+     "1": 4.732,
+     "2": 5.685,
+     "3": 4.133,
+     "4": 3.499
+    }
+   },
+   "e5_no_talk": {
+    "n": 5,
+    "mean": 6.2256,
+    "sd": 1.8655,
+    "per_seed": {
+     "0": 4.889,
+     "1": 4.745,
+     "2": 9.366,
+     "3": 6.18,
+     "4": 5.948
+    }
+   }
+  },
+  "first_sighting_e5_full": {
+   "0": {
+    "spring": 52,
+    "summer": 0,
+    "autumn": 250
+   },
+   "1": {
+    "spring": 88,
+    "summer": 163,
+    "autumn": 250
+   },
+   "2": {
+    "spring": 48,
+    "summer": 250,
+    "autumn": 246
+   },
+   "3": {
+    "spring": 35,
+    "summer": 112,
+    "autumn": 250
+   },
+   "4": {
+    "spring": 67,
+    "summer": 250,
+    "autumn": 189
+   }
+  },
+  "first_sighting_e5_no_talk": {
+   "0": {
+    "spring": 61,
+    "summer": 0,
+    "autumn": 18
+   },
+   "1": {
+    "spring": 70,
+    "summer": 21,
+    "autumn": 0
+   },
+   "2": {
+    "spring": 69,
+    "summer": 0,
+    "autumn": 0
+   },
+   "3": {
+    "spring": 35,
+    "summer": 93,
+    "autumn": 0
+   },
+   "4": {
+    "spring": 43,
+    "summer": 1,
+    "autumn": 0
+   }
+  },
+  "paired_deliveries": {
+   "diffs": {
+    "0": 12,
+    "1": 0,
+    "2": -14,
+    "3": -6,
+    "4": -7
+   },
+   "mean": -3.0,
+   "sd": 9.7468,
+   "n": 5,
+   "same_sign": false,
+   "consistent": false,
+   "verdict": "no consistent difference"
+  }
+ },
+ "b": {
+  "e5_full": {
+   "per_seed": {
+    "0": {
+     "deliveries": 15,
+     "talk_informed": 2,
+     "acted": 0,
+     "says": 918,
+     "bloom_says": 100,
+     "bloom_listeners": 398
+    },
+    "1": {
+     "deliveries": 4,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 333,
+     "bloom_says": 9,
+     "bloom_listeners": 14
+    },
+    "2": {
+     "deliveries": 4,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 725,
+     "bloom_says": 3,
+     "bloom_listeners": 9
+    },
+    "3": {
+     "deliveries": 2,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 457,
+     "bloom_says": 0,
+     "bloom_listeners": 0
+    },
+    "4": {
+     "deliveries": 1,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 102,
+     "bloom_says": 1,
+     "bloom_listeners": 1
+    }
+   },
+   "talk_informed": {
+    "n": 5,
+    "mean": 0.4,
+    "sd": 0.8944,
+    "per_seed": {
+     "0": 2,
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0
+    }
+   },
+   "acted": {
+    "n": 5,
+    "mean": 0.0,
+    "sd": 0.0,
+    "per_seed": {
+     "0": 0,
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0
+    }
+   },
+   "seeds_with_talk_informed": 1
+  },
+  "e5_no_talk": {
+   "per_seed": {
+    "0": {
+     "deliveries": 3,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 0,
+     "bloom_says": 0,
+     "bloom_listeners": 0
+    },
+    "1": {
+     "deliveries": 4,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 0,
+     "bloom_says": 0,
+     "bloom_listeners": 0
+    },
+    "2": {
+     "deliveries": 18,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 0,
+     "bloom_says": 0,
+     "bloom_listeners": 0
+    },
+    "3": {
+     "deliveries": 8,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 0,
+     "bloom_says": 0,
+     "bloom_listeners": 0
+    },
+    "4": {
+     "deliveries": 8,
+     "talk_informed": 0,
+     "acted": 0,
+     "says": 0,
+     "bloom_says": 0,
+     "bloom_listeners": 0
+    }
+   },
+   "talk_informed": {
+    "n": 5,
+    "mean": 0.0,
+    "sd": 0.0,
+    "per_seed": {
+     "0": 0,
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0
+    }
+   },
+   "acted": {
+    "n": 5,
+    "mean": 0.0,
+    "sd": 0.0,
+    "per_seed": {
+     "0": 0,
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0
+    }
+   },
+   "seeds_with_talk_informed": 0
+  },
+  "examples": [
+   {
+    "seed": 0,
+    "bee": 6,
+    "delivery_t": 330,
+    "pickup_t": 224,
+    "season": "spring",
+    "first_sighting": 216,
+    "talk_informed": true,
+    "acted": false,
+    "heard": [
+     {
+      "t": 167,
+      "speaker": 4,
+      "text": "Back home carrying a bright thing from around (36,3), found in the east. Members should know it is there. Waiting here to report.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 170,
+      "speaker": 3,
+      "text": "Back home carrying the bright thing, delivered. Bright spot seen near (37,3). East is least explored; I will wait and then explore east.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 171,
+      "speaker": 0,
+      "text": "Back home with the valuable thing from (37,3). Route was the south-west corridor. Will rest here and explore east next time.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 172,
+      "speaker": 4,
+      "text": "Awake at home. Exploring east toward the bright spot near (37,3) and will report back.",
+      "speaker_had_seen": true
+     }
+    ],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 7,
+    "delivery_t": 332,
+    "pickup_t": 226,
+    "season": "spring",
+    "first_sighting": 218,
+    "talk_informed": true,
+    "acted": false,
+    "heard": [
+     {
+      "t": 170,
+      "speaker": 3,
+      "text": "Back home carrying the bright thing, delivered. Bright spot seen near (37,3). East is least explored; I will wait and then explore east.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 171,
+      "speaker": 0,
+      "text": "Back home with the valuable thing from (37,3). Route was the south-west corridor. Will rest here and explore east next time.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 172,
+      "speaker": 4,
+      "text": "Awake at home. Exploring east toward the bright spot near (37,3) and will report back.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 172,
+      "speaker": 6,
+      "text": "Awake again. Exploring northeast toward the east side, since east is least seen and the bright thing was found near (37,3).",
+      "speaker_had_seen": false
+     },
+     {
+      "t": 175,
+      "speaker": 3,
+      "text": "Awake at home. East is least seen; I will explore east toward the bright spot near (37,3) and report back.",
+      "speaker_had_seen": true
+     }
+    ],
+    "first_go_to": null
+   }
+  ],
+  "all_full_deliveries": [
+   {
+    "seed": 0,
+    "bee": 4,
+    "delivery_t": 166,
+    "pickup_t": 60,
+    "season": "spring",
+    "first_sighting": 52,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 3,
+    "delivery_t": 169,
+    "pickup_t": 69,
+    "season": "spring",
+    "first_sighting": 61,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 0,
+    "delivery_t": 170,
+    "pickup_t": 70,
+    "season": "spring",
+    "first_sighting": 62,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 1,
+    "delivery_t": 180,
+    "pickup_t": 76,
+    "season": "spring",
+    "first_sighting": 68,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 2,
+    "delivery_t": 198,
+    "pickup_t": 140,
+    "season": "spring",
+    "first_sighting": 132,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 1,
+    "delivery_t": 297,
+    "pickup_t": 244,
+    "season": "spring",
+    "first_sighting": 68,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 3,
+    "delivery_t": 305,
+    "pickup_t": 250,
+    "season": "summer",
+    "first_sighting": 250,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 0,
+    "delivery_t": 309,
+    "pickup_t": 250,
+    "season": "summer",
+    "first_sighting": 250,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 4,
+    "delivery_t": 314,
+    "pickup_t": 261,
+    "season": "summer",
+    "first_sighting": 251,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 6,
+    "delivery_t": 330,
+    "pickup_t": 224,
+    "season": "spring",
+    "first_sighting": 216,
+    "talk_informed": true,
+    "acted": false,
+    "heard": [
+     {
+      "t": 167,
+      "speaker": 4,
+      "text": "Back home carrying a bright thing from around (36,3), found in the east. Members should know it is there. Waiting here to report.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 170,
+      "speaker": 3,
+      "text": "Back home carrying the bright thing, delivered. Bright spot seen near (37,3). East is least explored; I will wait and then explore east.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 171,
+      "speaker": 0,
+      "text": "Back home with the valuable thing from (37,3). Route was the south-west corridor. Will rest here and explore east next time.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 172,
+      "speaker": 4,
+      "text": "Awake at home. Exploring east toward the bright spot near (37,3) and will report back.",
+      "speaker_had_seen": true
+     }
+    ],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 7,
+    "delivery_t": 332,
+    "pickup_t": 226,
+    "season": "spring",
+    "first_sighting": 218,
+    "talk_informed": true,
+    "acted": false,
+    "heard": [
+     {
+      "t": 170,
+      "speaker": 3,
+      "text": "Back home carrying the bright thing, delivered. Bright spot seen near (37,3). East is least explored; I will wait and then explore east.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 171,
+      "speaker": 0,
+      "text": "Back home with the valuable thing from (37,3). Route was the south-west corridor. Will rest here and explore east next time.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 172,
+      "speaker": 4,
+      "text": "Awake at home. Exploring east toward the bright spot near (37,3) and will report back.",
+      "speaker_had_seen": true
+     },
+     {
+      "t": 172,
+      "speaker": 6,
+      "text": "Awake again. Exploring northeast toward the east side, since east is least seen and the bright thing was found near (37,3).",
+      "speaker_had_seen": false
+     },
+     {
+      "t": 175,
+      "speaker": 3,
+      "text": "Awake at home. East is least seen; I will explore east toward the bright spot near (37,3) and report back.",
+      "speaker_had_seen": true
+     }
+    ],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 2,
+    "delivery_t": 351,
+    "pickup_t": 263,
+    "season": "summer",
+    "first_sighting": 253,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 5,
+    "delivery_t": 355,
+    "pickup_t": 278,
+    "season": "summer",
+    "first_sighting": 267,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 1,
+    "delivery_t": 436,
+    "pickup_t": 376,
+    "season": "summer",
+    "first_sighting": 366,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 0,
+    "bee": 4,
+    "delivery_t": 482,
+    "pickup_t": 428,
+    "season": "summer",
+    "first_sighting": 251,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 1,
+    "bee": 2,
+    "delivery_t": 196,
+    "pickup_t": 125,
+    "season": "spring",
+    "first_sighting": 114,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 1,
+    "bee": 0,
+    "delivery_t": 243,
+    "pickup_t": 167,
+    "season": "spring",
+    "first_sighting": 158,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 1,
+    "bee": 4,
+    "delivery_t": 247,
+    "pickup_t": 171,
+    "season": "spring",
+    "first_sighting": 162,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 1,
+    "bee": 8,
+    "delivery_t": 485,
+    "pickup_t": 419,
+    "season": "summer",
+    "first_sighting": 413,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 2,
+    "bee": 2,
+    "delivery_t": 119,
+    "pickup_t": 62,
+    "season": "spring",
+    "first_sighting": 48,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 2,
+    "bee": 4,
+    "delivery_t": 137,
+    "pickup_t": 82,
+    "season": "spring",
+    "first_sighting": 69,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 2,
+    "bee": 5,
+    "delivery_t": 165,
+    "pickup_t": 111,
+    "season": "spring",
+    "first_sighting": 97,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 2,
+    "bee": 3,
+    "delivery_t": 167,
+    "pickup_t": 113,
+    "season": "spring",
+    "first_sighting": 99,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 3,
+    "bee": 5,
+    "delivery_t": 88,
+    "pickup_t": 42,
+    "season": "spring",
+    "first_sighting": 35,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 3,
+    "bee": 0,
+    "delivery_t": 419,
+    "pickup_t": 373,
+    "season": "summer",
+    "first_sighting": 362,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   },
+   {
+    "seed": 4,
+    "bee": 7,
+    "delivery_t": 745,
+    "pickup_t": 699,
+    "season": "autumn",
+    "first_sighting": 689,
+    "talk_informed": false,
+    "acted": false,
+    "heard": [],
+    "first_go_to": null
+   }
+  ]
+ }
+}
