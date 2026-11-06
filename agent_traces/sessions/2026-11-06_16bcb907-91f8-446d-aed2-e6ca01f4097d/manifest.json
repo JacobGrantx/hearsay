@@ -1,0 +1,116 @@
+{
+  "session_id": "16bcb907-91f8-446d-aed2-e6ca01f4097d",
+  "exporter_version": 1,
+  "agent_tool": "Claude Code",
+  "claude_code_versions": [
+    "2.1.296"
+  ],
+  "models": {
+    "claude-opus-5-5": 184
+  },
+  "first_timestamp": "2026-11-06T17:07:16.882Z",
+  "last_timestamp": "2026-11-06T17:15:07.332Z",
+  "source": {
+    "file": "16bcb907-91f8-446d-aed2-e6ca01f4097d.jsonl",
+    "sha256": "3b69f6dfcb3305c08c7b780ff5fc29b6e933225b62468623a1475c6ce4c729a3",
+    "lines": 368,
+    "unparseable_lines": 0
+  },
+  "usage_main_agent": {
+    "input_tokens": 136,
+    "output_tokens": 34019,
+    "cache_creation_input_tokens": 101813,
+    "cache_read_input_tokens": 5513184,
+    "api_responses": 68,
+    "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+  },
+  "human_prompts": 0,
+  "unmarked_prompts": 1,
+  "permission_decisions": {
+    "accept/config": 103
+  },
+  "tool_calls": {
+    "Bash": 88,
+    "Agent": 1,
+    "Write": 1,
+    "Read": 2,
+    "Edit": 11,
+    "SubagentHandback": 1
+  },
+  "subagents": [
+    {
+      "agent_id": "agent-a258a040eeb4b6113",
+      "agentType": "general-purpose",
+      "description": "Fix AI_DISCLOSURE.md items",
+      "toolUseId": "toolu_014nYL5a4VLCRaKiiMiQYYJx",
+      "spawnDepth": 1,
+      "source_sha256": "b2dd38e53a6ce87b8693c97ab7904f1395d57212ba1ce5046c73bac99696cce8",
+      "source_lines": 139,
+      "unparseable_lines": 0,
+      "first_timestamp": "2026-11-06T17:08:00.347Z",
+      "last_timestamp": "2026-11-06T17:11:57.766Z",
+      "usage": {
+        "input_tokens": 60,
+        "output_tokens": 8441,
+        "cache_creation_input_tokens": 78882,
+        "cache_read_input_tokens": 1720447,
+        "api_responses": 30,
+        "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
+      },
+      "tool_calls": {
+        "Read": 2,
+        "Bash": 20,
+        "Edit": 11,
+        "SubagentHandback": 1
+      },
+      "omitted_entries": {
+        "attachment": 42
+      },
+      "commits": []
+    }
+  ],
+  "commits_made_in_session": [],
+  "commits_in_time_window": [
+    "6a58d124f312345da48f3b7602a009e840bfa92c ARCHITECTURE and EXPERIMENTS: the neutral prompt's flee intent and the labels exception stated; hive talk points most often at home, then at moving things (925 of 1,621 at neither, 892 of them at home; the old 'mostly about moving things' did not match 585 of 1,621)",
+    "2375bf1a92da1026718f91c58e87fa4ee55f595a README: two more absolute phrases softened to what is literally true (what the colony must find out itself; harm words, with flee as the nearest prompt wording)",
+    "836d9dba09ab2e6ab2cf989c9c5f9e4a4b2a2431 AI_DISCLOSURE: the current ledger total, labelled as of 09:11 PT, with round 2's separate spend files noted",
+    "0fcc4d510577f0cd198cb53357eb32aff8a8853c README: make test runs 93 tests in 2 to 3 minutes (measured: 93 passed in 155.93 s)",
+    "520959a1cde814b5736dd6589a487b28d43f2a20 Video and viewer: caution caption matched to the evidence (prior, the word flee, or both), 'what a hornet or a flower is' instead of 'what anything is', make video about 3 to 10 minutes depending on load, viewer default name Hearsay (make test: 93 passed)",
+    "d0686b6fcfe268c69dbc9224086a3a3f9bf9476c README Agent traces: every phase session listed, and the setup session's summary noted",
+    "b4cce679b606fc0604e92353ef4be5e1ff8f54d9 Contradictions: make demo replays full seed 0, not the pilot (ARCHITECTURE; DECISIONS marks the earlier choice superseded); make video takes about 3 to 10 minutes depending on load (README)",
+    "077cc773ebe67acee5502d0a11d38a66919479b0 README: round 1 and E5 used the neutral wording, round 2 (abstract, pre-registered) is running; Why digital life names the thread through every experiment, whether knowledge outlives the individual who found it",
+    "392311e37761e1641ded47156758e1d6764f5b59 README: the name Hearsay, a one-line description, and the private GitLab clone URL",
+    "c4d7359c93129025e8f83b8f839e1bfeec32b737 Submission draft: name Hearsay, the private GitLab URL and why (Jacob's decision), what judges need (access, Python 3.11+, no API key), caution wording matched to the evidence",
+    "c35b18a28e363c231311930de952a16cc95db061 DECISIONS: Jacob's 09:00 PT decisions: the name Hearsay, GitLab (brief section 8 asks for public GitHub), and private, with make check's access FAIL kept",
+    "234cd6f7515b6645759872d57e5d89e700f033ab AI_DISCLOSURE: item 1 placeholder resolved from the record; item 2 setup-session probes, fresh-clone check and audit (not in traces, and why); item 3 every phase session; item 4 vocab.py and the abstract prompt; item 5 the vocabulary request, round 2 choices and the 09:00 PT decisions; item 8 the private-text leak and rewrite, the wrong id map, and near-empty commit 2d07df7",
+    "71bc5b8a5032a9f94d41a8843a5cc3140ec70ff8 EXPERIMENTS Spend: round 2 keeps one spend file per run (BUILD_NOTES)",
+    "916f9f720186ddf8df7da49101e72adf757ecca8 EXPERIMENTS Spend: past ledger figures in the past tense, and the current ledger total labelled as of 09:11 PT",
+    "0548428f45649f20c3f505587b24570aa18b8af3 EXPERIMENTS: run records' commit ids predate the history rewrite; translate them through docs/methodology/history-rewrite.md (main_results.md's 9cb4e7a is 663d562 now)",
+    "1fd803953c3f49447a77879be4f0ff5e2512ba1f History: agent_traces/README points to docs/methodology/history-rewrite.md and says it happened; CONTRIBUTING and CLAUDE.md note the one exception; redaction table gains harness-meta, path-outside-repo and other-scratch rows",
+    "ebd79d528fff1c610b2d9befdaf19a2f34c3d51b Hive talk: the pre-registered figure first (925 of 1,621 coordinates point at neither a bloom nor a moving thing), then the exploratory home split (33), labelled exploratory",
+    "891441af719905b0ea9fdc3157529ab4f93f213e Caution claim: not learned from experience; it comes from the model's prior, the wording, or both (round 1 offered flee; round 2's H6 tests the wording without it; phase 6 pilot, one seed). README: 'told only' and the banned-word test's labels exception",
+    "1dfc79cad23398c048e9057583cd730a9f9a6767 Round 2 amendment 1: stop A_full and N_full seeds 1 and 2 to give the B arms throughput for a second year (Jacob's decision; made before any round 2 result was read)"
+  ],
+  "kept_entries": 193,
+  "omitted_entries": {
+    "queue-operation": 10,
+    "attachment": 97,
+    "file-history-snapshot": 1,
+    "atis-latch": 24,
+    "last-prompt": 23,
+    "ai-title": 19,
+    "file-history-delta": 1
+  },
+  "redactions": {
+    "path-outside-repo": 4,
+    "harness-meta": 1
+  },
+  "transformations": {
+    "thinking_omitted": 73,
+    "harness_meta_redacted": 1
+  },
+  "missing": {
+    "tool_results_stored_outside_log": 0,
+    "note": "Large tool outputs that Claude Code stored outside the session log are not exported; the log keeps its reference to them."
+  }
+}
