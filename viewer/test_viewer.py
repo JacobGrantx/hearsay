@@ -122,3 +122,32 @@ def test_real_run_loads(run_dir, scratch):
         for i in (0, last // 2, last):
             b.eval(f"window.__capture.frame({i})")
         assert b.errors == []
+
+
+@needs_browser
+def test_play_scrub_zoom_pan_and_pinch(scratch):
+    page = write_page(FIXTURE, scratch)
+    with Browser(1280, 720) as b:
+        open_ready(b, page, "#t=10")
+        b.eval("document.getElementById('play').click()")
+        b.wait_for("V.state.tau > 10.5", timeout=5)
+        b.eval("document.getElementById('play').click()")
+        assert b.eval("V.state.playing") is False
+        b.eval("const s = document.getElementById('timeline'); s.value = 120; s.dispatchEvent(new Event('input'))")
+        assert b.eval("V.state.tau") == 120
+        scale0 = b.eval("V.state.view.scale")
+        b.call("Input.dispatchMouseEvent", {"type": "mouseWheel", "x": 400, "y": 300, "deltaX": 0, "deltaY": -300})
+        b.wait_for(f"V.state.view.scale > {scale0} * 1.2", timeout=5)
+        ox0 = b.eval("V.state.view.ox")
+        for kind, x in (("mousePressed", 400), ("mouseMoved", 450), ("mouseMoved", 500), ("mouseReleased", 500)):
+            b.call("Input.dispatchMouseEvent", {"type": kind, "x": x, "y": 300, "button": "left", "buttons": 1, "clickCount": 1})
+        b.wait_for(f"V.state.view.ox > {ox0} + 50", timeout=5)
+        scale1 = b.eval("V.state.view.scale")
+        touch = lambda kind, pts: b.call("Input.dispatchTouchEvent", {"type": kind, "touchPoints": [
+            {"x": x, "y": 300, "id": i} for i, x in enumerate(pts)]})
+        touch("touchStart", [400, 500])
+        touch("touchMove", [350, 550])
+        touch("touchMove", [300, 600])
+        touch("touchEnd", [])
+        b.wait_for(f"V.state.view.scale > {scale1} * 1.5", timeout=5)
+        assert b.errors == []
