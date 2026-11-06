@@ -6,55 +6,56 @@
     "2.1.296"
   ],
   "models": {
-    "claude-opus-5-5": 138
+    "claude-opus-5-5": 159
   },
   "first_timestamp": "2026-11-06T15:38:04.967Z",
-  "last_timestamp": "2026-11-06T15:57:21.130Z",
+  "last_timestamp": "2026-11-06T15:59:05.067Z",
   "source": {
     "file": "c34f9a85-69f7-4c08-96b4-5027b445cdc7.jsonl",
-    "sha256": "9446299f4b9c2b4a87f1a1cc08cc6858a4a6bd1265d85b26cc3f61b36a102868",
-    "lines": 422,
+    "sha256": "5b9e488dd29ca64937bde11cca1c1350418c12d102eef8d920918291d4636575",
+    "lines": 476,
     "unparseable_lines": 0
   },
   "usage_main_agent": {
-    "input_tokens": 142,
-    "output_tokens": 65041,
-    "cache_creation_input_tokens": 156905,
-    "cache_read_input_tokens": 8555131,
-    "api_responses": 71,
+    "input_tokens": 162,
+    "output_tokens": 72278,
+    "cache_creation_input_tokens": 165508,
+    "cache_read_input_tokens": 10344507,
+    "api_responses": 81,
     "note": "Summed from the usage field of each API response in the original log, one count per response id. Not estimated."
   },
   "human_prompts": 0,
   "unmarked_prompts": 1,
   "permission_decisions": {
-    "accept/config": 77
+    "accept/config": 87
   },
   "tool_calls": {
-    "Bash": 72,
+    "Bash": 82,
     "Write": 6
   },
   "subagents": [],
   "commits_made_in_session": [],
   "commits_in_time_window": [
+    "0a86256d0243764b6a8d0cddcec70a3aa1bb58a9 Phase 6 pilot, abstract vocabulary, E5 world, first spring, seed 0: 0 model errors, 0.774 s and $0.00033 per tick; all 6 units reached G and none brought it to zone O; first sightings of K held or went on, none moved away",
     "cb7a04a5f09e8f26f9a37fb74363c394a218b4ed Viewer and README: a line under the key shows what the agents read (abstract: units, zone O, K entities, G cells, signals A and B; neutral for round 1 runs)",
     "0724294131cbe6694c4acdb435aad57740f2b8c1 Pilot config for the abstract vocabulary: E5 world, first spring, seed 0, condition full",
     "b0b8693e3f109a6d9aaeb3241c6925061382187b Vocabulary switch: vocab = \"abstract\" (units, zone O, counter C, G cells, K entities, flag F, signals A and B, no flee) is the new default; \"neutral\" is round 1's exact wording"
   ],
-  "kept_entries": 216,
+  "kept_entries": 247,
   "omitted_entries": {
-    "ai-title": 29,
+    "ai-title": 33,
     "queue-operation": 6,
-    "attachment": 107,
+    "attachment": 118,
     "file-history-snapshot": 1,
-    "atis-latch": 29,
-    "last-prompt": 28,
+    "atis-latch": 33,
+    "last-prompt": 32,
     "file-history-delta": 6
   },
   "redactions": {
     "path-outside-repo": 2
   },
   "transformations": {
-    "thinking_omitted": 52
+    "thinking_omitted": 59
   },
   "missing": {
     "tool_results_stored_outside_log": 0,
