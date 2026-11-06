@@ -273,7 +273,7 @@ The run directories in "Main runs: shared setup". Every arm runs on the same see
 - **AI bees go out less and get stung less than rule bees.** Trips per run: `full` 36.4 (sd 6.189, n 5), rule bees 61.2 (sd 8.955, n 5). Stings: 17.2 (sd 6.686) against 35.6 (sd 13.993).
 - **Without memory, bees take more trips and are stung far less per trip:** `no_memory` 58.0 trips (sd 31.796, n 3) and 0.169 stings per trip (sd 0.040), against 0.516 (sd 0.228, n 5) for `full`.
 - **Colonies stay small.** Mean colony size over 2 years is 2.977 (sd 0.178, n 5) for `full` and between 2.552 and 3.303 in every arm, against a cap of 12 and a queen floor of 2.
-- **What the bees say.** In `full`, hive talk is mostly about moving things. Of 1,621 coordinate pairs said at home (5 seeds), 585 point within 3 cells of a moving thing the speaker had seen, 111 near a current or recent bloom, and 925 at neither; 892 of those 925 point at home itself, within 4 cells of the hive centre (exploratory split). The bees invent words of harm the prompt never uses: in `full` seed 0, "Bright cells near (41,29) still dangerous" (tick 214), said by a bee stung twice at that bloom.
+- **What the bees say.** In `full`, the coordinates in hive talk point most often at home, and next at moving things. Of 1,621 coordinate pairs said at home (5 seeds), 585 point within 3 cells of a moving thing the speaker had seen, 111 near a current or recent bloom, and 925 at neither; 892 of those 925 point at home itself, within 4 cells of the hive centre (exploratory split). The bees use words of harm the prompt never uses (its nearest wording is the `flee` intent): in `full` seed 0, "Bright cells near (41,29) still dangerous" (tick 214), said by a bee stung twice at that bloom.
 
 ### Results
 
