@@ -402,8 +402,8 @@ def archive_raw(transcript: Path) -> None:
 
 def write_index() -> None:
     rows = []
-    for mf in sorted((OUT / "sessions").glob("*/manifest.json")):
-        m = json.loads(mf.read_text())
+    manifests = [(mf, json.loads(mf.read_text())) for mf in (OUT / "sessions").glob("*/manifest.json")]
+    for mf, m in sorted(manifests, key=lambda x: x[1].get("first_timestamp", "")):
         u = m.get("usage_main_agent", {})
         sub_in = sum(s.get("usage", {}).get("input_tokens", 0) + s.get("usage", {}).get("cache_read_input_tokens", 0) + s.get("usage", {}).get("cache_creation_input_tokens", 0) for s in m.get("subagents", []))
         sub_out = sum(s.get("usage", {}).get("output_tokens", 0) for s in m.get("subagents", []))
