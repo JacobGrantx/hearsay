@@ -39,7 +39,7 @@ class CDPError(RuntimeError):
 class Browser:
     """One headless page of a fixed size. Use as a context manager."""
 
-    def __init__(self, width=1280, height=720, binary=None):
+    def __init__(self, width=1280, height=720, binary=None, extra_args=()):
         binary = binary or find_shell()
         if not binary:
             raise CDPError("chrome-headless-shell not found; set VIEWER_CHROME to its path")
@@ -62,7 +62,7 @@ class Browser:
                 f"--user-data-dir={self.profile}", f"--window-size={width},{height}",
                 "--hide-scrollbars", "--force-device-scale-factor=1", "--mute-audio", "--no-first-run",
                 "--disable-gpu", "--disable-extensions", "--disable-background-networking",
-                "--font-render-hinting=none", "about:blank"]
+                "--font-render-hinting=none", *extra_args, "about:blank"]
         self._log = open(os.path.join(self.profile, "stderr.log"), "wb")
         self.proc = subprocess.Popen(args, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
                                      stderr=self._log, preexec_fn=child_fds, close_fds=False)
