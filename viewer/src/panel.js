@@ -47,7 +47,18 @@ V.renderPanel = function (el, run, tau, sel) {
   if (sel && sel.type === "bee") el.innerHTML = beeHTML(run, T, sel.id);
   else if (sel && sel.type === "hornet") el.innerHTML = hornetHTML(run, T, sel.id);
   else el.innerHTML = colonyHTML(run, T);
+  if (document.body.classList.contains("capture")) fitPanel(el);
 };
+
+// Video frames cannot scroll: drop the oldest items from the longest list until the panel fits.
+function fitPanel(el) {
+  const lists = [...el.querySelectorAll("ul[data-list]")];
+  for (let guard = 0; guard < 60 && el.scrollHeight > el.clientHeight; guard++) {
+    const longest = lists.filter((u) => u.children.length > 1).sort((a, b) => b.children.length - a.children.length)[0];
+    if (!longest) break;
+    longest.lastElementChild.remove();
+  }
+}
 
 function colonyHTML(run, T) {
   const st = run.ticks[T], start = run.seasonStart[T];
@@ -91,13 +102,13 @@ function beeHTML(run, T, id) {
   <p>Life ${Math.round(life)} of ${run.lifeCap}. ${esc(V.intentWords(b[bf.intent]))}.</p>` : ""}
   <p class="muted">${born} Stung ${stings} ${stings === 1 ? "time" : "times"}, ${deliveries} ${deliveries === 1 ? "delivery" : "deliveries"}.</p>
   <h3>Recent decisions</h3>
-  ${decisions.length ? `<ul>${decisions.map((d, i) => decisionHTML(d, i === 0)).join("")}</ul>` : '<p class="muted">None yet.</p>'}
+  ${decisions.length ? `<ul data-list="decisions">${decisions.map((d, i) => decisionHTML(d, i === 0)).join("")}</ul>` : '<p class="muted">None yet.</p>'}
   <h3>What it remembers</h3>
   ${memoryOff ? '<p class="muted">Memory is switched off in this run.</p>'
-    : beliefs.length ? `<ul>${beliefs.map((d) => `<li><span class="quote">${esc(d.remember)}</span> <span class="when">tick ${d.t}</span></li>`).join("")}</ul>`
+    : beliefs.length ? `<ul data-list="beliefs">${beliefs.map((d) => `<li><span class="quote">${esc(d.remember)}</span> <span class="when">tick ${d.t}</span></li>`).join("")}</ul>`
     : '<p class="muted">Nothing written yet.</p>'}
   <h3>Heard at home</h3>
-  ${heard.length ? `<ul>${heard.map((e) => `<li><span class="quote">${esc(e.text)}</span> <span class="when">bee ${esc(e.from)}, tick ${e.t}</span></li>`).join("")}</ul>` : '<p class="muted">Nothing yet.</p>'}`;
+  ${heard.length ? `<ul data-list="heard">${heard.map((e) => `<li><span class="quote">${esc(e.text)}</span> <span class="when">bee ${esc(e.from)}, tick ${e.t}</span></li>`).join("")}</ul>` : '<p class="muted">Nothing yet.</p>'}`;
 }
 
 function decisionHTML(d, latest) {
