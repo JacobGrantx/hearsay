@@ -12,6 +12,8 @@ Required by brief section 4.1. Each item is filled from the record: agent_traces
 
 The hornets, the world and the scripted bees use no model.
 
+The demo video's narration is synthesised locally with Kokoro-82M (kokoro-onnx, Apache 2.0 open weights, voice af_heart), in phase 7n; the narration script is in demo/video/storyboard.py.
+
 No other AI system appears in the record. Every exported session lists only Claude Opus 5.5 (agent_traces/INDEX.md). The setup session's summary lists Claude Code with Claude Opus 5.5, plus the feasibility probes above (agent_traces/summaries/2026-11-05_scaffold.md). Use of any other AI tool outside these sessions is not recorded in this repository.
 
 ## 2. Coding agents and autonomous tools used
@@ -37,8 +39,11 @@ No other AI system appears in the record. Every exported session lists only Clau
 | `d0a4cfdf` | 2026-11-06 15:36 | A guard check (2 tool calls): in a fresh session in this repository the Skill tool is unavailable and reading the user's Claude Code configuration is denied |
 | `c34f9a85` | 2026-11-06 15:38 to 16:07 | Phase 6, abstract vocabulary: the `vocab` switch (src/digital_life/vocab.py, prompts/abstract_system.txt) with abstract as the default, the viewer and README line on what the agents read, the phase 6 pilot, and the vocabulary decisions |
 | `176af22d` | 2026-11-06 16:47 to 17:06 | Phase 7a, round 2: the round 2 switches with tests, the round 2 pre-registration and configs, the scripted calibration in the round 2 world, the analysis script and progress tool, launching the round 2 runs, and the ten-minute check |
-| Phase 7f session | 2026-11-06, after phase 7a | Fixes from an independent audit against the brief (wording of claims, history notes, disclosure, project name) |
-| Claude Haiku 5.5 at runtime | main runs and E5 | Every decision of every AI bee: intent, sound, a note to remember, words to say at home |
+| `16bcb907` | 2026-11-06 from 17:07 | Phase 7f: fixes from an independent audit against the brief (wording of claims, history notes, disclosure, project name) |
+| `2464b67d` | 2026-11-06 from 17:23 | Phase 7v: the demo video re-rendered with the final name (Hearsay) and corrected captions |
+| `195b10ac` | 2026-11-06 from 17:42 | Phase 7n: spoken narration for the demo video (Kokoro-82M, local) and a card on how the entry meets the brief |
+| Phase 7b session | 2026-11-06 from 18:09 | Phase 7b: collecting round 2, amendment 1 exclusions in round2.py, the round 2 figures, replay packs and replay check, the Round 2 results in EXPERIMENTS.md, the README round 2 paragraph, this file's round 2 figures |
+| Claude Haiku 5.5 at runtime | main runs, E5, phase 6 pilot and round 2 | Every decision of every AI bee: intent, sound, a note to remember, words to say at home |
 
 ## 4. Components primarily AI-generated
 
@@ -95,4 +100,4 @@ Yes, in part, and DECISIONS.md records who decided each item.
 ## Usage information
 
 - **Development:** token counts per session are in agent_traces/INDEX.md, summed from the usage record of each API response in the original logs. The setup session's usage is not available (its log is private).
-- **Runtime:** the 19 main AI runs made 26,093 bee decisions with 45,674,885 input and 1,769,083 output tokens (summed from the decision events, experiments/analysis/output/main_results.md, "Model health"), 25,738 of them live calls costing $5.3665 at list price. At the end of phase 4 the project ledger `.llm_spend.json` stood at $5.5084 over 26,242 calls, of which $0.1419 over 504 calls was spent before phase 4 (the pilot and its plumbing check, and earlier checks through `llm.py`). The 10 E5 runs (phase 4b) made 12,686 decisions, all live calls, with 24,953,842 input and 972,531 output tokens (experiments/analysis/output/e5_results.md, "Model health"), costing $2.9816 at list price; after E5 the ledger stood at $8.49 over 38,928 calls. As of 2026-11-06 09:11 PT it reads $8.5732 over 39,261 calls (the phase 6 pilot came after E5). Round 2 runs in a separate clone with one spend file per run, so its spend is not in that figure; it is reported with the round 2 results. Where a figure is unavailable it is marked missing, not estimated.
+- **Runtime:** the 19 main AI runs made 26,093 bee decisions with 45,674,885 input and 1,769,083 output tokens (summed from the decision events, experiments/analysis/output/main_results.md, "Model health"), 25,738 of them live calls costing $5.3665 at list price. At the end of phase 4 the project ledger `.llm_spend.json` stood at $5.5084 over 26,242 calls, of which $0.1419 over 504 calls was spent before phase 4 (the pilot and its plumbing check, and earlier checks through `llm.py`). The 10 E5 runs (phase 4b) made 12,686 decisions, all live calls, with 24,953,842 input and 972,531 output tokens (experiments/analysis/output/e5_results.md, "Model health"), costing $2.9816 at list price; after E5 the ledger stood at $8.49 over 38,928 calls. As of 2026-11-06 09:11 PT it reads $8.5732 over 39,261 calls (the phase 6 pilot came after E5). Round 2 ran in a separate clone with one spend file per run (`spend.json` beside each run's cache): its 16 AI runs made 50,092 live calls costing $11.1510 at list price, and logged 50,054 decisions with 92,683,861 input and 3,745,946 output tokens (summed from the `usage` of the `decision` events in experiments/results/r2_*; the 38 calls without a decision event were in flight when runs stopped). Adding those spend files, the ledger reads $19.7242 over 89,353 calls (phase 7b, 2026-11-06 10:18 PT). Where a figure is unavailable it is marked missing, not estimated.
